@@ -97,13 +97,51 @@ _DATASET_TEXT_CACHE: Dict[str, Dict[str, str]] = {}
 
 
 def _load_dataset_text_map(dataset_name: str) -> Dict[str, str]:
-    """读取 retrieval/my_datasets/{dataset_name}/queries.jsonl，建立 fpath_tuple 最后一段到 text 的映射。"""
+    """
+    为给定的数据集构建「名称 -> 代码前缀」的映射。
+
+    优先使用当前工程的查询目录：
+        dataset/query/{dataset_name}/*.json
+    其中每个 JSON 文件形如：
+        {
+          "requirement": "...",
+          "provide_code": "目标代码段"
+        }
+    我们将文件名（不含后缀）作为 key，provide_code 作为前缀代码。
+
+    为了兼容旧流程，如果找不到新的 query 目录，则回退到历史路径：
+        /root/code_rag_bench/code-rag-bench/retrieval/my_datasets/{dataset_name}/queries.jsonl
+    按原逻辑从 metadata.fpath_tuple 最后一段 -> text 建立映射。
+    """
     if dataset_name in _DATASET_TEXT_CACHE:
         return _DATASET_TEXT_CACHE[dataset_name]
 
+    mapping: Dict[str, str] = {}
+
+    # 1) 新格式：dataset/query/{dataset_name}/*.json
+    script_dir = Path(__file__).resolve().parent
+    project_root = script_dir.parent
+    query_root = project_root / "dataset" / "query"
+    dataset_query_dir = query_root / dataset_name
+
+    if dataset_query_dir.exists() and dataset_query_dir.is_dir():
+        for json_file in dataset_query_dir.glob("*.json"):
+            try:
+                obj = json.loads(json_file.read_text(encoding="utf-8"))
+            except json.JSONDecodeError:
+                continue
+            # 文件名（不含扩展名）作为 key，例如 F_UpdateLimitSwitches.json -> "F_UpdateLimitSwitches"
+            key = json_file.stem
+            provide_code = obj.get("provide_code")
+            if isinstance(provide_code, str) and provide_code.strip():
+                mapping[key] = provide_code
+
+        _DATASET_TEXT_CACHE[dataset_name] = mapping
+        return mapping
+
+    # 2) 兼容旧逻辑：retrieval/my_datasets/{dataset_name}/queries.jsonl
     base_dir = Path("/root/code_rag_bench/code-rag-bench/retrieval/my_datasets")
     queries_path = base_dir / dataset_name / "queries.jsonl"
-    mapping: Dict[str, str] = {}
     if not queries_path.exists():
         _DATASET_TEXT_CACHE[dataset_name] = mapping
         return mapping
@@ -122,18 +160,28 @@ def _load_dataset_text_map(dataset_name: str) -> Dict[str, str]:
         ftuple = meta.get("fpath_tuple")
         if ftuple and isinstance(ftuple, list) and ftuple:
             fname = str(ftuple[-1])
-            mapping[fname] = obj.get("text", "")
+            text_val = obj.get("text", "")
+            if isinstance(text_val, str) and text_val.strip():
+                mapping[fname] = text_val
 
     _DATASET_TEXT_CACHE[dataset_name] = mapping
     return mapping
 
 
-def _get_prefix_text(dataset_name: str, fpath_last: Optional[str]) -> Optional[str]:
-    """根据数据集名与 fpath_tuple 最后一段获取 text 字段，用作文件头部前缀。"""
-    if not fpath_last:
+def _get_prefix_text(dataset_name: str, key: Optional[str]) -> Optional[str]:
+    """
+    根据数据集名与「名称 key」获取前缀代码，用作文件头部前缀。
+
+    对于当前流程：
+      - key 优先是函数/任务名（例如 task_id 或 F_UpdateLimitSwitches）
+      - 在新格式下，会从 dataset/query/{dataset_name}/{key}.json 的 provide_code 中读取
+
+    兼容旧格式时，key 也可以是 fpath_tuple 最后一段（原始文件名）。
+    """
+    if not key:
         return None
     text_map = _load_dataset_text_map(dataset_name)
-    return text_map.get(str(fpath_last))
+    return text_map.get(str(key))
 
 
 def normalize_generation(raw: Optional[str]) -> str:
@@ -168,7 +216,17 @@ def write_candidates(
         if not normalized:
             continue
         if prefix_text:
-            normalized = prefix_text.rstrip() + "\n" + normalized
+            # 定义部分与实现部分拼接，并根据前缀中的 FUNCTION / FUNCTION_BLOCK 自动补全结束标记
+            upper_prefix = prefix_text.upper()
+            if "FUNCTION_BLOCK " in upper_prefix:
+                end_suffix = "END_FUNCTION_BLOCK"
+            elif "FUNCTION " in upper_prefix:
+                end_suffix = "END_FUNCTION"
+            else:
+                end_suffix = "END_OTHER"
+
+            parts = [prefix_text.rstrip(), normalized.rstrip(), end_suffix]
+            normalized = "\n".join(parts) + "\n"
         suffix = f"_cand{idx}" if idx > 1 else ""
         candidate_name = sanitize_filename(base_name) + suffix + ext
         dest = output_dir / candidate_name
@@ -233,14 +291,19 @@ def process_project(project_dir: Path, args: argparse.Namespace) -> None:
         return
 
     output_dir = project_dir / "readful_result"
-    dataset_name = project_dir.name  # 对应 retrieval/my_datasets/{dataset_name}
+    dataset_name = project_dir.name  # 对应 dataset/query/{dataset_name} 或旧的 retrieval/my_datasets/{dataset_name}
     for idx, result in enumerate(results):
         function_name = _resolve_function_name(result, idx)
         ext = extract_extension(result)
         metadata = result.get("metadata") or {}
         fpath_tuple = metadata.get("fpath_tuple") if isinstance(metadata, dict) else None
         fpath_last = str(fpath_tuple[-1]) if fpath_tuple and isinstance(fpath_tuple, list) and fpath_tuple else None
-        prefix_text = _get_prefix_text(dataset_name, fpath_last)
+
+        # 优先使用函数/任务名（与 dataset/query/{dataset_name}/{function_name}.json 对应）
+        prefix_text = _get_prefix_text(dataset_name, function_name)
+        # 兼容旧逻辑：如果找不到，再尝试使用原始文件名（fpath_tuple 最后一段）
+        if not prefix_text and fpath_last:
+            prefix_text = _get_prefix_text(dataset_name, fpath_last)
         candidate_group = generations[idx] if idx < len(generations) else []
         if not isinstance(candidate_group, list):
             candidate_group = [candidate_group]

@@ -1,3 +1,6 @@
+This is the known requirement information for the function to be completed:\n这个代码意在实现将多个字符串部分拼接为一个完整字符串并返回的功能。\nContinue writing the following code:
+
+```
 # Here are some relevant code fragments from other files of the repo:
 # --------------------------------------------------
 # the below code fragment can be found in:
@@ -115,3 +118,4 @@ VAR_INPUT
 END_VAR
 VAR_OUTPUT
 END_VAR
+```

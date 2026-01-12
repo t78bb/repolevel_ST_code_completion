@@ -255,7 +255,7 @@ class GeneralRepoEval(Task):
         filtered_docs = filter_docs_for_prompt(retrieved_docs, function_name, self.topk_docs)
         if filtered_docs:
             context = get_retrieved_prompt(docs=filtered_docs)
-            prompt = context + '\n\n' + prompt
+            prompt = prompt + '\n\n' + "Here are some relevant code fragments from other files of the repo:" + context
         return prompt
 
     def get_reference(self, doc):

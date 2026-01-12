@@ -1,3 +1,13 @@
+{attribute 'enable_dynamic_creation'}
+//The director class is responsible to delegate the construction of the final product object 
+// to a concrete builder object.
+FUNCTION_BLOCK Director
+VAR_INPUT
+	//Reference to the builder that is going to be building the final product object.
+	inputConcreteBuilder : ConcreteBuilder(specs := inputConcreteBuilder.specifications);
+END_VAR
+VAR_OUTPUT
+END_VAR
 VAR
 	//Holds a reference to the concrete builder object to send the specifications of the final product to it.
 	concreteBuilder : ConcreteBuilder(specs := THIS^.concreteBuilder.specifications);
@@ -6,12 +16,8 @@ END_VAR
 //Stores the reference to which builder will be building the final product object in its own field THIS^.concreteBuilder
 THIS^.concreteBuilder := inputConcreteBuilder;
 
-//Method to construct the final product
-METHOD Construct : Product
-VAR
-	//Holds a reference to the concrete builder object to send the specifications of the final product to it.
-	concreteBuilder : ConcreteBuilder(specs := THIS^.concreteBuilder.specifications);
-END_VAR
+//The Director tells its concreteBuilder instance to build the final product step by step passing the specifications stored in the 
+// concreteBuilder array THIS^.concreteBuilder.specifications[1..4]
 
 //Step 1 "Main Part"
 THIS^.concreteBuilder.Set_Main_Part(THIS^.concreteBuilder.specifications[1]);
@@ -23,14 +29,5 @@ THIS^.concreteBuilder.Set_Part2(THIS^.concreteBuilder.specifications[3]);
 THIS^.concreteBuilder.Set_Part3(THIS^.concreteBuilder.specifications[4]);
 
 //Finally the concreteBuilder instance in the Director object delivers the final result as a Product object
-Construct := THIS^.concreteBuilder.Get_Result();
-
-//Initialization method
-METHOD fb_init
-VAR_INPUT
-	//Reference to the builder that is going to be building the final product object.
-	inputConcreteBuilder : ConcreteBuilder(specs := inputConcreteBuilder.specifications);
-END_VAR
-
-//Set the initial concrete builder
-THIS^.concreteBuilder := inputConcreteBuilder;
+RETURN;
+END_FUNCTION_BLOCK

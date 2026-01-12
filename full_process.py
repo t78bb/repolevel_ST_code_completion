@@ -89,42 +89,42 @@ def process_prompt_text(prompt: str) -> str:
     return processed
 
 
-def process_st_file(st_file_path: str, results_jsonl_path: str, output_file_path: str) -> bool:
-    """处理单个ST文件，添加prompt并保存"""
-    with open(st_file_path, 'r', encoding='utf-8') as f:
-        st_content = f.read()
+# def process_st_file(st_file_path: str, results_jsonl_path: str, output_file_path: str) -> bool:
+#     """处理单个ST文件，添加prompt并保存"""
+#     with open(st_file_path, 'r', encoding='utf-8') as f:
+#         st_content = f.read()
     
-    st_content = extract_code_from_markdown(st_content)
-    filename = os.path.basename(st_file_path)
-    function_name = extract_function_name_from_filename(filename)
+#     st_content = extract_code_from_markdown(st_content)
+#     filename = os.path.basename(st_file_path)
+#     function_name = extract_function_name_from_filename(filename)
     
-    results = load_results_jsonl(results_jsonl_path)
-    prompt = find_prompt_by_function_name(results, function_name)
+#     results = load_results_jsonl(results_jsonl_path)
+#     prompt = find_prompt_by_function_name(results, function_name)
     
-    if prompt is None:
-        final_content = st_content
-    else:
-        processed_prompt = process_prompt_text(prompt)
-        lower_prompt = processed_prompt.lstrip().lower()
-        end_suffix = ""
-        st_body = st_content.rstrip()
-        if lower_prompt.startswith("function "):
-            if not st_body.lower().endswith("end_function"):
-                end_suffix = "END_FUNCTION"
-        elif lower_prompt.startswith("function_block "):
-            if not st_body.lower().endswith("end_function_block"):
-                end_suffix = "END_FUNCTION_BLOCK"
+#     if prompt is None:
+#         final_content = st_content
+#     else:
+#         processed_prompt = process_prompt_text(prompt)
+#         lower_prompt = processed_prompt.lstrip().lower()
+#         end_suffix = ""
+#         st_body = st_content.rstrip()
+#         if lower_prompt.startswith("function "):
+#             if not st_body.lower().endswith("end_function"):
+#                 end_suffix = "END_FUNCTION"
+#         elif lower_prompt.startswith("function_block "):
+#             if not st_body.lower().endswith("end_function_block"):
+#                 end_suffix = "END_FUNCTION_BLOCK"
         
-        parts = [processed_prompt.rstrip(), st_body]
-        if end_suffix:
-            parts.append(end_suffix)
-        final_content = "\n\n".join(parts) + "\n"
+#         parts = [processed_prompt.rstrip(), st_body]
+#         if end_suffix:
+#             parts.append(end_suffix)
+#         final_content = "\n\n".join(parts) + "\n"
     
-    os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
-    with open(output_file_path, 'w', encoding='utf-8') as f:
-        f.write(final_content)
+#     os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
+#     with open(output_file_path, 'w', encoding='utf-8') as f:
+#         f.write(final_content)
     
-    return prompt is not None
+#     return prompt is not None
 
 
 def run_generation(dataset_dir: Path, result_dir_name: str) -> bool:
@@ -358,18 +358,17 @@ def run_fix(dataset_dir: Path, output_dir: Path) -> bool:
         filename = st_file.name
         print(f"\n  处理文件: {filename}")
         
-        # 处理st文件（添加prompt） 添加fucntion 定义部分
+        # 目标 ST 文件路径（位于 *_fixed 目录下）
         output_st_file = output_readful_result / filename
-        found_prompt = process_st_file(
-            str(st_file),
-            str(results_jsonl_path),
-            str(output_st_file)
-        )
         
-        if found_prompt:
-            print(f"    ✓ 已添加prompt")
-        else:
-            print(f"    ⚠ 未找到prompt，仅处理了代码内容")
+        # 确保修复前目标目录中已经有一份待修复的代码：
+        # 目前生成阶段在原 result_dir 下的 readful_result 中已经完成了
+        # 「定义部分 + 实现部分」的拼接，这里只需要把源文件复制到 *_fixed 目录下。
+        try:
+            shutil.copy2(st_file, output_st_file)
+        except Exception as e:
+            print(f"    ✗ 无法复制 ST 文件到修复目录: {e}")
+            continue
         
         # 进行自动修复
         print(f"    开始自动修复...")

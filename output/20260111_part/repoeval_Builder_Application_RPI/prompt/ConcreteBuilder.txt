@@ -1,3 +1,6 @@
+This is the known requirement information for the function to be completed:\n这个代码意在实现基于建造者模式的具体构建器，用于根据客户端提供的规格动态构建最终产品对象。\nContinue writing the following code:
+
+```
 # Here are some relevant code fragments from other files of the repo:
 # --------------------------------------------------
 # the below code fragment can be found in:
@@ -103,3 +106,4 @@ VAR_INPUT
 END_VAR
 VAR_OUTPUT
 END_VAR
+```

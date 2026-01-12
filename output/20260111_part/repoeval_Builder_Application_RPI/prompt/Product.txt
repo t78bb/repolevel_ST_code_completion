@@ -1,3 +1,6 @@
+This is the known requirement information for the function to be completed:\n这个代码意在实现根据客户端规格动态创建包含不同组件的产品对象。\nContinue writing the following code:
+
+```
 # Here are some relevant code fragments from other files of the repo:
 # --------------------------------------------------
 # the below code fragment can be found in:
@@ -122,3 +125,4 @@ VAR_INPUT
 END_VAR
 VAR_OUTPUT
 END_VAR
+```

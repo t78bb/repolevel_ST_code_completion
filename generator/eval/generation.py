@@ -17,21 +17,60 @@ from openai import OpenAI
 import os
 from pathlib import Path
 
+
+def _resolve_function_name(doc: dict, idx: int) -> str:
+    """
+    解析函数名称，与 process_generations.py 中的逻辑保持一致
+    优先使用 task_id（新格式），然后使用 fpath_tuple，最后回退到其他字段
+    """
+    # 优先使用 task_id（新格式）
+    task_id = doc.get("task_id")
+    if task_id:
+        return str(task_id)
+    
+    # 其次使用 fpath_tuple 的最后一个值（去掉扩展名）
+    metadata = doc.get("metadata", {}) or {}
+    if isinstance(metadata, dict):
+        fpath_tuple = metadata.get("fpath_tuple")
+        if fpath_tuple and isinstance(fpath_tuple, list) and fpath_tuple:
+            fpath_value = str(fpath_tuple[-1])
+            # 去掉扩展名，只保留文件名部分
+            name_without_ext = Path(fpath_value).stem
+            if name_without_ext:
+                return name_without_ext
+    
+    # 如果没有 fpath_tuple，回退到原来的逻辑
+    explicit = doc.get("function_name")
+    if explicit:
+        return explicit
+    if isinstance(metadata, dict):
+        meta_fn = metadata.get("function_name")
+        if meta_fn:
+            return meta_fn
+    title = doc.get("title")
+    if title:
+        return title
+    return f"result_{idx}"
+
+#OLD TASK INFO:
+#You are performing a code writing task. Based on the provided definition section of a Structured Text FUNCTION or FUNCTION_BLOCK, you must implement the corresponding logic (implementation) section of the code.
+#You are skilled at analyzing and reusing similar code fragments provided as references, and implementing the logic section according to the given definitions.
+
 generator_system_prompt = """
 ROLE:
 You are an expert in Structured Text (ST) programming for IEC 61131-3–compliant PLCs using the Codesys development environment.
 TASK:
-You are performing a code writing task. Based on the provided definition section of a Structured Text FUNCTION or FUNCTION_BLOCK, you must implement the corresponding logic (implementation) section of the code.
-You are skilled at analyzing and reusing similar code fragments provided as references, and implementing the logic section according to the given definitions.
+You shall complete the corresponding code logic implementation based on the requirement description of the function to be completed and the provided definition section of the Structured Text (ST) FUNCTION or FUNCTION_BLOCK.
 CONSTRAINTS:
 - The generated code must strictly conform to the Structured Text syntax and semantic rules of the Codesys platform.
 - You MAY freely define local variables using VAR blocks.
-- Output ONLY Structured Text (ST) code.
+- You MUST and ONLY output Structured Text (ST) code.
 - Do NOT include any explanations, descriptions, comments outside the code, or any natural language text.
 - Do NOT include markdown formatting, headings, or bullet points.
 - Do NOT include code fences or triple backticks.
 - Do NOT repeat the input.
 - If the code being fixed is a FUNCTION, Use `RETURN;` to return.
+- In all code generation tasks, regardless of whether the target generation object is a FUNCTION_BLOCK or a FUNCTION, only the logic implementation part strictly corresponding to the object type is allowed to be generated; the generation of METHODS or any other code structures that are not of the target type is strictly prohibited.
 - You MUST NOT define or modify the following declaration sections:
     VAR_INPUT
     VAR_OUTPUT
@@ -255,7 +294,7 @@ def openai_generations(
             # if accelerator.is_main_process:
         return generations[:n_tasks]
     
-    def get_response(prompt: str, n_iters: int = 2, sleep: int = 10, repoeval_prompt=False, **kwargs) -> List[str]:
+    def get_response(requirement_info: str, prompt: str, n_iters: int = 2, sleep: int = 10, repoeval_prompt=False, **kwargs) -> List[str]:
         prompt_tokens = gpt_tokenizer.encode(prompt)
         prompt = gpt_tokenizer.decode(prompt_tokens[: args.max_length_input])
         
@@ -276,11 +315,14 @@ def openai_generations(
             i_iters += 1
             try:
                 if repoeval_prompt:
+
+                    user_prompt = "This is the known requirement information for the function to be completed:\n" + requirement_info + "\nContinue writing the following code:\n\n```\n" + prompt + '\n```'
+
                     messages = [
                         {"role": "system", "content": generator_system_prompt},
                         {"role": "system", "name": "example_user", "content": "Continue writing the following code:\n\n```\ndef return_none():\n```"},
                         {"role": "system", "name": "example_assistant", "content": "```\n    return None\n```"},
-                        {"role": "user", "content": "Continue writing the following code:\n\n```\n" + prompt + '\n```'},
+                        {"role": "user", "content": user_prompt},
                     ]
                 else:
                     messages=[{"role": "user", "content": prompt}]
@@ -330,30 +372,37 @@ def openai_generations(
     
     generations = []
     for i in tqdm(range(args.limit_start + curr_sample_idx, n_tasks)):
-        i_prompt = task.get_prompt(doc=dataset[i])
+        # 当前样本文档（包含 requirement / provide_code / docs 等字段）
+        doc = dataset[i]
+
+        # 构造代码补全的 prompt（内部已做同名函数规避和检索拼接）
+        i_prompt = task.get_prompt(doc=doc)
+
+        # 从 doc 中读取待补全函数的自然语言需求（来自 results.jsonl -> requirement 字段）
+        requirement_info = doc.get("requirement", "") or ""
         
         # 保存 prompt 到文件
         if prompt_dir is not None:
             try:
-                # 获取任务名称（从 metadata 或 dataset 中）
-                doc = dataset[i]
-                metadata = doc.get("metadata", {}) or {}
-                function_name = metadata.get("function_name") or doc.get("function_name")
-                
-                # 如果没有 function_name，使用索引作为文件名
-                if not function_name:
-                    function_name = f"task_{i}"
-                
-                # 清理文件名，移除或替换不安全的字符
-                safe_filename = re.sub(r'[<>:"/\\|?*]', '_', str(function_name))
+                # 获取任务名称（使用与 readful_result 相同的命名逻辑）
+                function_name = _resolve_function_name(doc, i)
+                # 清理文件名，移除或替换不安全的字符（与 process_generations.py 中的 sanitize_filename 逻辑一致）
+                safe_filename = re.sub(r'[<>:"/\\|?*\n\r\t]+', '_', str(function_name))
                 safe_filename = safe_filename.strip()
                 if not safe_filename:
-                    safe_filename = f"task_{i}"
+                    safe_filename = f"result_{i}"
                 
-                # 保存 prompt 到 txt 文件
+                # 构造与实际调用 LLM 相同的用户输入格式并保存到文件
+                user_prompt = (
+                    "This is the known requirement information for the function to be completed:\\n"
+                    + requirement_info
+                    + "\\nContinue writing the following code:\n\n```\n"
+                    + i_prompt
+                    + "\n```"
+                )
                 prompt_file = prompt_dir / f"{safe_filename}.txt"
                 with open(prompt_file, 'w', encoding='utf-8') as f:
-                    f.write(i_prompt)
+                    f.write(user_prompt)
             except Exception as e:
                 # 如果保存失败，只打印警告，不中断流程
                 print(f"  ⚠ 保存 prompt 失败 (task {i}): {e}")
@@ -368,11 +417,16 @@ def openai_generations(
             print(prompt_preview)
             if len(i_prompt) > 2000:
                 print(f"\n... (truncated, total length: {len(i_prompt)} chars)")
-                sources = task.get_retrieved_sources(dataset[i])
+                sources = task.get_retrieved_sources(doc)
                 if sources:
                     print(f"检索来源: {', '.join(sources)}")
             print(f"{'='*80}\n")
-        i_resp = get_response(prompt=i_prompt, repoeval_prompt=task.__class__.__name__=='RepoEval', **gen_kwargs) # list[str]
+        i_resp = get_response(
+            requirement_info=requirement_info,
+            prompt=i_prompt,
+            repoeval_prompt=task.__class__.__name__ == 'RepoEval',
+            **gen_kwargs,
+        )  # list[str]
         generations.append(i_resp)
         if len(generations) % save_every_k_tasks == 0:
             with open(intermediate_generation_file, 'w') as fp:
