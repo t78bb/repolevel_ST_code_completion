@@ -1,0 +1,16 @@
+{
+  "name": "LOWBYTE_TO_HEXSTRING",
+  "type": "Function",
+  "signature": "FUNCTION LOWBYTE_TO_HEXSTRING : STRING",
+  "return_type": "STRING",
+  "description": "Return the lower part of a byte as a hexadecimal string",
+  "url": "https://content.helpme-codesys.com/en/libs/AC_DeviceDiagnosis/Current/DeviceDiagnosisInfo/LOWBYTE_TO_HEXSTRING.html",
+  "parameters": [
+    {
+      "scope": "Input",
+      "name": "byInp",
+      "type": "BYTE",
+      "comment": "The byte for which its lower part shall be returned as a hexadecimal string"
+    }
+  ]
+}

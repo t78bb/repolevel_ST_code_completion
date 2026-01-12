@@ -1,0 +1,40 @@
+{
+  "name": "CopyBufferData",
+  "type": "Function",
+  "signature": "FUNCTION CopyBufferData : ERROR",
+  "return_type": "ERROR",
+  "description": "Copy data from the segmented buffer to a destination buffer",
+  "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/CAA-Segemented-Buffer-Manager/Functions/Buffer/CopyBufferData.html",
+  "parameters": [
+    {
+      "scope": "Input",
+      "name": "hBuffer",
+      "type": "CAA.HANDLE",
+      "comment": "Handle to the buffer created by CreateBuffer"
+    },
+    {
+      "scope": "Input",
+      "name": "szOffset",
+      "type": "CAA.SIZE",
+      "comment": "Offset in Buffer"
+    },
+    {
+      "scope": "Input",
+      "name": "szLength",
+      "type": "CAA.SIZE",
+      "comment": "Length of Data to Copy"
+    },
+    {
+      "scope": "Input",
+      "name": "pData",
+      "type": "CAA.PVOID",
+      "comment": "Destination"
+    },
+    {
+      "scope": "Input",
+      "name": "szSize",
+      "type": "CAA.SIZE",
+      "comment": "Size of Destination"
+    }
+  ]
+}

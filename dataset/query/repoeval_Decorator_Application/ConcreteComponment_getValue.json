@@ -1,0 +1,4 @@
+{
+  "requirement": "这个代码意在实现获取对象的数值属性的方法。",
+  "provide_code": "//Illustrative method of the pattern\nMETHOD getValue : REAL\nVAR_INPUT\nEND_VAR\nVAR_OUTPUT\nEND_VAR"
+}

@@ -1,0 +1,4 @@
+{
+  "requirement": "这个代码意在实现用于控制插座开启命令的功能模块。",
+  "provide_code": "FUNCTION_BLOCK PUBLIC FB_SocketOnCommand IMPLEMENTS I_Command"
+}

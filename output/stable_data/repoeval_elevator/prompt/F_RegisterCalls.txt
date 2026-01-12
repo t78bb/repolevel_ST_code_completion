@@ -1,0 +1,111 @@
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# elevator-FUN\FB_ElevatorMovement.st
+# --------------------------------------------------
+# VAR_IN_OUT
+# 	TargetFloors		:	ARRAY[0..3] OF BOOL;	// 目标楼层数组
+# END_VAR
+# VAR_OUTPUT
+# 	bMovingUp			:	BOOL;				// 向上移动
+# 	bMovingDown			:	BOOL;				// 向下移动
+# 	bArrivedAtTarget	:	BOOL;				// 到达目标楼层
+# END_VAR
+# VAR
+# 	fbMoveDelayTimer	:	TON;				// 移动延时定时器
+# 	i					:	INT;				// 循环变量
+# 	bHasUpperRequest	:	BOOL;				// 有更高楼层请求
+# 	bHasLowerRequest	:	BOOL;				// 有更低楼层请求
+# END_VAR
+# 
+# // 检查是否到达目标楼层
+# IF TargetFloors[CurrentFloor] THEN
+# 	bArrivedAtTarget := TRUE;
+# 	TargetFloors[CurrentFloor] := FALSE; // 清除请求
+# 	bMovingUp := FALSE;
+# 	bMovingDown := FALSE;
+# 	RETURN;
+# ELSE
+# 	bArrivedAtTarget := FALSE;
+# END_IF
+# 
+# // 只有门准备好才能移动
+# IF NOT bDoorReady THEN
+# 	RETURN;
+# END_IF
+# 
+# // 检查是否有更高楼层的请求
+# bHasUpperRequest := FALSE;
+# FOR i := CurrentFloor + 1 TO 3 DO
+# 	IF TargetFloors[i] THEN
+# 		bHasUpperRequest := TRUE;
+# 		EXIT;
+# 	END_IF
+# END_FOR
+# 
+# // 检查是否有更低楼层的请求
+# bHasLowerRequest := FALSE;
+# FOR i := CurrentFloor - 1 TO 0 BY -1 DO
+# 	IF TargetFloors[i] THEN
+# 		bHasLowerRequest := TRUE;
+# 		EXIT;
+# 	END_IF
+# END_FOR
+# 
+# // 移动逻辑
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# elevator-FUN\F_DetectCurrentFloor.st
+# --------------------------------------------------
+# FUNCTION F_DetectCurrentFloor : INT
+# VAR_INPUT
+# 	FloorSensor0	:	BOOL;		// 0楼传感器
+# 	FloorSensor1	:	BOOL;		// 1楼传感器
+# 	FloorSensor2	:	BOOL;		// 2楼传感器
+# 	FloorSensor3	:	BOOL;		// 3楼传感器
+# 	CurrentFloor	:	INT;		// 当前楼层（用于保持状态）
+# END_VAR
+# 
+# // 根据传感器输入确定当前楼层
+# IF FloorSensor0 THEN 
+# 	F_DetectCurrentFloor := 0;
+# ELSIF FloorSensor1 THEN 
+# 	F_DetectCurrentFloor := 1;
+# ELSIF FloorSensor2 THEN 
+# 	F_DetectCurrentFloor := 2;
+# ELSIF FloorSensor3 THEN 
+# 	F_DetectCurrentFloor := 3;
+# ELSE
+# 	// 没有传感器信号时，保持当前楼层
+# 	F_DetectCurrentFloor := CurrentFloor;
+# END_IF
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# elevator-FUN\FB_ElevatorMovement.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_ElevatorMovement
+# VAR_INPUT
+# 	CurrentFloor		:	INT;				// 当前楼层
+# 	bDoorReady			:	BOOL;				// 门准备好
+# END_VAR
+# VAR_IN_OUT
+# 	TargetFloors		:	ARRAY[0..3] OF BOOL;	// 目标楼层数组
+# END_VAR
+# VAR_OUTPUT
+# 	bMovingUp			:	BOOL;				// 向上移动
+# 	bMovingDown			:	BOOL;				// 向下移动
+# 	bArrivedAtTarget	:	BOOL;				// 到达目标
+
+FUNCTION F_RegisterCalls
+VAR_INPUT
+	CallGround		:	BOOL;		// 0楼呼叫
+	CallFloor1		:	BOOL;		// 1楼呼叫
+	CallFloor2		:	BOOL;		// 2楼呼叫
+	CallFloor3		:	BOOL;		// 3楼呼叫
+END_VAR
+VAR_IN_OUT
+	TargetFloors	:	ARRAY[0..3] OF BOOL;	// 目标楼层数组
+END_VAR

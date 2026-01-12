@@ -1,0 +1,22 @@
+{
+  "name": "BufferSizes",
+  "type": "Function",
+  "signature": "FUNCTION BufferSizes : PARAMS",
+  "return_type": "PARAMS",
+  "description": "Library parameters for Tx and RxSRDO buffer sizes. High Limit defines the highest array index. Values will be set by the configurator.",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSafety/Current/_3SCANopenSafety/BufferSizes.html",
+  "parameters": [
+    {
+      "scope": "InOut",
+      "name": "gc_TXSRDOBUFFER_HIGH_LIMIT",
+      "type": "BYTE",
+      "comment": "maximal number of TxSRDOs = gc_TXSRDOBUFFER_HIGH_LIMIT + 1"
+    },
+    {
+      "scope": "InOut",
+      "name": "gc_RXSRDOBUFFER_HIGH_LIMIT",
+      "type": "BYTE",
+      "comment": "maximal number of RxSRDOs = gc_RXSRDOBUFFER_HIGH_LIMIT + 1"
+    }
+  ]
+}

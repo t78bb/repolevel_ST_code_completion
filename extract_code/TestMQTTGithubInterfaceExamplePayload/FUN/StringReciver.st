@@ -1,0 +1,28 @@
+//this is needed for FBinstance name in Variable
+{attribute 'reflection'}
+FUNCTION_BLOCK StringReciver IMPLEMENTS MQTT.MQTT_SUBSCRIBE_CALLBACK
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	//from this instance i can get my string...
+	MQTTString:MQTT.ReceiveString;
+	init: BOOL;
+	{attribute 'instance-path'}
+	{attribute 'noinit'}
+	instanceName: STRING(255);//this string contains the instance name of the FB
+	//here we get the "lowest" element of the name...
+	LastTreeName:STRING;
+	StringPointer:POINTER TO STRING;
+END_VAR
+
+IF NOT init THEN
+	init := TRUE;
+	StringPointer := CommonTypesAndFunctions.FindLastDot(ADR(instanceName));
+	
+	StringPointer := StringPointer + SIZEOF(BYTE);
+	
+	LastTreeName := StringPointer^; 
+	MQTTString.initAsFindPayload(compString:=ADR(LastTreeName), returnHit:= TRUE, splitChar:= ':');
+END_IF

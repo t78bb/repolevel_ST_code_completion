@@ -1,0 +1,14 @@
+{
+  "description": "GlobalTextList (Text List) provides various text templates and placeholders for error codes, states, and other diagnostic messages. Examples include placeholders like `%s`, `Error Code: %s`, `State: %s`, and more, which can be used for dynamic text generation in device diagnostics.",
+  "url": "https://content.helpme-codesys.com/en/libs/AC_DeviceDiagnosis/Current/GlobalTextList.html",
+  "extra": {
+    "examples": [
+      "`%s`",
+      "`Error Code: %s`",
+      "`State: %s`",
+      "`Error-Code: %i`",
+      "`Error-Code: %u`",
+      "`Type: %s`"
+    ]
+  }
+}

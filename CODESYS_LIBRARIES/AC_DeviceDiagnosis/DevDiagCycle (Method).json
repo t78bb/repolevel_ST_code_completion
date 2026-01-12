@@ -1,0 +1,12 @@
+{
+  "description": "DeviceDiagnosis.DevDiagCycle (METH) METHOD DevDiagCycle : BOOL",
+  "url": "https://content.helpme-codesys.com/en/libs/AC_DeviceDiagnosis/Current/Module/pou-DeviceDiagnosis/DevDiagCycle.html",
+  "extra": {
+    "inout": {
+      "scope": "Scope",
+      "name": "DevDiagCycle",
+      "type": "BOOL",
+      "return": "DevDiagCycle"
+    }
+  }
+}

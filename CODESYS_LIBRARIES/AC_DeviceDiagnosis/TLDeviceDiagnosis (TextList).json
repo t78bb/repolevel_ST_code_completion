@@ -1,0 +1,7 @@
+{
+  "description": "Module used to create a visualization displaying the device diagnosis for the devices under the chosen PLC",
+  "url": "https://content.helpme-codesys.com/en/libs/AC_DeviceDiagnosis/Current/TLDeviceDiagnosis.html",
+  "extra": {
+    "german_description": "Diese Modul wird benutzt um eine Visualisierung zu erzeugen, die die Geräte Diagnose für die Geräte, unterhalb der gewählten Ziel-PLC, darstellt."
+  }
+}

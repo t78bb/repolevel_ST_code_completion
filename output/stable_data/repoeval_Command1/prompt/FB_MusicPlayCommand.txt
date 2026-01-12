@@ -1,0 +1,60 @@
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_MusicStopCommand.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_MusicStopCommand IMPLEMENTS I_Command
+# VAR
+# 	refCDPlayer : REFERENCE TO FB_CDPlayer;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_MusicStopCommand_Execute.st
+# --------------------------------------------------
+# METHOD Execute
+# VAR
+# 	refCDPlayer : REFERENCE TO FB_CDPlayer;
+# END_VAR
+# 
+# IF (__ISVALIDREF(THIS^.refCDPlayer)) THEN
+# 	THIS^.refCDPlayer.Stop();
+# END_IF
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_MusicPlayCommand_Execute.st
+# --------------------------------------------------
+# METHOD Execute
+# VAR
+# 	refCDPlayer : REFERENCE TO FB_CDPlayer;
+# END_VAR
+# 
+# IF (__ISVALIDREF(THIS^.refCDPlayer)) THEN
+# 	THIS^.refCDPlayer.SetVolume(40);
+# 	THIS^.refCDPlayer.SetTrack(1);
+# 	THIS^.refCDPlayer.Start();
+# END_IF
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_AirConStandbyCommand.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_AirConStandbyCommand IMPLEMENTS I_Command
+# VAR
+# 	refAirConditioning : REFERENCE TO FB_AirConditioning;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_AirConComfortCommand.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_AirConComfortCommand IMPLEMENTS I_Command
+# VAR
+# 	refAirConditioning : REFERENCE TO FB_AirConditioning;
+# END_VAR
+# 
+# --------------------------------------------------
+
+
+FUNCTION_BLOCK PUBLIC FB_MusicPlayCommand IMPLEMENTS I_Command

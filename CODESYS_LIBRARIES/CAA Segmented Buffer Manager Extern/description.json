@@ -1,0 +1,26 @@
+{
+  "description": "This library provides a set of functions for handling different segments of one huge buffer, joining segments or splitting buffers in segments. This is done without copying the content all the time. The functions try to reference the segments instead of copy them and manage the segments in double linked lists.",
+  "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/index.html",
+  "extra": {
+    "company": "CAA Technical Workgroup",
+    "title": "CAA Segmented Buffer Manager Extern",
+    "version": "3.5.11.0",
+    "categories": "Intern|CAA|Runtime",
+    "namespace": "SBM",
+    "author": "3S - Smart Software Solutions GmbH",
+    "placeholder": "CAA SegBufMan",
+    "contents": [
+      "CAA Segemented Buffer Manager",
+      "Enums",
+      "Functions",
+      "Library Information",
+      "GetLibVersion (Function)",
+      "GetLibVersionNumber (Function)",
+      "IsLibReleased (Function)",
+      "Indices and tables"
+    ],
+    "last_modified": "03.07.2017, 15:35:25",
+    "libdoc_version": "4.4.0.0-b.27",
+    "generation_info": "The content file CAA_SegBufferMan_Extern.clean.json was generated with CODESYS V3.5 SP11 on 03.07.2017, 15:35:29."
+  }
+}

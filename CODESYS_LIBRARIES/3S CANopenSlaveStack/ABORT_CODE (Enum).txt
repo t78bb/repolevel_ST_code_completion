@@ -1,0 +1,64 @@
+名称: ABORT_CODE (Enum)
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/Enums/ABORT_CODE.html
+
+============================================================
+
+Docs
+»
+Enums
+»
+ABORT_CODE (ENUM)
+ABORT_CODE (ENUM)
+¶
+TYPE ABORT_CODE :
+SDO abort codes as defined by CiA-301
+Attributes:
+qualified_only
+InOut:
+Name
+Initial
+Comment
+SUCCESSFUL
+16#0
+No abort. Operation successful
+CRC_ERROR
+16#5040004
+OUT_OF_MEMORY
+16#5040005
+UNSUPPORTED_ACCESS_TO_OBJECT
+16#6010000
+READ_NOT_ALLOWED
+16#6010001
+WRITE_NOT_ALLOWED
+16#6010002
+NO_SUCH_OBJECT
+16#6020000
+NOT_MAPPABLE
+16#6040041
+GENERAL_PARAM_INCOMPATIBILITY
+16#6040043
+GENERAL_INCOMPATIBILTY
+16#6040047
+LENGTH_DATA_INVALID
+16#6070010
+NO_SUCH_SUBINDEX
+16#6090011
+VALUE_RANGE_EXCEEDED
+16#6090030
+VALUE_TOO_HIGH
+16#6090031
+VALUE_TOO_LOW
+16#6090032
+GENERAL_ERROR
+16#8000000
+LOCAL_CTRL_ERROR
+16#8000021
+Data cannot be transferred or stored to the application
+because of local control.
+DEVICE_STATE_ERROR
+16#8000022
+Data cannot be transferred or stored to the application
+because of the present device state.
+NO_DATA_AVAILABLE
+16#8000024
+No data available

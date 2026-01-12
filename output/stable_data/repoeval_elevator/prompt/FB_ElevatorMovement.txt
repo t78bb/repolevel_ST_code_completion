@@ -1,0 +1,114 @@
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# elevator-FUN\FB_ElevatorDoorController.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_ElevatorDoorController
+# VAR_INPUT
+# 	bArrivedAtTarget	:	BOOL;		// 到达目标楼层
+# 	bDoorClosed			:	BOOL;		// 门已关闭传感器
+# END_VAR
+# VAR_OUTPUT
+# 	bOpenDoor			:	BOOL;		// 开门命令
+# 	bCloseDoor			:	BOOL;		// 关门命令
+# 	bDoorOpen			:	BOOL;		// 门打开状态
+# 	bDoorReady			:	BOOL;		// 门准备好（可以移动）
+# END_VAR
+# VAR
+# 	fbDoorTimer			:	TON;		// 开门延时定时器
+# 	fbCloseDoorTimer	:	TON;		// 关门延时定时器
+# 	nState				:	INT;		// 状态机
+# END_VAR
+# 
+# CASE nState OF
+# 	0: // 空闲状态
+# 		bOpenDoor := FALSE;
+# 		bCloseDoor := FALSE;
+# 		bDoorReady := TRUE;
+# 		
+# 		IF bArrivedAtTarget THEN
+# 			nState := 1; // 开始开门流程
+# 		END_IF
+# 		
+# 	1: // 开门延时
+# 		bCloseDoor := FALSE;
+# 		bDoorReady := FALSE;
+# 		fbDoorTimer(IN := TRUE, PT := T#2S);
+# 		
+# 		IF fbDoorTimer.Q THEN
+# 			fbDoorTimer(IN := FALSE);
+# 			nState := 2;
+# 		END_IF
+# 		
+# 	2: // 开门
+# 		bOpenDoor := TRUE;
+# 		bDoorOpen := TRUE;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# elevator-FUN\FB_ElevatorDoorController.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_ElevatorDoorController
+# VAR_INPUT
+# 	bArrivedAtTarget	:	BOOL;		// 到达目标楼层
+# 	bDoorClosed			:	BOOL;		// 门已关闭传感器
+# END_VAR
+# VAR_OUTPUT
+# 	bOpenDoor			:	BOOL;		// 开门命令
+# 	bCloseDoor			:	BOOL;		// 关门命令
+# 	bDoorOpen			:	BOOL;		// 门打开状态
+# 	bDoorReady			:	BOOL;		// 门准备好（可以移动）
+# END_VAR
+# VAR
+# 	fbDoorTimer			:	TON;		// 开门延时定时器
+# 	fbCloseDoorTimer	:	TON;		// 关门延时定时器
+# 	nState				:	INT;		// 状态机
+# END_VAR
+# 
+# CASE nState OF
+# 	0: // 空闲状态
+# 		bOpenDoor := FALSE;
+# 		bCloseDoor := FALSE;
+# 		bDoorReady := TRUE;
+# 		
+# 		IF bArrivedAtTarget THEN
+# 			nState := 1; // 开始开门流程
+# 		END_IF
+# 		
+# 	1: // 开门延时
+# 		bCloseDoor := FALSE;
+# 		bDoorReady := FALSE;
+# 		fbDoorTimer(IN := TRUE, PT := T#2S);
+# 		
+# 		IF fbDoorTimer.Q THEN
+# 			fbDoorTimer(IN := FALSE);
+# 			nState := 2;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# elevator-FUN\FB_ElevatorDoorController.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_ElevatorDoorController
+# VAR_INPUT
+# 	bArrivedAtTarget	:	BOOL;		// 到达目标楼层
+# 	bDoorClosed			:	BOOL;		// 门已关闭传感器
+# END_VAR
+# VAR_OUTPUT
+# 	bOpenDoor			:	BOOL;		// 开门命令
+# 	bCloseDoor			:	BOOL;		// 关门命令
+# 	bDoorOpen			:	BOOL;		// 门打开状态
+# 	bDoorReady		
+
+FUNCTION_BLOCK FB_ElevatorMovement
+VAR_INPUT
+	CurrentFloor		:	INT;				// 当前楼层
+	bDoorReady			:	BOOL;				// 门准备好
+END_VAR
+VAR_IN_OUT
+	TargetFloors		:	ARRAY[0..3] OF BOOL;	// 目标楼层数组
+END_VAR
+VAR_OUTPUT
+	bMovingUp			:	BOOL;				// 向上移动
+	bMovingDown			:	BOOL;				// 向下移动
+	bArrivedAtTarget	:	BOOL;				// 到达目标楼层
+END_VAR

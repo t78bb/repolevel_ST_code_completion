@@ -1,0 +1,24 @@
+名称: NMT
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/pou-CANopenDevice/NMT/fld-NMT.html
+
+============================================================
+
+Docs
+»
+CANopenDevice
+(FB)
+»
+NMT
+NMT
+¶
+API
+NodeID (Property)
+PowerDown (Method)
+PowerUp (Method)
+Reset (Method)
+ResetCommunication (Method)
+SetNodeID (Method)
+State (Property)
+SwitchToOp (Method)
+SwitchToPreop (Method)
+SwitchToStopped (Method)

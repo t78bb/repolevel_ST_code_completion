@@ -1,0 +1,7 @@
+{
+  "name": "解析失败",
+  "type": "Function",
+  "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/CAA-Segemented-Buffer-Manager/Functions/fld-Functions.html#functions",
+  "error": "Extra data: line 9 column 4 (char 386)",
+  "raw_content": "{\n    \"name\": \"ChainBuffer\",\n    \"type\": \"Function\",\n    \"signature\": \"FUNCTION ChainBuffer : BOOL\",\n    \"return_type\": \"BOOL\",\n    \"description\": \"Chains multiple buffers together.\",\n    \"url\": \"https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/CAA-Segemented-Buffer-Manager/Functions/fld-Functions.html#functions\",\n    \"parameters\": []\n  },\n  {\n    \"name\": \"CopyBufferData\",\n    \"type\": \"Function\",\n    \"signature\": \"FUNCTION CopyBufferData : BOOL\",\n    \"return_type\": \"BOOL\",\n    \"description\": \"Copies data from one buffer to another.\",\n    \"url\": \"https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/CAA-Segemented-Buffer-Manager/Functions/fld-Functions.html#functions\",\n    \"parameters\": []\n  },\n  {\n    \"name\": \"CreateBuffer\",\n    \"type\": \"Function\",\n    \"signature\": \"FUNCTION CreateBuffer : BOOL\",\n    \"return_type\": \"BOOL\",\n    \"description\": \"Creates a new buffer.\",\n    \"url\": \"https://content.helpme"
+}

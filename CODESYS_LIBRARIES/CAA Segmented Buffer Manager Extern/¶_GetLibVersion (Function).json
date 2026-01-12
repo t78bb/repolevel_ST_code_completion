@@ -1,0 +1,16 @@
+{
+  "name": "GetLibVersion",
+  "type": "Function",
+  "signature": "FUNCTION GetLibVersion : VERSION",
+  "return_type": "VERSION",
+  "description": "This function has been automatically generated from the project information.",
+  "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/Library-Information/GetLibVersion.html",
+  "parameters": [
+    {
+      "scope": "Return",
+      "name": "GetLibVersion",
+      "type": "VERSION",
+      "comment": ""
+    }
+  ]
+}

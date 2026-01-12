@@ -1,0 +1,9 @@
+{
+  "name": "Initialization",
+  "type": "Function",
+  "signature": "FUNCTION Initialization : BOOL",
+  "return_type": "BOOL",
+  "description": "Methods for Initialization",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSafety/Current/_3SCANopenSafety/Function-Blocks/pou-CANRemoteDeviceSafe/Initialization/fld-Initialization.html",
+  "parameters": []
+}

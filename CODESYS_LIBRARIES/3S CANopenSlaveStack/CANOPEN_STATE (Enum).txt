@@ -1,0 +1,36 @@
+名称: CANOPEN_STATE (Enum)
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/Enums/CANOPEN_STATE.html
+
+============================================================
+
+Docs
+»
+Enums
+»
+CANOPEN_STATE (ENUM)
+CANOPEN_STATE (ENUM)
+¶
+TYPE CANOPEN_STATE :
+CANopen states as defined by CiA-301
+Attributes:
+qualified_only
+InOut:
+Name
+Initial
+Comment
+POWERDOWN
+-1
+no CANopen services
+INIT
+0
+CANopen Service (see CiA-301): Bootup Object
+STOPPED
+16#4
+CANopen Service (see CiA-301): NMT
+OPERATIONAL
+16#5
+CANopen Service (see CiA-301): PDO (I/Os), SDO, SYNC, TIME,
+EMCY, NMT
+PREOPERATIONAL
+16#7F
+CANopen Service (see CiA-301): SDO, SYNC, TIME, EMCY, NMT

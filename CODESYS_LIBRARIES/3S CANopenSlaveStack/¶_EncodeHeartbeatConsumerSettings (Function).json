@@ -1,0 +1,28 @@
+{
+  "name": "EncodeHeartbeatConsumerSettings",
+  "type": "Function",
+  "signature": "FUNCTION EncodeHeartbeatConsumerSettings : DWORD",
+  "return_type": "DWORD",
+  "description": "Helps to encode the content of a Heartbeat Consumer Object (Object 16#1016sub1-254).",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/CANopen-Help-Functions/Heartbeat/EncodeHeartbeatConsumerSettings.html",
+  "parameters": [
+    {
+      "scope": "Input",
+      "name": "uiHeartbeatTime",
+      "type": "UINT",
+      "comment": "Heartbeat Consumer Time"
+    },
+    {
+      "scope": "Input",
+      "name": "byNodeID",
+      "type": "BYTE",
+      "comment": "NodeID of the CANopen device which should be monitored"
+    },
+    {
+      "scope": "Output",
+      "name": "dwValue",
+      "type": "DWORD",
+      "comment": "value of object 16#1016sub1-254"
+    }
+  ]
+}

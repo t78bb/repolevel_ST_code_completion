@@ -1,0 +1,89 @@
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 电子齿轮运动实训-FUN\FB_GearMotionControl.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_GearMotionControl
+# VAR_INPUT
+# 	MasterAxis			:	AXIS_REF;		//主轴引用
+# 	SlaveAxis			:	AXIS_REF;		//从轴引用
+# 	bStart				:	BOOL;			//启动信号
+# 	bStop				:	BOOL;			//停止信号
+# 	nRatioNumerator		:	INT := 1;		//传动比分子
+# 	nRatioDenominator	:	INT := 1;		//传动比分母
+# 	nDirection			:	INT := 1;		//运动方向（1=正向，-1=反向）
+# 	rVelocity			:	REAL := 360.0;	//主轴速度
+# 	rAcceleration		:	REAL := 10000.0;//加速度
+# 	rDeceleration		:	REAL := 10000.0;//减速度
+# END_VAR
+# VAR_OUTPUT
+# 	bRunning			:	BOOL;			//运行中
+# 	bReady				:	BOOL;			//准备就绪（可以启动）
+# 	bError				:	BOOL;			//错误标志
+# 	nCurrentState		:	BYTE;			//当前状态
+# END_VAR
+# VAR
+# 	fbPowerMgr			:	FB_DualAxisPower;	//双轴电源管理
+# 	fbGearCtrl			:	FB_GearCoupling;	//齿轮耦合控制
+# 	fbMoveVel			:	MC_MoveVelocity;	//速度运动
+# 	fbHaltMaster		:	MC_Halt;			//主轴停止
+# 	fbHaltSlave			:	MC_Halt;			//从轴停止
+# 	fbStartRtrig		:	R_TRIG;				//启动上升沿
+# 	fbStopRtrig			:	R_TRIG;				//停止上升沿
+# 	nState				:	BYTE;				//内部状态机
+# END_VAR
+# 
+# // 双轴电源管理
+# fbPowerMgr(
+# 	Axis1 := MasterAxis,
+# 	Axis2 := SlaveAxis,
+# 	bEnable := TRUE
+# );
+# 
+# // 状态机
+# CASE nState OF
+# 	0: (* 等待轴准备就绪 *)
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 电子齿轮运动实训-FUN\FB_GearMotionControl.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_GearMotionControl
+# VAR_INPUT
+# 	MasterAxis			:	AXIS_REF;		//主轴引用
+# 	SlaveAxis			:	AXIS_REF;		//从轴引用
+# 	bStart				:	BOOL;			//启动信号
+# 	bStop				:	BOOL;			//停止信号
+# 	nRatioNumerator		:	INT := 1;		//传动比分子
+# 	nRatioDenominator	:	INT := 1;		//传动比分母
+# 	nDirection			:	INT := 1;		//运动方向（1=正向，-1=反向）
+# 	rVelocity			:	REAL := 360.0;	//主轴速度
+# 	rAcceleration		:	REAL := 10000.0;//加速度
+# 	rDeceleration		:	REAL := 10000.0;//减速度
+# END_VAR
+# VAR_OUTPUT
+# 	bRunning			:	BOOL;			//运行中
+# 	bReady				:	BOOL;			//准备就绪（可以启动）
+# 	bError				:	BOOL;			//错误标志
+# 	nCurrentState		:	BYTE;			//当前状态
+# END_VAR
+# VAR
+# 	fbPowerMgr			:	FB
+
+FUNCTION_BLOCK FB_GearCoupling
+VAR_INPUT
+	Master				:	AXIS_REF;		//主轴引用
+	Slave				:	AXIS_REF;		//从轴引用
+	bCouple				:	BOOL;			//TRUE=耦合，FALSE=解耦
+	nRatioNumerator		:	INT := 1;		//传动比分子
+	nRatioDenominator	:	INT := 1;		//传动比分母
+	rAcceleration		:	REAL := 10000.0;//加速度
+	rDeceleration		:	REAL := 10000.0;//减速度
+END_VAR
+VAR_OUTPUT
+	bInGear				:	BOOL;			//耦合状态
+	bCouplingDone		:	BOOL;			//耦合完成
+	bDecouplingDone		:	BOOL;			//解耦完成
+	bError				:	BOOL;			//错误标志
+	nErrorID			:	DWORD;			//错误代码
+END_VAR

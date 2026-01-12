@@ -1,0 +1,16 @@
+{
+  "name": "BYTE_TO_HEXSTRING",
+  "type": "Function",
+  "signature": "FUNCTION BYTE_TO_HEXSTRING : STRING",
+  "return_type": "STRING",
+  "description": "Converts a byte into the corresponding hexadecimal string",
+  "url": "https://content.helpme-codesys.com/en/libs/AC_DeviceDiagnosis/Current/DeviceDiagnosisInfo/BYTE_TO_HEXSTRING.html",
+  "parameters": [
+    {
+      "scope": "Input",
+      "name": "byInp",
+      "type": "BYTE",
+      "comment": "The byte to convert into a hexadecimal string"
+    }
+  ]
+}

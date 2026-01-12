@@ -1,0 +1,105 @@
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 三轴CNC运动实训-PRG\AUTO_CNC.st
+# --------------------------------------------------
+# 		//插补运动
+# 		fbSMC_Interpolator(
+# 			bExecute:=fbSMC_ReadNCFile.bExecuteDecoder,
+# 			dOverride:=(fOverride/100),
+# 			poqDataIn:=poqPath,
+# 			dwIpoTime:=dwIpoCycTime,
+# 			bEmergency_Stop:=fbSMC_ControlAxisXByPos.bStopIpo OR fbSMC_ControlAxisYByPos.bStopIpo OR fbSMC_ControlAxisZByPos.bStopIpo);
+# 		IF NOT bError THEN
+# 			IF fbSMC_Interpolator.bError THEN
+# 				bError:=TRUE;
+# 				SMC_ERRORSTRING(ErrorID:=fbSMC_Interpolator.wErrorID,Language:=english,SMC_ErrorString=>sSystem_Error);
+# 			END_IF
+# 		END_IF		
+# 
+# 		//坐标系偏移
+# 		fbSMC_TRAFO_Gantry3(
+# 			dOffsetX:=fAxisX_Offset,
+# 			dOffsetY:=fAxisY_Offset,
+# 			dOffsetz:=fAxisZ_Offset,
+# 			pi:=fbSMC_Interpolator.piSetPosition);
+# 			
+# 		//轴运动控制
+# 		fbSMC_ControlAxisXByPos(
+# 			bEnable:=fbSMC_Interpolator.bWorking,
+# 			iStatus:=fbSMC_Interpolator.iStatus,
+# 			fSetPosition:=fbSMC_TRAFO_Gantry3.dx,
+# 			fGapVelocity:=AXIS_X.fSWMaxVelocity,
+# 			fGapAcceleration:=AXIS_X.fSWMaxAcceleration,
+# 			fGapDeceleration:=AXIS_X.fSWMaxDeceleration,
+# 			Axis:=AXIS_X);
+# 		IF NOT bError THEN
+# 			IF fbSMC_ControlAxisXByPos.bError THEN
+# 				bError:=TRUE;
+# 				SMC_ERRORSTRING(ErrorID:=fbSMC_ControlAxisXByPos.iErrorID,Language:=english,SMC_ErrorString=>sSystem_Error);
+# 			END_IF
+# 		END_IF	
+# 			
+# 		fbSMC_ControlAxisYByPos(
+# 			bEnable:=fbSMC_Interpolator.bWorking,
+# 			iStatus:=fbSMC_Interpolator.iStatus,
+# 			fSetPosition:=fbSMC_TRAFO_Gantry3.dy,
+# 			fGapVelocity:=AXIS_Y.fSWMaxVelocity,
+# 			fGapAcceleration:=AXIS_Y.fSWMaxAcceleration,
+# 			fGapDeceleration:=AXIS_Y.fSWMaxDeceleration,
+# 			Axis:=AXIS_Y);
+# 		IF NOT bError THEN
+# 			IF fbSMC_ControlAxisYByPos.bError THEN
+# 				bError:=TRUE;
+# 				SMC_ERRORSTRING(ErrorID:=fbSMC_ControlAxisYByPos.iErrorID,Language:=english,SMC_ErrorString=>sSystem_Error);
+# 			END_IF
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 三轴CNC运动实训-PRG\AUTO_CNC.st
+# --------------------------------------------------
+# 			
+# 		//轴运动控制
+# 		fbSMC_ControlAxisXByPos(
+# 			bEnable:=fbSMC_Interpolator.bWorking,
+# 			iStatus:=fbSMC_Interpolator.iStatus,
+# 			fSetPosition:=fbSMC_TRAFO_Gantry3.dx,
+# 			fGapVelocity:=AXIS_X.fSWMaxVelocity,
+# 			fGapAcceleration:=AXIS_X.fSWMaxAcceleration,
+# 			fGapDeceleration:=AXIS_X.fSWMaxDeceleration,
+# 			Axis:=AXIS_X);
+# 		IF NOT bError THEN
+# 			IF fbSMC_ControlAxisXByPos.bError THEN
+# 				bError:=TRUE;
+# 				SMC_ERRORSTRING(ErrorID:=fbSMC_ControlAxisXByPos.iErrorID,Language:=english,SMC_ErrorString=>sSystem_Error);
+# 			END_IF
+# 		END_IF	
+# 			
+# 		fbSMC_ControlAxisYByPos(
+# 			bEnable:=fbSMC_Interpolator.bWorking,
+# 			iStatus:=fbSMC_Interpolator.iStatus,
+# 			fSetPosition:=fbSMC_TRAFO_Gantry3.dy,
+# 			fGapVelocity:=AXIS_Y.fSWMaxVelocity,
+# 			fGapAcceleration:=AXIS_Y.f
+
+FUNCTION INIT_CNC_System : BOOL
+VAR_IN_OUT
+	fbSMC_ReadNCFile		:	SMC_ReadNCFile;
+	fbSMC_NCDecoder			:	SMC_NCDecoder;
+	fbSMC_CheckVelocities	:	SMC_CheckVelocities;
+	fbSMC_Interpolator		:	SMC_Interpolator;
+	fbSMC_ControlAxisXByPos	:	SMC_ControlAxisByPos;
+	fbSMC_ControlAxisYByPos	:	SMC_ControlAxisByPos;
+	fbSMC_ControlAxisZByPos	:	SMC_ControlAxisByPos;
+	fbSMC_AXISX_HOMING		:	SMC_HOMING;
+	fbSMC_AXISY_HOMING		:	SMC_HOMING;
+	fbSMC_AXISZ_HOMING		:	SMC_HOMING;
+	fbMC_AXISX_STOP			:	MC_STOP;
+	fbMC_AXISY_STOP			:	MC_STOP;
+	fbMC_AXISZ_STOP			:	MC_STOP;
+END_VAR
+VAR_INPUT
+	AxisX					:	SM3_Basic.AXIS_REF_SM3
+	AxisY					:	SM3_Basic.AXIS_REF_SM3
+	AxisZ					:	SM3_Basic.AXIS_REF_SM3
+END_VAR

@@ -1,0 +1,9 @@
+{
+  "name": "State Transitions",
+  "type": "Function",
+  "signature": "FUNCTION State Transitions : VOID",
+  "return_type": "VOID",
+  "description": "Methods for switching the internal state of the state machine.",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSafety Slave/Current/_3SCANopenSafetySlave/Function-Blocks/pou-CANopenDeviceSIL2/State-Machine/State-Transitions/fld-State-Transitions.html",
+  "parameters": []
+}

@@ -1,0 +1,25 @@
+名称: CANopen Help Functions
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/CANopen-Help-Functions/fld-CANopen-Help-Functions.html
+
+============================================================
+
+Docs
+»
+CANopen Help Functions
+CANopen Help Functions
+¶
+Help function for decoding and encoding CANopen specific object values (e.g. EMCY, Heartbeat, Sync, PDO object).
+EMCY
+DecodeEmcyCOBID (Function)
+EncodeEmcyCOBID (Function)
+Heartbeat
+DecodeHeartbeatConsumerSettings (Function)
+EncodeHeartbeatConsumerSettings (Function)
+PDO
+DecodePDOCOBID (Function)
+DecodePDOMappingEntry (Function)
+EncodePDOCOBID (Function)
+EncodePDOMappingEntry (Function)
+SYNC
+DecodeSyncCOBID (Function)
+EncodeSyncCOBID (Function)

@@ -1,0 +1,45 @@
+名称: Interfaces
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/Interfaces/fld-Interfaces.html
+
+============================================================
+
+Docs
+»
+Interfaces
+Interfaces
+¶
+ObjectDictionary
+IODCallback (Interface)
+OnObjectChanged (Method)
+OnReadObject (Method)
+OnWriteObject (Method)
+IODObject (Interface)
+GetSubObject (Method)
+Index (Property)
+SubCount (Property)
+IODSubObject (Interface)
+AccessType (Property)
+DataType (Property)
+Formula (Property)
+RefuseSDOAccess (Property)
+Size (Property)
+SubIndex (Property)
+pData (Property)
+pDefault (Property)
+IObjectDictionary (Interface)
+Callback
+RegisterCallback (Method)
+UnregisterCallback (Method)
+Events
+RaiseObjectChanged (Method)
+RaiseReadObject (Method)
+RaiseWriteObject (Method)
+Read
+ReadObject (Method)
+ReadObjectByAddress (Method)
+Search
+GetObject (Method)
+GetObjectToWrite (Method)
+Write
+WriteObject (Method)
+WriteObjectByAddress (Method)

@@ -1,0 +1,16 @@
+{
+  "name": "IsLibReleased",
+  "type": "Function",
+  "signature": "FUNCTION IsLibReleased : BOOL",
+  "return_type": "BOOL",
+  "description": "This function has been automatically generated from the project information.",
+  "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/Library-Information/IsLibReleased.html",
+  "parameters": [
+    {
+      "scope": "Return",
+      "name": "IsLibReleased",
+      "type": "BOOL",
+      "comment": ""
+    }
+  ]
+}

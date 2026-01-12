@@ -1,0 +1,22 @@
+{
+  "name": "DEVICE_STATE_TO_STRING",
+  "type": "Function",
+  "signature": "FUNCTION DEVICE_STATE_TO_STRING : STRING",
+  "return_type": "STRING",
+  "description": "Returns a DED.DEVICE_STATE enumeration as a speaking string",
+  "url": "https://content.helpme-codesys.com/en/libs/AC_DeviceDiagnosis/Current/DeviceDiagnosisInfo/DEVICE_STATE_TO_STRING.html",
+  "parameters": [
+    {
+      "scope": "Return",
+      "name": "DEVICE_STATE_TO_STRING",
+      "type": "STRING",
+      "comment": ""
+    },
+    {
+      "scope": "Input",
+      "name": "sState",
+      "type": "DED.DEVICE_STATE",
+      "comment": "The device state to return as a speaking string"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "requirement": "这个代码意在实现控制电机启动的逻辑，其中包括故障检测、启动延时和线圈激活。",
+  "provide_code": "METHOD TurnOn : BOOL\nVAR_INPUT\n\tMotorI:MotorI;\nEND_VAR\nVAR_OUTPUT\n\tMotorO:MotorO;\nEND_VAR"
+}

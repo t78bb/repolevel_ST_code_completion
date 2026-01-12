@@ -1,0 +1,42 @@
+名称: CANopenDevice (FunctionBlock)
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/CANopenDevice.html
+
+============================================================
+
+Docs
+»
+CANopenDevice (FB)
+CANopenDevice (FB)
+¶
+FUNCTION_BLOCK CANopenDevice EXTENDS IoDrvBase IMPLEMENTS ICmpIoDrvParameter,
+IODCallback
+Implements the CANopen Slave stack.
+Note
+This function block is not intended for being instantiated by applications. Instances will be created implicitly.
+Properties:
+ObjectDictionary
+NodeID
+State
+Methods:
+PowerDown
+PowerUp
+Reset
+ResetCommunication
+SetNodeID
+SwitchToOp
+SwitchToPreop
+SwitchToStopped
+Structure:
+NMT
+API
+NodeID (Property)
+PowerDown (Method)
+PowerUp (Method)
+Reset (Method)
+ResetCommunication (Method)
+SetNodeID (Method)
+State (Property)
+SwitchToOp (Method)
+SwitchToPreop (Method)
+SwitchToStopped (Method)
+ObjectDictionary (Property)

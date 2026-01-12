@@ -1,0 +1,17 @@
+{
+  "success": [
+    "repoeval_Builder_Application_RPI",
+    "repoeval_counter"
+  ],
+  "failed": [],
+  "skipped": [
+    {
+      "case": "repoeval_readwriteFile",
+      "reason": "没有数据集子目录且没有 results.jsonl"
+    },
+    {
+      "case": "repoeval_traffic_light",
+      "reason": "没有数据集子目录且没有 results.jsonl"
+    }
+  ]
+}

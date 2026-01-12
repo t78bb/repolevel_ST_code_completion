@@ -1,0 +1,29 @@
+名称: ERROR (Enum)
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/Enums/ERROR.html
+
+============================================================
+
+Docs
+»
+Enums
+»
+ERROR (ENUM)
+ERROR (ENUM)
+¶
+TYPE ERROR :
+Errors returned by CANopen Slave API functions
+Attributes:
+qualified_only
+InOut:
+Name
+Initial
+NO_ERROR
+0
+FIRST_ERROR
+10600
+WRONG_PARAM
+10601
+NODEID_ALREADY_SET
+10602
+LAST_ERROR
+10699

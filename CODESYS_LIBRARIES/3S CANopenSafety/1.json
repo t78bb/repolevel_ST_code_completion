@@ -1,0 +1,22 @@
+{
+  "name": "BufferSizes",
+  "type": "Function",
+  "signature": "FUNCTION BufferSizes : ParamList",
+  "return_type": "ParamList",
+  "description": "CANopenSafety stack provided by 3S Smart Software Solutions GmbH. The stack uses the the unsecure CANopenStack as grey communication channel.",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSafety/Current/index.html#id1",
+  "parameters": [],
+  "extra": {
+    "company": "CODESYS Development GmbH",
+    "version": "4.3.0.0",
+    "categories": "Intern|CANbus",
+    "namespace": "_3SCOSS",
+    "author": "CODESYS Development GmbH",
+    "placeholder": "3S CANopenSafety",
+    "based_on": "3S CANopenSafety.library, last modified 23.01.2025, 16:37:10",
+    "libdoc_version": "4.5.0.0",
+    "content_file": "3S CANopenSafety.clean.json",
+    "codesys_version": "V3.5 SP16 Patch 3",
+    "generation_date": "23.01.2025, 16:37:12"
+  }
+}

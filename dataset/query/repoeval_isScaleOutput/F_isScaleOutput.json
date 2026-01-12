@@ -1,0 +1,4 @@
+{
+  "requirement": "这个代码意在实现将物理输出值根据指定的物理范围和终端类型缩放到对应的数字输出范围并返回整数值。",
+  "provide_code": "FUNCTION F_iScaleOutput : INT\nVAR_INPUT\n\trOutput: REAL; (* [] Physical output *)\n\trPhyMin: REAL; (* [] Physical minimum *)\n\trPhyMax: REAL; (* [] Physical maximum *)\n\teTerminal: E_Ctrl_TerminalType; (* [] Terminal type. *)\nEND_VAR"
+}

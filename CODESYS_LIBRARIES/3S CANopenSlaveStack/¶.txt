@@ -1,0 +1,77 @@
+名称: ¶
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/index.html#contents
+
+============================================================
+
+Docs
+»
+3S CANopenSlaveStack Library Documentation
+3S CANopenSlaveStack Library Documentation
+¶
+Company
+:
+CODESYS
+Title
+:
+3S CANopenSlaveStack
+Version
+:
+4.3.0.0
+Categories
+:
+Intern|CANbus
+Namespace
+:
+_3SCSS
+Author
+:
+CODESYS Development GmbH
+Placeholder
+:
+3S CANopenSlave
+Description
+[
+1
+]
+¶
+3S CANopenSlave Stack: Implementation of a CANopen Slave device with full object dictionary capabilities.
+Contents:
+¶
+CANopen Help Functions
+EMCY
+Heartbeat
+PDO
+SYNC
+CANopenDevice (FunctionBlock)
+NMT
+ObjectDictionary (Property)
+ConfigurationParams (ParamList)
+Debugging
+CANDiagnosis (FunctionBlock)
+Diagnosis
+CANopenDevice_Diag (FunctionBlock)
+Enums
+ABORT_CODE (Enum)
+CANOPEN_STATE (Enum)
+DATA_TYPE (Enum)
+ERROR (Enum)
+Interfaces
+ObjectDictionary
+Library Information
+GetLibVersion (Function)
+GetLibVersionNumber (Function)
+IsLibReleased (Function)
+ObjectDictionary
+Iterators
+Range Types
+NODEID (Alias)
+Structs
+ACCESSTYPES (Struct)
+CANOPEN_DIAGNOSIS_INFO (Struct)
+Indices and tables
+¶
+[
+1
+]
+Based on 3S CANopenSlaveStack.library, last modified 23.01.2025, 16:38:01. LibDoc 4.5.0.0
+The content file 3S CANopenSlaveStack.clean.json was generated with CODESYS V3.5 SP16 Patch 3 on 23.01.2025, 16:38:04.

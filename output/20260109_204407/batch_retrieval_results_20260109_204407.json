@@ -1,0 +1,130 @@
+{
+  "success": [],
+  "failed": [
+    {
+      "project": "repoeval_Builder_Application_RPI",
+      "returncode": 1,
+      "error": "Traceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 8, in <module>\n    from beir import LoggingHandler\nModuleNotFoundError: No module named 'beir'\n"
+    },
+    {
+      "project": "repoeval_Command1",
+      "returncode": 1,
+      "error": "Traceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 8, in <module>\n    from beir import LoggingHandler\nModuleNotFoundError: No module named 'beir'\n"
+    },
+    {
+      "project": "repoeval_Decorator_Application",
+      "returncode": 1,
+      "error": "Traceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 8, in <module>\n    from beir import LoggingHandler\nModuleNotFoundError: No module named 'beir'\n"
+    },
+    {
+      "project": "repoeval_GreatExampleOfAdvantages",
+      "returncode": 1,
+      "error": "Traceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 8, in <module>\n    from beir import LoggingHandler\nModuleNotFoundError: No module named 'beir'\n"
+    },
+    {
+      "project": "repoeval_Interation_HowTo",
+      "returncode": 1,
+      "error": "Traceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 8, in <module>\n    from beir import LoggingHandler\nModuleNotFoundError: No module named 'beir'\n"
+    },
+    {
+      "project": "repoeval_ProductionLine",
+      "returncode": 1,
+      "error": "Traceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 8, in <module>\n    from beir import LoggingHandler\nModuleNotFoundError: No module named 'beir'\n"
+    },
+    {
+      "project": "repoeval_Proxy_Application",
+      "returncode": 1,
+      "error": "Traceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 8, in <module>\n    from beir import LoggingHandler\nModuleNotFoundError: No module named 'beir'\n"
+    },
+    {
+      "project": "repoeval_Wrappers",
+      "returncode": 1,
+      "error": "Traceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 8, in <module>\n    from beir import LoggingHandler\nModuleNotFoundError: No module named 'beir'\n"
+    },
+    {
+      "project": "repoeval_assembly-station",
+      "returncode": 1,
+      "error": "Traceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 8, in <module>\n    from beir import LoggingHandler\nModuleNotFoundError: No module named 'beir'\n"
+    },
+    {
+      "project": "repoeval_elevator",
+      "returncode": 1,
+      "error": "Traceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 8, in <module>\n    from beir import LoggingHandler\nModuleNotFoundError: No module named 'beir'\n"
+    },
+    {
+      "project": "repoeval_plc_hello_mixing_tank",
+      "returncode": 1,
+      "error": "Traceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 8, in <module>\n    from beir import LoggingHandler\nModuleNotFoundError: No module named 'beir'\n"
+    },
+    {
+      "project": "repoeval_三轴CNC运动实训",
+      "returncode": 1,
+      "error": "Traceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 8, in <module>\n    from beir import LoggingHandler\nModuleNotFoundError: No module named 'beir'\n"
+    },
+    {
+      "project": "repoeval_交通信号灯控制实训",
+      "returncode": 1,
+      "error": "Traceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 8, in <module>\n    from beir import LoggingHandler\nModuleNotFoundError: No module named 'beir'\n"
+    },
+    {
+      "project": "repoeval_四层电梯控制实训",
+      "returncode": 1,
+      "error": "Traceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 8, in <module>\n    from beir import LoggingHandler\nModuleNotFoundError: No module named 'beir'\n"
+    },
+    {
+      "project": "repoeval_开放式双轴卷绕机编程开发实训",
+      "returncode": 1,
+      "error": "Traceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 8, in <module>\n    from beir import LoggingHandler\nModuleNotFoundError: No module named 'beir'\n"
+    },
+    {
+      "project": "repoeval_测量控件",
+      "returncode": 1,
+      "error": "Traceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 8, in <module>\n    from beir import LoggingHandler\nModuleNotFoundError: No module named 'beir'\n"
+    },
+    {
+      "project": "repoeval_电子凸轮运动实训",
+      "returncode": 1,
+      "error": "Traceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 8, in <module>\n    from beir import LoggingHandler\nModuleNotFoundError: No module named 'beir'\n"
+    },
+    {
+      "project": "repoeval_电子齿轮运动实训",
+      "returncode": 1,
+      "error": "Traceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 8, in <module>\n    from beir import LoggingHandler\nModuleNotFoundError: No module named 'beir'\n"
+    },
+    {
+      "project": "repoeval_读写文件",
+      "returncode": 1,
+      "error": "Traceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 8, in <module>\n    from beir import LoggingHandler\nModuleNotFoundError: No module named 'beir'\n"
+    }
+  ],
+  "skipped": [
+    {
+      "project": "repoeval_FB50_虚轴控制",
+      "reason": "没有 JSON 文件"
+    },
+    {
+      "project": "repoeval_PID_controller",
+      "reason": "没有 JSON 文件"
+    },
+    {
+      "project": "repoeval_PT1Filter",
+      "reason": "没有 JSON 文件"
+    },
+    {
+      "project": "repoeval_Robotics_DynamicModel",
+      "reason": "没有 JSON 文件"
+    },
+    {
+      "project": "repoeval__assembly-station_",
+      "reason": "没有 JSON 文件"
+    },
+    {
+      "project": "repoeval_counter",
+      "reason": "没有 JSON 文件"
+    },
+    {
+      "project": "repoeval_isScaleOutput",
+      "reason": "没有 JSON 文件"
+    }
+  ]
+}

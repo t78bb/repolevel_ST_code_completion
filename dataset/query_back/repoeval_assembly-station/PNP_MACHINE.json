@@ -1,0 +1,4 @@
+{
+  "requirement": "这个代码意在实现一个用于拾取和放置物体（如盖子）的机械臂控制逻辑。",
+  "provide_code": "FUNCTION_BLOCK PUBLIC PNP_MACHINE\nVAR_INPUT\n\tBaseClamped: BOOL;\n\tLidClamped: BOOL;\n\tReset: BOOL := FALSE;\nEND_VAR\n\nVAR_OUTPUT\n\tLidPicked: BOOL := FALSE;\n\tLidPlaced: BOOL := FALSE;\nEND_VAR"
+}

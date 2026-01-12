@@ -1,0 +1,31 @@
+名称: Diagnosis
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/Diagnosis/fld-Diagnosis.html
+
+============================================================
+
+Docs
+»
+Diagnosis
+Diagnosis
+¶
+CANopenDevice_Diag (FunctionBlock)
+IBus
+GetBusInfo (Method)
+GetBusState (Method)
+GetQoS (Method)
+IDevice
+CheckCurrentSupportedCommunicationState (Method)
+CheckSupportedCommunicationState (Method)
+GetDeviceInfo (Method)
+GetDeviceState (Method)
+SetCommunicationState (Method)
+INode
+ChildNodeCount (Property)
+Connector (Property)
+Enable (Property)
+FirstChildNode (Property)
+Index (Property)
+IsRootNode (Property)
+NextSiblingNode (Property)
+ParentNode (Property)
+SiblingNodeCount (Property)

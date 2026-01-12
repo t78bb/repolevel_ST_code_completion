@@ -1,0 +1,16 @@
+{
+  "name": "GetLibVersionNumber",
+  "type": "Function",
+  "signature": "FUNCTION GetLibVersionNumber : DWORD",
+  "return_type": "DWORD",
+  "description": "This function has been automatically generated from the project information.",
+  "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/Library-Information/GetLibVersionNumber.html",
+  "parameters": [
+    {
+      "scope": "Return",
+      "name": "GetLibVersionNumber",
+      "type": "DWORD",
+      "comment": ""
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 测量控件-PRG\PLC_PRG.st
+# --------------------------------------------------
+# PROGRAM PLC_PRG
+# VAR
+# 	Tank01 : Tank;
+# END_VAR
+# 
+# Tank01(stName:='Tank01',nMaxLevel:=99, nMinLevel:=0,nMaxTemp:=55, nMinTemp:=44);
+# --------------------------------------------------
+
+
+FUNCTION_BLOCK Tank
+VAR_INPUT
+	stName: STRING;
+	nMaxLevel	: INT;
+	nMinLevel	: INT;
+	nMaxTemp	: INT;
+	nMinTemp	: INT;
+	nUnitLevel							:INT:=0;
+	nUnitTemp							:INT:=0;
+END_VAR
+VAR_OUTPUT
+END_VAR

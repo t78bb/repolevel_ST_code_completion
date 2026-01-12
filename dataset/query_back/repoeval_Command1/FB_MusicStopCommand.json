@@ -1,0 +1,4 @@
+{
+  "requirement": "这个代码意在实现用于停止音乐播放的命令功能。",
+  "provide_code": "FUNCTION_BLOCK PUBLIC FB_MusicStopCommand IMPLEMENTS I_Command"
+}

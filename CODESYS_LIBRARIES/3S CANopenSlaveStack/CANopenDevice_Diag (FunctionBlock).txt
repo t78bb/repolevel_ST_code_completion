@@ -1,0 +1,91 @@
+名称: CANopenDevice_Diag (FunctionBlock)
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/Diagnosis/CANopenDevice_Diag.html
+
+============================================================
+
+Docs
+»
+Diagnosis
+»
+CANopenDevice_Diag (FB)
+CANopenDevice_Diag (FB)
+¶
+FUNCTION_BLOCK CANopenDevice_Diag EXTENDS
+CANopenDevice
+IMPLEMENTS DED.IStack, DED.IDevice2, DED.IBus, DED.IReconfigureProvider
+This function block implements a CANopen Slave stack with CAA Device Diagnosis support.
+Note
+Do not instantiate this function block! An implicit instance will be created for each CANopen Slave in the device tree.
+Properties:
+ChildNodeCount
+Connector
+Enable
+FirstChildNode
+Index
+IsRootNode
+NextSiblingNode
+NodeID
+, inherited from
+CANopenDevice
+ObjectDictionary
+, inherited from
+CANopenDevice
+ParentNode
+SiblingNodeCount
+State
+, inherited from
+CANopenDevice
+Methods:
+CheckCurrentSupportedCommunicationState
+CheckSupportedCommunicationState
+GetBusInfo
+GetBusState
+GetDeviceInfo
+GetDeviceState
+GetQoS
+PowerDown
+, inherited from
+CANopenDevice
+PowerUp
+, inherited from
+CANopenDevice
+Reset
+, inherited from
+CANopenDevice
+ResetCommunication
+, inherited from
+CANopenDevice
+SetCommunicationState
+SetNodeID
+, inherited from
+CANopenDevice
+SwitchToOp
+, inherited from
+CANopenDevice
+SwitchToPreop
+, inherited from
+CANopenDevice
+SwitchToStopped
+, inherited from
+CANopenDevice
+Structure:
+IBus
+GetBusInfo (Method)
+GetBusState (Method)
+GetQoS (Method)
+IDevice
+CheckCurrentSupportedCommunicationState (Method)
+CheckSupportedCommunicationState (Method)
+GetDeviceInfo (Method)
+GetDeviceState (Method)
+SetCommunicationState (Method)
+INode
+ChildNodeCount (Property)
+Connector (Property)
+Enable (Property)
+FirstChildNode (Property)
+Index (Property)
+IsRootNode (Property)
+NextSiblingNode (Property)
+ParentNode (Property)
+SiblingNodeCount (Property)

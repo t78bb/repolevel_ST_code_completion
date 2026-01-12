@@ -1,0 +1,57 @@
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_Lamp.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_Lamp
+# VAR_OUTPUT
+# 	byLevel			: BYTE;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_LampSetLevelCommand_Execute.st
+# --------------------------------------------------
+# METHOD Execute
+# VAR
+# 	refAirConditioning : REFERENCE TO FB_AirConditioning;
+# END_VAR
+# 
+# 
+# IF (__ISVALIDREF(THIS^.refLamp)) THEN
+# 	THIS^.refLamp.SetLevel(THIS^.byNewLevel);
+# END_IF
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_SocketOnCommand.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_SocketOnCommand IMPLEMENTS I_Command
+# VAR
+# 	refSocket : REFERENCE TO FB_Socket;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_Lamp_SetLevel.st
+# --------------------------------------------------
+# METHOD PUBLIC SetLevel : BOOL
+# VAR_OUTPUT
+# 	byLevel			: BYTE;
+# END_VAR
+# VAR_INPUT
+# 	byNewLevel			: BYTE;
+# END_VAR
+# byLevel := byNewLevel;
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_MusicPlayCommand.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_MusicPlayCommand IMPLEMENTS I_Command
+# VAR
+# 	refCDPlayer : REFERENCE TO FB_CDPlayer;
+# END_VAR
+# 
+# --------------------------------------------------
+
+
+FUNCTION_BLOCK PUBLIC FB_LampSetLevelCommand IMPLEMENTS I_Command

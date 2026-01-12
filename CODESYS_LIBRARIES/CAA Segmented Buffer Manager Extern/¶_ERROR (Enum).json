@@ -1,0 +1,38 @@
+{
+  "name": "ERROR",
+  "type": "Enum",
+  "description": "This data structure describes errors, which might occur during handling functions of CAA_SegBufferMan.lib.",
+  "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Buffer%20Manager%20Extern/Current/CAA-Segemented-Buffer-Manager/Enums/ERROR.html",
+  "values": [
+    {
+      "name": "NO_ERROR",
+      "value": "",
+      "comment": "No error"
+    },
+    {
+      "name": "FIRST_ERROR",
+      "value": "6100",
+      "comment": "First library-specific error"
+    },
+    {
+      "name": "TIME_OUT",
+      "value": "6101",
+      "comment": "Time limit exceeded"
+    },
+    {
+      "name": "FIRST_MF",
+      "value": "6102",
+      "comment": "First manufacturer-specific error"
+    },
+    {
+      "name": "LAST_ERROR",
+      "value": "6199",
+      "comment": "Latest library-specific error"
+    }
+  ],
+  "extra": {
+    "attributes": [
+      "qualified_only"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "解析失败",
+  "type": "Function",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/CANopen-Help-Functions/Heartbeat/fld-Heartbeat.html",
+  "error": "Extra data: line 9 column 4 (char 401)",
+  "raw_content": "{\n    \"name\": \"DecodeHeartbeatConsumerSettings\",\n    \"type\": \"Function\",\n    \"signature\": \"FUNCTION DecodeHeartbeatConsumerSettings : BOOL\",\n    \"return_type\": \"BOOL\",\n    \"description\": \"Decodes the settings for the heartbeat consumer.\",\n    \"url\": \"https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/CANopen-Help-Functions/Heartbeat/fld-Heartbeat.html\",\n    \"parameters\": []\n  },\n  {\n    \"name\": \"EncodeHeartbeatConsumerSettings\",\n    \"type\": \"Function\",\n    \"signature\": \"FUNCTION EncodeHeartbeatConsumerSettings : BOOL\",\n    \"return_type\": \"BOOL\",\n    \"description\": \"Encodes the settings for the heartbeat consumer.\",\n    \"url\": \"https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/CANopen-Help-Functions/Heartbeat/fld-Heartbeat.html\",\n    \"parameters\": []\n  }"
+}

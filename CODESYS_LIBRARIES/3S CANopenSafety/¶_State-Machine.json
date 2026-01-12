@@ -1,0 +1,18 @@
+{
+  "name": "State Machine",
+  "type": "Function",
+  "signature": "FUNCTION State Machine : VOID",
+  "return_type": "VOID",
+  "description": "Methods implementing the state machine.",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSafety/Current/_3SCANopenSafety/Function-Blocks/pou-CANRemoteDeviceSafe/State-Machine/fld-State-Machine.html",
+  "parameters": [],
+  "extra": {
+    "related_topics": [
+      "State Transitions",
+      "States",
+      "CheckConfiguration",
+      "CheckConfiguration and Stopped",
+      "Operational"
+    ]
+  }
+}

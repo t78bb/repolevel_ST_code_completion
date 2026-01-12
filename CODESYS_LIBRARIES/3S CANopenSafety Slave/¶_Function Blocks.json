@@ -1,0 +1,12 @@
+{
+  "name": "CheckConfiguration",
+  "type": "Function",
+  "signature": "FUNCTION CheckConfiguration : BOOL",
+  "return_type": "BOOL",
+  "description": "This function checks the configuration of the CANopen Safety Slave device.",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSafety Slave/Current/_3SCANopenSafetySlave/Function-Blocks/fld-Function-Blocks.html",
+  "parameters": [],
+  "extra": {
+    "context": "The function is part of the CANopen Safety Slave library and is used in the context of state-independent cyclic methods."
+  }
+}

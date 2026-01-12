@@ -1,0 +1,200 @@
+名称: Library Identification
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack Unsafe/Current/libraries.html#library-identification
+
+============================================================
+
+Docs
+»
+Library Reference
+Library Reference
+¶
+This is a dictionary of all referenced libraries and their name spaces.
+3S CANopenSlaveStack
+¶
+Library Identification
+¶
+Placeholder: 3S CANopenSlaveStack
+Default Resolution: 3S CANopenSlaveStack, * (3S - Smart Software Solutions GmbH)
+Namespace: _3SCSS
+Library Properties
+¶
+LinkAllContent: False
+Optional: False
+QualifiedOnly: True
+SystemLibrary: False
+Key: 3S CANopenSlaveStack
+Library Parameter
+¶
+Parameter: GC_UDIMAXODCALLBACKS = 3
+3SLicense
+¶
+Library Identification
+¶
+Placeholder: 3SLicense
+Default Resolution: 3SLicense, * (3S - Smart Software Solutions GmbH)
+Namespace: _3S_LICENSE
+Library Properties
+¶
+LinkAllContent: False
+Optional: False
+QualifiedOnly: False
+SystemLibrary: False
+Key: 3SLicense
+CAA Can Low Level Extern
+¶
+Library Identification
+¶
+Placeholder: CAA CanL2
+Default Resolution: CAA Can Low Level Extern, * (CAA Technical Workgroup)
+Namespace: CL2
+Library Properties
+¶
+LinkAllContent: False
+Optional: False
+QualifiedOnly: True
+SystemLibrary: False
+Key: CAA CanL2
+CAA Can Low Level Imp Extern
+¶
+Library Identification
+¶
+Placeholder: CAA CanL2I
+Default Resolution: CAA Can Low Level Imp Extern, * (CAA Technical Workgroup)
+Namespace: CL2I
+Library Properties
+¶
+LinkAllContent: False
+Optional: False
+QualifiedOnly: True
+SystemLibrary: False
+Key: CAA CanL2I
+CAA Memory Block Manager Extern
+¶
+Library Identification
+¶
+Placeholder: CAA MemBlockMan
+Default Resolution: CAA Memory Block Manager Extern, * (CAA Technical Workgroup)
+Namespace: MBM
+Library Properties
+¶
+LinkAllContent: False
+Optional: False
+QualifiedOnly: True
+SystemLibrary: False
+Key: CAA MemBlockMan
+CAA Types Extern
+¶
+Library Identification
+¶
+Placeholder: CAA Types
+Default Resolution: CAA Types Extern, * (CAA Technical Workgroup)
+Namespace: CAA
+Library Properties
+¶
+LinkAllContent: False
+Optional: False
+QualifiedOnly: True
+SystemLibrary: False
+Key: CAA Types
+CANbusDevice
+¶
+Library Identification
+¶
+Placeholder: CANbusDevice
+Default Resolution: CANbusDevice, * (3S - Smart Software Solutions GmbH)
+Namespace: CANbusDevice
+Library Properties
+¶
+LinkAllContent: False
+Optional: False
+QualifiedOnly: True
+SystemLibrary: False
+Key: CANbusDevice
+CANopenSafetyTypes
+¶
+Library Identification
+¶
+Placeholder: CANopenSafetyTypes
+Default Resolution: CANopenSafetyTypes, * (3S - Smart Software Solutions GmbH)
+Namespace: CST
+Library Properties
+¶
+LinkAllContent: False
+Optional: False
+QualifiedOnly: True
+SystemLibrary: False
+Key: CANopenSafetyTypes
+CmpErrors2 Interfaces
+¶
+Library Identification
+¶
+Name: CmpErrors2 Interfaces
+Version:
+newest
+Company: System
+Namespace: CmpErrors
+Library Properties
+¶
+LinkAllContent: False
+Optional: False
+QualifiedOnly: False
+SystemLibrary: False
+Key: CmpErrors2 Interfaces, * (System)
+IoStandard
+¶
+Library Identification
+¶
+Placeholder: IoStandard
+Default Resolution: IoStandard, * (System)
+Namespace: IoStandard
+Library Properties
+¶
+LinkAllContent: False
+Optional: False
+QualifiedOnly: False
+SystemLibrary: False
+Key: IoStandard
+SysMem
+¶
+Library Identification
+¶
+Placeholder: SysMem
+Default Resolution: SysMem, * (System)
+Namespace: SysMem
+Library Properties
+¶
+LinkAllContent: False
+Optional: False
+QualifiedOnly: False
+SystemLibrary: False
+Key: SysMem
+SysTarget
+¶
+Library Identification
+¶
+Placeholder: SysTarget
+Default Resolution: SysTarget, * (System)
+Namespace: SysTarget
+Library Properties
+¶
+LinkAllContent: False
+Optional: False
+QualifiedOnly: False
+SystemLibrary: False
+Key: SysTarget
+SysTypes2 Interfaces
+¶
+Library Identification
+¶
+Name: SysTypes2 Interfaces
+Version:
+newest
+Company: System
+Namespace: SysTypes
+Library Properties
+¶
+LinkAllContent: False
+Optional: False
+QualifiedOnly: False
+SystemLibrary: False
+Key: SysTypes2 Interfaces, * (System)

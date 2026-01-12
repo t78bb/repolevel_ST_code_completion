@@ -1,0 +1,4 @@
+{
+  "requirement": "这个代码意在实现设置电机的等待时间并初始化内部延迟参数。",
+  "provide_code": "METHOD SetWaitTime : BOOL\nVAR_INPUT\n\tMotorI:MotorI;\n\tSequenceDelay:TIME;\nEND_VAR\nVAR_OUTPUT\n\tMotorO:MotorO;\nEND_VAR"
+}

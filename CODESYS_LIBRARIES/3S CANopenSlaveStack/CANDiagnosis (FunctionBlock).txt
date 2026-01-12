@@ -1,0 +1,27 @@
+名称: CANDiagnosis (FunctionBlock)
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/Debugging/CANDiagnosis.html
+
+============================================================
+
+Docs
+»
+Debugging
+»
+CANDiagnosis (FB)
+CANDiagnosis (FB)
+¶
+FUNCTION_BLOCK CANDiagnosis
+This function block helps getting CAN bus diagnostic information for a given CANopenDevice.
+It is intended for debugging purpose.
+InOut:
+Scope
+Name
+Type
+Comment
+Inout
+Slave
+CANopenDevice
+Slave instance used for retrieving diagnostic information.
+DiagnosisInfo
+CANOPEN_DIAGNOSIS_INFO
+Structure containing the diagnostic information.

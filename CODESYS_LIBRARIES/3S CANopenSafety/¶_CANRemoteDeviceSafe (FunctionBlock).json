@@ -1,0 +1,44 @@
+{
+  "description": "This function block implements the logic of a CANopen Safety Remote Device. All instances are managed by the CANopenManagerSIL2 in a simple chained list and called on StartBusCycle. The function block gets its SRDO config in SetupSDROs and has its own pointer to the Safety Exchange. Function block can be enabled/disabled by S_xEnable. When S_xEnable gets TRUE the function block checks every bus cycle all conditions for safe communication: Unsafe stack is in OPERATIONAL state, CRCs read back from device are correct, Consistency of SRDO configuration data. If a configuration error is detected (e.g. CRC mismatch) S_eError changes from NO_ERROR to a corresponding error code. If every condition is fulfilled the function block tries starting safe communication. S_xActive gets TRUE if all SRDOs are sent/received at least one time without any error. When communication error occurs (SCT/SRVT timeout, data mismatch, …), all SRDO communication is stopped: S_xActive = FALSE, S_eError <> NO_ERROR. Errors can be acknowledged by a rising edge of S_xErrorAck. Safe communication will be continued.",
+  "url": "https://content.helpme-codesys.com/en/libs/3S%20CANopenSafety/Current/_3SCANopenSafety/Function-Blocks/CANRemoteDeviceSafe.html",
+  "extra": {
+    "inputs": [
+      {
+        "name": "S_xEnable",
+        "type": "BOOL",
+        "initial": "TRUE",
+        "comment": "TRUE: SRDO communication enabled; FALSE: SRDO communication stopped"
+      },
+      {
+        "name": "S_xErrorAck",
+        "type": "BOOL",
+        "initial": "FALSE",
+        "comment": "Pending error (S_eError <> NO_ERROR) will be acknowledged on rising edge."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "S_xActive",
+        "type": "BOOL",
+        "initial": "FALSE",
+        "comment": "TRUE: safe communication active; FALSE: safe communication inactive (in case of error or S_xEnable = FALSE)"
+      },
+      {
+        "name": "S_eError",
+        "type": "CST.ERROR",
+        "initial": "CST.ERROR.NO_ERROR",
+        "comment": "pending error"
+      }
+    ],
+    "structure": [
+      "Cyclic-Methods-state-independent",
+      "Initialization",
+      "State-Machine",
+      "State Transitions",
+      "States",
+      "CheckConfiguration",
+      "CheckConfiguration and Stopped",
+      "Operational"
+    ]
+  }
+}

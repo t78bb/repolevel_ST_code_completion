@@ -1,0 +1,34 @@
+{
+  "name": "EncodePDOMappingEntry",
+  "type": "Function",
+  "signature": "FUNCTION EncodePDOMappingEntry",
+  "return_type": "None",
+  "description": "Helps to encode the content of a PDO Mapping Object (Object 16#1600-16#17FF or 16#1A00-16#1BFF).",
+  "url": "https://content.helpme-codesys.com/en/libs/3S%20CANopenSlaveStack/Current/CANopen-Help-Functions/PDO/EncodePDOMappingEntry.html",
+  "parameters": [
+    {
+      "scope": "Input",
+      "name": "wIndex",
+      "type": "WORD",
+      "comment": "Object index of mapped object"
+    },
+    {
+      "scope": "Input",
+      "name": "bySubIndex",
+      "type": "BYTE",
+      "comment": "SubIndex of mapped object"
+    },
+    {
+      "scope": "Input",
+      "name": "byLength",
+      "type": "BYTE",
+      "comment": "Bit length of mapped object"
+    },
+    {
+      "scope": "Output",
+      "name": "dwValue",
+      "type": "DWORD",
+      "comment": "value of PDO Mapping object"
+    }
+  ]
+}

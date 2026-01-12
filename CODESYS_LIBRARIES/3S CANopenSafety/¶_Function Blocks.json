@@ -1,0 +1,21 @@
+{
+  "name": "CANRemoteDeviceSafe",
+  "type": "FunctionBlock",
+  "signature": "FUNCTION_BLOCK CANRemoteDeviceSafe",
+  "return_type": null,
+  "description": "A function block related to CANopen safety for remote devices.",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSafety/Current/_3SCANopenSafety/Function-Blocks/fld-Function-Blocks.html",
+  "parameters": [],
+  "extra": {
+    "related_topics": [
+      "Cyclic-Methods-state-independent",
+      "Initialization",
+      "State-Machine",
+      "State Transitions",
+      "States",
+      "CheckConfiguration",
+      "CheckConfiguration and Stopped",
+      "Operational"
+    ]
+  }
+}

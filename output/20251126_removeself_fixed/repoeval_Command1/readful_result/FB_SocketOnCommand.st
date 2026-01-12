@@ -1,0 +1,13 @@
+FUNCTION_BLOCK PUBLIC FB_SocketOnCommand IMPLEMENTS I_Command
+
+VAR
+    refSocket : REFERENCE TO FB_Socket;
+END_VAR
+
+METHOD Execute
+VAR
+    refSocket : REFERENCE TO FB_Socket;
+END_VAR
+IF (__ISVALIDREF(THIS^.refSocket)) THEN
+    THIS^.refSocket.On();
+END_IF

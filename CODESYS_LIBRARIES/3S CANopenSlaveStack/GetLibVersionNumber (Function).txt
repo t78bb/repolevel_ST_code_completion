@@ -1,0 +1,22 @@
+名称: GetLibVersionNumber (Function)
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/Library-Information/GetLibVersionNumber.html
+
+============================================================
+
+Docs
+»
+Library
+Information
+»
+GetLibVersionNumber (FUN)
+GetLibVersionNumber (FUN)
+¶
+FUNCTION GetLibVersionNumber : DWORD
+This function has been automatically generated from the project information.
+InOut:
+Scope
+Name
+Type
+Return
+GetLibVersionNumber
+DWORD

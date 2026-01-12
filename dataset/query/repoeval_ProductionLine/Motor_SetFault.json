@@ -1,0 +1,4 @@
+{
+  "requirement": "这个代码意在实现当电机过载时设置故障状态并关闭电机的功能。",
+  "provide_code": "METHOD SetFault : BOOL\nVAR_INPUT\n\tMotorI:MotorI;\nEND_VAR\nVAR_OUTPUT\n\tMotorO:MotorO;\nEND_VAR"
+}

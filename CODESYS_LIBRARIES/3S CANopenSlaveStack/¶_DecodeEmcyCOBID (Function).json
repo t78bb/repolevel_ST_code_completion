@@ -1,0 +1,34 @@
+{
+  "name": "DecodeEmcyCOBID",
+  "type": "Function",
+  "signature": "FUNCTION DecodeEmcyCOBID : BOOL",
+  "return_type": "BOOL",
+  "description": "Helps to decode the content of the EMCY COBID (Object 16#1014)",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/CANopen-Help-Functions/EMCY/DecodeEmcyCOBID.html",
+  "parameters": [
+    {
+      "scope": "Input",
+      "name": "dwValue",
+      "type": "DWORD",
+      "comment": "value of object 16#1014"
+    },
+    {
+      "scope": "Output",
+      "name": "xEnabled",
+      "type": "BOOL",
+      "comment": "true: EMCY enabled; false: EMCY disabled"
+    },
+    {
+      "scope": "Output",
+      "name": "xExtendedID",
+      "type": "BOOL",
+      "comment": "true: 29bit EMCY COBID; false: 11bit EMCY COBID"
+    },
+    {
+      "scope": "Output",
+      "name": "dwCOBID",
+      "type": "DWORD",
+      "comment": "EMCY COBID"
+    }
+  ]
+}

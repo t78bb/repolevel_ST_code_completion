@@ -1,0 +1,32 @@
+{
+  "description": "The function block corresponding to the device diagnosis module. An instance of this function block is created by the application composer when generating a device diagnosis for an application as a result of a module instance of the device diagnosis module in the module tree. The Device-Diagnosis-Generator fills the pointer of this function block with an array of readily initialized DeviceDiagnosisInfos equalling the existing corresponding to the module’s target applications parent PLC’s devices during generation.",
+  "url": "https://content.helpme-codesys.com/en/libs/AC_DeviceDiagnosis/Current/Module/DeviceDiagnosis.html",
+  "extra": {
+    "InOut": {
+      "Scope": [
+        "Input",
+        "Input"
+      ],
+      "Name": [
+        "pDDIs",
+        "uiNumDDIs"
+      ],
+      "Type": [
+        "POINTER TO DeviceDiagnosisInfo",
+        "UINT"
+      ],
+      "Initial": [
+        "",
+        ""
+      ],
+      "Comment": [
+        "The pointer getting filled by the application composer during generation",
+        "The number of DeviceDiagnosisInfos filled into the pointer pDDIs in form of an array."
+      ]
+    },
+    "Methods": [
+      "DevDiagCycle",
+      "OnAfterOnlineChange"
+    ]
+  }
+}

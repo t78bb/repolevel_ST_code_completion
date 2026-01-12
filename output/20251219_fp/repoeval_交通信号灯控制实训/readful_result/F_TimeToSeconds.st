@@ -1,0 +1,1 @@
+F_TimeToSeconds := TIME_TO_DWORD(tTime) / 1000;

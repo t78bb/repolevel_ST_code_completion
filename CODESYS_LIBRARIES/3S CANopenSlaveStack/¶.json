@@ -1,0 +1,7 @@
+{
+  "name": "解析失败",
+  "type": "Function",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/index.html#s-canopenslavestack-library-documentation",
+  "error": "Extra data: line 9 column 4 (char 371)",
+  "raw_content": "{\n    \"name\": \"GetLibVersion\",\n    \"type\": \"Function\",\n    \"signature\": \"FUNCTION GetLibVersion : STRING\",\n    \"return_type\": \"STRING\",\n    \"description\": \"Retrieves the version of the library as a string.\",\n    \"url\": \"https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/index.html#s-canopenslavestack-library-documentation\",\n    \"parameters\": []\n  },\n  {\n    \"name\": \"GetLibVersionNumber\",\n    \"type\": \"Function\",\n    \"signature\": \"FUNCTION GetLibVersionNumber : DWORD\",\n    \"return_type\": \"DWORD\",\n    \"description\": \"Retrieves the version number of the library as a DWORD.\",\n    \"url\": \"https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/index.html#s-canopenslavestack-library-documentation\",\n    \"parameters\": []\n  },\n  {\n    \"name\": \"IsLibReleased\",\n    \"type\": \"Function\",\n    \"signature\": \"FUNCTION IsLibReleased : BOOL\",\n    \"return_type\": \"BOOL\",\n    \"description\": \"Checks if the library is released.\",\n    \"url\": \"https://content.helpme-codesys.co"
+}

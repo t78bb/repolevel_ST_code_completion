@@ -1,0 +1,7 @@
+{
+  "name": "解析失败",
+  "type": "Function",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/CANopen-Help-Functions/PDO/fld-PDO.html",
+  "error": "Extra data: line 9 column 4 (char 344)",
+  "raw_content": "{\n    \"name\": \"DecodePDOCOBID\",\n    \"type\": \"Function\",\n    \"signature\": \"FUNCTION DecodePDOCOBID : ReturnType\",\n    \"return_type\": \"ReturnType\",\n    \"description\": \"No description available.\",\n    \"url\": \"https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/CANopen-Help-Functions/PDO/fld-PDO.html\",\n    \"parameters\": []\n  },\n  {\n    \"name\": \"DecodePDOMappingEntry\",\n    \"type\": \"Function\",\n    \"signature\": \"FUNCTION DecodePDOMappingEntry : ReturnType\",\n    \"return_type\": \"ReturnType\",\n    \"description\": \"No description available.\",\n    \"url\": \"https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/CANopen-Help-Functions/PDO/fld-PDO.html\",\n    \"parameters\": []\n  },\n  {\n    \"name\": \"EncodePDOCOBID\",\n    \"type\": \"Function\",\n    \"signature\": \"FUNCTION EncodePDOCOBID : ReturnType\",\n    \"return_type\": \"ReturnType\",\n    \"description\": \"No description available.\",\n    \"url\": \"https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/CANopen-Help"
+}

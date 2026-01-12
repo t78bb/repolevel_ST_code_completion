@@ -1,0 +1,22 @@
+名称: _3SCANopenSafety
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSafety/Current/_3SCANopenSafety/fld-_3SCANopenSafety.html
+
+============================================================
+
+Docs
+»
+_3SCANopenSafety
+_3SCANopenSafety
+¶
+BufferSizes (ParamList)
+Function Blocks
+CANRemoteDeviceSafe (FunctionBlock)
+Cyclic-Methods-state-independent
+Initialization
+State-Machine
+State Transitions
+States
+CheckConfiguration
+CheckConfiguration and Stopped
+Operational
+CANopenManagerSIL2 (FunctionBlock)

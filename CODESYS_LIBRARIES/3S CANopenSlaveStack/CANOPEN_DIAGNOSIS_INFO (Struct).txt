@@ -1,0 +1,21 @@
+名称: CANOPEN_DIAGNOSIS_INFO (Struct)
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/Structs/CANOPEN_DIAGNOSIS_INFO.html
+
+============================================================
+
+Docs
+»
+Structs
+»
+CANOPEN_DIAGNOSIS_INFO (STRUCT)
+CANOPEN_DIAGNOSIS_INFO (STRUCT)
+¶
+TYPE CANOPEN_DIAGNOSIS_INFO : STRUCT
+CANopen Diagnosis Info which can be retreived by
+CANDiagnosis
+function block.
+InOut:
+Name
+Type
+CAN_Diagnosis
+CL2.DIAGNOSIS_INFO

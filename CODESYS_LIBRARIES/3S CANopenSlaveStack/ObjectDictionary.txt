@@ -1,0 +1,21 @@
+名称: ObjectDictionary
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/ObjectDictionary/fld-ObjectDictionary.html
+
+============================================================
+
+Docs
+»
+ObjectDictionary
+ObjectDictionary
+¶
+Iterators
+ObjectIterator (FunctionBlock)
+Current (Property)
+MoveNext (Method)
+ObjectDictionary (Property)
+Reset (Method)
+SubObjectIterator (FunctionBlock)
+Current (Property)
+MoveNext (Method)
+Object (Property)
+Reset (Method)

@@ -1,0 +1,19 @@
+名称: ObjectDictionary (Property)
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/pou-CANopenDevice/ObjectDictionary.html
+
+============================================================
+
+Docs
+»
+CANopenDevice
+(FB)
+»
+CANopenDevice.ObjectDictionary (PROP)
+CANopenDevice.ObjectDictionary (PROP)
+¶
+PROPERTY ObjectDictionary :
+IObjectDictionary
+Returns the Object Dictionary of a slave.
+See
+IObjectDictionary
+for further information.

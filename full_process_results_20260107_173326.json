@@ -1,0 +1,14 @@
+{
+  "success": [
+    "repoeval_traffic_light"
+  ],
+  "failed": [
+    {
+      "case": "repoeval_readwriteFile",
+      "dataset": "repoeval_readwriteFile",
+      "step": "fix",
+      "error": "修复失败"
+    }
+  ],
+  "skipped": []
+}

@@ -1,0 +1,55 @@
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_Socket_On.st
+# --------------------------------------------------
+# METHOD PUBLIC On
+# VAR_OUTPUT
+# 	bActive		: BOOL;
+# END_VAR
+# 
+# bActive := true;
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_Socket_Off.st
+# --------------------------------------------------
+# METHOD PUBLIC Off
+# VAR_OUTPUT
+# 	bActive		: BOOL;
+# END_VAR
+# 
+# bActive := false;
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_Lamp.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_Lamp
+# VAR_OUTPUT
+# 	byLevel			: BYTE;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_SocketOnCommand.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_SocketOnCommand IMPLEMENTS I_Command
+# VAR
+# 	refSocket : REFERENCE TO FB_Socket;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_SocketOffCommand.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_SocketOffCommand IMPLEMENTS I_Command
+# VAR
+# 	refSocket : REFERENCE TO FB_Socket;
+# END_VAR
+# 
+# --------------------------------------------------
+
+
+FUNCTION_BLOCK PUBLIC FB_Socket
+VAR_OUTPUT
+	bActive		: BOOL;
+END_VAR

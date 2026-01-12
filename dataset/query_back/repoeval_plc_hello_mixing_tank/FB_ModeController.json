@@ -1,0 +1,4 @@
+{
+  "requirement": "这个代码意在实现基于输入命令的自动与手动模式切换功能，并检测模式变化。",
+  "provide_code": "FUNCTION_BLOCK FB_ModeController\nVAR_INPUT\n\tbSetToAuto\t\t:\tBOOL;\t// 切换到自动模式命令\n\tbSetToManual\t:\tBOOL;\t// 切换到手动模式命令\nEND_VAR\nVAR_OUTPUT\n\teCurrentMode\t:\tMODES;\t// 当前模式\n\tbModeChanged\t:\tBOOL;\t// 模式改变标志\nEND_VAR"
+}

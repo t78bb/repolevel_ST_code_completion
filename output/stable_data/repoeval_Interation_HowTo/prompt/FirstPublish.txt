@@ -1,0 +1,90 @@
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Interation_HowTo-FUN\FirstSubscription.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FirstSubscription
+# VAR_INPUT
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	collector:MQTT.CallbackCollector;
+# 	SUB1:MQTT.MQTTSubscribe;
+# 	init: BOOL;
+# 	receiver:MQTT.ReceiveString;
+# END_VAR
+# 
+# IF NOT init THEN
+# 	init := TRUE;
+# 	SUB1.SetMqttInOut(MQTT_IN_OUT:= HowTo.MQTT_IN_OUT);
+# 	collector.put(instance:= receiver);
+# 	receiver.initAsFindTopic(compString:= ADR('TestTopic/FromCodesys'), returnHit:= TRUE);
+# END_IF
+# 
+# SUB1(
+# 	Subscribe:= TRUE, 
+# 	Topic:= ADR('TestTopic/FromCodesys'), 
+# 	QoSSubscribe:= MQTT.QoS.ExactlyOnce, 
+# 	ExpectingString:= TRUE, 
+# 	Callback:= collector);
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Interation_HowTo-FUN\FirstSubscription.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FirstSubscription
+# VAR_INPUT
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	collector:MQTT.CallbackCollector;
+# 	SUB1:MQTT.MQTTSubscribe;
+# 	init: BOOL;
+# 	receiver:MQTT.ReceiveString;
+# END_VAR
+# 
+# IF NOT init THEN
+# 	init := TRUE;
+# 	SUB1.SetMqttInOut(MQTT_IN_OUT:= HowTo.MQTT_IN_OUT);
+# 	collector.put(instance:= receiver);
+# 	receiver.initAsFindTopic(compString:= ADR('TestTopic/FromCodesys'), returnHit:= TRUE);
+# END_IF
+# 
+# SUB1(
+# 	Subscribe:= TRUE, 
+# 	Topic:= ADR('TestTopic/FromCodesys'), 
+# 	QoSSubscribe:= MQTT.QoS.ExactlyOnce, 
+# 	ExpectingString:= TRUE, 
+# 	Callback:= collector);
+# 	
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Interation_HowTo-PRG\HowTo.st
+# --------------------------------------------------
+# PROGRAM HowTo
+# VAR
+# 	MQTT_IN_OUT:MQTT.MQTT_IN_OUT;
+# 	//HandleMQTT:SD_MQTT.HANDLE_MQTT;
+# 	FirstPublish:FirstPublish;
+# 	FirstSubscription:FirstSubscription;
+# END_VAR
+# 
+# MQTT_IN_OUT.clientFB(
+# 	MQTT_IN_OUT:= MQTT_IN_OUT, 
+# 	ENABLE:= TRUE, 
+# 	URL:= 'test.mosquitto.org:1883', 
+# 	TIMEOUT:= T#2S, 
+# 	TLS:= FALSE);
+# 	
+# FirstPublish();
+# FirstSubscription();
+# --------------------------------------------------
+
+
+FUNCTION_BLOCK FirstPublish
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR

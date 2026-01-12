@@ -1,0 +1,28 @@
+{
+  "name": "GetBufferSize",
+  "type": "Function",
+  "signature": "FUNCTION GetBufferSize : CAA.SIZE",
+  "return_type": "CAA.SIZE",
+  "description": "Get the size of the segmented buffer in bytes",
+  "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/CAA-Segemented-Buffer-Manager/Functions/Buffer/GetBufferSize.html",
+  "parameters": [
+    {
+      "scope": "Return",
+      "name": "GetBufferSize",
+      "type": "CAA.SIZE",
+      "comment": "Get the buffer size in bytes"
+    },
+    {
+      "scope": "Input",
+      "name": "hBuffer",
+      "type": "CAA.HANDLE",
+      "comment": "Handle to the buffer created by CreateBuffer"
+    },
+    {
+      "scope": "Input",
+      "name": "peError",
+      "type": "POINTER TO ERROR",
+      "comment": "Local library ERROR ID"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "GetLibVersion",
+  "type": "Function",
+  "signature": "FUNCTION GetLibVersion : STRING",
+  "return_type": "STRING",
+  "description": "This function retrieves the version of the library.",
+  "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/index.html#id1",
+  "parameters": [],
+  "extra": {
+    "library": "CAA Segmented Buffer Manager Extern",
+    "version": "3.5.11.0",
+    "namespace": "SBM",
+    "author": "3S - Smart Software Solutions GmbH"
+  }
+}

@@ -1,0 +1,23 @@
+名称: Iterators
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/ObjectDictionary/Iterators/fld-Iterators.html
+
+============================================================
+
+Docs
+»
+ObjectDictionary
+»
+Iterators
+Iterators
+¶
+Iterators for simple iterating through the ObjectDictionary of a slave.
+ObjectIterator (FunctionBlock)
+Current (Property)
+MoveNext (Method)
+ObjectDictionary (Property)
+Reset (Method)
+SubObjectIterator (FunctionBlock)
+Current (Property)
+MoveNext (Method)
+Object (Property)
+Reset (Method)

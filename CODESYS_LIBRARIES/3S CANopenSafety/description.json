@@ -1,0 +1,21 @@
+{
+  "description": "CANopenSafety stack provided by 3S Smart Software Solutions GmbH. The stack uses the the unsecure CANopenStack as grey communication channel.",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSafety/Current/index.html",
+  "extra": {
+    "title": "3S CANopenSafety",
+    "version": "4.3.0.0",
+    "categories": "Intern|CANbus",
+    "namespace": "_3SCOSS",
+    "author": "CODESYS Development GmbH",
+    "contents": [
+      "_3SCANopenSafety",
+      "BufferSizes (ParamList)",
+      "Function Blocks",
+      "Indices and tables"
+    ],
+    "last_modified": "23.01.2025, 16:37:10",
+    "libdoc_version": "4.5.0.0",
+    "generated_with": "CODESYS V3.5 SP16 Patch 3",
+    "generation_date": "23.01.2025, 16:37:12"
+  }
+}

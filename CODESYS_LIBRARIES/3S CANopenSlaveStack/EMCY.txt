@@ -1,0 +1,16 @@
+名称: EMCY
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/CANopen-Help-Functions/EMCY/fld-EMCY.html
+
+============================================================
+
+Docs
+»
+CANopen
+Help
+Functions
+»
+EMCY
+EMCY
+¶
+DecodeEmcyCOBID (Function)
+EncodeEmcyCOBID (Function)

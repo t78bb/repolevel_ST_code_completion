@@ -1,0 +1,22 @@
+名称: IsLibReleased (Function)
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/Library-Information/IsLibReleased.html
+
+============================================================
+
+Docs
+»
+Library
+Information
+»
+IsLibReleased (FUN)
+IsLibReleased (FUN)
+¶
+FUNCTION IsLibReleased : BOOL
+This function has been automatically generated from the project information.
+InOut:
+Scope
+Name
+Type
+Return
+IsLibReleased
+BOOL

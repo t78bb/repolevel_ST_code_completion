@@ -1,0 +1,130 @@
+{
+  "success": [],
+  "failed": [
+    {
+      "project": "repoeval_Builder_Application_RPI",
+      "returncode": -1,
+      "error": "No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\output for dataset: repoeval_Builder_Application_RPI\nTraceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\batch_retrieval_from_query.py\", line 103, in main\n    retrieval_main(retrieval_args)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 224, in main\n    raise ValueError(f\"No matching data directories found in {data_base_dir} for dataset: {args.dataset}\")\nValueError: No matching data directories found in D:\\graduate_pro"
+    },
+    {
+      "project": "repoeval_Command1",
+      "returncode": -1,
+      "error": "No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\output for dataset: repoeval_Command1\nTraceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\batch_retrieval_from_query.py\", line 103, in main\n    retrieval_main(retrieval_args)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 224, in main\n    raise ValueError(f\"No matching data directories found in {data_base_dir} for dataset: {args.dataset}\")\nValueError: No matching data directories found in D:\\graduate_pro"
+    },
+    {
+      "project": "repoeval_Decorator_Application",
+      "returncode": -1,
+      "error": "No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\output for dataset: repoeval_Decorator_Application\nTraceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\batch_retrieval_from_query.py\", line 103, in main\n    retrieval_main(retrieval_args)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 224, in main\n    raise ValueError(f\"No matching data directories found in {data_base_dir} for dataset: {args.dataset}\")\nValueError: No matching data directories found in D:\\graduate_pro"
+    },
+    {
+      "project": "repoeval_GreatExampleOfAdvantages",
+      "returncode": -1,
+      "error": "No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\output for dataset: repoeval_GreatExampleOfAdvantages\nTraceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\batch_retrieval_from_query.py\", line 103, in main\n    retrieval_main(retrieval_args)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 224, in main\n    raise ValueError(f\"No matching data directories found in {data_base_dir} for dataset: {args.dataset}\")\nValueError: No matching data directories found in D:\\graduate_pro"
+    },
+    {
+      "project": "repoeval_Interation_HowTo",
+      "returncode": -1,
+      "error": "No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\output for dataset: repoeval_Interation_HowTo\nTraceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\batch_retrieval_from_query.py\", line 103, in main\n    retrieval_main(retrieval_args)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 224, in main\n    raise ValueError(f\"No matching data directories found in {data_base_dir} for dataset: {args.dataset}\")\nValueError: No matching data directories found in D:\\graduate_pro"
+    },
+    {
+      "project": "repoeval_ProductionLine",
+      "returncode": -1,
+      "error": "No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\output for dataset: repoeval_ProductionLine\nTraceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\batch_retrieval_from_query.py\", line 103, in main\n    retrieval_main(retrieval_args)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 224, in main\n    raise ValueError(f\"No matching data directories found in {data_base_dir} for dataset: {args.dataset}\")\nValueError: No matching data directories found in D:\\graduate_pro"
+    },
+    {
+      "project": "repoeval_Proxy_Application",
+      "returncode": -1,
+      "error": "No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\output for dataset: repoeval_Proxy_Application\nTraceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\batch_retrieval_from_query.py\", line 103, in main\n    retrieval_main(retrieval_args)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 224, in main\n    raise ValueError(f\"No matching data directories found in {data_base_dir} for dataset: {args.dataset}\")\nValueError: No matching data directories found in D:\\graduate_pro"
+    },
+    {
+      "project": "repoeval_Wrappers",
+      "returncode": -1,
+      "error": "No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\output for dataset: repoeval_Wrappers\nTraceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\batch_retrieval_from_query.py\", line 103, in main\n    retrieval_main(retrieval_args)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 224, in main\n    raise ValueError(f\"No matching data directories found in {data_base_dir} for dataset: {args.dataset}\")\nValueError: No matching data directories found in D:\\graduate_pro"
+    },
+    {
+      "project": "repoeval_assembly-station",
+      "returncode": -1,
+      "error": "No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\output for dataset: repoeval_assembly-station\nTraceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\batch_retrieval_from_query.py\", line 103, in main\n    retrieval_main(retrieval_args)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 224, in main\n    raise ValueError(f\"No matching data directories found in {data_base_dir} for dataset: {args.dataset}\")\nValueError: No matching data directories found in D:\\graduate_pro"
+    },
+    {
+      "project": "repoeval_elevator",
+      "returncode": -1,
+      "error": "No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\output for dataset: repoeval_elevator\nTraceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\batch_retrieval_from_query.py\", line 103, in main\n    retrieval_main(retrieval_args)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 224, in main\n    raise ValueError(f\"No matching data directories found in {data_base_dir} for dataset: {args.dataset}\")\nValueError: No matching data directories found in D:\\graduate_pro"
+    },
+    {
+      "project": "repoeval_plc_hello_mixing_tank",
+      "returncode": -1,
+      "error": "No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\output for dataset: repoeval_plc_hello_mixing_tank\nTraceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\batch_retrieval_from_query.py\", line 103, in main\n    retrieval_main(retrieval_args)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 224, in main\n    raise ValueError(f\"No matching data directories found in {data_base_dir} for dataset: {args.dataset}\")\nValueError: No matching data directories found in D:\\graduate_pro"
+    },
+    {
+      "project": "repoeval_三轴CNC运动实训",
+      "returncode": -1,
+      "error": "No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\output for dataset: repoeval_三轴CNC运动实训\nTraceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\batch_retrieval_from_query.py\", line 103, in main\n    retrieval_main(retrieval_args)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 224, in main\n    instance_list = [i for i in os.listdir(data_base_dir)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: No matching data directories found in D:\\gra"
+    },
+    {
+      "project": "repoeval_交通信号灯控制实训",
+      "returncode": -1,
+      "error": "No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\output for dataset: repoeval_交通信号灯控制实训\nTraceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\batch_retrieval_from_query.py\", line 103, in main\n    retrieval_main(retrieval_args)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 224, in main\n    instance_list = [i for i in os.listdir(data_base_dir)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: No matching data directories found in D:\\gra"
+    },
+    {
+      "project": "repoeval_四层电梯控制实训",
+      "returncode": -1,
+      "error": "No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\output for dataset: repoeval_四层电梯控制实训\nTraceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\batch_retrieval_from_query.py\", line 103, in main\n    retrieval_main(retrieval_args)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 224, in main\n    instance_list = [i for i in os.listdir(data_base_dir)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: No matching data directories found in D:\\gra"
+    },
+    {
+      "project": "repoeval_开放式双轴卷绕机编程开发实训",
+      "returncode": -1,
+      "error": "No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\output for dataset: repoeval_开放式双轴卷绕机编程开发实训\nTraceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\batch_retrieval_from_query.py\", line 103, in main\n    retrieval_main(retrieval_args)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 224, in main\n    instance_list = [i for i in os.listdir(data_base_dir)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: No matching data directories found in D:\\gra"
+    },
+    {
+      "project": "repoeval_测量控件",
+      "returncode": -1,
+      "error": "No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\output for dataset: repoeval_测量控件\nTraceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\batch_retrieval_from_query.py\", line 103, in main\n    retrieval_main(retrieval_args)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 224, in main\n    raise FileNotFoundError(f\"Data base directory does not exist: {data_base_dir}\")\nValueError: No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_p"
+    },
+    {
+      "project": "repoeval_电子凸轮运动实训",
+      "returncode": -1,
+      "error": "No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\output for dataset: repoeval_电子凸轮运动实训\nTraceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\batch_retrieval_from_query.py\", line 103, in main\n    retrieval_main(retrieval_args)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 224, in main\n    raise FileNotFoundError(f\"Data base directory does not exist: {data_base_dir}\")\nValueError: No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_p"
+    },
+    {
+      "project": "repoeval_电子齿轮运动实训",
+      "returncode": -1,
+      "error": "No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\output for dataset: repoeval_电子齿轮运动实训\nTraceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\batch_retrieval_from_query.py\", line 103, in main\n    output_file=\"outputs.json\",\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 224, in main\n    raise FileNotFoundError(f\"Data base directory does not exist: {data_base_dir}\")\nValueError: No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\"
+    },
+    {
+      "project": "repoeval_读写文件",
+      "returncode": -1,
+      "error": "No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\output for dataset: repoeval_读写文件\nTraceback (most recent call last):\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\batch_retrieval_from_query.py\", line 103, in main\n    output_file=\"outputs.json\",\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\graduate_project\\项目级st补全\\repo_gen_project\\retrieve\\eval_beir_sbert_canonical.py\", line 224, in main\n    raise FileNotFoundError(f\"Data base directory does not exist: {data_base_dir}\")\nValueError: No matching data directories found in D:\\graduate_project\\项目级st补全\\repo_gen_project\\"
+    }
+  ],
+  "skipped": [
+    {
+      "project": "repoeval_FB50_虚轴控制",
+      "reason": "没有 JSON 文件"
+    },
+    {
+      "project": "repoeval_PID_controller",
+      "reason": "没有 JSON 文件"
+    },
+    {
+      "project": "repoeval_PT1Filter",
+      "reason": "没有 JSON 文件"
+    },
+    {
+      "project": "repoeval_Robotics_DynamicModel",
+      "reason": "没有 JSON 文件"
+    },
+    {
+      "project": "repoeval__assembly-station_",
+      "reason": "没有 JSON 文件"
+    },
+    {
+      "project": "repoeval_counter",
+      "reason": "没有 JSON 文件"
+    },
+    {
+      "project": "repoeval_isScaleOutput",
+      "reason": "没有 JSON 文件"
+    }
+  ]
+}

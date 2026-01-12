@@ -1,0 +1,4 @@
+{
+  "description": "This function block implements a CANopen Safety SIL2 I/O driver. The safe I/O driver is realized through a black channel approach. The safe driver sits on top of an unsafe CANopen Stack. Communication is realized over a shared memory. The manager function block manages all instances of CANRemoteDeviceSafe.",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSafety/Current/_3SCANopenSafety/Function-Blocks/CANopenManagerSIL2.html"
+}

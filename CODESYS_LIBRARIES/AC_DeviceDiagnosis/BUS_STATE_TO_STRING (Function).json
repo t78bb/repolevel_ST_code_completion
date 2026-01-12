@@ -1,0 +1,22 @@
+{
+  "name": "BUS_STATE_TO_STRING",
+  "type": "Function",
+  "signature": "FUNCTION BUS_STATE_TO_STRING : STRING",
+  "return_type": "STRING",
+  "description": "Converts a DED.BUS_STATE enumeration to a speaking string",
+  "url": "https://content.helpme-codesys.com/en/libs/AC_DeviceDiagnosis/Current/DeviceDiagnosisInfo/BUS_STATE_TO_STRING.html",
+  "parameters": [
+    {
+      "scope": "Return",
+      "name": "BUS_STATE_TO_STRING",
+      "type": "STRING",
+      "comment": ""
+    },
+    {
+      "scope": "Input",
+      "name": "sState",
+      "type": "DED.BUS_STATE",
+      "comment": "The bus state to convert into a speaking string"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "States",
+  "type": "Function",
+  "signature": "FUNCTION States : VOID",
+  "return_type": "VOID",
+  "description": "Methods called in a specific state.",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSafety Slave/Current/_3SCANopenSafetySlave/Function-Blocks/pou-CANopenDeviceSIL2/State-Machine/States/fld-States.html",
+  "parameters": [],
+  "extra": {
+    "methods": [
+      "CheckConfiguration",
+      "CheckConfiguration and Stopped",
+      "Operational"
+    ]
+  }
+}

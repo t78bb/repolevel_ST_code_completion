@@ -1,0 +1,95 @@
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 四层电梯控制实训-FUN\F_SetElevatorDirection.st
+# --------------------------------------------------
+# FUNCTION F_SetElevatorDirection
+# VAR_INPUT
+# 	nCurrentFloor	:	USINT;		//当前楼层
+# 	nTargetFloor	:	USINT;		//目标楼层
+# END_VAR
+# 
+# // 根据当前楼层和目标楼层设定电梯运行方向
+# IF nTargetFloor > nCurrentFloor THEN
+# 	// 目标楼层高于当前楼层，电梯上升
+# 	Tar_Dir.IsPositive := TRUE;
+# 	Tar_Dir.IsNegative := FALSE;
+# ELSIF nTargetFloor < nCurrentFloor THEN
+# 	// 目标楼层低于当前楼层，电梯下降
+# 	Tar_Dir.IsPositive := FALSE;
+# 	Tar_Dir.IsNegative := TRUE;
+# END_IF
+# // 如果目标楼层等于当前楼层，不改变方向
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 四层电梯控制实训-global\GVL_Input.st
+# --------------------------------------------------
+# VAR_GLOBAL
+# 	IGoFloor	:	ARRAY[1..MaxNumFloor] OF BOOL;  //电梯里面
+# 	ICallHelp	:	BOOL;
+# 	IClose		:	BOOL;
+# 	IOpen		:	BOOL;
+# 	IIsClose	:	BOOL;
+# 	IIsOpen		:	BOOL;
+# 	
+# 	IIsFloor	:	ARRAY[1..MaxNumFloor] OF BOOL := [TRUE];//电梯停在一层
+# 	
+# 	IFloorUp	:	ARRAY[1..MaxNumFloor - 1] OF BOOL; //电梯外面
+# 	IFloorDown	:	ARRAY[2..MaxNumFloor] OF BOOL;
+# 
+# 	IReset		:	BOOL;
+# 	IRespondHelp	:	BOOL;
+# END_VAR
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 四层电梯控制实训-FUN\F_ClearFloorStop.st
+# --------------------------------------------------
+# FUNCTION F_ClearFloorStop
+# VAR_INPUT
+# 	nFloor			:	USINT;		//楼层号
+# 	bClearUpStop	:	BOOL;		//是否清除上升停靠标志
+# 	bClearDownStop	:	BOOL;		//是否清除下降停靠标志
+# 	bClearStopFloor	:	BOOL;		//是否清除楼层停靠标志
+# END_VAR
+# 
+# // 清除楼层停靠标志
+# IF bClearUpStop AND (nFloor <= MaxNumFloor - 1) THEN
+# 	Tar_Dir.IsUpStop[nFloor] := FALSE;
+# 	QFloorUpLed[nFloor] := FALSE;
+# END_IF
+# 
+# IF bClearDownStop AND (nFloor >= 2) THEN
+# 	Tar_Dir.IsDownStop[nFloor] := FALSE;
+# 	QFloorDownLed[nFloor] := FALSE;
+# END_IF
+# 
+# IF bClearStopFloor THEN
+# 	Tar_Dir.IsStopFloor[nFloor] := FALSE;
+# END_IF
+# 
+# // 清除电梯内按钮LED
+# IF bClearStopFloor THEN
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 四层电梯控制实训-FUN\F_ClearFloorStop.st
+# --------------------------------------------------
+# FUNCTION F_ClearFloorStop
+# VAR_INPUT
+# 	nFloor			:	USINT;		//楼层号
+# 	bClearUpStop	:	BOOL;		//是否清除上升停靠标志
+# 	bClearDownStop	:	BOOL;		//是否清除下降停靠标志
+# 	bClearStopFloor	:	BOOL;		//是否清除楼层停靠标志
+# END_VAR
+# 
+# // 清除楼层停靠标志
+# IF bClearUpStop AND (
+
+FUNCTION F_CheckJobInDirection : BOOL
+VAR_INPUT
+	nStartFloor		:	USINT;		//起始楼层
+	nEndFloor		:	USINT;		//结束楼层
+	bIncreasing		:	BOOL;		//TRUE=向上检查（递增），FALSE=向下检查（递减）
+END_VAR

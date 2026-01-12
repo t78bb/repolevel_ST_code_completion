@@ -1,0 +1,21 @@
+{
+  "description": "CANopenSafety slave stack provided by 3S Smart Software Solutions GmbH. The stack uses the the unsecure CANopen Slave Stack as grey communication channel.",
+  "url": "https://content.helpme-codesys.com/en/libs/3S%20CANopenSafety%20Slave/Current/index.html",
+  "extra": {
+    "title": "3S CANopenSafety Slave",
+    "version": "4.3.0.0",
+    "categories": "Intern|CANbus",
+    "namespace": "_3SCSSD",
+    "author": "CODESYS Development GmbH",
+    "placeholder": "3S CANopenSafety Slave",
+    "contents": [
+      "_3SCANopenSafetySlave",
+      "BufferSizes (ParamList)",
+      "Function Blocks",
+      "Indices and tables"
+    ],
+    "last_modified": "23.01.2025, 16:37:32",
+    "libdoc_version": "4.5.0.0",
+    "generation_info": "The content file 3S CANopenSafety Slave.clean.json was generated with CODESYS V3.5 SP16 Patch 3 on 23.01.2025, 16:37:34."
+  }
+}

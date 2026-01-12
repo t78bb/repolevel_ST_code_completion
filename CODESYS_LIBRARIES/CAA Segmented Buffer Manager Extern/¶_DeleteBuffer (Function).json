@@ -1,0 +1,22 @@
+{
+  "name": "DeleteBuffer",
+  "type": "Function",
+  "signature": "FUNCTION DeleteBuffer : ERROR",
+  "return_type": "ERROR",
+  "description": "Delete a segmented buffer",
+  "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/CAA-Segemented-Buffer-Manager/Functions/Buffer/DeleteBuffer.html",
+  "parameters": [
+    {
+      "scope": "Return",
+      "name": "DeleteBuffer",
+      "type": "ERROR",
+      "comment": "Local library ERROR ID"
+    },
+    {
+      "scope": "Input",
+      "name": "hBuffer",
+      "type": "CAA.HANDLE",
+      "comment": "Handle to the buffer created by CreateBuffer"
+    }
+  ]
+}

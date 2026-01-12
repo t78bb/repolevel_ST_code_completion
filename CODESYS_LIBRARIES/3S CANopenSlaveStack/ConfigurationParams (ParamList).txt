@@ -1,0 +1,22 @@
+名称: ConfigurationParams (ParamList)
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/ConfigurationParams.html
+
+============================================================
+
+Docs
+»
+ConfigurationParams (PARAMS)
+ConfigurationParams (PARAMS)
+¶
+InOut:
+Scope
+Name
+Type
+Initial
+Comment
+Constant
+gc_udiMaxODCallbacks
+UDINT
+3
+Maximal number of callbacks that can registered to the Object Dictionary of a slave.
+One callback will be always used by the CANopen Slave Stack.

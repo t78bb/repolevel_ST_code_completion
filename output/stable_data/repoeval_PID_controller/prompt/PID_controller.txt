@@ -1,0 +1,129 @@
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# PID_controller-Progs\Test_PID.st
+# --------------------------------------------------
+# PROGRAM Test_PID
+# VAR
+# 	PID_0: PID_controller;
+# 	RedBull: Tank;
+# 	Process_out: REAL := 100;
+# 	SetPoint: REAL := 250;
+# END_VAR
+# 
+# VAR CONSTANT
+# END_VAR
+# 
+# PID_0(
+#     SP := SetPoint,                // 设定值：目标液位250
+#     PV := RedBull.Level,              // 过程值：储罐当前液位（反馈）
+#     Kc := 2,                  // 比例增益2.0
+#     Ti := 15,                  // 积分时间15.0
+#     Td := 1,                  // 微分时间1.0
+#     SampleTime := T#100ms,  // 采样时间100ms
+#     LowerLimit := 0,  // 输出下限0
+#     UpperLimit := 150,  // 输出上限150
+#     CO => ,                  // PID输出：控制储罐的输入流量
+#     CO_P => ,                      // 比例部分输出（未使用可留空）
+#     CO_I => ,                      // 积分部分输出（未使用可留空）
+#     CO_D =>                        // 微分部分输出（未使用可留空）
+# );
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# PID_controller-Progs\Test_PID_Heatx.st
+# --------------------------------------------------
+# PROGRAM Test_PID_Heatx
+# VAR
+# 	PID_0: PID_controller;
+# 	Process_out: REAL := 100;
+# 	SetPoint: REAL := 20;
+# 	A_room_with_a_view: HeatExchanger;
+# END_VAR
+# 
+# VAR CONSTANT
+# END_VAR
+# 
+# PID_0(
+#     SP := SetPoint,
+#     PV := A_room_with_a_view.PV,
+#     Kc := 5.0,
+#     Ti := 10.0,
+#     Td := 1.0,
+#     SampleTime := T#2000ms,
+#     LowerLimit := 0,
+#     UpperLimit := 150,
+#     CO => ,  // 若不需要单独使用 CO 等输出，可留空，或根据需求定义变量接收
+#     CO_P => ,
+#     CO_I => ,
+#     CO_D => 
+# );
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# PID_controller-Progs\Test_PID.st
+# --------------------------------------------------
+# PROGRAM Test_PID
+# VAR
+# 	PID_0: PID_controller;
+# 	RedBull: Tank;
+# 	Process_out: REAL := 100;
+# 	SetPoint: REAL := 250;
+# END_VAR
+# 
+# VAR CONSTANT
+# END_VAR
+# 
+# PID_0(
+#     SP := SetPoint,                // 设定值：目标液位250
+#     PV := RedBull.Level,              // 过程值：储罐当前液位（反馈）
+#     Kc := 2,                  // 比例增益2.0
+#     Ti := 15,                  // 积分时间15.0
+#     Td := 1,                  // 微分时间1.0
+#     SampleTime := T#100ms,  // 采样时间100ms
+#     LowerLimit := 0,  // 输出下限0
+#     UpperLimit := 150,  // 输出上限150
+#     CO => ,                  // PID输出：控制储罐的输入流量
+#     CO_P => ,                      // 比例部分输出（未使用可留空）
+#     CO_I => ,                      // 积分部分输出（未使用可留空）
+#     CO_D =>                        // 微分部分输出（未使用可留空）
+# );
+# 
+# // 2. 调用储罐功能块
+# RedBull(
+#     Process_In := PID_0.CO,          // 输入流量：PID的输出CO
+#     Process_Out := Process_out,    // 输出流量：100（外部定义）
+#     Sample_time := T#250ms,// 采样时间250ms
+#     Lower_limit := 0
+
+//***************************************************************
+//* A simple PID controller for Codesys.
+//* by Alexander Jaworowski
+//* Inspiration from https://github.com/br3ttb/Arduino-PID-Library
+//* https://github.com/alexjaw/PID_controller
+//* This Library is licensed under a MIT License
+//
+// 2015-02-22	Bug fix in the calculation of CO_I.
+//				Added derivative term (d(err)/dt = -d(PV)/dt, i.e.
+//				derivative on measurements
+//***************************************************************
+FUNCTION_BLOCK PID_controller
+VAR_INPUT
+	SP : REAL;
+	PV : REAL;
+	Kc : REAL;
+	Ti : REAL;
+	Td : REAL;
+	SampleTime: TIME; //Should be ~0.1 * Tp, Tp : the process time [http://www.controlguru.com/2007/012807.html]
+	LowerLimit: REAL;
+	UpperLimit: REAL;
+END_VAR
+VAR_OUTPUT
+	CO: REAL; //Controller Output
+	CO_P: REAL; //Prportional term
+	CO_I: REAL; //Integral term
+	CO_D: REAL; //Derivative term
+END_VAR
+VAR CONSTANT
+	millis: UINT := 1000;
+END_VAR

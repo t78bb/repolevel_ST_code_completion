@@ -1,0 +1,38 @@
+{
+  "functions": [
+    {
+      "name": "GetLibVersion",
+      "type": "Function",
+      "signature": "FUNCTION GetLibVersion : STRING",
+      "return_type": "STRING",
+      "description": "Retrieves the version of the library as a string.",
+      "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/index.html#indices-and-tables",
+      "parameters": []
+    },
+    {
+      "name": "GetLibVersionNumber",
+      "type": "Function",
+      "signature": "FUNCTION GetLibVersionNumber : DWORD",
+      "return_type": "DWORD",
+      "description": "Retrieves the version number of the library as a DWORD.",
+      "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/index.html#indices-and-tables",
+      "parameters": []
+    },
+    {
+      "name": "IsLibReleased",
+      "type": "Function",
+      "signature": "FUNCTION IsLibReleased : BOOL",
+      "return_type": "BOOL",
+      "description": "Checks if the library is released.",
+      "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/index.html#indices-and-tables",
+      "parameters": []
+    }
+  ],
+  "extra": {
+    "library_name": "CAA Segmented Buffer Manager Extern",
+    "version": "3.5.11.0",
+    "author": "3S - Smart Software Solutions GmbH",
+    "description": "This library provides a set of functions for handling different segments of one huge buffer, joining segments or splitting buffers in segments. This is done without copying the content all the time. The functions try to reference the segments instead of copy them and manage the segments in double linked lists."
+  },
+  "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/index.html#indices-and-tables"
+}

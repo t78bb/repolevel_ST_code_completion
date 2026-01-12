@@ -1,0 +1,12 @@
+{
+  "name": null,
+  "type": "Function",
+  "signature": null,
+  "return_type": null,
+  "description": null,
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSafety/Current/index.html#indices-and-tables",
+  "parameters": [],
+  "extra": {
+    "content": "3S CANopenSafety Library Documentation\n3S CANopenSafety Library Documentation\nCompany\nTitle\n3S CANopenSafety\nVersion\n4.3.0.0\nCategories\nIntern|CANbus\nNamespace\n_3SCOSS\nAuthor\nCODESYS Development GmbH\nPlaceholder\n3S CANopenSafety\nDescription\nCANopenSafety stack provided by 3S Smart Software Solutions GmbH. The stack uses the the unsecure CANopenStack as grey communication channel.\nContents:\n_3SCANopenSafety\nBufferSizes (ParamList)\nFunction Blocks\nIndices and tables\nBased on 3S CANopenSafety.library, last modified 23.01.2025, 16:37:10. LibDoc 4.5.0.0\nThe content file 3S CANopenSafety.clean.json was generated with CODESYS V3.5 SP16 Patch 3 on 23.01.2025, 16:37:12."
+  }
+}

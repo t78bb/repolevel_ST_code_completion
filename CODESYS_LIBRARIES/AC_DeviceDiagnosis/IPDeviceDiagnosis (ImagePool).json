@@ -1,0 +1,8 @@
+{
+  "description": "IPDeviceDiagnosis (Image Pool)",
+  "url": "https://content.helpme-codesys.com/en/libs/AC_DeviceDiagnosis/Current/IPDeviceDiagnosis.html",
+  "extra": {
+    "file_name": "DiagnosisIcon.png",
+    "link_type": "Embedded"
+  }
+}

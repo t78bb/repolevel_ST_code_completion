@@ -1,0 +1,9 @@
+{
+  "name": "CheckConfiguration and Stopped",
+  "type": "Function",
+  "signature": "FUNCTION CheckConfiguration and Stopped : VOID",
+  "return_type": "VOID",
+  "description": "Methods called in CheckConfiguration and stopped state.",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSafety/Current/_3SCANopenSafety/Function-Blocks/pou-CANRemoteDeviceSafe/State-Machine/States/CheckConfiguration-and-Stopped/fld-CheckConfiguration-and-Stopped.html",
+  "parameters": []
+}

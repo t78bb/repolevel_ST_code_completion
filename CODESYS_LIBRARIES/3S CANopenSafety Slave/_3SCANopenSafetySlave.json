@@ -1,0 +1,22 @@
+{
+  "name": "CheckConfiguration",
+  "type": "Function",
+  "signature": "FUNCTION CheckConfiguration : BOOL",
+  "return_type": "BOOL",
+  "description": "This function checks the configuration of the CANopen Safety Slave device.",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSafety Slave/Current/_3SCANopenSafetySlave/fld-_3SCANopenSafetySlave.html",
+  "parameters": [],
+  "extra": {
+    "related_topics": [
+      "BufferSizes (ParamList)",
+      "Function Blocks",
+      "CANopenDeviceSIL2 (FunctionBlock)",
+      "Cyclic-Methods-state-independent",
+      "State-Machine",
+      "State Transitions",
+      "States",
+      "CheckConfiguration and Stopped",
+      "Operational"
+    ]
+  }
+}

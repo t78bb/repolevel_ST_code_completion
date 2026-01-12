@@ -1,0 +1,49 @@
+名称: ¶
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSafety/Current/index.html#contents
+
+============================================================
+
+Docs
+»
+3S CANopenSafety Library Documentation
+3S CANopenSafety Library Documentation
+¶
+Company
+:
+CODESYS
+Title
+:
+3S CANopenSafety
+Version
+:
+4.3.0.0
+Categories
+:
+Intern|CANbus
+Namespace
+:
+_3SCOSS
+Author
+:
+CODESYS Development GmbH
+Placeholder
+:
+3S CANopenSafety
+Description
+[
+1
+]
+¶
+CANopenSafety stack provided by 3S Smart Software Solutions GmbH. The stack uses the the unsecure CANopenStack as grey communication channel.
+Contents:
+¶
+_3SCANopenSafety
+BufferSizes (ParamList)
+Function Blocks
+Indices and tables
+¶
+[
+1
+]
+Based on 3S CANopenSafety.library, last modified 23.01.2025, 16:37:10. LibDoc 4.5.0.0
+The content file 3S CANopenSafety.clean.json was generated with CODESYS V3.5 SP16 Patch 3 on 23.01.2025, 16:37:12.

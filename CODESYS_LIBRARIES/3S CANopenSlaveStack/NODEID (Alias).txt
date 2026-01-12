@@ -1,0 +1,15 @@
+名称: NODEID (Alias)
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/Range-Types/NODEID.html
+
+============================================================
+
+Docs
+»
+Range
+Types
+»
+NODEID (ALIAS)
+NODEID (ALIAS)
+¶
+TYPE NODEID : USINT (1..127)
+Defines a CANopen NodeID

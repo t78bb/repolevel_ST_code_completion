@@ -1,0 +1,33 @@
+{
+  "description": "This function block is used by the application composer to create the device diagnosis visualization. Each instances of this function block get initialized by code the composer creates, which connects it to an existing device PLC. Each instance then offers functionalities to get the state, type, etc. of an existing device, or to start, stop, etc. it. Note: Usually this function block does not need to be used by any IEC programmer.",
+  "url": "https://content.helpme-codesys.com/en/libs/AC_DeviceDiagnosis/Current/DeviceDiagnosisInfo/DeviceDiagnosisInfo.html",
+  "extra": {
+    "InOut": {
+      "Output": {
+        "uiName": "UINT - The index of the name of the device diagnosed by this function block as entry of a text list.",
+        "pName": "POINTER TO STRING - A pointer to a string containing the name of the device diagnosed by this function block.",
+        "dwDeviceErrorCode": "DWORD - The current device error code if available.",
+        "stDeviceDiagnosis": "STRING - The current device diagnosis text if available.",
+        "stDeviceSpecificState": "STRING - The current device diagnosis state if available.",
+        "stDeviceSpecificError": "STRING - The current device diagnosis error if available.",
+        "dwBusErrorCode": "DWORD - The current bus error of a bus-device if available.",
+        "stBusDiagnosis": "STRING - The current bus diagnosis text of a bus-device if available.",
+        "dwErrorCode": "DWORD - The common error code of this function block if available."
+      }
+    },
+    "Properties": [
+      "BusState",
+      "BusType",
+      "DeviceState",
+      "DeviceType"
+    ],
+    "Methods": [
+      "CheckForCommands",
+      "Initialize",
+      "OnAfterOnlineChange",
+      "ResetDevice",
+      "StartDevice",
+      "StopDevice"
+    ]
+  }
+}

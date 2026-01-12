@@ -1,0 +1,9 @@
+{
+  "name": "CheckConfiguration",
+  "type": "Function",
+  "signature": "FUNCTION CheckConfiguration : VOID",
+  "return_type": "VOID",
+  "description": "Methods called in CheckConfiguration state.",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSafety Slave/Current/_3SCANopenSafetySlave/Function-Blocks/pou-CANopenDeviceSIL2/State-Machine/States/CheckConfiguration/fld-CheckConfiguration.html",
+  "parameters": []
+}

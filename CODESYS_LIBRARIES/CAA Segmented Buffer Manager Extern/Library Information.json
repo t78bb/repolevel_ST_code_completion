@@ -1,0 +1,9 @@
+{
+  "name": "GetLibVersion",
+  "type": "Function",
+  "signature": "FUNCTION GetLibVersion : STRING",
+  "return_type": "STRING",
+  "description": "Retrieves the version of the library as a string.",
+  "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/Library-Information/fld-Library-Information.html",
+  "parameters": []
+}

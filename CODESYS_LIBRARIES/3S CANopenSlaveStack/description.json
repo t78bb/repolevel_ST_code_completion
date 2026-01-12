@@ -1,0 +1,18 @@
+{
+  "description": "3S CANopenSlave Stack: Implementation of a CANopen Slave device with full object dictionary capabilities.",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/index.html",
+  "extra": {
+    "title": "3S CANopenSlaveStack",
+    "version": "4.3.0.0",
+    "categories": "Intern|CANbus",
+    "namespace": "_3SCSS",
+    "author": "CODESYS Development GmbH",
+    "placeholder": "3S CANopenSlave",
+    "library_information": {
+      "last_modified": "23.01.2025, 16:38:01",
+      "libdoc_version": "4.5.0.0",
+      "generated_with": "CODESYS V3.5 SP16 Patch 3",
+      "content_file": "3S CANopenSlaveStack.clean.json"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "ChainBuffer",
+  "type": "Function",
+  "signature": "FUNCTION ChainBuffer : CAA.HANDLE",
+  "return_type": "CAA.HANDLE",
+  "description": "Split the buffer into a chain of segments",
+  "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/CAA-Segemented-Buffer-Manager/Functions/Buffer/ChainBuffer.html",
+  "parameters": [
+    {
+      "scope": "Return",
+      "name": "ChainBuffer",
+      "type": "CAA.HANDLE",
+      "comment": "Handle to the buffer"
+    },
+    {
+      "scope": "Input",
+      "name": "hHead",
+      "type": "CAA.HANDLE",
+      "comment": "Head hBuffer"
+    },
+    {
+      "scope": "Input",
+      "name": "hTail",
+      "type": "CAA.HANDLE",
+      "comment": "Tail hBuffer"
+    },
+    {
+      "scope": "Input",
+      "name": "peError",
+      "type": "POINTER TO ERROR",
+      "comment": "Local library ERROR ID"
+    }
+  ]
+}

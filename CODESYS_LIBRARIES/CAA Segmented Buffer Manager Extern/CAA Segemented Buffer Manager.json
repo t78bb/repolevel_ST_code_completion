@@ -1,0 +1,50 @@
+{
+  "functions": [
+    {
+      "name": "ChainBuffer",
+      "type": "Function",
+      "signature": "FUNCTION ChainBuffer : BOOL",
+      "return_type": "BOOL",
+      "description": "Chains two buffers together.",
+      "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/CAA-Segemented-Buffer-Manager/fld-CAA-Segemented-Buffer-Manager.html",
+      "parameters": []
+    },
+    {
+      "name": "CopyBufferData",
+      "type": "Function",
+      "signature": "FUNCTION CopyBufferData : BOOL",
+      "return_type": "BOOL",
+      "description": "Copies data from one buffer to another.",
+      "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/CAA-Segemented-Buffer-Manager/fld-CAA-Segemented-Buffer-Manager.html",
+      "parameters": []
+    },
+    {
+      "name": "CreateBuffer",
+      "type": "Function",
+      "signature": "FUNCTION CreateBuffer : BOOL",
+      "return_type": "BOOL",
+      "description": "Creates a new buffer.",
+      "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/CAA-Segemented-Buffer-Manager/fld-CAA-Segemented-Buffer-Manager.html",
+      "parameters": []
+    },
+    {
+      "name": "DeleteBuffer",
+      "type": "Function",
+      "signature": "FUNCTION DeleteBuffer : BOOL",
+      "return_type": "BOOL",
+      "description": "Deletes an existing buffer.",
+      "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/CAA-Segemented-Buffer-Manager/fld-CAA-Segemented-Buffer-Manager.html",
+      "parameters": []
+    },
+    {
+      "name": "GetBufferSize",
+      "type": "Function",
+      "signature": "FUNCTION GetBufferSize : DWORD",
+      "return_type": "DWORD",
+      "description": "Gets the size of a buffer.",
+      "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/CAA-Segemented-Buffer-Manager/fld-CAA-Segemented-Buffer-Manager.html",
+      "parameters": []
+    }
+  ],
+  "url": "https://content.helpme-codesys.com/en/libs/CAA%20Segmented%20Buffer%20Manager%20Extern/Current/CAA-Segemented-Buffer-Manager/fld-CAA-Segemented-Buffer-Manager.html"
+}

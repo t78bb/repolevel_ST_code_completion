@@ -1,0 +1,7 @@
+{
+  "description": "DeviceDiagnosis.OnAfterOnlineChange (METH)",
+  "url": "https://content.helpme-codesys.com/en/libs/AC_DeviceDiagnosis/Current/Module/pou-DeviceDiagnosis/OnAfterOnlineChange.html",
+  "extra": {
+    "method": "METHOD OnAfterOnlineChange"
+  }
+}

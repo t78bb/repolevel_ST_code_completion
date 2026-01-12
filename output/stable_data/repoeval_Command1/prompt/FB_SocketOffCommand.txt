@@ -1,0 +1,65 @@
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_SocketOnCommand.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_SocketOnCommand IMPLEMENTS I_Command
+# VAR
+# 	refSocket : REFERENCE TO FB_Socket;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_Socket.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_Socket
+# VAR_OUTPUT
+# 	bActive		: BOOL;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_Socket_Off.st
+# --------------------------------------------------
+# METHOD PUBLIC Off
+# VAR_OUTPUT
+# 	bActive		: BOOL;
+# END_VAR
+# 
+# bActive := false;
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_SocketOffCommand_Execute.st
+# --------------------------------------------------
+# METHOD Execute
+# VAR
+# 	refSocket : REFERENCE TO FB_Socket;
+# END_VAR
+# IF (__ISVALIDREF(THIS^.refSocket)) THEN
+# 	THIS^.refSocket.On();
+# END_IF
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_SocketOffCommand_FB_init.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_AirConStandbyCommand IMPLEMENTS I_Command
+# VAR
+# 	refSocket : REFERENCE TO FB_Socket;
+# END_VAR
+# VAR_INPUT
+# 	bInitRetains : BOOL; // if TRUE, the retain variables are initialized (warm start / cold start)
+# 	bInCopyCode : BOOL;  // if TRUE, the instance afterwards gets moved into the copy code (online change)
+# 	refNewSocket : REFERENCE TO FB_Socket;
+# END_VAR
+# 
+# IF (__ISVALIDREF(refNewSocket)) THEN
+# 	THIS^.refSocket REF= refNewSocket;
+# ELSE
+# 	THIS^.refSocket REF= 0;
+# END_IF
+# 
+# --------------------------------------------------
+
+
+FUNCTION_BLOCK PUBLIC FB_SocketOffCommand IMPLEMENTS I_Command

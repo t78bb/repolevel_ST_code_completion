@@ -1,0 +1,27 @@
+{
+  "success": [],
+  "failed": [
+    {
+      "case": "repoeval_Builder_Application_RPI",
+      "dataset": "repoeval_Builder_Application_RPI",
+      "step": "fix",
+      "error": "修复失败"
+    },
+    {
+      "case": "repoeval_counter",
+      "dataset": "repoeval_counter",
+      "step": "fix",
+      "error": "修复失败"
+    }
+  ],
+  "skipped": [
+    {
+      "case": "repoeval_readwriteFile",
+      "reason": "没有数据集子目录且没有 results.jsonl"
+    },
+    {
+      "case": "repoeval_traffic_light",
+      "reason": "没有数据集子目录且没有 results.jsonl"
+    }
+  ]
+}

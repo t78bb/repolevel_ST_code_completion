@@ -1,0 +1,4 @@
+{
+  "description": "Base library for the usgae of the device diagnosis generator of the application composer. Most items of this library are used by the application composed indirectly for generation of the device diagnosis generator and don’t need to be used by a IEC programmer directly.",
+  "url": "https://content.helpme-codesys.com/en/libs/AC_DeviceDiagnosis/Current/index.html"
+}

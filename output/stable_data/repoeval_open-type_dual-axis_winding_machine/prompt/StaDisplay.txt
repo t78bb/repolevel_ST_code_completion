@@ -1,0 +1,120 @@
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 开放式双轴卷绕机编程开发实训-struct\AxisStatus.st
+# --------------------------------------------------
+# TYPE AxisStatus :
+# STRUCT
+# 	bErr	:	BOOL;
+# 	bStandStill	:	BOOL;
+# 	bIsMoving	:	BOOL;
+# END_STRUCT
+# END_TYPE
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 开放式双轴卷绕机编程开发实训-FUN\SeekHome.st
+# --------------------------------------------------
+# FUNCTION_BLOCK SeekHome
+# VAR_IN_OUT 
+# 	_Axis	:	AXIS_REF_SM3;
+# END_VAR
+# VAR_INPUT
+# 	_xHome	:	BOOL;
+# 	_xAbort	:	BOOL;
+# 	_nHomeMode	:	HomeMode;
+# 	_fFastHomeVel	:	LREAL;
+# 	_fSlowHomeVel	:	LREAL;
+# 	_fHomeAcc		:	LREAL;
+# 	_fHomeDec		:	LREAL;
+# 	_fHomePos		:	LREAL;
+# 	_xReferenceSwitch	:	BOOL;//typically is true
+# 	_nDirection	:	MC_DIRECTION;
+# 	_xIndexPulse	:	BOOL;
+# END_VAR
+# VAR_OUTPUT
+# 	_xBusy	:	BOOL;
+# 	_xDone	:	BOOL;
+# 	_xErr	:	BOOL;
+# 	_iErrId	:	DINT;
+# END_VAR
+# VAR
+# 	_fbMoveVel	:	MC_MoveVelocity;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 开放式双轴卷绕机编程开发实训-FUN\SeekHome.st
+# --------------------------------------------------
+# FUNCTION_BLOCK SeekHome
+# VAR_IN_OUT 
+# 	_Axis	:	AXIS_REF_SM3;
+# END_VAR
+# VAR_INPUT
+# 	_xHome	:	BOOL;
+# 	_xAbort	:	BOOL;
+# 	_nHomeMode	:	HomeMode;
+# 	_fFastHomeVel	:	LREAL;
+# 	_fSlowHomeVel	:	LREAL;
+# 	_fHomeAcc		:	LREAL;
+# 	_fHomeDec		:	LREAL;
+# 	_fHomePos		:	LREAL;
+# 	_xReferenceSwitch	:	BOOL;//typically is true
+# 	_nDirection	:	MC_DIRECTION;
+# 	_xIndexPulse	:	BOOL;
+# END_VAR
+# VAR_OUTPUT
+# 	_xBusy	:	BOOL;
+# 	_xDone	:	BOOL;
+# 	_xErr	:	BOOL;
+# 	_iErrId	:	DINT;
+# END_VAR
+# VAR
+# 	_fbMoveVel	:	MC_MoveVelocity;
+# 	_fbMoveAbs	:	MC_MoveAbsolute;
+# 	_fbHalt		:	MC_Halt;
+# 	_fbSetPos	:	MC_SetPosition;
+# 	_fbRtrig		:	R_TRIG;
+# 	_fbFtrig		:	F_TRIG;
+# 	_nBDirection	:	MC_DIRECTION;
+# 	_fTempPos		:	LREAL;
+# 	_nState		:	USINT;
+# 	fbRtrig	:	R_TRIG;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 开放式双轴卷绕机编程开发实训-FUN\SeekHome.st
+# --------------------------------------------------
+# FUNCTION_BLOCK SeekHome
+# VAR_IN_OUT 
+# 	_Axis	:	AXIS_REF_SM3;
+# END_VAR
+# VAR_INPUT
+# 	_xHome	:	BOOL;
+# 	_xAbort	:	BOOL;
+# 	_nHomeMode	:	HomeMode;
+# 	_fFastHomeVel	:	LREAL;
+# 	_fSlowHomeVel	:	LREAL;
+# 	_fHomeAcc		:	LREAL;
+# 	_fHomeDec		:	LREAL;
+# 	_fHomePos		:	LREAL;
+# 	_xReferenceSwitch	:	BOOL;//typically is true
+# 	_nDirection	:	MC_DIRECTION;
+# 	_xIndexPulse	:	BOOL;
+# END_VAR
+# VAR_OUTPUT
+# 	_xBusy	:	BOOL;
+# 	_xDone	:	BOOL;
+# 	_xErr	:	BOOL;
+# 	_iErrId	:	DINT;
+# END_VAR
+# VAR
+# 	_fbMove
+
+FUNCTION_BLOCK StaDisplay
+VAR_INPUT
+	iStatus :	INT;
+END_VAR
+VAR_OUTPUT
+	Y1,Y2,Y3,Y4,Y5,Y6	:	BOOL;
+END_VAR

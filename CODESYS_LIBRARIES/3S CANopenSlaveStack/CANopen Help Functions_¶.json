@@ -1,0 +1,7 @@
+{
+  "name": "解析失败",
+  "type": "Function",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/CANopen-Help-Functions/fld-CANopen-Help-Functions.html#canopen-help-functions",
+  "error": "Extra data: line 10 column 4 (char 398)",
+  "raw_content": "{\n    \"name\": \"DecodeEmcyCOBID\",\n    \"type\": \"Function\",\n    \"signature\": \"FUNCTION DecodeEmcyCOBID : RETURN_TYPE\",\n    \"return_type\": \"RETURN_TYPE\",\n    \"description\": \"Decodes EMCY COB-ID.\",\n    \"url\": \"https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/CANopen-Help-Functions/fld-CANopen-Help-Functions.html#canopen-help-functions\",\n    \"parameters\": [],\n    \"extra\": {}\n  },\n  {\n    \"name\": \"EncodeEmcyCOBID\",\n    \"type\": \"Function\",\n    \"signature\": \"FUNCTION EncodeEmcyCOBID : RETURN_TYPE\",\n    \"return_type\": \"RETURN_TYPE\",\n    \"description\": \"Encodes EMCY COB-ID.\",\n    \"url\": \"https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/CANopen-Help-Functions/fld-CANopen-Help-Functions.html#canopen-help-functions\",\n    \"parameters\": [],\n    \"extra\": {}\n  },\n  {\n    \"name\": \"DecodeHeartbeatConsumerSettings\",\n    \"type\": \"Function\",\n    \"signature\": \"FUNCTION DecodeHeartbeatConsumerSettings : RETURN_TYPE\",\n    \"return_type\": \"RETURN_TYPE\",\n    \"descripti"
+}

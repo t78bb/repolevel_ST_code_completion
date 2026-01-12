@@ -1,0 +1,24 @@
+名称: ACCESSTYPES (Struct)
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/Structs/ACCESSTYPES.html
+
+============================================================
+
+Docs
+»
+Structs
+»
+ACCESSTYPES (STRUCT)
+ACCESSTYPES (STRUCT)
+¶
+TYPE ACCESSTYPES : STRUCT
+Defines the access to an object.
+InOut:
+Name
+Type
+Comment
+READ
+BIT
+Read Access
+WRITE
+BIT
+Write Access

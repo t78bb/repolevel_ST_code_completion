@@ -1,0 +1,81 @@
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 四层电梯控制实训-PRG\PLC_PRG.st
+# --------------------------------------------------
+# 					// 清除首层上升停靠标志
+# 					F_ClearFloorStop(1, TRUE, FALSE, TRUE);
+# 				END_IF
+# 				IF Tar_Dir.IsBlock THEN
+# 					Tar_Dir.IsBlock := FALSE;
+# 				END_IF
+# 				// 检查向上是否有任务
+# 				bUpHasJob := F_CheckJobInDirection(i + 1, MaxNumFloor, TRUE);
+# 				bDownHasJob := FALSE;
+# 			MaxNumFloor:(* 顶层 *)
+# 				IF Tar_Dir.IsDownStop[MaxNumFloor] THEN
+# 					QMotorPositiveRun := FALSE;//电梯停止
+# 					bStopping := TRUE;//电梯停止，等待开门与关门
+# 					QOpen := TRUE;//开电梯门
+# 					QClose := FALSE;
+# 					// 清除顶层下降停靠标志
+# 					F_ClearFloorStop(MaxNumFloor, FALSE, TRUE, TRUE);
+# 				END_IF
+# 				// 检查向下是否有任务
+# 				bDownHasJob := F_CheckJobInDirection(1, i - 1, TRUE);
+# 				bUpHasJob := FALSE;
+# 			ELSE(* 中间层 *)
+# 				IF Tar_Dir.IsPositive THEN
+# 					// 检查向上是否有任务
+# 					bUpHasJob := F_CheckJobInDirection(i + 1, MaxNumFloor, TRUE);
+# 				END_IF
+# 				IF (Tar_Dir.IsPositive AND Tar_Dir.IsUpStop[i]) OR (Tar_Dir.IsPositive AND (NOT bUpHasJob) AND Tar_Dir.IsDownStop[i])THEN
+# 					QMotorPositiveRun := FALSE;//电梯停止
+# 					bStopping := TRUE;//电梯停止，等待开门与关门
+# 					QOpen := TRUE;//开电梯门
+# 					QClose := FALSE;
+# 					IF Tar_Dir.IsUpStop[i] THEN
+# 						// 清除上升停靠标志
+# 						F_ClearFloorStop(i, TRUE, FALSE, NOT Tar_Dir.IsDownStop[i]);
+# 					END_IF
+# 					IF (NOT bUpHasJob) AND Tar_Dir.IsDownStop[i] THEN
+# 						// 清除下降停靠标志
+# 						F_ClearFloorStop(i, FALSE, TRUE, TRUE);
+# 					END_IF
+# 				END_IF
+# 				
+# 				IF Tar_Dir.IsNegative THEN
+# 					// 检查向下是否有任务
+# 					bDownHasJob := F_CheckJobInDirection(1, i - 1, TRUE);
+# 				END_IF
+# 				IF (Tar_Dir.IsNegative AND Tar_Dir.IsDownStop[i]) OR (Tar_Dir.IsNegative AND (NOT bDownHasJob) AND Tar_Dir.IsUpStop[i])THEN
+# 					QMotorNegativeRun := FALSE;//电梯停止
+# 					bStopping := TRUE;//电梯停止，等待开门与关门
+# 					QOpen := TRUE;//开电梯门
+# 					QClose := FALSE;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 四层电梯控制实训-FUN\F_SetElevatorDirection.st
+# --------------------------------------------------
+# FUNCTION F_SetElevatorDirection
+# VAR_INPUT
+# 	nCurrentFloor	:	USINT;		//当前楼层
+# 	nTargetFloor	:	USINT;		//目标楼层
+# END_VAR
+# 
+# // 根据当前楼层和目标楼层设定电梯运行方向
+# IF nTargetFloor > nCurrentFloor THEN
+# 	// 目标楼层高于当前楼层，电梯上升
+# 	Tar_Dir.IsPositive := TRUE;
+# 	Tar_Dir.IsNegative := FALSE;
+# ELSIF nTargetFloor < nCurrentFloor THEN
+# 	// 目标楼层低于当前楼层，电梯下
+
+FUNCTION F_ClearFloorStop
+VAR_INPUT
+	nFloor			:	USINT;		//楼层号
+	bClearUpStop	:	BOOL;		//是否清除上升停靠标志
+	bClearDownStop	:	BOOL;		//是否清除下降停靠标志
+	bClearStopFloor	:	BOOL;		//是否清除楼层停靠标志
+END_VAR

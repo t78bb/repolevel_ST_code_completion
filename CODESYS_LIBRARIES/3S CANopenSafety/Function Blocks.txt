@@ -1,0 +1,22 @@
+名称: Function Blocks
+URL: https://content.helpme-codesys.com/en/libs/3S CANopenSafety/Current/_3SCANopenSafety/Function-Blocks/fld-Function-Blocks.html
+
+============================================================
+
+Docs
+»
+_3SCANopenSafety
+»
+Function Blocks
+Function Blocks
+¶
+CANRemoteDeviceSafe (FunctionBlock)
+Cyclic-Methods-state-independent
+Initialization
+State-Machine
+State Transitions
+States
+CheckConfiguration
+CheckConfiguration and Stopped
+Operational
+CANopenManagerSIL2 (FunctionBlock)

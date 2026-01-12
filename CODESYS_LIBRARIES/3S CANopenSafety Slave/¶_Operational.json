@@ -1,0 +1,9 @@
+{
+  "name": "Operational",
+  "type": "Function",
+  "signature": "FUNCTION Operational : VOID",
+  "return_type": "VOID",
+  "description": "Methods called in Operational state.",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSafety Slave/Current/_3SCANopenSafetySlave/Function-Blocks/pou-CANopenDeviceSIL2/State-Machine/States/Operational/fld-Operational.html",
+  "parameters": []
+}

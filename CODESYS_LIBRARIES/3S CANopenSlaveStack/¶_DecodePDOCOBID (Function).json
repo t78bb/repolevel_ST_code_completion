@@ -1,0 +1,40 @@
+{
+  "name": "DecodePDOCOBID",
+  "type": "Function",
+  "signature": "FUNCTION DecodePDOCOBID",
+  "return_type": "None",
+  "description": "Helps to decode the content of a PDO COBID Object (Object 16#1400-16#15FFsub1 or 16#1800-16#19FFsub1).",
+  "url": "https://content.helpme-codesys.com/en/libs/3S CANopenSlaveStack/Current/CANopen-Help-Functions/PDO/DecodePDOCOBID.html",
+  "parameters": [
+    {
+      "scope": "Input",
+      "name": "dwValue",
+      "type": "DWORD",
+      "comment": "value of PDO COBID object"
+    },
+    {
+      "scope": "Output",
+      "name": "xEnabled",
+      "type": "BOOL",
+      "comment": "true: PDO enabled; false: PDO disabled"
+    },
+    {
+      "scope": "Output",
+      "name": "xExtendedID",
+      "type": "BOOL",
+      "comment": "true: 29bit COBID, false: 11bit COBID"
+    },
+    {
+      "scope": "Output",
+      "name": "xRTR",
+      "type": "BOOL",
+      "comment": "true: RTR enabled; false: RTR disabled"
+    },
+    {
+      "scope": "Output",
+      "name": "dwCOBID",
+      "type": "DWORD",
+      "comment": "PDO COBID"
+    }
+  ]
+}
