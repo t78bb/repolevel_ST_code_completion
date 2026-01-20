@@ -1,4 +1,4 @@
 {
-  "requirement": "这个代码意在实现从指定路径读取文件内容并将其存储到缓冲区的功能。",
+  "requirement": "This code is intended to implement a file reading functionality that reads data from a specified file into a buffer, handles errors, and manages file operations such as opening, reading, and closing.",
   "provide_code": "FUNCTION_BLOCK ReadFile\nVAR_INPUT\n\tbExec\t:\tBOOL;//功能块触发变量\n\tfileName\t:\tSTRING;//文件的路径\nEND_VAR"
 }

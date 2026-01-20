@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
 完整的代码生成和修复流程
-对 output 下的每个 case 目录：
-1. 先执行代码生成（调用 generator 模块）
-2. 生成完成后立即执行验证和修复（调用 verifier 模块）
+对 dataset/query 下的每个项目：
+1. 先执行检索（调用 retrieve 模块）
+2. 然后执行代码生成（调用 generator 模块）
+3. 生成完成后立即执行验证和修复（调用 verifier 模块）
 """
 import os
 import sys
@@ -14,17 +15,22 @@ import time
 from pathlib import Path
 from datetime import datetime
 from typing import Optional
+from types import SimpleNamespace
 
 # 添加verifier目录到路径，以便导入模块
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'verifier'))
 from auto_fix_st_code import auto_fix_st_code
+
+# 添加retrieve目录到路径，以便导入模块
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'retrieve'))
+from eval_beir_sbert_canonical import main as retrieval_main
 
 # 智增增API配置 - 从环境变量读取
 ZHIZENGZENG_API_KEY = os.getenv("ZHIZENGZENG_API_KEY")
 ZHIZENGZENG_BASE_URL = os.getenv("ZHIZENGZENG_BASE_URL", "https://api.zhizengzeng.com/v1")
 
 # CODESYS API 配置
-CODESYS_API_URL = os.getenv("CODESYS_API_URL", "http://192.168.103.117:9000/api/v1/pou/workflow")
+CODESYS_API_URL = os.getenv("CODESYS_API_URL", "http://192.168.103.117:9000/api/v1/pou/project_workflow")
 
 
 def extract_code_from_markdown(content: str) -> str:
@@ -125,6 +131,65 @@ def process_prompt_text(prompt: str) -> str:
 #         f.write(final_content)
     
 #     return prompt is not None
+
+
+def run_retrieve(query_dir: Path, result_dir_name: str, output_base_dir: Path, data_base_dir: Path) -> bool:
+    """
+    对指定的 query 目录执行检索（直接函数调用）
+    
+    Args:
+        query_dir: query 目录路径（例如 dataset/query/repoeval_xxx）
+        result_dir_name: 结果目录名称
+        output_base_dir: 输出基础目录（通常是 output）
+        data_base_dir: 数据基础目录（包含 corpus.jsonl 等）
+    
+    Returns:
+        是否成功
+    """
+    print(f"\n{'='*80}")
+    print(f"开始检索: {query_dir.name}")
+    print(f"{'='*80}")
+    
+    # 检查是否有 JSON 文件
+    json_files = list(query_dir.glob("*.json"))
+    if not json_files:
+        print(f"  ⚠ 跳过: query 目录下没有 JSON 文件: {query_dir}")
+        return False
+    
+    print(f"  找到 {len(json_files)} 个查询文件")
+    
+    try:
+        # 从项目名提取 dataset 名称（query 目录名就是 dataset 名）
+        dataset_name = query_dir.name
+        
+        # 创建参数对象（调用 eval_beir_sbert_canonical.py 的 main 函数）
+        retrieval_args = SimpleNamespace(
+            dataset=dataset_name,
+            query_dir=str(query_dir),
+            result_dir=result_dir_name,
+            output_base_dir=str(output_base_dir),
+            data_base_dir=str(data_base_dir),
+            model="BAAI/bge-base-en-v1.5",
+            batch_size=64,
+            dataset_path="output/origin_repoeval/datasets/function_level_completion_2k_context_codex.test.clean.jsonl",
+            output_file="outputs.json",
+            results_file="results.jsonl"
+        )
+        
+        # 直接调用检索函数（非 main，是 eval_beir_sbert_canonical.py 的 main 函数）
+        retrieval_main(retrieval_args)
+        
+        print(f"  ✓ 检索成功")
+        return True
+        
+    except KeyboardInterrupt:
+        print(f"\n  ✗ 用户中断")
+        raise
+    except Exception as e:
+        print(f"  ✗ 检索异常: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        return False
 
 
 def run_generation(dataset_dir: Path, result_dir_name: str) -> bool:
@@ -434,6 +499,18 @@ def main():
         action="store_true",
         help="跳过修复步骤，只执行生成"
     )
+    parser.add_argument(
+        "--skip_retrieve",
+        action="store_true",
+        help="跳过检索步骤（如果已指定 --result_dir，则自动跳过检索）"
+    )
+    parser.add_argument(
+        "--project",
+        type=str,
+        nargs="+",
+        default=None,
+        help="指定要处理的项目名称（可以指定多个，例如：--project repoeval_四层电梯控制实训 repoeval_交通信号灯控制实训）。如果不指定，则处理所有项目。仅在执行检索时有效。"
+    )
     args = parser.parse_args()
     
     # 检查API配置
@@ -448,61 +525,170 @@ def main():
     output_dir = script_dir / "output"
     
     if not output_dir.exists():
-        print(f"错误: {output_dir} 目录不存在")
-        sys.exit(1)
+        output_dir.mkdir(parents=True, exist_ok=True)
     
-    # 确定要处理的 case 目录
-    if args.result_dir:
-        # 如果指定了 result_dir，将该目录下的所有子目录都当作 case
-        result_dir_path = output_dir / args.result_dir
-        if not result_dir_path.exists():
-            print(f"错误: 结果目录不存在: {result_dir_path}")
+    # 确定执行模式：是否从 query 开始（需要执行 retrieve）
+    use_query_mode = not args.result_dir and not args.skip_retrieve
+    
+    if use_query_mode:
+        # 从 query 目录开始，需要执行 retrieve
+        print("="*80)
+        print("执行模式: 从需求开始（检索 + 生成 + 修复）")
+        print("="*80)
+        
+        # 设置路径
+        query_base_dir = script_dir / "dataset" / "query"
+        data_base_dir = script_dir / "dataset" / "BEIR_data"
+        
+        # 检查目录是否存在
+        if not query_base_dir.exists():
+            print(f"错误: query 目录不存在: {query_base_dir}")
             sys.exit(1)
-        # 获取该目录下的所有子目录作为 case
-        case_dirs = [d for d in result_dir_path.iterdir() if d.is_dir()]
-        if not case_dirs:
-            print(f"错误: 结果目录下没有子目录: {result_dir_path}")
-            sys.exit(1)
-        result_dir_name = args.result_dir
-        print(f"指定了 --result_dir: {result_dir_name}")
-        print(f"该目录下有 {len(case_dirs)} 个子目录，将作为 case 处理")
-    else:
-        # 否则，处理 output 下的所有目录（每个目录是一个 case）
-        case_dirs = [d for d in output_dir.iterdir() if d.is_dir()]
+        
+        # 如果 BEIR_data 不存在，尝试其他位置
+        if not data_base_dir.exists():
+            stable_data_dir = script_dir / "output" / "stable_data"
+            if stable_data_dir.exists():
+                data_base_dir = stable_data_dir
+            else:
+                data_base_dir = script_dir / "output"
+        
+        # 生成时间戳作为结果目录名称
         result_dir_name = datetime.now().strftime("%Y%m%d_%H%M%S")
-        print(f"未指定 --result_dir，使用时间戳: {result_dir_name}")
-    
-    # 检查并删除已存在的 {result_dir_name}_fixed 目录
-    fixed_dir = output_dir / f"{result_dir_name}_fixed"
-    if fixed_dir.exists():
-        print(f"\n检测到已存在的修复结果目录: {fixed_dir}")
-        print(f"正在删除该目录...")
-        try:
-            shutil.rmtree(fixed_dir)
-            print(f"✓ 已成功删除: {fixed_dir}")
-        except Exception as e:
-            print(f"✗ 删除失败: {e}")
-            print(f"  请手动删除该目录后重试")
-            sys.exit(1)
+        
+        # 获取要处理的 query 子目录
+        if args.project:
+            # 指定了项目，只处理这些项目
+            query_dirs = []
+            for project_name in args.project:
+                project_path = query_base_dir / project_name
+                if project_path.exists() and project_path.is_dir():
+                    query_dirs.append(project_path)
+                else:
+                    print(f"⚠ 警告: 项目目录不存在: {project_path}")
+            query_dirs.sort(key=lambda x: x.name)
+            if not query_dirs:
+                print(f"错误: 没有找到任何指定的项目目录")
+                sys.exit(1)
+            print(f"\n指定处理 {len(query_dirs)} 个项目: {[p.name for p in query_dirs]}")
+        else:
+            # 未指定项目，处理所有项目
+            query_dirs = [d for d in query_base_dir.iterdir() if d.is_dir()]
+            query_dirs.sort(key=lambda x: x.name)
+            if not query_dirs:
+                print(f"警告: {query_base_dir} 下没有子目录")
+                sys.exit(0)
+        
+        print(f"\nQuery 基础目录: {query_base_dir}")
+        print(f"输出基础目录: {output_dir}")
+        print(f"结果目录名称: {result_dir_name}")
+        print(f"待处理项目数: {len(query_dirs)}")
+        print(f"\n项目列表:")
+        for i, d in enumerate(query_dirs, 1):
+            print(f"  {i}. {d.name}")
+        
+        # 将 query_dirs 转换为后续处理需要的格式
+        # 每个项目会依次执行: retrieve → generation → verifier
+        projects_to_process = []
+        for query_dir in query_dirs:
+            # 检索后的输出目录会是 output/{result_dir_name}/{query_dir.name}/
+            # 这个目录会包含 results.jsonl
+            projects_to_process.append({
+                "name": query_dir.name,
+                "query_dir": query_dir,
+                "dataset_dir": None,  # 检索后会被设置
+                "type": "query"  # 标记为从 query 开始
+            })
     else:
-        print(f"\n修复结果目录不存在，将创建: {fixed_dir}")
+        # 从已有的 result_dir 开始，不需要执行 retrieve
+        print("="*80)
+        print("执行模式: 从已有结果开始（生成 + 修复）")
+        print("="*80)
+        
+        # 确定要处理的 case 目录
+        if args.result_dir:
+            # 如果指定了 result_dir，将该目录下的所有子目录都当作 case
+            result_dir_path = output_dir / args.result_dir
+            if not result_dir_path.exists():
+                print(f"错误: 结果目录不存在: {result_dir_path}")
+                sys.exit(1)
+            # 获取该目录下的所有子目录作为 case
+            case_dirs = [d for d in result_dir_path.iterdir() if d.is_dir()]
+            if not case_dirs:
+                print(f"错误: 结果目录下没有子目录: {result_dir_path}")
+                sys.exit(1)
+            result_dir_name = args.result_dir
+            print(f"\n指定了 --result_dir: {result_dir_name}")
+            print(f"该目录下有 {len(case_dirs)} 个子目录，将作为 case 处理")
+        else:
+            # 从 output 目录中查找最新的目录
+            case_dirs = [d for d in output_dir.iterdir() if d.is_dir()]
+            if not case_dirs:
+                print(f"错误: {output_dir} 下没有子目录")
+                sys.exit(1)
+            # 使用最新的目录作为 result_dir_name（通常是时间戳）
+            case_dirs.sort(key=lambda x: x.stat().st_mtime, reverse=True)
+            result_dir_name = case_dirs[0].name
+            print(f"\n使用最新的结果目录: {result_dir_name}")
+            case_dirs.sort(key=lambda x: x.name)  # 重新按名称排序
+        
+        # 将 case_dirs 转换为后续处理需要的格式
+        projects_to_process = []
+        for case_dir in case_dirs:
+            # 判断 case 目录的结构
+            case_has_results = (case_dir / "results.jsonl").exists()
+            if case_has_results:
+                # case 目录本身就是数据集目录
+                projects_to_process.append({
+                    "name": case_dir.name,
+                    "query_dir": None,
+                    "dataset_dir": case_dir,
+                    "type": "existing"  # 标记为已有结果
+                })
+            else:
+                # case 目录下还有数据集子目录
+                dataset_dirs = [d for d in case_dir.iterdir() if d.is_dir()]
+                for dataset_dir in dataset_dirs:
+                    projects_to_process.append({
+                        "name": f"{case_dir.name}/{dataset_dir.name}",
+                        "query_dir": None,
+                        "dataset_dir": dataset_dir,
+                        "type": "existing"
+                    })
     
     # 如果指定了 --case，只处理该 case
     if args.case:
-        case_dirs = [d for d in case_dirs if d.name == args.case]
-        if not case_dirs:
+        projects_to_process = [p for p in projects_to_process if args.case in p["name"]]
+        if not projects_to_process:
             print(f"错误: 没有找到 case {args.case}")
             sys.exit(1)
     
-    case_dirs.sort(key=lambda x: x.name)
+    # 检查并删除已存在的 {result_dir_name}_fixed 目录（如果使用 query 模式）
+    if use_query_mode:
+        fixed_dir = output_dir / f"{result_dir_name}_fixed"
+        if fixed_dir.exists():
+            print(f"\n检测到已存在的修复结果目录: {fixed_dir}")
+            print(f"正在删除该目录...")
+            try:
+                shutil.rmtree(fixed_dir)
+                print(f"✓ 已成功删除: {fixed_dir}")
+            except Exception as e:
+                print(f"✗ 删除失败: {e}")
+                print(f"  请手动删除该目录后重试")
+                sys.exit(1)
+        else:
+            print(f"\n修复结果目录不存在，将创建: {fixed_dir}")
     
     print("="*80)
-    print("完整流程：代码生成 + 验证修复")
+    if use_query_mode:
+        print("完整流程：检索 + 代码生成 + 验证修复（每个项目依次执行）")
+    else:
+        print("完整流程：代码生成 + 验证修复")
     print("="*80)
-    print(f"\n待处理 case 数: {len(case_dirs)}")
-    print(f"Case 列表:")
-    for i, d in enumerate(case_dirs, 1):
-        print(f"  {i}. {d.name}")
+    print(f"\n待处理项目数: {len(projects_to_process)}")
+    print(f"项目列表:")
+    for i, p in enumerate(projects_to_process, 1):
+        print(f"  {i}. {p['name']}")
     
     # 记录结果
     results = {
@@ -511,119 +697,131 @@ def main():
         "skipped": []
     }
     
-    # 统计每个 case 处理的文件数量
-    case_statistics = {}  # {case_name: {"total_cases": int, "datasets": {dataset_name: case_count}}}
+    # 统计每个项目处理的文件数量
+    project_statistics = {}  # {project_name: {"total_cases": int}}
     
     print(f"\n开始执行...")
     print("="*80)
     
-    for idx, case_dir in enumerate(case_dirs, 1):
+    # 设置数据基础目录（用于 retrieve）
+    if use_query_mode:
+        data_base_dir = script_dir / "dataset" / "BEIR_data"
+        if not data_base_dir.exists():
+            stable_data_dir = script_dir / "output" / "stable_data"
+            if stable_data_dir.exists():
+                data_base_dir = stable_data_dir
+            else:
+                data_base_dir = script_dir / "output"
+    
+    # 对每个项目依次执行：retrieve → generation → verifier
+    for idx, project_info in enumerate(projects_to_process, 1):
+        project_name = project_info["name"]
         print(f"\n\n{'#'*80}")
-        print(f"# [{idx}/{len(case_dirs)}] 处理 Case: {case_dir.name}")
+        print(f"# [{idx}/{len(projects_to_process)}] 处理项目: {project_name}")
         print(f"{'#'*80}")
         
-        # 判断 case 目录的结构：
-        # 1. 如果 case 目录下有 results.jsonl，说明这个 case 目录本身就是数据集目录
-        # 2. 否则，case 目录下的子目录才是数据集目录
-        case_has_results = (case_dir / "results.jsonl").exists()
+        project_success = True
+        dataset_dir = None
         
-        if case_has_results:
-            # case 目录本身就是数据集目录
-            dataset_dirs = [case_dir]
-            print(f"  Case 目录本身就是数据集目录（包含 results.jsonl）")
-        else:
-            # case 目录下还有数据集子目录
-            dataset_dirs = [d for d in case_dir.iterdir() if d.is_dir()]
-            dataset_dirs.sort(key=lambda x: x.name)
+        # 步骤0: 检索（如果需要）
+        if use_query_mode and not args.skip_retrieve:
+            query_dir = project_info["query_dir"]
+            print(f"\n  [步骤 0/3] 执行检索: {query_dir.name}")
+            print(f"  {'-'*76}")
             
-            if not dataset_dirs:
-                print(f"  ⚠ 该 case 目录下没有数据集子目录，跳过")
-                results["skipped"].append({
-                    "case": case_dir.name,
-                    "reason": "没有数据集子目录且没有 results.jsonl"
+            retrieve_success = run_retrieve(query_dir, result_dir_name, output_dir, data_base_dir)
+            if not retrieve_success:
+                project_success = False
+                results["failed"].append({
+                    "project": project_name,
+                    "step": "retrieve",
+                    "error": "检索失败"
                 })
                 continue
             
-            print(f"  找到 {len(dataset_dirs)} 个数据集:")
-            for i, d in enumerate(dataset_dirs, 1):
-                print(f"    {i}. {d.name}")
+            # 检索成功后，设置 dataset_dir 为检索输出目录
+            dataset_dir = output_dir / result_dir_name / query_dir.name
+            if not dataset_dir.exists() or not (dataset_dir / "results.jsonl").exists():
+                print(f"  ✗ 检索结果目录不存在或缺少 results.jsonl: {dataset_dir}")
+                project_success = False
+                results["failed"].append({
+                    "project": project_name,
+                    "step": "retrieve",
+                    "error": "检索结果目录不存在"
+                })
+                continue
+        else:
+            # 使用已有的 dataset_dir
+            dataset_dir = project_info["dataset_dir"]
+            if dataset_dir is None or not dataset_dir.exists():
+                print(f"  ⚠ 跳过: dataset_dir 不存在")
+                results["skipped"].append({
+                    "project": project_name,
+                    "reason": "dataset_dir 不存在"
+                })
+                continue
         
-        case_success = True
+        # 统计该数据集处理的 case 数量（从 results.jsonl 读取）
+        dataset_case_count = 0
+        results_jsonl = dataset_dir / "results.jsonl"
+        if results_jsonl.exists():
+            dataset_case_count = len(load_results_jsonl(str(results_jsonl)))
         
-        # 初始化该 case 的统计信息
-        if case_dir.name not in case_statistics:
-            case_statistics[case_dir.name] = {
-                "total_cases": 0,
-                "datasets": {}
-            }
-        
-        # 对每个数据集执行生成和修复
-        for dataset_idx, dataset_dir in enumerate(dataset_dirs, 1):
-            print(f"\n  [{dataset_idx}/{len(dataset_dirs)}] 处理数据集: {dataset_dir.name}")
+        # 步骤1: 代码生成
+        if not args.skip_generation:
+            print(f"\n  [步骤 {'1' if not use_query_mode or args.skip_retrieve else '1/3'}] 执行代码生成: {dataset_dir.name}")
             print(f"  {'-'*76}")
             
-            dataset_success = True
-            
-            # 统计该数据集处理的 case 数量（从 results.jsonl 读取）
-            dataset_case_count = 0
-            results_jsonl = dataset_dir / "results.jsonl"
-            if results_jsonl.exists():
-                dataset_case_count = len(load_results_jsonl(str(results_jsonl)))
-            
-            # 步骤1: 代码生成
-            if not args.skip_generation:
-                gen_success = run_generation(dataset_dir, result_dir_name)
-                if not gen_success:
-                    dataset_success = False
-                    case_success = False
-                    results["failed"].append({
-                        "case": case_dir.name,
-                        "dataset": dataset_dir.name,
-                        "step": "generation",
-                        "error": "生成失败"
-                    })
-                    continue
-            else:
-                print(f"  跳过生成步骤（--skip_generation）")
-            
-            # 步骤2: 验证和修复
-            if not args.skip_fix:
-                # 确定输出目录
-                if args.result_dir:
-                    # 如果指定了 result_dir，修复结果放在 result_dir_fixed 下
-                    output_fixed_dir = output_dir / f"{result_dir_name}_fixed"
-                else:
-                    # 否则，修复结果放在 case_dir_fixed 下
-                    output_fixed_dir = output_dir / f"{case_dir.name}_fixed"
-                
-                fix_success = run_fix(dataset_dir, output_fixed_dir)
-                if not fix_success:
-                    dataset_success = False
-                    case_success = False
-                    results["failed"].append({
-                        "case": case_dir.name,
-                        "dataset": dataset_dir.name,
-                        "step": "fix",
-                        "error": "修复失败"
-                    })
-            else:
-                print(f"  跳过修复步骤（--skip_fix）")
-            
-            # 更新统计信息
-            case_statistics[case_dir.name]["datasets"][dataset_dir.name] = dataset_case_count
-            case_statistics[case_dir.name]["total_cases"] += dataset_case_count
-            
-            if dataset_success:
-                print(f"  ✓ 数据集 {dataset_dir.name} 处理完成（{dataset_case_count} 个 case）")
+            gen_success = run_generation(dataset_dir, result_dir_name)
+            if not gen_success:
+                project_success = False
+                results["failed"].append({
+                    "project": project_name,
+                    "step": "generation",
+                    "error": "生成失败"
+                })
+                continue
+        else:
+            print(f"  跳过生成步骤（--skip_generation）")
         
-        if case_success:
-            results["success"].append(case_dir.name)
+        # 步骤2: 验证和修复
+        if not args.skip_fix:
+            print(f"\n  [步骤 {'2' if not use_query_mode or args.skip_retrieve else '2/3'}] 执行验证和修复: {dataset_dir.name}")
+            print(f"  {'-'*76}")
+            
+            # 确定输出目录
+            if use_query_mode:
+                output_fixed_dir = output_dir / f"{result_dir_name}_fixed"
+            elif args.result_dir:
+                output_fixed_dir = output_dir / f"{result_dir_name}_fixed"
+            else:
+                output_fixed_dir = output_dir / f"{project_name}_fixed"
+            
+            fix_success = run_fix(dataset_dir, output_fixed_dir)
+            if not fix_success:
+                project_success = False
+                results["failed"].append({
+                    "project": project_name,
+                    "step": "fix",
+                    "error": "修复失败"
+                })
+        else:
+            print(f"  跳过修复步骤（--skip_fix）")
+        
+        # 更新统计信息
+        if project_name not in project_statistics:
+            project_statistics[project_name] = {"total_cases": 0}
+        project_statistics[project_name]["total_cases"] = dataset_case_count
+        
+        if project_success:
+            print(f"\n  ✓ 项目 {project_name} 处理完成（{dataset_case_count} 个 case）")
+            results["success"].append(project_name)
     
     # 输出总结
     print("\n" + "="*80)
     print("执行总结")
     print("="*80)
-    print(f"\n总 case 数: {len(case_dirs)}")
+    print(f"\n总项目数: {len(projects_to_process)}")
     print(f"成功: {len(results['success'])}")
     print(f"失败: {len(results['failed'])}")
     print(f"跳过: {len(results['skipped'])}")
@@ -633,33 +831,31 @@ def main():
     print("Case 数量统计")
     print("="*80)
     total_all_cases = 0
-    for case_name, stats in sorted(case_statistics.items()):
+    for project_name, stats in sorted(project_statistics.items()):
         total_cases = stats["total_cases"]
         total_all_cases += total_cases
-        print(f"\n项目: {case_name}")
+        print(f"\n项目: {project_name}")
         print(f"  总 case 数: {total_cases}")
-        if stats["datasets"]:
-            print(f"  数据集详情:")
-            for dataset_name, count in sorted(stats["datasets"].items()):
-                print(f"    - {dataset_name}: {count} 个 case")
     
     print(f"\n{'='*80}")
     print(f"所有项目处理的 case 总数: {total_all_cases}")
     print(f"{'='*80}")
     
     if results["success"]:
-        print(f"\n✓ 成功的 case ({len(results['success'])}):")
-        for case in results["success"]:
-            case_count = case_statistics.get(case, {}).get("total_cases", 0)
-            print(f"  - {case} ({case_count} 个 case)")
+        print(f"\n✓ 成功的项目 ({len(results['success'])}):")
+        for project in results["success"]:
+            case_count = project_statistics.get(project, {}).get("total_cases", 0)
+            print(f"  - {project} ({case_count} 个 case)")
     
     if results["failed"]:
-        print(f"\n✗ 失败的 case/dataset ({len(results['failed'])}):")
+        print(f"\n✗ 失败的项目 ({len(results['failed'])}):")
         for item in results["failed"]:
-            if 'dataset' in item:
-                print(f"  - {item['case']}/{item['dataset']} (步骤: {item['step']}): {item['error']}")
-            else:
-                print(f"  - {item['case']} (步骤: {item['step']}): {item['error']}")
+            print(f"  - {item['project']} (步骤: {item['step']}): {item['error']}")
+    
+    if results["skipped"]:
+        print(f"\n⚠ 跳过的项目 ({len(results['skipped'])}):")
+        for item in results["skipped"]:
+            print(f"  - {item['project']}: {item['reason']}")
     
     # 保存结果到文件
     result_file = f"full_process_results_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"

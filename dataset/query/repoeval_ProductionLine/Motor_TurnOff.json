@@ -1,4 +1,4 @@
 {
-  "requirement": "这个代码意在实现关闭电机的功能。",
+  "requirement": "This code is intended to implement a function that turns off a motor by deactivating its coil.",
   "provide_code": "METHOD TurnOff : BOOL\nVAR_INPUT\n\tMotorI:MotorI;\nEND_VAR\nVAR_OUTPUT\n\tMotorO:MotorO;\nEND_VAR"
 }

@@ -1,4 +1,4 @@
 {
-  "requirement": "这个代码意在实现通过装饰器模式为组件动态添加额外的描述功能。",
+  "requirement": "This code is intended to implement a functionality for decorating a component's description by concatenating its original description with an additional decorator description.",
   "provide_code": "//Illustrative method of the pattern\nMETHOD getDescription : STRING\nVAR_INPUT\n\t//Reference to store the component to be decorated\n\ttempInputComponent : Component_Interface;\nEND_VAR"
 }

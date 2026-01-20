@@ -1,4 +1,0 @@
-{
-  "requirement": "这个代码意在实现一个带有输入输出接口的电机功能块，包含故障设置与重置功能以及内部定时器管理。",
-  "provide_code": "FUNCTION_BLOCK Motor\nVAR_INPUT\n\tMotorI:MotorI;\nEND_VAR\nVAR_OUTPUT\n\tMotorO:MotorO;\nEND_VAR"
-}

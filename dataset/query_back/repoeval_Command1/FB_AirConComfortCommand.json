@@ -1,4 +1,0 @@
-{
-  "requirement": "这个代码意在实现针对空调控制的舒适性命令功能。",
-  "provide_code": "FUNCTION_BLOCK PUBLIC FB_AirConComfortCommand IMPLEMENTS I_Command"
-}

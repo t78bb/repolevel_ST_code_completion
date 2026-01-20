@@ -1,4 +1,4 @@
 {
-  "requirement": "这个代码意在实现通过 MQTT 协议向指定主题发布字符串消息的功能。",
+  "requirement": "This code is intended to implement an MQTT message publishing functionality with a predefined topic, payload, and quality of service settings.",
   "provide_code": "FUNCTION_BLOCK FirstPublish\nVAR_INPUT\nEND_VAR\nVAR_OUTPUT\nEND_VAR"
 }

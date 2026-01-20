@@ -1,4 +1,4 @@
 {
-  "requirement": "这个代码意在实现一个用于监控和调整液体储罐液位及温度的功能块，其中液位和温度根据设定的最大值和最小值动态调整。",
+  "requirement": "This code is intended to implement a control mechanism for a tank system that adjusts its level and temperature within specified minimum and maximum thresholds.",
   "provide_code": "FUNCTION_BLOCK Tank\nVAR_INPUT\n\tstName: STRING;\n\tnMaxLevel\t: INT;\n\tnMinLevel\t: INT;\n\tnMaxTemp\t: INT;\n\tnMinTemp\t: INT;\n\tnUnitLevel\t\t\t\t\t\t\t:INT:=0;\n\tnUnitTemp\t\t\t\t\t\t\t:INT:=0;\nEND_VAR\nVAR_OUTPUT\nEND_VAR"
 }

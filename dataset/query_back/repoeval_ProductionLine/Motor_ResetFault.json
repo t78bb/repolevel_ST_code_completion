@@ -1,4 +1,0 @@
-{
-  "requirement": "这个代码意在实现对电机故障状态的复位功能。",
-  "provide_code": "METHOD ResetFault : BOOL\nVAR_INPUT\n\tMotorI:MotorI;\nEND_VAR\nVAR_OUTPUT\n\tMotorO:MotorO;\nEND_VAR"
-}

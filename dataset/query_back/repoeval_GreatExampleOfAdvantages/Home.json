@@ -1,4 +1,0 @@
-{
-  "requirement": "这个代码意在实现对家庭环境中两个楼层（底层和顶层）的功能模块化管理。",
-  "provide_code": "FUNCTION_BLOCK Home\nVAR_INPUT\nEND_VAR\nVAR_OUTPUT\nEND_VAR"
-}

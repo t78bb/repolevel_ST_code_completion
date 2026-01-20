@@ -1,4 +1,0 @@
-{
-  "requirement": "这个代码意在实现基于开关输入触发对应命令执行的功能。",
-  "provide_code": "FUNCTION_BLOCK PUBLIC FB_SwitchPanel\nVAR_INPUT\n\tarrSwitch\t\t: ARRAY[1..8] OF BOOL;\nEND_VAR"
-}

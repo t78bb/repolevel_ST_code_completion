@@ -1,0 +1,10 @@
+FUNCTION_BLOCK PUBLIC FB_SocketOffCommand IMPLEMENTS I_Command
+VAR
+  refSocket : REFERENCE TO FB_Socket;
+END_VAR
+
+IF __ISVALIDREF(refSocket) THEN
+  // Ensure refSocket is valid and that Off() is a callable method in FB_Socket
+  refSocket^.Off();
+END_IF
+END_FUNCTION_BLOCK

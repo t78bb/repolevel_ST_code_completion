@@ -1,4 +1,0 @@
-{
-  "requirement": "这个代码意在实现一个用于表示CD播放器状态的功能块，包括播放器激活状态、音量和当前播放曲目。",
-  "provide_code": "FUNCTION_BLOCK PUBLIC FB_CDPlayer\nVAR_OUTPUT\n\tbPlayerActive\t\t: BOOL;\n\tbyVolume\t\t\t: BYTE;\n\tbyTrack\t\t\t\t: UINT;\nEND_VAR"
-}

@@ -1,4 +1,0 @@
-{
-  "requirement": "这个代码意在实现一个支持动态创建的基本组件对象，用于存储描述和数值并可被装饰扩展。",
-  "provide_code": "{attribute 'enable_dynamic_creation'}\n//This class creates the most basic object well called. This object is to be decorated\nFUNCTION_BLOCK ConcreteComponent IMPLEMENTS Component_Interface\nVAR_INPUT\nEND_VAR\nVAR_OUTPUT\nEND_VAR"
-}

@@ -1,4 +1,4 @@
 {
-  "requirement": "这个代码意在实现一个用于空调系统的功能块，输出空调的启停状态和当前温度。",
+  "requirement": "This code is intended to implement a functional block for air conditioning control with outputs for activation status and temperature.",
   "provide_code": "FUNCTION_BLOCK PUBLIC FB_AirConditioning\nVAR_OUTPUT\n\tbActive\t\t\t: BOOL;\n\tlrTemperature\t: LREAL;\nEND_VAR"
 }

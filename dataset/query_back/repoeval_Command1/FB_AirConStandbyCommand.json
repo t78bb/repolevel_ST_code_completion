@@ -1,4 +1,0 @@
-{
-  "requirement": "这个代码意在实现用于控制空调进入待机模式的命令功能块。",
-  "provide_code": "FUNCTION_BLOCK PUBLIC FB_AirConStandbyCommand IMPLEMENTS I_Command"
-}

@@ -1,4 +1,4 @@
 {
-  "requirement": "这个代码意在实现将物理输出值根据指定的物理范围和终端类型缩放到对应的数字输出范围并返回整数值。",
+  "requirement": "This code is intended to implement a scaling function that converts a physical output value within a specified range to a corresponding terminal-specific integer output value based on predefined terminal types and ranges.",
   "provide_code": "FUNCTION F_iScaleOutput : INT\nVAR_INPUT\n\trOutput: REAL; (* [] Physical output *)\n\trPhyMin: REAL; (* [] Physical minimum *)\n\trPhyMax: REAL; (* [] Physical maximum *)\n\teTerminal: E_Ctrl_TerminalType; (* [] Terminal type. *)\nEND_VAR"
 }

@@ -1,4 +1,4 @@
 {
-  "requirement": "这个代码意在实现根据输入信号控制多个功能块的启停，并为每个功能块设置不同的延迟时间。",
+  "requirement": "This code is intended to implement the control of three instances of a function block, each with a configurable delay, based on an input boolean signal.",
   "provide_code": "FUNCTION_BLOCK FB_Wrapper\nVAR_INPUT\n\tin:BOOL;\nEND_VAR\nVAR_OUTPUT\n\tout:BOOL;\nEND_VAR"
 }

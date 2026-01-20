@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-01-14T15:36:15.682441",
+  "parameters": {
+    "window_size": 20,
+    "slice_size": 10,
+    "projects_dir": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\project_code",
+    "function_lists_dir": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\function_lists"
+  },
+  "statistics": {
+    "total": 1,
+    "success": 1,
+    "failed": 0,
+    "skipped": 0,
+    "details": [
+      {
+        "project": "VisuElements",
+        "status": "success"
+      }
+    ]
+  }
+}

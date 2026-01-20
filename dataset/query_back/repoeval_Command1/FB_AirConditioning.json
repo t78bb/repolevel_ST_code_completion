@@ -1,4 +1,0 @@
-{
-  "requirement": "这个代码意在实现一个空调功能模块，用于输出其运行状态和当前温度值。",
-  "provide_code": "FUNCTION_BLOCK PUBLIC FB_AirConditioning\nVAR_OUTPUT\n\tbActive\t\t\t: BOOL;\n\tlrTemperature\t: LREAL;\nEND_VAR"
-}

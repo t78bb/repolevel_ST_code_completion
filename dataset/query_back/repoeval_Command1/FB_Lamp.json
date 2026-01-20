@@ -1,4 +1,0 @@
-{
-  "requirement": "这个代码意在实现一个灯光控制功能，其中输出变量表示灯光的亮度级别。",
-  "provide_code": "FUNCTION_BLOCK PUBLIC FB_Lamp\nVAR_OUTPUT\n\tbyLevel\t\t\t: BYTE;\nEND_VAR"
-}

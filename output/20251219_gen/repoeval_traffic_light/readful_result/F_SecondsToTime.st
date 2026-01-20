@@ -1,2 +1,0 @@
-F_SecondsToTime := DWORD_TO_TIME(dwSeconds * 1000);
-RETURN;

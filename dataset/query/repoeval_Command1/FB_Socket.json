@@ -1,4 +1,4 @@
 {
-  "requirement": "这个代码意在实现一个功能块，用于表示一个具有活动状态输出的Socket。",
+  "requirement": "This code is intended to implement a function block for managing a socket with an output indicating its active status.",
   "provide_code": "FUNCTION_BLOCK PUBLIC FB_Socket\nVAR_OUTPUT\n\tbActive\t\t: BOOL;\nEND_VAR"
 }

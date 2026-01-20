@@ -1,4 +1,0 @@
-{
-  "requirement": "这个代码意在实现将电机关闭的功能。",
-  "provide_code": "METHOD TurnOff : BOOL\nVAR_INPUT\n\tMotorI:MotorI;\nEND_VAR\nVAR_OUTPUT\n\tMotorO:MotorO;\nEND_VAR"
-}

@@ -71,11 +71,6 @@ def generate_requirement_with_llm(source_code: str, provide_code: str, api_key: 
     # 构建提示词
     prompt = f"""你是一个代码分析专家。请根据以下代码，从需求的角度总结这个代码的功能。
 
-提供的代码片段：
-```
-{provide_code}
-```
-
 完整的源代码：
 ```
 {source_code}
@@ -184,7 +179,7 @@ def process_project(beir_project_dir: Path, project_code_dir: Path, output_dir: 
             skip_count += 1
             continue
         
-        # 生成需求
+        # 生成需求（仍然使用 LLM 生成 requirement）
         requirement = generate_requirement_with_llm(source_code, provide_code, api_key, base_url)
         if requirement is None:
             print(f"    ✗ 生成需求失败")
@@ -192,10 +187,11 @@ def process_project(beir_project_dir: Path, project_code_dir: Path, output_dir: 
             continue
         
         # 保存结果
+        # provide_code 直接使用原始值，不经过 LLM 处理
         output_file = output_dir / f"{Path(filename).stem}.json"
         result = {
             "requirement": requirement,
-            "provide_code": provide_code
+            "provide_code": provide_code  # 直接使用原始值
         }
         
         try:
@@ -315,17 +311,27 @@ def main():
         if not project_code_project_dir.exists():
             project_code_project_dir = project_code_dir / project_name
         
-        # 如果还是找不到，尝试模糊匹配
+        # 如果还是找不到，尝试模糊匹配（不区分大小写）
         if not project_code_project_dir.exists():
-            # 尝试在 project_code 下查找包含项目名的目录
+            # 尝试在 project_code 下查找包含项目名的目录（不区分大小写）
+            project_code_name_lower = project_code_name.lower()
             matching_dirs = [d for d in project_code_dir.iterdir() 
-                           if d.is_dir() and (project_code_name in d.name or d.name in project_code_name)]
+                           if d.is_dir() and (
+                               project_code_name_lower == d.name.lower() or
+                               project_code_name_lower in d.name.lower() or 
+                               d.name.lower() in project_code_name_lower
+                           )]
             if matching_dirs:
                 project_code_project_dir = matching_dirs[0]
-                print(f"  使用模糊匹配的目录: {project_code_project_dir.name}")
+                print(f"  使用模糊匹配的目录: {project_code_project_dir.name} (匹配: {project_code_name})")
         
+        # 最终检查
         if not project_code_project_dir.exists():
-            print(f"\n⚠ 跳过项目 {project_name}: 在 project_code 中找不到对应目录（尝试匹配: {project_code_name}）")
+            # 列出所有可用的 project_code 目录，帮助调试
+            available_dirs = [d.name for d in project_code_dir.iterdir() if d.is_dir()]
+            print(f"\n⚠ 跳过项目 {project_name}: 在 project_code 中找不到对应目录")
+            print(f"  尝试匹配的名称: {project_code_name}")
+            print(f"  可用的 project_code 目录: {', '.join(available_dirs[:10])}{'...' if len(available_dirs) > 10 else ''}")
             continue
         
         # 输出目录

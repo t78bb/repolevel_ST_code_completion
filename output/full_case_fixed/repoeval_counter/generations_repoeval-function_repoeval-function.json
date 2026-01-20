@@ -1,0 +1,1 @@
+[["```\nVAR\n    nPrevValue: INT;    (*\u7528\u4e8e\u5b58\u50a8\u4e0a\u4e00\u6b21\u7684\u6570\u503c*)\nEND_VAR\n\nIF bReset THEN\n    nValue := 0;        (*\u6570\u636e\u6e05\u96f6*)\nELSIF bUp THEN\n    nValue := nValue + 1; (*\u6570\u636e\u9012\u589e*)\nELSIF bDown THEN\n    nValue := nValue - 1; (*\u6570\u636e\u9012\u51cf*)\nEND_IF\n```"]]
