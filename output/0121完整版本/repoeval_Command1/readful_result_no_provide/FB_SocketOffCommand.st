@@ -1,0 +1,8 @@
+VAR
+  refSocket : REFERENCE TO FB_Socket;
+END_VAR
+
+IF __ISVALIDREF(refSocket) THEN
+  refSocket.Off();
+END_IF
+END_FUNCTION

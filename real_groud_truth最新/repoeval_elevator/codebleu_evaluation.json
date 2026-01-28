@@ -1,0 +1,82 @@
+{
+  "project_name": "repoeval_elevator",
+  "original_project_name": "elevator",
+  "total_files": 5,
+  "successful_evaluations": 5,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.4916583185995612,
+    "ngram_match_score": 0.16090942907328126,
+    "weighted_ngram_match_score": 0.29566402650318135,
+    "syntax_match_score": 0.793059818821782,
+    "dataflow_match_score": 0.717
+  },
+  "file_results": [
+    {
+      "filename": "F_DetectCurrentFloor.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\elevator\\F_DetectCurrentFloor.st",
+      "codebleu": 0.5750495170173912,
+      "ngram_match_score": 0.09171493330377747,
+      "weighted_ngram_match_score": 0.4151498014324538,
+      "syntax_match_score": 0.96,
+      "dataflow_match_score": 0.8333333333333334,
+      "reference_length": 299,
+      "prediction_length": 1413
+    },
+    {
+      "filename": "F_RegisterCalls.st",
+      "case_id": 1,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\elevator\\F_RegisterCalls.st",
+      "codebleu": 0.7272212517264987,
+      "ngram_match_score": 0.32304477553855765,
+      "weighted_ngram_match_score": 0.6180982958835661,
+      "syntax_match_score": 0.967741935483871,
+      "dataflow_match_score": 1.0,
+      "reference_length": 235,
+      "prediction_length": 396
+    },
+    {
+      "filename": "F_UpdateDoorAnimation.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\elevator\\F_UpdateDoorAnimation.st",
+      "codebleu": 0.3213677340134842,
+      "ngram_match_score": 0.0336768826068306,
+      "weighted_ngram_match_score": 0.05536548201853469,
+      "syntax_match_score": 0.5714285714285714,
+      "dataflow_match_score": 0.625,
+      "reference_length": 288,
+      "prediction_length": 497
+    },
+    {
+      "filename": "FB_ElevatorDoorController.st",
+      "case_id": 3,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\elevator\\FB_ElevatorDoorController.st",
+      "codebleu": 0.518044624842485,
+      "ngram_match_score": 0.2536727961287112,
+      "weighted_ngram_match_score": 0.2539223699078954,
+      "syntax_match_score": 0.6979166666666666,
+      "dataflow_match_score": 0.8666666666666667,
+      "reference_length": 851,
+      "prediction_length": 856
+    },
+    {
+      "filename": "FB_ElevatorMovement.st",
+      "case_id": 4,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\elevator\\FB_ElevatorMovement.st",
+      "codebleu": 0.31660846539794685,
+      "ngram_match_score": 0.10243775778852929,
+      "weighted_ngram_match_score": 0.13578418327345673,
+      "syntax_match_score": 0.7682119205298014,
+      "dataflow_match_score": 0.26,
+      "reference_length": 1636,
+      "prediction_length": 759
+    }
+  ]
+}

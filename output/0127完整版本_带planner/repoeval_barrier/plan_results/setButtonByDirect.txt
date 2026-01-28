@@ -1,0 +1,6 @@
+功能规划:
+1. 根据输入参数 `level` 判断操作目标是地轨 (`level = 1`) 还是天轨 (`level = 2`)。
+2. 通过输入参数 `idx` 锁定具体的按钮索引编号，找到对应的 `gUI.grd[idx]` 或 `gUI.sky[idx]`。
+3. 根据输入参数 `direct` 设置对应的按钮状态，例如 `btnExtend`、`btnRetract` 或 `btnStop`，与 `direct` 的值 (`extend`, `retract`, `stop`) 匹配。
+4. 更新目标按钮的最后操作方向字段 (`btnLast`) 为当前输入的 `direct`。
+5. 返回函数执行结果，通过布尔值 `TRUE` 表示成功更新状态。

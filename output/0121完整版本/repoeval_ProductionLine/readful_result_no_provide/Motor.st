@@ -1,0 +1,25 @@
+VAR
+	WaitTimer: TON;
+	InternalSequenceDelay: TIME;
+END_VAR
+
+IF MotorI.Overload THEN
+	MotorO.FaultStatus := TRUE;
+	MotorO.Coil := FALSE;
+	RETURN;
+END_IF
+
+IF MotorI.ResetFault THEN
+	MotorO.FaultStatus := FALSE;
+END_IF
+
+IF MotorO.FaultStatus = FALSE THEN
+	WaitTimer(IN := TRUE, PT := InternalSequenceDelay);
+	IF WaitTimer.Q THEN
+		MotorO.Coil := TRUE;
+		WaitTimer(IN := FALSE);
+	END_IF
+ELSE
+	MotorO.Coil := FALSE;
+END_IF
+END_FUNCTION_BLOCK

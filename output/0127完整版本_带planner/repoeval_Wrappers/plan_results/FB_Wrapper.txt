@@ -1,0 +1,6 @@
+功能规划:  
+1. 初始化三个内嵌的 Function Block 实例（如 FB_Instance1、FB_Instance2、FB_Instance3），并为每个实例提供可配置的延迟时间参数。  
+2. 接收输入布尔信号 `in`，并将其分配传播到每个内嵌 Function Block 实例的输入。  
+3. 为每个 Function Block 实例处理其内部逻辑，涵盖延迟计时和状态更新。  
+4. 收集三个 Function Block 实例的输出状态，并应用逻辑（例如 AND、OR 或优先级规则）计算最终结果。  
+5. 将计算后的输出结果赋值给输出变量 `out`。  

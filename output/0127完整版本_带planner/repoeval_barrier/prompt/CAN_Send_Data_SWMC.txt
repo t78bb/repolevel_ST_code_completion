@@ -1,0 +1,100 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement the transmission of CAN messages to specific channels based on the provided SWMC_ID, with configurable message identifiers and data payloads.
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# can-FUN\CAN_Send_Data_SWMC.st
+# --------------------------------------------------
+# FUNCTION CAN_Send_Data_SWMC : BOOL
+# VAR_INPUT
+# 	SWMC_ID : UINT;
+# 	id 		: UINT;
+# 	data	: ARRAY[1..8] OF BYTE;
+# END_VAR
+# VAR
+# 	
+# END_VAR
+# 
+# CASE  SWMC_ID OF
+# 
+# 	1:
+# 		gCan.C1TxMsg.TXMsg[1].TxMsg_CobId 	:= 8 + 32 * id;
+# 	  	gCan.C1TxMsg.TXMsg[1].TxMsg_Byte 	:= data;
+# 	   	gCan.C1TxMsg.NoOfTxMessages			:= 1;
+# 	   	gCan.C1TxMsg.TxCounter 				:= gCan.C1TxMsg.TxCounter +1;	
+# 	2:
+# 		gCan.C2TxMsg.TXMsg[1].TxMsg_CobId 	:= 8 + 32 * id;
+# 	  	gCan.C2TxMsg.TXMsg[1].TxMsg_Byte 	:= data;
+# 	   	gCan.C2TxMsg.NoOfTxMessages			:= 1;
+# 	   	gCan.C2TxMsg.TxCounter 				:= gCan.C2TxMsg.TxCounter +1;	
+# 	3:
+# 		gCan.C3TxMsg.TXMsg[1].TxMsg_CobId 	:= 8 + 32 * id;
+# 	  	gCan.C3TxMsg.TXMsg[1].TxMsg_Byte 	:= data;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# can-FUN\CAN_Send_Data_SWMC.st
+# --------------------------------------------------
+# FUNCTION CAN_Send_Data_SWMC : BOOL
+# VAR_INPUT
+# 	SWMC_ID : UINT;
+# 	id 		: UINT;
+# 	data	: ARRAY[1..8] OF BYTE;
+# END_VAR
+# VAR
+# 	
+# END_VAR
+# 
+# CASE  SWMC_ID OF
+# 
+# 	1:
+# 		gCan.C1TxMsg.TXMsg[1].TxMsg_CobId 	:= 8 + 32 * id;
+# 	  	gCan.C1TxMsg.TXMsg[1].TxMsg_Byte 	:= data;
+# 	   	gCan.C1TxMsg.NoOfTxMessages			:= 1;
+# 	   	gCan.C1TxMsg.TxCounter 				:= gCan.C1TxMsg.TxCounter +1;	
+# 	2:
+# 		gCan.C2TxMsg.TXMsg[1].TxMsg_CobId 	:= 8 + 32 * id;
+# 	  	gCan.C2TxMsg.TXMsg[1].TxMsg_Byte 	:= data;
+# 	   	gCan.C2TxMsg.NoOfTxMessages			:= 1;
+# 	   	gCan.C2TxMsg.TxCounter 				:= gCan.C2TxMsg.TxCounter +1;	
+# 	3:
+# 		gCan.C3TxMsg.TXMsg[1].TxMsg_CobId 	:= 8 + 32 * id;
+# 	  	gCan.C3TxMsg.TXMsg[1].TxMsg_Byte 	:= data;
+# 	   	gCan.C3TxMsg.NoOfTxMessages			:= 1;
+# 	   	gCan.C3TxMsg.TxCounter 				:= gCan.C3TxMsg.TxCounter +1;
+# 	4:
+# 		gCan.C4TxMsg.TXMsg[1].TxMsg_CobId 	:= 8 + 32 * id;
+# 	  	gCan.C4TxMsg.TXMsg[1].TxMsg_Byte 	:= data;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# can-FUN\CAN_Send_Data_SWMC.st
+# --------------------------------------------------
+# FUNCTION CAN_Send_Data_SWMC : BOOL
+# VAR_INPUT
+# 	SWMC_ID : UINT;
+# 	id 		: UINT;
+# 	data	: ARRAY[1..8] OF BYTE;
+# END_VAR
+# VAR
+# 	
+# END_VAR
+# 
+# CASE  SWMC_ID OF
+# 
+# 	1:
+# 		gCan.C1TxMsg.TXMsg[1].TxMsg_CobId 	:= 8 + 32 * id;
+# 	  	gCan.C1TxMsg.TXMsg[1].TxMsg_Byte 	:= data;
+# 	   	gCan.C1TxMsg.NoOfTxMessages			:= 1;
+# 	   	gCan.C1
+
+FUNCTION CAN_Send_Data_SWMC : BOOL
+VAR_INPUT
+	SWMC_ID : UINT;
+	id 		: UINT;
+	data	: ARRAY[1..8] OF BYTE;
+END_VAR
+```

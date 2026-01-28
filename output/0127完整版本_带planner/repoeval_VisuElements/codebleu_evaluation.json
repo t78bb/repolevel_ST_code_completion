@@ -1,0 +1,58 @@
+{
+  "project_name": "repoeval_VisuElements",
+  "original_project_name": "VisuElements",
+  "total_files": 3,
+  "successful_evaluations": 3,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.7040916517458232,
+    "ngram_match_score": 0.556888603057461,
+    "weighted_ngram_match_score": 0.6445396730178613,
+    "syntax_match_score": 0.8159490835961424,
+    "dataflow_match_score": 0.798989247311828
+  },
+  "file_results": [
+    {
+      "filename": "MouseEventHandler.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\VisuElements\\MouseEventHandler.st",
+      "codebleu": 0.7827111739178729,
+      "ngram_match_score": 0.6495880522385117,
+      "weighted_ngram_match_score": 0.7681937063700426,
+      "syntax_match_score": 0.9370629370629371,
+      "dataflow_match_score": 0.776,
+      "reference_length": 1947,
+      "prediction_length": 2285
+    },
+    {
+      "filename": "NodeExpandCollapse.st",
+      "case_id": 1,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\VisuElements\\NodeExpandCollapse.st",
+      "codebleu": 0.7506178755006082,
+      "ngram_match_score": 0.6613493822932517,
+      "weighted_ngram_match_score": 0.7744554530425145,
+      "syntax_match_score": 0.8166666666666667,
+      "dataflow_match_score": 0.75,
+      "reference_length": 1003,
+      "prediction_length": 1062
+    },
+    {
+      "filename": "RotationCalculation.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\VisuElements\\RotationCalculation.st",
+      "codebleu": 0.5789459058189885,
+      "ngram_match_score": 0.3597283746406195,
+      "weighted_ngram_match_score": 0.390969859641027,
+      "syntax_match_score": 0.6941176470588235,
+      "dataflow_match_score": 0.8709677419354839,
+      "reference_length": 711,
+      "prediction_length": 805
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+This is the known requirement information for the function to be completed:\nThis code is intended to implement a command interface for controlling a socket functionality.\nContinue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_SocketOnCommand.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_SocketOnCommand IMPLEMENTS I_Command
+# VAR
+# 	refSocket : REFERENCE TO FB_Socket;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_SocketOffCommand.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_SocketOffCommand IMPLEMENTS I_Command
+# VAR
+# 	refSocket : REFERENCE TO FB_Socket;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_Socket.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_Socket
+# VAR_OUTPUT
+# 	bActive		: BOOL;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_LampSetLevelCommand.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_LampSetLevelCommand IMPLEMENTS I_Command
+# VAR
+# 	refLamp		: REFERENCE TO FB_Lamp;
+# 	byNewLevel	: BYTE;
+# END_VAR
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_SocketOnCommand_Execute.st
+# --------------------------------------------------
+# METHOD Execute
+# VAR
+# 	refSocket : REFERENCE TO FB_Socket;
+# END_VAR
+# IF (__ISVALIDREF(THIS^.refSocket)) THEN
+# 	THIS^.refSocket.On();
+# END_IF
+# 
+# --------------------------------------------------
+
+
+FUNCTION_BLOCK PUBLIC FB_SocketOnCommand IMPLEMENTS I_Command
+```

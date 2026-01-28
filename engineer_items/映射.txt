@@ -1,0 +1,16 @@
+测量控件  
+measurement_control
+电子齿轮运动实训  
+electronic_gear_motion
+电子凸轮运动实训  
+electronic_cam_motion
+读写文件  
+readwriteFile
+交通信号灯控制   
+traffic_light
+开放式双轴卷绕机编程开发实训   
+open-type_dual-axis_winding_machine
+三轴CNC运动实训   
+three-axis_CNC_motion
+四层电梯控制
+four-level_elevator_control

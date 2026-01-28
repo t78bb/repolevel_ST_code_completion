@@ -1,0 +1,6 @@
+功能规划:
+1. 检查输入信号 `bPowerOn` 是否为 TRUE，若为 FALSE，直接将 `bPowerDone`、`bAxis1Ready`、`bAxis2Ready` 设为 FALSE，且 `bError` 设为 FALSE，退出功能块逻辑。
+2. 对 `Axis1` 执行电源使能逻辑，检查是否成功使能并达到准备就绪状态，若未准备就绪，设置 `bAxis1Ready` 为 FALSE。
+3. 对 `Axis2` 执行电源使能逻辑，检查是否成功使能并达到准备就绪状态，若未准备就绪，设置 `bAxis2Ready` 为 FALSE。
+4. 判断 `bAxis1Ready` 和 `bAxis2Ready` 状态，若两轴均准备就绪，则设置 `bPowerDone` 为 TRUE；若任意轴未准备就绪，则设置 `bPowerDone` 为 FALSE。
+5. 检测两轴的使能及准备过程是否出现异常，若出现异常，设置 `bError` 为 TRUE，否则设置 `bError` 为 FALSE。

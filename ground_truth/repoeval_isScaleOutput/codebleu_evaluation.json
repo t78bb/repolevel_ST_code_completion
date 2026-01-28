@@ -1,0 +1,39 @@
+{
+  "project_name": "repoeval_isScaleOutput",
+  "original_project_name": "isScaleOutput",
+  "total_files": 2,
+  "successful_evaluations": 1,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.4574186095574513,
+    "ngram_match_score": 0.07375489194175885,
+    "weighted_ngram_match_score": 0.5712560095118334,
+    "syntax_match_score": 0.29577464788732394,
+    "dataflow_match_score": 0.8888888888888888
+  },
+  "file_results": [
+    {
+      "filename": "F_isScaleOutput.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\isScaleOutput\\F_isScaleOutput.st",
+      "codebleu": 0.4574186095574513,
+      "ngram_match_score": 0.07375489194175885,
+      "weighted_ngram_match_score": 0.5712560095118334,
+      "syntax_match_score": 0.29577464788732394,
+      "dataflow_match_score": 0.8888888888888888,
+      "reference_length": 568,
+      "prediction_length": 3414
+    },
+    {
+      "filename": "F_isScaleOutput_1.st",
+      "case_id": 1,
+      "error": "未找到对应的参考文件"
+    }
+  ]
+}

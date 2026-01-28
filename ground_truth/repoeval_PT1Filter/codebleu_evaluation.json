@@ -1,0 +1,39 @@
+{
+  "project_name": "repoeval_PT1Filter",
+  "original_project_name": "PT1Filter",
+  "total_files": 2,
+  "successful_evaluations": 1,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.37647861792949977,
+    "ngram_match_score": 0.018854086958611634,
+    "weighted_ngram_match_score": 0.20638241865769263,
+    "syntax_match_score": 0.4406779661016949,
+    "dataflow_match_score": 0.84
+  },
+  "file_results": [
+    {
+      "filename": "FB_PT1Filter.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\PT1Filter\\FB_PT1Filter.st",
+      "codebleu": 0.37647861792949977,
+      "ngram_match_score": 0.018854086958611634,
+      "weighted_ngram_match_score": 0.20638241865769263,
+      "syntax_match_score": 0.4406779661016949,
+      "dataflow_match_score": 0.84,
+      "reference_length": 388,
+      "prediction_length": 3852
+    },
+    {
+      "filename": "FB_PT1Filter_1.st",
+      "case_id": 1,
+      "error": "未找到对应的参考文件"
+    }
+  ]
+}

@@ -70,17 +70,14 @@ IMPORTANT:
    - DO NOT assign a value during RETURN.
    - NEVER use `RETURN(value);`.
 
-6. Structured Text does NOT support implicit returns.
-   Only use `RETURN;` where explicitly needed.
-
-7. Comments MUST strictly follow Structured Text syntax.
+6. Comments MUST strictly follow Structured Text syntax.
    When adding comments, prefix them with:
    // comment text
 
-8. DO NOT rewrite or reformat unrelated code.
+7. DO NOT rewrite or reformat unrelated code.
    Apply the MINIMAL change required to fix the error.
 
-9. If the compiler error CANNOT be fixed under these rules,
+8. If the compiler error CANNOT be fixed under these rules,
    output exactly:
    <UNFIXABLE>
 
@@ -113,8 +110,11 @@ ST Programming Guidelines:
 """
 
 #user prompt
+
+#old version:
+#If it is not possible to ensure that all variables are declared, no new variables shall be added; repairs shall only be implemented by modifying existing variables/logic.
 verifier_instance_prompt = """
-If it is not possible to ensure that all variables are declared, no new variables shall be added; repairs shall only be implemented by modifying existing variables/logic.
+If it is not possible to ensure that all variables are declared, no new variables shall be added; repairs shall only be implemented by modifying existing variables.
 Input structured in XML format:
 <!-- Code with errors. -->
 <STCode>

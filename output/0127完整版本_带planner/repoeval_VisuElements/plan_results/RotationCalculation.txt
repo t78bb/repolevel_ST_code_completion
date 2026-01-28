@@ -1,0 +1,8 @@
+功能规划:
+1. 将输入角度 `rAngle` 从度数转换为弧度，以便后续三角函数计算。
+2. 计算点与旋转中心的相对坐标：`rPointX` 减去 `rCenterX`，`rPointY` 减去 `rCenterY`。
+3. 根据旋转角度的弧度值，利用旋转矩阵公式计算旋转后的相对坐标：
+   - 计算新 X 坐标（相对值）为 `(相对X * cos(rAngleRad)) - (相对Y * sin(rAngleRad))`。
+   - 计算新 Y 坐标（相对值）为 `(相对X * sin(rAngleRad)) + (相对Y * cos(rAngleRad))`。
+4. 将旋转后的相对坐标加上旋转中心的坐标，得到最终的全局坐标 `rRotatedX` 和 `rRotatedY`。
+5. 返回函数执行成功状态 `TRUE`。

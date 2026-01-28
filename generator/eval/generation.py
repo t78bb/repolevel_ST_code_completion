@@ -294,38 +294,22 @@ def openai_generations(
             # if accelerator.is_main_process:
         return generations[:n_tasks]
     
-    def get_response(requirement_info: str, prompt: str, n_iters: int = 2, sleep: int = 10, repoeval_prompt=False, **kwargs) -> List[str]:
-        prompt_tokens = gpt_tokenizer.encode(prompt)
-        prompt = gpt_tokenizer.decode(prompt_tokens[: args.max_length_input])
+    def get_response(user_prompt: str, n_iters: int = 2, sleep: int = 10, **kwargs) -> List[str]:
+        prompt_tokens = gpt_tokenizer.encode(user_prompt)
+        user_prompt = gpt_tokenizer.decode(prompt_tokens[: args.max_length_input])
         
-        # response = client.chat.completions.create(
-        #     model=model, 
-        #     messages=[{"role": "user", "content": prompt}],
-        #     **kwargs
-        # )
-        # response = completion(
-        #     model=model, 
-        #     messages=[{"role": "user", "content": prompt}],
-        #     **kwargs
-        # )
-        # return [c.message.content for c in response.choices]
         i_iters = 0
         last_exception = None
         while i_iters < n_iters:
             i_iters += 1
             try:
-                if repoeval_prompt:
-
-                    user_prompt = "This is the known requirement information for the function to be completed:\n" + requirement_info + "\nContinue writing the following code:\n\n```\n" + prompt + '\n```'
-
-                    messages = [
-                        {"role": "system", "content": generator_system_prompt},
-                        {"role": "system", "name": "example_user", "content": "Continue writing the following code:\n\n```\ndef return_none():\n```"},
-                        {"role": "system", "name": "example_assistant", "content": "```\n    return None\n```"},
-                        {"role": "user", "content": user_prompt},
-                    ]
-                else:
-                    messages=[{"role": "user", "content": prompt}]
+                # 使用 RepoEval 格式（固定格式）
+                messages = [
+                    {"role": "system", "content": generator_system_prompt},
+                    {"role": "system", "name": "example_user", "content": "Continue writing the following code:\n\n```\ndef return_none():\n```"},
+                    {"role": "system", "name": "example_assistant", "content": "```\n    return None\n```"},
+                    {"role": "user", "content": user_prompt},
+                ]
                     
                 response = client.chat.completions.create(
                     model=model, 
@@ -381,6 +365,52 @@ def openai_generations(
         # 从 doc 中读取待补全函数的自然语言需求（来自 results.jsonl -> requirement 字段）
         requirement_info = doc.get("requirement", "") or ""
         
+        # 计算 sample_idx（用于控制打印）
+        sample_idx = i - (args.limit_start + curr_sample_idx)
+        
+        # 如果启用了 planner，读取规划结果（不修改 i_prompt）
+        plan_text = ""
+        if hasattr(args, 'skip_plan') and not args.skip_plan and hasattr(args, 'plan_results_dir') and args.plan_results_dir:
+            try:
+                # 获取函数名（用于查找对应的 planner 结果文件）
+                function_name = _resolve_function_name(doc, i)
+                # 清理文件名，移除或替换不安全的字符
+                safe_filename = re.sub(r'[<>:"/\\|?*\n\r\t]+', '_', str(function_name))
+                safe_filename = safe_filename.strip()
+                if not safe_filename:
+                    safe_filename = f"result_{i}"
+                
+                # 读取 planner 结果文件
+                plan_file = Path(args.plan_results_dir) / f"{safe_filename}.txt"
+                if plan_file.exists():
+                    plan_text = plan_file.read_text(encoding='utf-8').strip()
+            except Exception as e:
+                # 如果读取 planner 结果失败，只打印警告，不中断流程
+                if sample_idx < 2:
+                    print(f"  ⚠ 读取规划结果失败 (task {i}): {e}")
+        
+        # 构造 user_prompt（与实际调用 LLM 相同的格式）
+        if plan_text:
+            # 如果有规划结果，加入规划说明
+            user_prompt = (
+                "This is the known requirement information for the function to be completed:\n"
+                + requirement_info
+                + "\nThis provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:\n"
+                + plan_text
+                + "\nContinue writing the following code:\n\n```\n"
+                + i_prompt
+                + "\n```"
+            )
+        else:
+            # 如果没有规划结果，使用原始格式
+            user_prompt = (
+                "This is the known requirement information for the function to be completed:\n"
+                + requirement_info
+                + "\nContinue writing the following code:\n\n```\n"
+                + i_prompt
+                + "\n```"
+            )
+        
         # 保存 prompt 到文件
         if prompt_dir is not None:
             try:
@@ -392,14 +422,6 @@ def openai_generations(
                 if not safe_filename:
                     safe_filename = f"result_{i}"
                 
-                # 构造与实际调用 LLM 相同的用户输入格式并保存到文件
-                user_prompt = (
-                    "This is the known requirement information for the function to be completed:\\n"
-                    + requirement_info
-                    + "\\nContinue writing the following code:\n\n```\n"
-                    + i_prompt
-                    + "\n```"
-                )
                 prompt_file = prompt_dir / f"{safe_filename}.txt"
                 with open(prompt_file, 'w', encoding='utf-8') as f:
                     f.write(user_prompt)
@@ -407,7 +429,6 @@ def openai_generations(
                 # 如果保存失败，只打印警告，不中断流程
                 print(f"  ⚠ 保存 prompt 失败 (task {i}): {e}")
         # 打印 prompt 信息（仅打印前2个样本，避免输出过多）
-        sample_idx = i - (args.limit_start + curr_sample_idx)
         if sample_idx < 2:
             print(f"\n{'='*80}")
             print(f"Sample {sample_idx} (dataset index {i}) - Prompt (length: {len(i_prompt)} chars)")
@@ -422,9 +443,7 @@ def openai_generations(
                     print(f"检索来源: {', '.join(sources)}")
             print(f"{'='*80}\n")
         i_resp = get_response(
-            requirement_info=requirement_info,
-            prompt=i_prompt,
-            repoeval_prompt=task.__class__.__name__ == 'RepoEval',
+            user_prompt=user_prompt,
             **gen_kwargs,
         )  # list[str]
         generations.append(i_resp)

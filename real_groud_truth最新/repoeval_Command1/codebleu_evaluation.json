@@ -1,0 +1,166 @@
+{
+  "project_name": "repoeval_Command1",
+  "original_project_name": "Command1",
+  "total_files": 12,
+  "successful_evaluations": 12,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.5751326631621005,
+    "ngram_match_score": 0.1193529676131097,
+    "weighted_ngram_match_score": 0.6381537604896285,
+    "syntax_match_score": 0.5615424430641821,
+    "dataflow_match_score": 0.06481481481481481
+  },
+  "file_results": [
+    {
+      "filename": "FB_AirConComfortCommand.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_AirConComfortCommand.st",
+      "codebleu": 0.7385409219465812,
+      "ngram_match_score": 0.09702083064346757,
+      "weighted_ngram_match_score": 1.0,
+      "syntax_match_score": 0.8571428571428571,
+      "dataflow_match_score": 0,
+      "reference_length": 67,
+      "prediction_length": 482
+    },
+    {
+      "filename": "FB_AirConditioning.st",
+      "case_id": 1,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_AirConditioning.st",
+      "codebleu": 0.25,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.0,
+      "dataflow_match_score": 0,
+      "reference_length": 0,
+      "prediction_length": 1067
+    },
+    {
+      "filename": "FB_AirConStandbyCommand.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_AirConStandbyCommand.st",
+      "codebleu": 0.7282337055953821,
+      "ngram_match_score": 0.05579196523867125,
+      "weighted_ngram_match_score": 1.0,
+      "syntax_match_score": 0.8571428571428571,
+      "dataflow_match_score": 0,
+      "reference_length": 67,
+      "prediction_length": 822
+    },
+    {
+      "filename": "FB_CDPlayer.st",
+      "case_id": 3,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_CDPlayer.st",
+      "codebleu": 0.25,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.0,
+      "dataflow_match_score": 0,
+      "reference_length": 0,
+      "prediction_length": 777
+    },
+    {
+      "filename": "FB_Lamp.st",
+      "case_id": 4,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_Lamp.st",
+      "codebleu": 0.25,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.0,
+      "dataflow_match_score": 0,
+      "reference_length": 0,
+      "prediction_length": 505
+    },
+    {
+      "filename": "FB_LampSetLevelCommand.st",
+      "case_id": 5,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_LampSetLevelCommand.st",
+      "codebleu": 0.7919130654000142,
+      "ngram_match_score": 0.26765226160005684,
+      "weighted_ngram_match_score": 1.0,
+      "syntax_match_score": 0.9,
+      "dataflow_match_score": 0,
+      "reference_length": 67,
+      "prediction_length": 274
+    },
+    {
+      "filename": "FB_MusicPlayCommand.st",
+      "case_id": 6,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_MusicPlayCommand.st",
+      "codebleu": 0.7769701727593827,
+      "ngram_match_score": 0.250737833894674,
+      "weighted_ngram_match_score": 1.0,
+      "syntax_match_score": 0.8571428571428571,
+      "dataflow_match_score": 0,
+      "reference_length": 53,
+      "prediction_length": 280
+    },
+    {
+      "filename": "FB_MusicStopCommand.st",
+      "case_id": 7,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_MusicStopCommand.st",
+      "codebleu": 0.783419602181859,
+      "ngram_match_score": 0.2765355515845788,
+      "weighted_ngram_match_score": 1.0,
+      "syntax_match_score": 0.8571428571428571,
+      "dataflow_match_score": 0,
+      "reference_length": 53,
+      "prediction_length": 207
+    },
+    {
+      "filename": "FB_Socket.st",
+      "case_id": 8,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_Socket.st",
+      "codebleu": 0.25,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.0,
+      "dataflow_match_score": 0,
+      "reference_length": 0,
+      "prediction_length": 1035
+    },
+    {
+      "filename": "FB_SocketOffCommand.st",
+      "case_id": 9,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_SocketOffCommand.st",
+      "codebleu": 0.730801266240722,
+      "ngram_match_score": 0.06606220782003071,
+      "weighted_ngram_match_score": 1.0,
+      "syntax_match_score": 0.8571428571428571,
+      "dataflow_match_score": 0,
+      "reference_length": 49,
+      "prediction_length": 655
+    },
+    {
+      "filename": "FB_SocketOnCommand.st",
+      "case_id": 10,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_SocketOnCommand.st",
+      "codebleu": 0.783419602181859,
+      "ngram_match_score": 0.2765355515845788,
+      "weighted_ngram_match_score": 1.0,
+      "syntax_match_score": 0.8571428571428571,
+      "dataflow_match_score": 0,
+      "reference_length": 49,
+      "prediction_length": 192
+    },
+    {
+      "filename": "FB_SwitchPanel.st",
+      "case_id": 11,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_SwitchPanel.st",
+      "codebleu": 0.5682936216394052,
+      "ngram_match_score": 0.1418994089912581,
+      "weighted_ngram_match_score": 0.6578451258755414,
+      "syntax_match_score": 0.6956521739130435,
+      "dataflow_match_score": 0.7777777777777778,
+      "reference_length": 296,
+      "prediction_length": 1069
+    }
+  ]
+}

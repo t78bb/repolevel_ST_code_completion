@@ -1,0 +1,35 @@
+{
+  "evaluation_time": "20260127_210617",
+  "output_directory": "output\\20260127_205354",
+  "evaluation_mode": "实现逻辑评估",
+  "reference_source": "dataset/generation_context_ground_truth/[项目名]/",
+  "evaluated_code_source": "readful_result_no_provide/",
+  "total_projects": 1,
+  "successful_projects_count": 1,
+  "failed_projects_count": 0,
+  "total_files_evaluated": 3,
+  "overall_average_scores": {
+    "codebleu": 0.6939363487998084,
+    "ngram_match_score": 0.49283730161390693,
+    "weighted_ngram_match_score": 0.48232329826368914,
+    "syntax_match_score": 0.8005847953216373,
+    "dataflow_match_score": 0.3333333333333333
+  },
+  "successful_projects": [
+    "repoeval_traffic_light"
+  ],
+  "failed_projects": [],
+  "project_details": {
+    "repoeval_traffic_light": {
+      "total_files": 3,
+      "successful_evaluations": 3,
+      "average_scores": {
+        "codebleu": 0.6939363487998084,
+        "ngram_match_score": 0.49283730161390693,
+        "weighted_ngram_match_score": 0.48232329826368914,
+        "syntax_match_score": 0.8005847953216373,
+        "dataflow_match_score": 0.3333333333333333
+      }
+    }
+  }
+}

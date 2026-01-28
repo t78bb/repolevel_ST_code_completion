@@ -1,0 +1,39 @@
+{
+  "project_name": "repoeval_assembly-station",
+  "original_project_name": "assembly-station",
+  "total_files": 2,
+  "successful_evaluations": 1,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.17029092218824077,
+    "ngram_match_score": 0.0004339726557101232,
+    "weighted_ngram_match_score": 0.0014487321805075515,
+    "syntax_match_score": 0.14285714285714285,
+    "dataflow_match_score": 0.5364238410596026
+  },
+  "file_results": [
+    {
+      "filename": "PNP_MACHINE.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\assembly-station\\PNP_MACHINE.st",
+      "codebleu": 0.17029092218824077,
+      "ngram_match_score": 0.0004339726557101232,
+      "weighted_ngram_match_score": 0.0014487321805075515,
+      "syntax_match_score": 0.14285714285714285,
+      "dataflow_match_score": 0.5364238410596026,
+      "reference_length": 1744,
+      "prediction_length": 3987
+    },
+    {
+      "filename": "PNP_MACHINE_1.st",
+      "case_id": 1,
+      "error": "未找到对应的参考文件"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "project_name": "repoeval_VisuElements",
+  "original_project_name": "VisuElements",
+  "total_files": 3,
+  "successful_evaluations": 3,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.7575810101324407,
+    "ngram_match_score": 0.7036868808022549,
+    "weighted_ngram_match_score": 0.7095458053723963,
+    "syntax_match_score": 0.8143585172996938,
+    "dataflow_match_score": 0.8027328370554178
+  },
+  "file_results": [
+    {
+      "filename": "MouseEventHandler.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\VisuElements\\MouseEventHandler.st",
+      "codebleu": 0.8240698511643625,
+      "ngram_match_score": 0.7811375445610484,
+      "weighted_ngram_match_score": 0.8030859160404578,
+      "syntax_match_score": 0.9440559440559441,
+      "dataflow_match_score": 0.768,
+      "reference_length": 1947,
+      "prediction_length": 1951
+    },
+    {
+      "filename": "NodeExpandCollapse.st",
+      "case_id": 1,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\VisuElements\\NodeExpandCollapse.st",
+      "codebleu": 0.7987872100185778,
+      "ngram_match_score": 0.803082819756651,
+      "weighted_ngram_match_score": 0.8061685844202244,
+      "syntax_match_score": 0.8166666666666667,
+      "dataflow_match_score": 0.7692307692307693,
+      "reference_length": 1003,
+      "prediction_length": 952
+    },
+    {
+      "filename": "RotationCalculation.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\VisuElements\\RotationCalculation.st",
+      "codebleu": 0.6498859692143817,
+      "ngram_match_score": 0.5268402780890654,
+      "weighted_ngram_match_score": 0.5193829156565071,
+      "syntax_match_score": 0.6823529411764706,
+      "dataflow_match_score": 0.8709677419354839,
+      "reference_length": 711,
+      "prediction_length": 637
+    }
+  ]
+}

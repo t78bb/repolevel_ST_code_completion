@@ -1,0 +1,88 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a functional block for controlling a CD player, providing outputs for player activity status, volume level, and current track number.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:  
+1. 检查 CD 播放器的状态，并更新输出变量 `bPlayerActive` 以指示播放器是否处于活动状态。  
+2. 获取当前设置的音量值，并将音量级别赋值给输出变量 `byVolume`。  
+3. 读取当前播放的音轨编号，并将轨道编号赋值给输出变量 `byTrack`。  
+4. 根据播放器状态变化触发必要的输出更新逻辑，确保输出变量保持实时同步。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_CDPlayer.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_CDPlayer
+# VAR_OUTPUT
+# 	bPlayerActive		: BOOL;
+# 	byVolume			: BYTE;
+# 	byTrack				: UINT;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_CDPlayer_Stop.st
+# --------------------------------------------------
+# METHOD PUBLIC Stop
+# VAR_OUTPUT
+# 	bPlayerActive		: BOOL;
+# 	byVolume			: BYTE;
+# 	byTrack				: UINT;
+# END_VAR
+# 
+# bPlayerActive := FALSE;
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_CDPlayer_Start.st
+# --------------------------------------------------
+# METHOD PUBLIC Start
+# VAR_OUTPUT
+# 	bPlayerActive		: BOOL;
+# 	byVolume			: BYTE;
+# 	byTrack				: UINT;
+# END_VAR
+# 
+# bPlayerActive := true;
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_CDPlayer_setTrack.st
+# --------------------------------------------------
+# METHOD PUBLIC SetTrack : BOOL
+# VAR_INPUT
+# 	byNewTrack			: UINT;
+# END_VAR
+# VAR_OUTPUT
+# 	bPlayerActive		: BOOL;
+# 	byVolume			: BYTE;
+# 	byTrack				: UINT;
+# END_VAR
+# 
+# 
+# byTrack := byNewTrack;
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_CDPlayer_setVolume.st
+# --------------------------------------------------
+# METHOD PUBLIC SetVolume : BOOL
+# VAR_INPUT
+# 	byNewVolume 		: BYTE;
+# END_VAR
+# VAR_OUTPUT
+# 	bPlayerActive		: BOOL;
+# 	byVolume			: BYTE;
+# 	byTrack				: UINT;
+# END_VAR
+# 
+# byVolume := byNewVolume;
+# --------------------------------------------------
+
+
+FUNCTION_BLOCK PUBLIC FB_CDPlayer
+VAR_OUTPUT
+	bPlayerActive		: BOOL;
+	byVolume			: BYTE;
+	byTrack				: UINT;
+END_VAR
+```

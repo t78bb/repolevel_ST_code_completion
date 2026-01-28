@@ -25,12 +25,19 @@ from auto_fix_st_code import auto_fix_st_code
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'retrieve'))
 from eval_beir_sbert_canonical import main as retrieval_main
 
+# 添加planner目录到路径，以便导入规划器
+sys.path.insert(0, os.path.dirname(__file__))
+try:
+    from planner.planner_agent import generate_plan_for_case
+except Exception:
+    generate_plan_for_case = None
+
 # 智增增API配置 - 从环境变量读取
 ZHIZENGZENG_API_KEY = os.getenv("ZHIZENGZENG_API_KEY")
 ZHIZENGZENG_BASE_URL = os.getenv("ZHIZENGZENG_BASE_URL", "https://api.zhizengzeng.com/v1")
 
 # CODESYS API 配置
-CODESYS_API_URL = os.getenv("CODESYS_API_URL", "http://192.168.103.117:9000/api/v1/pou/project_workflow")
+CODESYS_API_URL = os.getenv("CODESYS_API_URL", "http://192.168.103.117:9000/api/v1/pou/workflow")
 
 
 def extract_code_from_markdown(content: str) -> str:
@@ -192,7 +199,7 @@ def run_retrieve(query_dir: Path, result_dir_name: str, output_base_dir: Path, d
         return False
 
 
-def run_generation(dataset_dir: Path, result_dir_name: str) -> bool:
+def run_generation(dataset_dir: Path, result_dir_name: str, skip_plan: bool = False) -> bool:
     """
     对指定数据集目录执行代码生成（直接函数调用）
     返回: 是否成功
@@ -326,8 +333,16 @@ def run_generation(dataset_dir: Path, result_dir_name: str) -> bool:
         args.save_generations_path = base_generations_path
         args.metric_output_path = str(output_project_dir / "evaluation_results.json")
         
+        # 设置 planner 相关参数
+        args.skip_plan = skip_plan
+        args.plan_results_dir = str(output_project_dir / "plan_results") if not skip_plan else None
+        
         print(f"  输出目录: {output_project_dir}")
         print(f"  生成文件: {base_generations_path}")
+        if not skip_plan:
+            print(f"  规划结果目录: {args.plan_results_dir}")
+        else:
+            print(f"  跳过规划步骤（--skip-plan）")
         
         # 创建 evaluator 并执行生成
         evaluator = ApiEvaluator(args.model, args)
@@ -356,6 +371,7 @@ def run_generation(dataset_dir: Path, result_dir_name: str) -> bool:
         
         # 检查 readful_result 目录是否创建成功
         readful_result_dir = output_project_dir / "readful_result"
+        
         if readful_result_dir.exists():
             st_files = list(readful_result_dir.glob("*.st"))
             print(f"  ✓ 已生成 readful_result 目录，包含 {len(st_files)} 个 ST 文件")
@@ -372,9 +388,109 @@ def run_generation(dataset_dir: Path, result_dir_name: str) -> bool:
         return False
 
 
-def run_fix(dataset_dir: Path, output_dir: Path) -> bool:
+def create_no_provide_version(dataset_dir: Path) -> bool:
+    """
+    从修复后的 readful_result 创建不含 provide_code 的版本
+    
+    参数:
+        dataset_dir: 数据集目录
+    
+    返回:
+        是否成功
+    """
+    readful_result_dir = dataset_dir / 'readful_result'
+    no_provide_dir = dataset_dir / 'readful_result_no_provide'
+    
+    if not readful_result_dir.exists():
+        return False
+    
+    # 创建输出目录
+    no_provide_dir.mkdir(parents=True, exist_ok=True)
+    
+    # 获取项目名（去除 repoeval_ 前缀）
+    project_name = dataset_dir.name
+    if project_name.startswith('repoeval_'):
+        project_name = project_name[9:]
+    
+    # 查找 query 目录
+    script_dir = Path(__file__).parent
+    query_dir = script_dir / "dataset" / "query" / project_name
+    
+    if not query_dir.exists():
+        # 尝试带 repoeval_ 前缀的目录
+        query_dir = script_dir / "dataset" / "query" / f"repoeval_{project_name}"
+        if not query_dir.exists():
+            print(f"  ⚠️  未找到 query 目录: {query_dir}")
+            return False
+    
+    st_files = list(readful_result_dir.glob('*.st'))
+    success_count = 0
+    
+    for st_file in st_files:
+        filename = st_file.stem  # 不带扩展名
+        json_file = query_dir / f"{filename}.json"
+        
+        if not json_file.exists():
+            # 如果找不到对应的 JSON，直接复制文件
+            shutil.copy2(st_file, no_provide_dir / st_file.name)
+            success_count += 1
+            continue
+        
+        # 读取 provide_code
+        try:
+            with open(json_file, 'r', encoding='utf-8') as f:
+                query_data = json.load(f)
+            
+            provide_code = query_data.get('provide_code', '')
+            if not provide_code:
+                # 没有 provide_code，直接复制
+                shutil.copy2(st_file, no_provide_dir / st_file.name)
+                success_count += 1
+                continue
+            
+            # 读取 ST 文件内容
+            with open(st_file, 'r', encoding='utf-8') as f:
+                st_content = f.read()
+            
+            # 去除 provide_code 部分
+            # provide_code 通常在文件开头，去除它及后面的空行
+            provide_code_clean = provide_code.strip()
+            if st_content.startswith(provide_code_clean):
+                # 去除 provide_code
+                remaining = st_content[len(provide_code_clean):].lstrip('\n\r')
+                
+                # 保存到 no_provide 目录
+                output_file = no_provide_dir / st_file.name
+                with open(output_file, 'w', encoding='utf-8') as f:
+                    f.write(remaining)
+                
+                success_count += 1
+            else:
+                # provide_code 不在开头，尝试查找并移除
+                # 简单策略：直接复制文件
+                shutil.copy2(st_file, no_provide_dir / st_file.name)
+                success_count += 1
+        
+        except Exception as e:
+            print(f"  ⚠️  处理 {st_file.name} 时出错: {e}")
+            # 出错时也复制文件
+            shutil.copy2(st_file, no_provide_dir / st_file.name)
+            success_count += 1
+    
+    if success_count > 0:
+        print(f"  ✓ 已生成 readful_result_no_provide 目录，包含 {success_count} 个 ST 文件（修复后，去除 provide_code）")
+    
+    return success_count > 0
+
+
+def run_fix(dataset_dir: Path, in_place: bool = True) -> bool:
     """
     对指定数据集目录执行验证和修复
+    
+    参数:
+        dataset_dir: 数据集目录
+        in_place: 是否原地修复（True: 直接在 dataset_dir 中修复，False: 创建新的输出目录）
+    
     返回: 是否成功
     """
     print(f"\n{'='*80}")
@@ -393,18 +509,21 @@ def run_fix(dataset_dir: Path, output_dir: Path) -> bool:
         print(f"  ⚠ 跳过: 未找到results.jsonl文件")
         return False
     
-    # 创建输出目录结构
-    output_subdir = output_dir / dataset_dir.name
-    output_readful_result = output_subdir / 'readful_result'
-    output_readful_result.mkdir(parents=True, exist_ok=True)
+    # 备份原始 readful_result（原地修复模式）
+    if in_place:
+        backup_dir = dataset_dir / 'readful_result_before_fix'
+        if backup_dir.exists():
+            # 如果备份已存在，删除旧备份
+            import shutil as shutil_module
+            shutil_module.rmtree(backup_dir)
     
-    # 复制其他文件
-    for file in dataset_dir.iterdir():
-        if file.is_file() and file.name != 'results.jsonl':
-            shutil.copy2(file, output_subdir / file.name)
-    
-    # 复制results.jsonl
-    shutil.copy2(results_jsonl_path, output_subdir / 'results.jsonl')
+        # 创建备份
+        shutil.copytree(readful_result_dir, backup_dir)
+        print(f"  ✓ 已备份原始 readful_result 到 readful_result_before_fix")
+        
+        # 原地修复：直接使用 dataset_dir
+        output_subdir = dataset_dir
+        output_readful_result = readful_result_dir
     
     # 处理readful_result中的所有st文件
     st_files = list(readful_result_dir.glob('*.st'))
@@ -423,17 +542,18 @@ def run_fix(dataset_dir: Path, output_dir: Path) -> bool:
         filename = st_file.name
         print(f"\n  处理文件: {filename}")
         
-        # 目标 ST 文件路径（位于 *_fixed 目录下）
-        output_st_file = output_readful_result / filename
-        
-        # 确保修复前目标目录中已经有一份待修复的代码：
-        # 目前生成阶段在原 result_dir 下的 readful_result 中已经完成了
-        # 「定义部分 + 实现部分」的拼接，这里只需要把源文件复制到 *_fixed 目录下。
-        try:
-            shutil.copy2(st_file, output_st_file)
-        except Exception as e:
-            print(f"    ✗ 无法复制 ST 文件到修复目录: {e}")
-            continue
+        # 目标 ST 文件路径
+        if in_place:
+            # 原地修复：直接使用原文件（已有备份）
+            output_st_file = st_file
+        else:
+            # 复制模式：复制到新目录
+            output_st_file = output_readful_result / filename
+            try:
+                shutil.copy2(st_file, output_st_file)
+            except Exception as e:
+                print(f"    ✗ 无法复制 ST 文件到修复目录: {e}")
+                continue
         
         # 进行自动修复
         print(f"    开始自动修复...")
@@ -471,6 +591,12 @@ def run_fix(dataset_dir: Path, output_dir: Path) -> bool:
             traceback.print_exc()
     
     print(f"\n  ✓ 修复完成: {success_count}/{len(st_files)} 个文件修复成功")
+    
+    # 生成 readful_result_no_provide（无论修复成功与否，都生成去除 provide_code 的版本）
+    if len(st_files) > 0:
+        print(f"\n  生成不含 provide_code 的版本...")
+        create_no_provide_version(dataset_dir)
+    
     return success_count > 0
 
 
@@ -503,6 +629,11 @@ def main():
         "--skip_retrieve",
         action="store_true",
         help="跳过检索步骤（如果已指定 --result_dir，则自动跳过检索）"
+    )
+    parser.add_argument(
+        "--skip_plan",
+        action="store_true",
+        help="跳过规划步骤，生成时不使用 planner 结果"
     )
     parser.add_argument(
         "--project",
@@ -764,15 +895,93 @@ def main():
         # 统计该数据集处理的 case 数量（从 results.jsonl 读取）
         dataset_case_count = 0
         results_jsonl = dataset_dir / "results.jsonl"
+        results_list = []
         if results_jsonl.exists():
-            dataset_case_count = len(load_results_jsonl(str(results_jsonl)))
+            results_list = load_results_jsonl(str(results_jsonl))
+            dataset_case_count = len(results_list)
+
+        # 规划步骤：在代码生成前，为当前项目的每个 case 生成功能规划（与 generation 粒度对齐，仅打印，不传入下游）
+        # case 从 query 目录中读取，而不是从 results.jsonl
+        if generate_plan_for_case is not None:
+            # 从 query 目录读取所有 JSON 文件作为 cases
+            # project_name 已经是 "repoeval_counter" 格式，直接使用
+            query_dir = Path(__file__).parent / "dataset" / "query" / project_name
+            
+            # 提取实际的 project_name（去掉 repoeval_ 前缀）用于 project_code 目录
+            actual_project_name = project_name
+            if project_name.startswith("repoeval_"):
+                actual_project_name = project_name[len("repoeval_"):]
+            
+            query_cases = []
+            if query_dir.exists():
+                for json_file in sorted(query_dir.glob("*.json")):
+                    try:
+                        case_data = json.loads(json_file.read_text(encoding="utf-8"))
+                        query_cases.append(case_data)
+                    except Exception as e:
+                        print(f"  ⚠ 无法读取 query 文件 {json_file.name}: {e}")
+                        continue
+            
+            if query_cases:
+                # 获取所有 JSON 文件列表（用于提取函数名）
+                json_files = sorted(query_dir.glob("*.json"))
+                
+                print(f"\n  [规划] 为项目 {project_name} 的 {len(query_cases)} 个 case 生成规划")
+                for case_idx, case in enumerate(query_cases):
+                    # 从文件名提取函数名（去掉 .json 扩展名）
+                    function_name = None
+                    if case_idx < len(json_files):
+                        function_name = json_files[case_idx].stem
+                    
+                    # 如果无法从文件名提取，尝试从 case 中提取
+                    if not function_name:
+                        # 尝试从 task_id 或其他字段提取
+                        function_name = case.get("task_id") or f"case_{case_idx + 1}"
+                    
+                    print(f"    [{case_idx + 1}/{len(query_cases)}] 规划 case: {function_name}")
+                    try:
+                        plan_text, user_prompt = generate_plan_for_case(
+                            case=case,
+                            project_name=actual_project_name,  # 使用去掉前缀的 project_name
+                            function_name=function_name,
+                        )
+                        # 打印规划结果
+                        print(plan_text)
+                        
+                        # 保存 plan_text 和 user_prompt 到文件
+                        # 输出目录：output/{result_dir_name}/{project_name}/
+                        output_project_dir = output_dir / result_dir_name / project_name
+                        output_project_dir.mkdir(parents=True, exist_ok=True)
+                        
+                        # 创建 plan_results 和 plan_prompts 目录
+                        plan_results_dir = output_project_dir / "plan_results"
+                        plan_prompts_dir = output_project_dir / "plan_prompts"
+                        plan_results_dir.mkdir(parents=True, exist_ok=True)
+                        plan_prompts_dir.mkdir(parents=True, exist_ok=True)
+                        
+                        # 保存 plan_text
+                        plan_result_file = plan_results_dir / f"{function_name}.txt"
+                        plan_result_file.write_text(plan_text, encoding="utf-8")
+                        print(f"      ✓ 规划结果已保存: {plan_result_file}")
+                        
+                        # 保存 user_prompt
+                        plan_prompt_file = plan_prompts_dir / f"{function_name}.txt"
+                        plan_prompt_file.write_text(user_prompt, encoding="utf-8")
+                        print(f"      ✓ 规划 Prompt 已保存: {plan_prompt_file}")
+                    except Exception as e:
+                        print(f"      ⚠ 生成规划失败: {e}")
+            else:
+                print(f"  ⚠ query 目录不存在或没有 JSON 文件: {query_dir}")
+        elif generate_plan_for_case is None:
+            # 如果规划器不可用，给出一次性的提示
+            print("  ⚠ 未找到 planner 模块或 generate_plan_for_case，跳过规划步骤")
         
         # 步骤1: 代码生成
         if not args.skip_generation:
             print(f"\n  [步骤 {'1' if not use_query_mode or args.skip_retrieve else '1/3'}] 执行代码生成: {dataset_dir.name}")
             print(f"  {'-'*76}")
             
-            gen_success = run_generation(dataset_dir, result_dir_name)
+            gen_success = run_generation(dataset_dir, result_dir_name, skip_plan=args.skip_plan)
             if not gen_success:
                 project_success = False
                 results["failed"].append({
@@ -784,20 +993,13 @@ def main():
         else:
             print(f"  跳过生成步骤（--skip_generation）")
         
-        # 步骤2: 验证和修复
+        # 步骤2: 验证和修复（原地修复模式）
         if not args.skip_fix:
             print(f"\n  [步骤 {'2' if not use_query_mode or args.skip_retrieve else '2/3'}] 执行验证和修复: {dataset_dir.name}")
             print(f"  {'-'*76}")
             
-            # 确定输出目录
-            if use_query_mode:
-                output_fixed_dir = output_dir / f"{result_dir_name}_fixed"
-            elif args.result_dir:
-                output_fixed_dir = output_dir / f"{result_dir_name}_fixed"
-            else:
-                output_fixed_dir = output_dir / f"{project_name}_fixed"
-            
-            fix_success = run_fix(dataset_dir, output_fixed_dir)
+            # 原地修复：直接在 dataset_dir 中修复，不创建 _fixed 目录
+            fix_success = run_fix(dataset_dir, in_place=True)
             if not fix_success:
                 project_success = False
                 results["failed"].append({

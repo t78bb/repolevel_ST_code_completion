@@ -1,0 +1,146 @@
+This is the known requirement information for the function to be completed:\nThis code is intended to implement a calculation for a force value (lF) based on mass (lM), length (lL), and height (lH) using a specific formula when height (lH) is non-zero.\nContinue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 开放式双轴卷绕机编程开发实训-FUN\CheckF.st
+# --------------------------------------------------
+# FUNCTION_BLOCK CheckF
+# VAR_INPUT
+# 	lM	:	LREAL;
+# 	lL	:	LREAL;
+# 	lH	:	LREAL;
+# END_VAR
+# VAR_OUTPUT
+# 	lF	:	LREAL;
+# END_VAR
+# VAR
+# END_VAR
+# 
+# IF lH<>0 THEN
+# 	lF:=9.8*lM/(2*COS(ATAN(lL/lH)));
+# END_IF
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 开放式双轴卷绕机编程开发实训-FUN\StaDisplay.st
+# --------------------------------------------------
+# FUNCTION_BLOCK StaDisplay
+# VAR_INPUT
+# 	iStatus :	INT;
+# END_VAR
+# VAR_OUTPUT
+# 	Y1,Y2,Y3,Y4,Y5,Y6	:	BOOL;
+# END_VAR
+# VAR
+# END_VAR
+# 
+# CASE iStatus OF
+# 	2,3,4,5,6,7,8,9,10,221,222:
+# 	Y5:=FALSE;
+# 	Y6:=TRUE;
+# 	Y1:=TRUE;
+# 	Y2:=FALSE;
+# 	Y3:=FALSE;
+# 	Y4:=FALSE;
+# 	11,12:
+# 	Y5:=FALSE;
+# 	Y6:=TRUE;
+# 	Y1:=FALSE;
+# 	Y2:=TRUE;
+# 	Y3:=FALSE;
+# 	Y4:=FALSE;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 开放式双轴卷绕机编程开发实训-FUN\StaDisplay.st
+# --------------------------------------------------
+# FUNCTION_BLOCK StaDisplay
+# VAR_INPUT
+# 	iStatus :	INT;
+# END_VAR
+# VAR_OUTPUT
+# 	Y1,Y2,Y3,Y4,Y5,Y6	:	BOOL;
+# END_VAR
+# VAR
+# END_VAR
+# 
+# CASE iStatus OF
+# 	2,3,4,5,6,7,8,9,10,221,222:
+# 	Y5:=FALSE;
+# 	Y6:=TRUE;
+# 	Y1:=TRUE;
+# 	Y2:=FALSE;
+# 	Y3:=FALSE;
+# 	Y4:=FALSE;
+# 	11,12:
+# 	Y5:=FALSE;
+# 	Y6:=TRUE;
+# 	Y1:=FALSE;
+# 	Y2:=TRUE;
+# 	Y3:=FALSE;
+# 	Y4:=FALSE;
+# 	13,14,15,16,17,18,19,20,21,22:
+# 	Y5:=TRUE;
+# 	Y6:=FALSE;
+# 	Y1:=FALSE;
+# 	Y2:=FALSE;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 开放式双轴卷绕机编程开发实训-FUN\StaDisplay.st
+# --------------------------------------------------
+# FUNCTION_BLOCK StaDisplay
+# VAR_INPUT
+# 	iStatus :	INT;
+# END_VAR
+# VAR_OUTPUT
+# 	Y1,Y2,Y3,Y4,Y5,Y6	:	BOOL;
+# END_VAR
+# VAR
+# END_VAR
+# 
+# CASE iStatus OF
+# 	2,3,4,5,6,7,8,9,10,221,222:
+# 	Y5:=FALSE;
+# 	Y6:=TRUE;
+# 	Y1:=TRUE;
+# 	Y2:=FALSE;
+# 	Y3:=FALSE;
+# 	Y4:=FALSE;
+# 	11,12:
+# 	Y5:=FALSE;
+# 	Y6:=TRUE;
+# 	Y1:=FALSE;
+# 	Y2:=TRUE;
+# 	Y3:=FALSE;
+# 	Y4:=FALSE;
+# 	13,14,15,16,17,18,19,20,21,22:
+# 	Y5:=TRUE;
+# 	Y6:=FALSE;
+# 	Y1:=FALSE;
+# 	Y2:=FALSE;
+# 	Y3:=TRUE;
+# 	Y4:=FALSE;
+# 	23,24:
+# 	Y5:=TRUE;
+# 	Y6:=FALSE;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 开放式双轴卷绕机编程开发实训-FUN\StaDisplay.st
+# --------------------------------------------------
+# FUNCTION_BLOCK StaDisplay
+# VAR_INPUT
+# 
+
+FUNCTION_BLOCK CheckF
+VAR_INPUT
+	lM	:	LREAL;
+	lL	:	LREAL;
+	lH	:	LREAL;
+END_VAR
+VAR_OUTPUT
+	lF	:	LREAL;
+END_VAR
+```

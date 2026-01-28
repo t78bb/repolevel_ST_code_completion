@@ -1,0 +1,178 @@
+{
+  "project_name": "repoeval_barrier",
+  "original_project_name": "barrier",
+  "total_files": 13,
+  "successful_evaluations": 13,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.3884557275241371,
+    "ngram_match_score": 0.1826095138216524,
+    "weighted_ngram_match_score": 0.3288398469573235,
+    "syntax_match_score": 0.6502596923574124,
+    "dataflow_match_score": 0.39211385696016027
+  },
+  "file_results": [
+    {
+      "filename": "CAN_Read_Data_SWMC.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\barrier\\CAN_Read_Data_SWMC.st",
+      "codebleu": 0.21318263679675648,
+      "ngram_match_score": 0.0388456110366303,
+      "weighted_ngram_match_score": 0.05289342614433136,
+      "syntax_match_score": 0.4742268041237113,
+      "dataflow_match_score": 0.2867647058823529,
+      "reference_length": 1154,
+      "prediction_length": 943
+    },
+    {
+      "filename": "CAN_Send_Data_SWMC.st",
+      "case_id": 1,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\barrier\\CAN_Send_Data_SWMC.st",
+      "codebleu": 0.09305532875957465,
+      "ngram_match_score": 0.0019653889004917634,
+      "weighted_ngram_match_score": 0.0036648452610116584,
+      "syntax_match_score": 0.21693121693121692,
+      "dataflow_match_score": 0.14965986394557823,
+      "reference_length": 1298,
+      "prediction_length": 2323
+    },
+    {
+      "filename": "CommandExecutor.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\barrier\\CommandExecutor.st",
+      "codebleu": 0.6580600780080074,
+      "ngram_match_score": 0.613884574806238,
+      "weighted_ngram_match_score": 0.8306162736242586,
+      "syntax_match_score": 0.9655172413793104,
+      "dataflow_match_score": 0.2222222222222222,
+      "reference_length": 616,
+      "prediction_length": 939
+    },
+    {
+      "filename": "CommandExecutor0.st",
+      "case_id": 3,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\barrier\\CommandExecutor0.st",
+      "codebleu": 0.4839389020158918,
+      "ngram_match_score": 0.4729210264552365,
+      "weighted_ngram_match_score": 0.5169931889584274,
+      "syntax_match_score": 0.8181818181818182,
+      "dataflow_match_score": 0.1276595744680851,
+      "reference_length": 1133,
+      "prediction_length": 659
+    },
+    {
+      "filename": "DataReverse_cmdReverse.st",
+      "case_id": 4,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\barrier\\DataReverse_cmdReverse.st",
+      "codebleu": 0.5462611634804456,
+      "ngram_match_score": 0.09450103578748027,
+      "weighted_ngram_match_score": 0.39317519708167065,
+      "syntax_match_score": 0.9473684210526315,
+      "dataflow_match_score": 0.75,
+      "reference_length": 160,
+      "prediction_length": 510
+    },
+    {
+      "filename": "fileSave_close.st",
+      "case_id": 5,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\barrier\\fileSave_close.st",
+      "codebleu": 0.5797744212100185,
+      "ngram_match_score": 0.10294417861301211,
+      "weighted_ngram_match_score": 0.616153506227062,
+      "syntax_match_score": 0.8,
+      "dataflow_match_score": 0.8,
+      "reference_length": 176,
+      "prediction_length": 1395
+    },
+    {
+      "filename": "fileSave_createDir.st",
+      "case_id": 6,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\barrier\\fileSave_createDir.st",
+      "codebleu": 0.49541191166667453,
+      "ngram_match_score": 0.059145654574913255,
+      "weighted_ngram_match_score": 0.41927618564017183,
+      "syntax_match_score": 0.9032258064516129,
+      "dataflow_match_score": 0.6,
+      "reference_length": 242,
+      "prediction_length": 1550
+    },
+    {
+      "filename": "fileSave_new.st",
+      "case_id": 7,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\barrier\\fileSave_new.st",
+      "codebleu": 0.4861622289696935,
+      "ngram_match_score": 0.3896875648370278,
+      "weighted_ngram_match_score": 0.49000808001370877,
+      "syntax_match_score": 0.7149532710280374,
+      "dataflow_match_score": 0.35,
+      "reference_length": 1691,
+      "prediction_length": 1739
+    },
+    {
+      "filename": "fileSave_write.st",
+      "case_id": 8,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\barrier\\fileSave_write.st",
+      "codebleu": 0.5660570584558496,
+      "ngram_match_score": 0.2648624186446717,
+      "weighted_ngram_match_score": 0.543225464301534,
+      "syntax_match_score": 0.9298245614035088,
+      "dataflow_match_score": 0.5263157894736842,
+      "reference_length": 803,
+      "prediction_length": 1247
+    },
+    {
+      "filename": "mdbsLogicToPhy.st",
+      "case_id": 9,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\barrier\\mdbsLogicToPhy.st",
+      "codebleu": 0.2370974218031051,
+      "ngram_match_score": 0.06964379470223285,
+      "weighted_ngram_match_score": 0.09274965190868377,
+      "syntax_match_score": 0.3875,
+      "dataflow_match_score": 0.39849624060150374,
+      "reference_length": 1762,
+      "prediction_length": 3788
+    },
+    {
+      "filename": "mdbsNumToIdx.st",
+      "case_id": 10,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\barrier\\mdbsNumToIdx.st",
+      "codebleu": 0.11172107594352601,
+      "ngram_match_score": 0.007011631642530659,
+      "weighted_ngram_match_score": 0.018025744355791833,
+      "syntax_match_score": 0.24793388429752067,
+      "dataflow_match_score": 0.17391304347826086,
+      "reference_length": 762,
+      "prediction_length": 310
+    },
+    {
+      "filename": "mdbsPhyToLogic.st",
+      "case_id": 11,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\barrier\\mdbsPhyToLogic.st",
+      "codebleu": 0.32393744654579526,
+      "ngram_match_score": 0.18731087904516788,
+      "weighted_ngram_match_score": 0.2152510083934154,
+      "syntax_match_score": 0.45132743362831856,
+      "dataflow_match_score": 0.4418604651162791,
+      "reference_length": 1850,
+      "prediction_length": 2486
+    },
+    {
+      "filename": "setButtonByDirect.st",
+      "case_id": 12,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\barrier\\setButtonByDirect.st",
+      "codebleu": 0.2552647841584448,
+      "ngram_match_score": 0.07119992063584867,
+      "weighted_ngram_match_score": 0.08288543853513827,
+      "syntax_match_score": 0.5963855421686747,
+      "dataflow_match_score": 0.27058823529411763,
+      "reference_length": 1032,
+      "prediction_length": 1185
+    }
+  ]
+}

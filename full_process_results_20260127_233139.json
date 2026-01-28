@@ -1,0 +1,58 @@
+{
+  "success": [
+    "repoeval_Builder_Application_RPI",
+    "repoeval_Command1",
+    "repoeval_Decorator_Application",
+    "repoeval_GreatExampleOfAdvantages",
+    "repoeval_Interation_HowTo",
+    "repoeval_PID_controller",
+    "repoeval_PT1Filter",
+    "repoeval_ProductionLine",
+    "repoeval_Proxy_Application",
+    "repoeval_VisuElements",
+    "repoeval_Wrappers",
+    "repoeval_barrier",
+    "repoeval_counter",
+    "repoeval_electronic_cam_motion",
+    "repoeval_electronic_gear_motion",
+    "repoeval_elevator",
+    "repoeval_measurement_control",
+    "repoeval_open-type_dual-axis_winding_machine",
+    "repoeval_plc_hello_mixing_tank",
+    "repoeval_readwriteFile",
+    "repoeval_traffic_light"
+  ],
+  "failed": [
+    {
+      "project": "repoeval_FB50_虚轴控制",
+      "step": "retrieve",
+      "error": "检索失败"
+    },
+    {
+      "project": "repoeval_Robotics_DynamicModel",
+      "step": "retrieve",
+      "error": "检索失败"
+    },
+    {
+      "project": "repoeval_assembly-station",
+      "step": "fix",
+      "error": "修复失败"
+    },
+    {
+      "project": "repoeval_four-level_elevator_control",
+      "step": "fix",
+      "error": "修复失败"
+    },
+    {
+      "project": "repoeval_isScaleOutput",
+      "step": "fix",
+      "error": "修复失败"
+    },
+    {
+      "project": "repoeval_three-axis_CNC_motion",
+      "step": "fix",
+      "error": "修复失败"
+    }
+  ],
+  "skipped": []
+}

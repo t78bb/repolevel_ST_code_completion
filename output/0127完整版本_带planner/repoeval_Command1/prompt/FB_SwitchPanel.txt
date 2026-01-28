@@ -1,0 +1,112 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a control mechanism that triggers the execution of commands associated with switches when their state changes to active.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 定义内部变量用于存储每个开关对应的命令（例如: 一个 ARRAY 类型变量，存储命令实例引用）。
+2. 在函数块初始化时，为内部命令数组的每个索引预留存储空间，并初始化为空（确保每个开关的命令可被动态绑定）。
+3. 提供 `SetCommand(Index, Command)` 方法实现，接收开关的索引号和对应的命令实例引用，将该命令关联到内部数组的指定位置。
+4. 在 `FB_SwitchPanel` 的主执行逻辑中，循环遍历 `arrSwitch` 数组，检查每个开关的状态是否从未激活变为激活。
+5. 如果检测到某个开关状态变为激活，调用内部存储在对应索引位置的命令实例，触发执行。
+6. 更新内部状态记录，存储每个开关的上一次状态，用于与当前状态对比判断变化。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_SwitchPanel.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_SwitchPanel
+# VAR_INPUT
+# 	arrSwitch		: ARRAY[1..8] OF BOOL;
+# END_VAR
+# VAR
+# 	aiCommand		: ARRAY[1..8] OF I_Command;	
+# 	arrRtrig		: ARRAY[1..8] OF R_TRIG;
+# 	nIndex			: INT;
+# END_VAR
+# 
+# FOR nIndex := 1 TO 8 DO
+# 	arrRtrig[nIndex](CLK := arrSwitch[nIndex]);
+# 	IF arrRtrig[nIndex].Q THEN
+# 		IF (aiCommand[nIndex] <> 0) THEN
+# 			aiCommand[nIndex].Execute();
+# 		END_IF
+# 	END_IF
+# END_FOR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_SwitchPanel_FB_init.st
+# --------------------------------------------------
+# METHOD FB_init : BOOL
+# VAR_INPUT
+# 	bInitRetains : BOOL; // if TRUE, the retain variables are initialized (warm start / cold start)
+# 	bInCopyCode : BOOL;  // if TRUE, the instance afterwards gets moved into the copy code (online change)
+#     arrSwitch		: ARRAY[1..8] OF BOOL;
+# END_VAR
+# VAR
+# 	nIndex : INT;
+#     aiCommand		: ARRAY[1..8] OF I_Command;	
+# 	arrRtrig		: ARRAY[1..8] OF R_TRIG;
+# 	nIndex			: INT;
+# END_VAR
+# 
+# 
+# 
+# FOR nIndex := 1 TO 8 DO
+# 	aiCommand[nIndex] := 0;
+# END_FOR
+# 
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_Socket.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_Socket
+# VAR_OUTPUT
+# 	bActive		: BOOL;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_SwitchPanel_SetCommand.st
+# --------------------------------------------------
+# METHOD PUBLIC SetCommand : BOOL
+# VAR_INPUT
+# 	nPosition		: INT;
+# 	iCommand		: I_Command;
+#     arrSwitch		: ARRAY[1..8] OF BOOL;
+# 
+# END_VAR
+# VAR
+# 	aiCommand		: ARRAY[1..8] OF I_Command;	
+# 	arrRtrig		: ARRAY[1..8] OF R_TRIG;
+# 	nIndex			: INT;
+# END_VAR
+# 
+# 
+# 
+# IF ((nPosition >= 1) AND (nPosition <= 8) AND (iCommand <> 0)) THEN
+# 	THIS^.aiCommand[nPosition] := iCommand;
+# END_IF
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_Socket_On.st
+# --------------------------------------------------
+# METHOD PUBLIC On
+# VAR_OUTPUT
+# 	bActive		: BOOL;
+# END_VAR
+# 
+# bActive := true;
+# --------------------------------------------------
+
+
+FUNCTION_BLOCK PUBLIC FB_SwitchPanel
+VAR_INPUT
+	arrSwitch		: ARRAY[1..8] OF BOOL;
+END_VAR
+```

@@ -1,0 +1,15 @@
+FUNCTION_BLOCK PUBLIC FB_Socket
+VAR_OUTPUT
+ bActive		: BOOL;
+END_VAR
+VAR
+ bInitialized : BOOL := FALSE;
+END_VAR
+
+METHOD PUBLIC Main : VOID
+IF NOT bInitialized THEN
+ bActive := FALSE;
+ bInitialized := TRUE;
+END_IF
+END_METHOD
+END_FUNCTION_BLOCK

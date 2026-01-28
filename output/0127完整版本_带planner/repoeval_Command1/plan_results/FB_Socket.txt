@@ -1,0 +1,5 @@
+功能规划:
+1. 初始化并检查Socket的状态。
+2. 如果Socket成功初始化且连接正常，设置`bActive`为`TRUE`。
+3. 如果Socket未能成功初始化或连接断开，设置`bActive`为`FALSE`。
+4. 在每个周期重复检查Socket状态，以确保`bActive`反映当前连接状态变化。

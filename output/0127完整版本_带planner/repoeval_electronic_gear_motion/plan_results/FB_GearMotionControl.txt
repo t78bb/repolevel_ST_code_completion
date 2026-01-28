@@ -1,0 +1,7 @@
+功能规划:
+1. 检查输入信号 bStart 和 bStop 的状态；优先处理停止信号 bStop，将运动设为停止并更新 bRunning、bReady 状态。
+2. 若 bStop 为 FALSE 且 bStart 为 TRUE，则检查 nRatioNumerator、nRatioDenominator 的有效性（不得为零），以及运动方向 nDirection 是否为有效值（1或-1），否则设置 bError 为 TRUE。
+3. 在接收有效的启动信号 bStart 且输入参数合法时，根据传动比 (nRatioNumerator/nRatioDenominator) 和运动方向 nDirection 计算目标从轴 SlaveAxis 的速度。
+4. 对主轴 MasterAxis 和从轴 SlaveAxis 设置运动参数 rVelocity、rAcceleration 和 rDeceleration，确保运动同步。
+5. 启动主轴和从轴的运动，更新 bRunning 为 TRUE，bReady 为 FALSE，并设置 nCurrentState 为运行状态值。
+6. 在运行过程中监控运动状态，检测异常或完成条件；若检测到异常则设置 bError 为 TRUE 并停止运动，若完成则更新 bReady 为 TRUE 并停止主轴和从轴。

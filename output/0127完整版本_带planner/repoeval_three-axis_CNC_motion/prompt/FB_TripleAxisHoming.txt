@@ -1,0 +1,103 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a triple-axis homing procedure for a CNC system, managing the homing process, status monitoring, and error handling for the X, Y, and Z axes.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 检查输入信号 `bExecute` 是否为 TRUE，若为 FALSE，清除所有回零状态标志及错误标志，设置 `bBusy` 为 FALSE，退出流程。
+2. 设置 `bBusy` 为 TRUE，开始回零流程，并初始化回零状态标志 `bAxisXHomeOK`、`bAxisYHomeOK`、`bAxisZHomeOK` 为 FALSE。
+3. 对三轴依次进行回零操作：
+   - 对于 `AxisX`，检查 `bAxisXRefSwitch` 状态：
+     - 若未触发零点开关，执行快速运动 (`fVelocityFast`)，直到触发零点开关。
+     - 零点开关触发后，切换为慢速运动 (`fVelocitySlow`)，精确停到零点并设置 `bAxisXHomeOK` 为 TRUE。
+   - 对于 `AxisY` 和 `AxisZ`，分别重复相同逻辑，依次检查 `bAxisYRefSwitch` 和 `bAxisZRefSwitch` 状态，并完成相应回零。
+4. 当 `bAxisXHomeOK`、`bAxisYHomeOK` 和 `bAxisZHomeOK` 全部为 TRUE 时，设置 `bHomeOK` 为 TRUE，清除 `bBusy` 标志。
+5. 在任意阶段若发生错误（如运动超时或硬件故障），设置 `bError` 为 TRUE，更新错误信息到 `sErrorString`，强制停止所有轴的运动，并清除 `bBusy` 标志。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 三轴CNC运动实训-FUN\FB_TripleAxisHoming.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_TripleAxisHoming
+# VAR_INPUT
+# 	bExecute			:	BOOL;				//执行回零信号
+# 	AxisX				:	AXIS_REF;			//X轴引用
+# 	AxisY				:	AXIS_REF;			//Y轴引用
+# 	AxisZ				:	AXIS_REF;			//Z轴引用
+# 	bAxisXRefSwitch		:	BOOL;				//X轴零点开关
+# 	bAxisYRefSwitch		:	BOOL;				//Y轴零点开关
+# 	bAxisZRefSwitch		:	BOOL;				//Z轴零点开关
+# 	fVelocitySlow		:	REAL;				//慢速回零速度
+# 	fVelocityFast		:	REAL;				//快速回零速度
+# 	fAcceleration		:	REAL;				//加速度
+# 	fDeceleration		:	REAL;				//减速度
+# END_VAR
+# VAR_OUTPUT
+# 	bHomeOK				:	BOOL;				//三轴都回零完成
+# 	bAxisXHomeOK		:	BOOL;				//X轴回零完成
+# 	bAxisYHomeOK		:	BOOL;				//Y轴回零完成
+# 	bAxisZHomeOK		:	BOOL;				//Z轴回零完成
+# 	bBusy				:	BOOL;				//回零进行中
+# 	bError				:	BOOL;				//错误标志
+# 	sErrorString		:	STRING;				//错误信息字符串
+# END_VAR
+# VAR
+# 	fbHomingX			:	SMC_HOMING;			//X轴回零功能块
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 三轴CNC运动实训-FUN\FB_TripleAxisHoming.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_TripleAxisHoming
+# VAR_INPUT
+# 	bExecute			:	BOOL;				//执行回零信号
+# 	AxisX				:	AXIS_REF;			//X轴引用
+# 	AxisY				:	AXIS_REF;			//Y轴引用
+# 	AxisZ				:	AXIS_REF;			//Z轴引用
+# 	bAxisXRefSwitch		:	BOOL;				//X轴零点开关
+# 	bAxisYRefSwitch		:	BOOL;				//Y轴零点开关
+# 	bAxisZRefSwitch		:	BOOL;				//Z轴零点开关
+# 	fVelocitySlow		:	REAL;				//慢速回零速度
+# 	fVelocityFast		:	REAL;				//快速回零速度
+# 	fAcceleration		:	REAL;				//加速度
+# 	fDeceleration		:	REAL;				//减速度
+# END_VAR
+# VAR_OUTPUT
+# 	bHomeOK				:	BOOL;				//三轴都回零完成
+# 	bAxisXHomeOK		:	BOOL;				//X轴回零完成
+# 	bAxisYHomeOK		:	BOOL;				//Y轴回零完成
+# 	bAxisZHomeOK		:	BOOL;				//Z轴回零完成
+# 	bBusy				:	BOOL;				//回零进行中
+# 	bError				:	BOOL;				//错误标志
+# 	sErrorString		:	STRING;				//错误信息字符串
+# END_VAR
+# VAR
+# 	fbHomingX			:	SMC_HOMING;			//X轴回零功能块
+# 	fbHomingY			:	SMC_HOMING;			//Y轴回零功能块
+# 	fbHomingZ			:	S
+
+FUNCTION_BLOCK FB_TripleAxisHoming
+VAR_INPUT
+	bExecute			:	BOOL;				//执行回零信号
+	AxisX				:	AXIS_REF;			//X轴引用
+	AxisY				:	AXIS_REF;			//Y轴引用
+	AxisZ				:	AXIS_REF;			//Z轴引用
+	bAxisXRefSwitch		:	BOOL;				//X轴零点开关
+	bAxisYRefSwitch		:	BOOL;				//Y轴零点开关
+	bAxisZRefSwitch		:	BOOL;				//Z轴零点开关
+	fVelocitySlow		:	REAL;				//慢速回零速度
+	fVelocityFast		:	REAL;				//快速回零速度
+	fAcceleration		:	REAL;				//加速度
+	fDeceleration		:	REAL;				//减速度
+END_VAR
+VAR_OUTPUT
+	bHomeOK				:	BOOL;				//三轴都回零完成
+	bAxisXHomeOK		:	BOOL;				//X轴回零完成
+	bAxisYHomeOK		:	BOOL;				//Y轴回零完成
+	bAxisZHomeOK		:	BOOL;				//Z轴回零完成
+	bBusy				:	BOOL;				//回零进行中
+	bError				:	BOOL;				//错误标志
+	sErrorString		:	STRING;				//错误信息字符串
+END_VAR
+```

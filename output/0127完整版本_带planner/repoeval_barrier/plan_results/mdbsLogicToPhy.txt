@@ -1,0 +1,13 @@
+功能规划:
+1. 根据 `section` 输入值，确定 `level` 和 `direct` 的值：
+   - 如果 `section` 为 1 或 2，则设置 `level` 为 2（天轨）。
+   - 如果 `section` 为 3 或 4，则设置 `level` 为 1（地轨）。
+   - 如果 `section` 为奇数（1, 3），设置 `direct` 为 `extend`。
+   - 如果 `section` 为偶数（2, 4），设置 `direct` 为 `retract`。
+
+2. 根据 `lgcIdx` 和 `section` 交叉逻辑计算 `phyIdx`：
+   - 如果 `section` 为 1 或 2（天轨），并且 `lgcIdx` 在 [1..10] 范围内，计算 `phyIdx` = `lgcIdx` - 1。
+   - 如果 `section` 为 3 或 4（地轨），并且 `lgcIdx` 在 [1..11] 范围内，计算 `phyIdx` = `lgcIdx` - 1。
+   - 如果 `lgcIdx` 不在规定范围内，抛出匹配失败逻辑，或者将 `phyIdx` 设置为默认值（例如 -1 或 0）。
+
+3. 输出结果到 `level`、`direct` 和 `phyIdx`，确保与输入逻辑映射一致，完成逻辑到物理的翻译过程。

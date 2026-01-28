@@ -1,0 +1,107 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a gear coupling and decoupling control system for two axes with configurable parameters such as gear ratio, acceleration, and deceleration, while monitoring the coupling status and handling errors.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 检查输入变量 `bCouple` 的状态，如果为 TRUE，则执行耦合逻辑；如果为 FALSE，则执行解耦逻辑。
+2. 在耦合逻辑中：
+   - 按照 `nRatioNumerator` 和 `nRatioDenominator` 设置从轴与主轴的齿轮传动比。
+   - 使用设定的 `rAcceleration` 和 `rDeceleration` 参数配置加速与减速过程。
+   - 检查从轴与主轴是否已成功耦合，设置输出变量 `bInGear` 和 `bCouplingDone`。
+3. 在解耦逻辑中：
+   - 解除从轴与主轴的同步关系。
+   - 设置相关输出变量 `bDecouplingDone` 为 TRUE，并清除同步状态 `bInGear`。
+4. 监控耦合或解耦过程中的错误，通过输出变量 `bError` 和 `nErrorID` 标识错误状态及其具体原因。
+5. 确保所有步骤均以主轴和从轴引用（输入变量 `Master` 和 `Slave`）为关键操作对象，动态处理响应状态。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 电子齿轮运动实训-FUN\FB_GearCoupling.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_GearCoupling
+# VAR_INPUT
+# 	Master				:	AXIS_REF;		//主轴引用
+# 	Slave				:	AXIS_REF;		//从轴引用
+# 	bCouple				:	BOOL;			//TRUE=耦合，FALSE=解耦
+# 	nRatioNumerator		:	INT := 1;		//传动比分子
+# 	nRatioDenominator	:	INT := 1;		//传动比分母
+# 	rAcceleration		:	REAL := 10000.0;//加速度
+# 	rDeceleration		:	REAL := 10000.0;//减速度
+# END_VAR
+# VAR_OUTPUT
+# 	bInGear				:	BOOL;			//耦合状态
+# 	bCouplingDone		:	BOOL;			//耦合完成
+# 	bDecouplingDone		:	BOOL;			//解耦完成
+# 	bError				:	BOOL;			//错误标志
+# 	nErrorID			:	DWORD;			//错误代码
+# END_VAR
+# VAR
+# 	fbGearIn			:	MC_GearIn;		//齿轮耦合功能块
+# 	fbGearOut			:	MC_GearOut;		//齿轮解耦功能块
+# 	bLastCouple			:	BOOL;			//上次耦合状态
+# 	bCoupleRising		:	BOOL;			//耦合上升沿
+# 	bCoupleFalling		:	BOOL;			//耦合下降沿
+# END_VAR
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 电子齿轮运动实训-FUN\FB_GearCoupling.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_GearCoupling
+# VAR_INPUT
+# 	Master				:	AXIS_REF;		//主轴引用
+# 	Slave				:	AXIS_REF;		//从轴引用
+# 	bCouple				:	BOOL;			//TRUE=耦合，FALSE=解耦
+# 	nRatioNumerator		:	INT := 1;		//传动比分子
+# 	nRatioDenominator	:	INT := 1;		//传动比分母
+# 	rAcceleration		:	REAL := 10000.0;//加速度
+# 	rDeceleration		:	REAL := 10000.0;//减速度
+# END_VAR
+# VAR_OUTPUT
+# 	bInGear				:	BOOL;			//耦合状态
+# 	bCouplingDone		:	BOOL;			//耦合完成
+# 	bDecouplingDone		:	BOOL;			//解耦完成
+# 	bError				:	BOOL;			//错误标志
+# 	nErrorID			:	DWORD;			//错误代码
+# END_VAR
+# VAR
+# 	fbGearIn			:	MC_GearIn;		//齿轮耦合功能块
+# 	fbGearOut			:	MC_GearOut;		//齿轮解耦功能块
+# 	bLastCouple			:	BOOL;			//上次耦合状态
+# 	bCoupleRising		:	BOOL;			//耦合上升沿
+# 	bCoupleFalling		:	BOOL;			//耦合下降沿
+# END_VAR
+# 
+# // 检测耦合信号的边沿
+# bCoupleRising := bCouple AND NOT bLastCouple;
+# bCoupleFalling := NOT bCouple AND bLastCouple;
+# bLastCouple := bCouple;
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 电子齿轮运动实训-FUN\FB_GearCoupling.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB
+
+FUNCTION_BLOCK FB_GearCoupling
+VAR_INPUT
+	Master				:	AXIS_REF;		//主轴引用
+	Slave				:	AXIS_REF;		//从轴引用
+	bCouple				:	BOOL;			//TRUE=耦合，FALSE=解耦
+	nRatioNumerator		:	INT := 1;		//传动比分子
+	nRatioDenominator	:	INT := 1;		//传动比分母
+	rAcceleration		:	REAL := 10000.0;//加速度
+	rDeceleration		:	REAL := 10000.0;//减速度
+END_VAR
+VAR_OUTPUT
+	bInGear				:	BOOL;			//耦合状态
+	bCouplingDone		:	BOOL;			//耦合完成
+	bDecouplingDone		:	BOOL;			//解耦完成
+	bError				:	BOOL;			//错误标志
+	nErrorID			:	DWORD;			//错误代码
+END_VAR
+```

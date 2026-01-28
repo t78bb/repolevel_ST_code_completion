@@ -1,0 +1,94 @@
+{
+  "project_name": "repoeval_plc_hello_mixing_tank",
+  "original_project_name": "plc_hello_mixing_tank",
+  "total_files": 6,
+  "successful_evaluations": 6,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.7348606426714838,
+    "ngram_match_score": 0.6350818543126234,
+    "weighted_ngram_match_score": 0.7038062939278357,
+    "syntax_match_score": 0.8479328318037996,
+    "dataflow_match_score": 0.7526215906416768
+  },
+  "file_results": [
+    {
+      "filename": "F_ResetDeviceCommands.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\plc_hello_mixing_tank\\F_ResetDeviceCommands.st",
+      "codebleu": 0.8265287798488705,
+      "ngram_match_score": 0.7618672950044844,
+      "weighted_ngram_match_score": 0.762598579327119,
+      "syntax_match_score": 0.9523809523809523,
+      "dataflow_match_score": 0.8292682926829268,
+      "reference_length": 585,
+      "prediction_length": 565
+    },
+    {
+      "filename": "F_UpdateLimitSwitches.st",
+      "case_id": 1,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\plc_hello_mixing_tank\\F_UpdateLimitSwitches.st",
+      "codebleu": 0.6101864300640936,
+      "ngram_match_score": 0.6019903709415767,
+      "weighted_ngram_match_score": 0.60066011121956,
+      "syntax_match_score": 0.6666666666666666,
+      "dataflow_match_score": 0.5714285714285714,
+      "reference_length": 176,
+      "prediction_length": 184
+    },
+    {
+      "filename": "FB_AutoSequence.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\plc_hello_mixing_tank\\FB_AutoSequence.st",
+      "codebleu": 0.7273265082516771,
+      "ngram_match_score": 0.6292709142744614,
+      "weighted_ngram_match_score": 0.6292414679385965,
+      "syntax_match_score": 0.873015873015873,
+      "dataflow_match_score": 0.7777777777777778,
+      "reference_length": 1469,
+      "prediction_length": 1379
+    },
+    {
+      "filename": "FB_ManualControl.st",
+      "case_id": 3,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\plc_hello_mixing_tank\\FB_ManualControl.st",
+      "codebleu": 0.7066590439459777,
+      "ngram_match_score": 0.4578897176801941,
+      "weighted_ngram_match_score": 0.5988539849854368,
+      "syntax_match_score": 0.9032258064516129,
+      "dataflow_match_score": 0.8666666666666667,
+      "reference_length": 422,
+      "prediction_length": 555
+    },
+    {
+      "filename": "FB_ModeController.st",
+      "case_id": 4,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\plc_hello_mixing_tank\\FB_ModeController.st",
+      "codebleu": 0.9870906801960678,
+      "ngram_match_score": 0.9740037464252967,
+      "weighted_ngram_match_score": 1.0,
+      "syntax_match_score": 0.9743589743589743,
+      "dataflow_match_score": 1.0,
+      "reference_length": 323,
+      "prediction_length": 341
+    },
+    {
+      "filename": "FB_TankLevelSimulator.st",
+      "case_id": 5,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\plc_hello_mixing_tank\\FB_TankLevelSimulator.st",
+      "codebleu": 0.5513724137222162,
+      "ngram_match_score": 0.3854690815497274,
+      "weighted_ngram_match_score": 0.631483620096302,
+      "syntax_match_score": 0.717948717948718,
+      "dataflow_match_score": 0.47058823529411764,
+      "reference_length": 356,
+      "prediction_length": 506
+    }
+  ]
+}

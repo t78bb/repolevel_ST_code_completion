@@ -1,0 +1,94 @@
+{
+  "project_name": "repoeval_ProductionLine",
+  "original_project_name": "ProductionLine",
+  "total_files": 6,
+  "successful_evaluations": 6,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.5104095100018698,
+    "ngram_match_score": 0.09954353814579893,
+    "weighted_ngram_match_score": 0.1819415298337085,
+    "syntax_match_score": 0.760152972027972,
+    "dataflow_match_score": 0.6666666666666666
+  },
+  "file_results": [
+    {
+      "filename": "Motor.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\ProductionLine\\Motor.st",
+      "codebleu": 0.25,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.0,
+      "dataflow_match_score": 0,
+      "reference_length": 84,
+      "prediction_length": 11
+    },
+    {
+      "filename": "Motor_ResetFault.st",
+      "case_id": 1,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\ProductionLine\\Motor_ResetFault.st",
+      "codebleu": 0.5358360713761372,
+      "ngram_match_score": 0.07239768078888709,
+      "weighted_ngram_match_score": 0.11094660471566163,
+      "syntax_match_score": 0.96,
+      "dataflow_match_score": 1.0,
+      "reference_length": 173,
+      "prediction_length": 153
+    },
+    {
+      "filename": "Motor_SetFault.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\ProductionLine\\Motor_SetFault.st",
+      "codebleu": 0.5736161304507368,
+      "ngram_match_score": 0.18207052811092134,
+      "weighted_ngram_match_score": 0.3123939936920256,
+      "syntax_match_score": 0.8,
+      "dataflow_match_score": 1.0,
+      "reference_length": 127,
+      "prediction_length": 160
+    },
+    {
+      "filename": "Motor_SetWaitTime.st",
+      "case_id": 3,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\ProductionLine\\Motor_SetWaitTime.st",
+      "codebleu": 0.5116408571097544,
+      "ngram_match_score": 0.011729176379814873,
+      "weighted_ngram_match_score": 0.12574334296829354,
+      "syntax_match_score": 0.9090909090909091,
+      "dataflow_match_score": 0,
+      "reference_length": 95,
+      "prediction_length": 319
+    },
+    {
+      "filename": "Motor_TurnOff.st",
+      "case_id": 4,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\ProductionLine\\Motor_TurnOff.st",
+      "codebleu": 0.5262356223220686,
+      "ngram_match_score": 0.056122223243057295,
+      "weighted_ngram_match_score": 0.12574334296829354,
+      "syntax_match_score": 0.9230769230769231,
+      "dataflow_match_score": 1.0,
+      "reference_length": 77,
+      "prediction_length": 98
+    },
+    {
+      "filename": "Motor_TurnOn.st",
+      "case_id": 5,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\ProductionLine\\Motor_TurnOn.st",
+      "codebleu": 0.6651283787525224,
+      "ngram_match_score": 0.274941620352113,
+      "weighted_ngram_match_score": 0.41682189465797687,
+      "syntax_match_score": 0.96875,
+      "dataflow_match_score": 1.0,
+      "reference_length": 220,
+      "prediction_length": 247
+    }
+  ]
+}

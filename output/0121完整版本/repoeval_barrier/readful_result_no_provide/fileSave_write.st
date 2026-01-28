@@ -1,0 +1,44 @@
+VAR
+	lineCount	: INT;
+	fileHandle  : DWORD;
+	fileName	: STRING;
+	data		: STRING;
+	F_err		: DWORD;
+	tempInt		: INT;
+END_VAR
+
+IF fileHandle = 0 THEN
+  // Simulate file open operation
+  F_err := 0; // Assume no error occurs during file open
+  fileHandle := 1; // Assign a dummy file handle value
+  IF F_err <> 0 THEN
+    RETURN;
+  END_IF;
+END_IF;
+
+lineCount := lineCount + 1;
+tempInt := lineCount * intervalt;
+
+data := INT_TO_STRING(lineCount);
+data := CONCAT(data, '$T$T');
+data := CONCAT(data, INT_TO_STRING(tempInt));
+IF tempInt < 1000 THEN
+	data := CONCAT(data, '$T');
+END_IF;
+data := CONCAT(data, '$T$T');
+data := CONCAT(data, INT_TO_STRING(positionInt));
+data := CONCAT(data, '$T$T');
+data := CONCAT(data, INT_TO_STRING(speedInt));
+data := CONCAT(data, '$T$T');
+data := CONCAT(data, INT_TO_STRING(stateInt));
+data := CONCAT(data, '$N');
+
+// Simulate file write operation
+F_err := 0; // Assume no error occurs during file write
+// Placeholder: Assume writing succeeds
+IF F_err <> 0 THEN
+  RETURN;
+END_IF;
+
+RETURN;
+END_FUNCTION_BLOCK

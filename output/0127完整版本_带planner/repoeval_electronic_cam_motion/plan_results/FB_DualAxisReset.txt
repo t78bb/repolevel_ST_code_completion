@@ -1,0 +1,7 @@
+功能规划:
+1. 检查 `bExecute` 输入信号是否为 TRUE，如果为 FALSE，直接退出并将 `bBusy` 设为 FALSE。
+2. 如果 `bExecute` 为 TRUE，设置 `bBusy` 为 TRUE，表示复位过程正在进行。
+3. 检查 `Axis1` 和 `Axis2` 的当前控制状态，确保两轴均处于允许复位的状态；如有任意一轴状态异常，设置 `bError` 为 TRUE 并退出。
+4. 执行对 `Axis1` 和 `Axis2` 的复位操作，等待操作完成或超时。
+5. 如果复位正常完成，设置 `bDone` 为 TRUE，同时将 `bBusy` 和 `bError` 设为 FALSE。
+6. 如果复位过程中发生错误，设置 `bError` 为 TRUE，同时将 `bBusy` 和 `bDone` 设为 FALSE。

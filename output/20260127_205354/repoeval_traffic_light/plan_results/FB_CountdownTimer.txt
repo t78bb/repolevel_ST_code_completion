@@ -1,0 +1,5 @@
+功能规划:
+1. 检查 `tElapsedTime` 是否小于等于 `tTotalTime`。
+2. 计算余下时间（`tRemaining`），用 `tTotalTime` 减去 `tElapsedTime`。
+3. 将 `tRemaining` 转换为秒数格式（取整数秒）。
+4. 将结果赋值给输出变量 `nRemainingSeconds`。

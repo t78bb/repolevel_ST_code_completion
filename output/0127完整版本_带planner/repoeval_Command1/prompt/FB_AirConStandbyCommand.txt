@@ -1,0 +1,75 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a standby command functionality for an air conditioning system.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 接收并解析输入命令，确认命令类型是否为“Standby”。
+2. 判断当前空调系统状态是否允许进入待机模式，检查相关条件（如温度、运行状态等）。
+3. 如果条件满足，执行待机操作，将相关状态变量设置为“Standby”。
+4. 更新系统内部状态或必要的状态标志以反映待机模式启动。
+5. 输出执行结果，指示操作成功或失败（包括错误代码或状态）。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_AirConStandbyCommand.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_AirConStandbyCommand IMPLEMENTS I_Command
+# VAR
+# 	refAirConditioning : REFERENCE TO FB_AirConditioning;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_AirConComfortCommand.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_AirConComfortCommand IMPLEMENTS I_Command
+# VAR
+# 	refAirConditioning : REFERENCE TO FB_AirConditioning;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_AirConditioning.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_AirConditioning
+# VAR_OUTPUT
+# 	bActive			: BOOL;
+# 	lrTemperature	: LREAL;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_SocketOnCommand.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_SocketOnCommand IMPLEMENTS I_Command
+# VAR
+# 	refSocket : REFERENCE TO FB_Socket;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_SocketOffCommand_FB_init.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_AirConStandbyCommand IMPLEMENTS I_Command
+# VAR
+# 	refSocket : REFERENCE TO FB_Socket;
+# END_VAR
+# VAR_INPUT
+# 	bInitRetains : BOOL; // if TRUE, the retain variables are initialized (warm start / cold start)
+# 	bInCopyCode : BOOL;  // if TRUE, the instance afterwards gets moved into the copy code (online change)
+# 	refNewSocket : REFERENCE TO FB_Socket;
+# END_VAR
+# 
+# IF (__ISVALIDREF(refNewSocket)) THEN
+# 	THIS^.refSocket REF= refNewSocket;
+# ELSE
+# 	THIS^.refSocket REF= 0;
+# END_IF
+# 
+# --------------------------------------------------
+
+
+FUNCTION_BLOCK PUBLIC FB_AirConStandbyCommand IMPLEMENTS I_Command
+```

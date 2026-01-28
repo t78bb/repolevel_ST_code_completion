@@ -1,0 +1,7 @@
+功能规划:
+1. 接收 MotorI 输入信号，解析 liga、desliga、settime、setfault、reset 和 timetemp 的状态。
+2. 根据 liga 信号触发 TurnOn 操作，将马达状态设为运行。
+3. 根据 desliga 信号触发 TurnOff 操作，将马达状态设为停止。
+4. 根据 settime 信号设置马达的运行时间，更新定时器值。
+5. 根据 setfault 信号设置故障状态标志，并记录故障信息。
+6. 根据 reset 信号清除故障标志和定时器状态，用于故障和时间的重置操作。

@@ -1,0 +1,39 @@
+{
+  "project_name": "repoeval_counter",
+  "original_project_name": "counter",
+  "total_files": 2,
+  "successful_evaluations": 1,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.2285714285714286,
+    "ngram_match_score": 0.0,
+    "weighted_ngram_match_score": 0.0,
+    "syntax_match_score": 0.2,
+    "dataflow_match_score": 0.7142857142857143
+  },
+  "file_results": [
+    {
+      "filename": "FB_counter.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\counter\\FB_counter.st",
+      "codebleu": 0.2285714285714286,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.2,
+      "dataflow_match_score": 0.7142857142857143,
+      "reference_length": 148,
+      "prediction_length": 2533
+    },
+    {
+      "filename": "FB_counter_1.st",
+      "case_id": 1,
+      "error": "未找到对应的参考文件"
+    }
+  ]
+}

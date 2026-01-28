@@ -1,0 +1,8 @@
+功能规划:  
+1. 调用 `fbSMC_ReadNCFile` 以复位 G-code 文件读取模块，并确保状态初始化完毕。  
+2. 调用 `fbSMC_NCDecoder` 以重置并初始化 G-code 解码模块的内部状态。  
+3. 调用 `fbSMC_CheckVelocities` 以复位 CNC 系统的速度检查模块，确保后续运行参数有效。  
+4. 调用 `fbSMC_Interpolator` 以初始化插补模块的运行状态，准备后续运动路径计算。  
+5. 分别调用 `fbSMC_ControlAxisXByPos`、`fbSMC_ControlAxisYByPos` 和 `fbSMC_ControlAxisZByPos`，重置三轴的控制位置（X、Y、Z），使其处于初始状态。  
+6. 分别调用 `fbSMC_AXISX_HOMING`、`fbSMC_AXISY_HOMING` 和 `fbSMC_AXISZ_HOMING`，完成 X、Y、Z 三轴的复位回零（Homing）过程。  
+7. 分别调用 `fbMC_AXISX_STOP`、`fbMC_AXISY_STOP` 和 `fbMC_AXISZ_STOP`，停止 X、Y、Z 三轴的当前移动，确保所有轴处于静止状态。  

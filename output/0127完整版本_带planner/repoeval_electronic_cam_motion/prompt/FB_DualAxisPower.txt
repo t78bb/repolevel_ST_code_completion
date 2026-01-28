@@ -1,0 +1,115 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement dual-axis power control and readiness monitoring for two axes with error handling.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 检查输入信号 `bPowerOn` 是否为 TRUE，若为 FALSE，直接将 `bPowerDone`、`bAxis1Ready`、`bAxis2Ready` 设为 FALSE，且 `bError` 设为 FALSE，退出功能块逻辑。
+2. 对 `Axis1` 执行电源使能逻辑，检查是否成功使能并达到准备就绪状态，若未准备就绪，设置 `bAxis1Ready` 为 FALSE。
+3. 对 `Axis2` 执行电源使能逻辑，检查是否成功使能并达到准备就绪状态，若未准备就绪，设置 `bAxis2Ready` 为 FALSE。
+4. 判断 `bAxis1Ready` 和 `bAxis2Ready` 状态，若两轴均准备就绪，则设置 `bPowerDone` 为 TRUE；若任意轴未准备就绪，则设置 `bPowerDone` 为 FALSE。
+5. 检测两轴的使能及准备过程是否出现异常，若出现异常，设置 `bError` 为 TRUE，否则设置 `bError` 为 FALSE。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 电子凸轮运动实训-FUN\FB_DualAxisPower.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_DualAxisPower
+# VAR_INPUT
+# 	Axis1			:	AXIS_REF;			//轴1引用
+# 	Axis2			:	AXIS_REF;			//轴2引用
+# 	bPowerOn		:	BOOL;				//电源使能信号
+# END_VAR
+# VAR_OUTPUT
+# 	bPowerDone		:	BOOL;				//两轴都准备就绪
+# 	bAxis1Ready		:	BOOL;				//轴1准备就绪
+# 	bAxis2Ready		:	BOOL;				//轴2准备就绪
+# 	bError			:	BOOL;				//错误标志
+# END_VAR
+# VAR
+# 	fbPower1		:	MC_Power;			//轴1电源控制
+# 	fbPower2		:	MC_Power;			//轴2电源控制
+# END_VAR
+# 
+# // 执行轴1电源控制
+# fbPower1(
+# 	Axis := Axis1,
+# 	Enable := TRUE,
+# 	bDriveStart := bPowerOn,
+# 	bRegulatorOn := bPowerOn
+# );
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 电子凸轮运动实训-FUN\FB_DualAxisPower.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_DualAxisPower
+# VAR_INPUT
+# 	Axis1			:	AXIS_REF;			//轴1引用
+# 	Axis2			:	AXIS_REF;			//轴2引用
+# 	bPowerOn		:	BOOL;				//电源使能信号
+# END_VAR
+# VAR_OUTPUT
+# 	bPowerDone		:	BOOL;				//两轴都准备就绪
+# 	bAxis1Ready		:	BOOL;				//轴1准备就绪
+# 	bAxis2Ready		:	BOOL;				//轴2准备就绪
+# 	bError			:	BOOL;				//错误标志
+# END_VAR
+# VAR
+# 	fbPower1		:	MC_Power;			//轴1电源控制
+# 	fbPower2		:	MC_Power;			//轴2电源控制
+# END_VAR
+# 
+# // 执行轴1电源控制
+# fbPower1(
+# 	Axis := Axis1,
+# 	Enable := TRUE,
+# 	bDriveStart := bPowerOn,
+# 	bRegulatorOn := bPowerOn
+# );
+# 
+# // 执行轴2电源控制
+# fbPower2(
+# 	Axis := Axis2,
+# 	Enable := TRUE,
+# 	bDriveStart := bPowerOn,
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 电子凸轮运动实训-FUN\FB_DualAxisPower.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_DualAxisPower
+# VAR_INPUT
+# 	Axis1			:	AXIS_REF;			//轴1引用
+# 	Axis2			:	AXIS_REF;			//轴2引用
+# 	bPowerOn		:	BOOL;				//电源使能信号
+# END_VAR
+# VAR_OUTPUT
+# 	bPowerDone		:	BOOL;				//两轴都准备就绪
+# 	bAxis1Ready		:	BOOL;				//轴1准备就绪
+# 	bAxis2Ready		:	BOOL;				//轴2准备就绪
+# 	bError			:	BOOL;				//错误标志
+# END_VAR
+# VAR
+# 	fbPower1		:	MC_Power;			//轴1电源控制
+# 	fbPower2		:	MC_Power;			//轴2电源控制
+# END_VAR
+# 
+# // 执行轴1电源控制
+#
+
+FUNCTION_BLOCK FB_DualAxisPower
+VAR_INPUT
+	Axis1			:	AXIS_REF;			//轴1引用
+	Axis2			:	AXIS_REF;			//轴2引用
+	bPowerOn		:	BOOL;				//电源使能信号
+END_VAR
+VAR_OUTPUT
+	bPowerDone		:	BOOL;				//两轴都准备就绪
+	bAxis1Ready		:	BOOL;				//轴1准备就绪
+	bAxis2Ready		:	BOOL;				//轴2准备就绪
+	bError			:	BOOL;				//错误标志
+END_VAR
+```

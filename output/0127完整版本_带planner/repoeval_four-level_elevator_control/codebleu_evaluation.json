@@ -1,0 +1,58 @@
+{
+  "project_name": "repoeval_four-level_elevator_control",
+  "original_project_name": "four-level_elevator_control",
+  "total_files": 3,
+  "successful_evaluations": 3,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.5440681550934637,
+    "ngram_match_score": 0.38364696979385143,
+    "weighted_ngram_match_score": 0.5493528926200768,
+    "syntax_match_score": 0.6418822370041882,
+    "dataflow_match_score": 0.6013905209557384
+  },
+  "file_results": [
+    {
+      "filename": "F_CheckJobInDirection.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\four-level_elevator_control\\F_CheckJobInDirection.st",
+      "codebleu": 0.7139151355735448,
+      "ngram_match_score": 0.6248382162098332,
+      "weighted_ngram_match_score": 0.6491150090111755,
+      "syntax_match_score": 0.7317073170731707,
+      "dataflow_match_score": 0.85,
+      "reference_length": 433,
+      "prediction_length": 460
+    },
+    {
+      "filename": "F_ClearFloorStop.st",
+      "case_id": 1,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\four-level_elevator_control\\F_ClearFloorStop.st",
+      "codebleu": 0.5515649982858558,
+      "ngram_match_score": 0.3741988350814289,
+      "weighted_ngram_match_score": 0.5996287256295617,
+      "syntax_match_score": 0.8,
+      "dataflow_match_score": 0.43243243243243246,
+      "reference_length": 409,
+      "prediction_length": 577
+    },
+    {
+      "filename": "F_SetElevatorDirection.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\four-level_elevator_control\\F_SetElevatorDirection.st",
+      "codebleu": 0.36672433142099053,
+      "ngram_match_score": 0.15190385809029236,
+      "weighted_ngram_match_score": 0.39931494321949323,
+      "syntax_match_score": 0.3939393939393939,
+      "dataflow_match_score": 0.5217391304347826,
+      "reference_length": 289,
+      "prediction_length": 640
+    }
+  ]
+}

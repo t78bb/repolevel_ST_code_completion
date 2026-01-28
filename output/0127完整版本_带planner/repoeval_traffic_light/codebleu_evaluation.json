@@ -1,0 +1,58 @@
+{
+  "project_name": "repoeval_traffic_light",
+  "original_project_name": "traffic_light",
+  "total_files": 3,
+  "successful_evaluations": 3,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.6714227643151922,
+    "ngram_match_score": 0.46358424664500486,
+    "weighted_ngram_match_score": 0.5267851731888631,
+    "syntax_match_score": 0.6953216374269006,
+    "dataflow_match_score": 0.3333333333333333
+  },
+  "file_results": [
+    {
+      "filename": "F_SecondsToTime.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\traffic_light\\F_SecondsToTime.st",
+      "codebleu": 0.652080737694976,
+      "ngram_match_score": 0.46199933699457096,
+      "weighted_ngram_match_score": 0.44632361378533286,
+      "syntax_match_score": 0.7,
+      "dataflow_match_score": 0,
+      "reference_length": 93,
+      "prediction_length": 73
+    },
+    {
+      "filename": "F_TimeToSeconds.st",
+      "case_id": 1,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\traffic_light\\F_TimeToSeconds.st",
+      "codebleu": 0.6854140710283093,
+      "ngram_match_score": 0.46199933699457096,
+      "weighted_ngram_match_score": 0.44632361378533286,
+      "syntax_match_score": 0.8333333333333334,
+      "dataflow_match_score": 0.0,
+      "reference_length": 121,
+      "prediction_length": 93
+    },
+    {
+      "filename": "FB_CountdownTimer.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\traffic_light\\FB_CountdownTimer.st",
+      "codebleu": 0.6767734842222912,
+      "ngram_match_score": 0.4667540659458727,
+      "weighted_ngram_match_score": 0.6877082919959235,
+      "syntax_match_score": 0.5526315789473685,
+      "dataflow_match_score": 1.0,
+      "reference_length": 314,
+      "prediction_length": 386
+    }
+  ]
+}

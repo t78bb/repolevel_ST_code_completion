@@ -1,0 +1,69 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a counter that increments, decrements, or resets its value based on input signals.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:  
+1. 初始化变量 `nValue`，确保为有效的数值。  
+2. 检查输入信号 `bReset` 的状态，如果为 TRUE，则将 `nValue` 设置为 0。  
+3. 如果 `bReset` 为 FALSE，检查 `bUp` 的状态，如果为 TRUE，则递增 `nValue` 的值。  
+4. 如果 `bReset` 为 FALSE，检查 `bDown` 的状态，如果为 TRUE，则递减 `nValue` 的值。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# counter-FB_counter.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_Counter
+# VAR_INPUT
+# 	bUp:BOOL;			(*递增信号输入*)
+# 	bDown:BOOL;			(*递减信号输入*)
+# 	bReset:BOOL;		(*复位、清零信号输入*)
+# END_VAR
+# VAR_OUTPUT
+# 	nValue:INT;			(*输出数值*)
+# END_VAR
+# 
+# IF bUp THEN						
+# 	nValue:=nValue+1;	(*数据递增*)
+# END_IF
+# IF bDown THEN
+# 	nValue:=nValue-1;	(*数据递减*)
+# END_IF
+# IF bReset THEN
+# 	nValue:=0;			(*数据清零*)
+# END_IF
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# counter-PLC_PRG.st
+# --------------------------------------------------
+# PROGRAM PLC_PRG
+# VAR
+# 	FB_Counter_0:FB_Counter;
+# 	bUp,bDown,bReset:BOOL;
+# 	ActuallyValue:int;
+# END_VAR
+# 
+# 
+# FB_Counter_0(
+#     bUp := bUp,
+#     bDown := bDown,
+#     bReset := bReset
+# );
+# 
+# ActuallyValue := FB_Counter_0.nValue;
+# 
+# --------------------------------------------------
+
+
+FUNCTION_BLOCK FB_Counter
+VAR_INPUT
+	bUp:BOOL;			(*递增信号输入*)
+	bDown:BOOL;			(*递减信号输入*)
+	bReset:BOOL;		(*复位、清零信号输入*)
+END_VAR
+VAR_OUTPUT
+	nValue:INT;			(*输出数值*)
+END_VAR
+```

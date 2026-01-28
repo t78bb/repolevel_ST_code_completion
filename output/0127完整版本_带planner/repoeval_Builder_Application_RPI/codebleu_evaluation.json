@@ -1,0 +1,82 @@
+{
+  "project_name": "repoeval_Builder_Application_RPI",
+  "original_project_name": "Builder_Application_RPI",
+  "total_files": 5,
+  "successful_evaluations": 5,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.2880032775774888,
+    "ngram_match_score": 0.023533497835283582,
+    "weighted_ngram_match_score": 0.06546273304568376,
+    "syntax_match_score": 0.308885403378157,
+    "dataflow_match_score": 0.5541314760508309
+  },
+  "file_results": [
+    {
+      "filename": "ConcreteBuilder.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Builder_Application_RPI\\ConcreteBuilder.st",
+      "codebleu": 0.28874370114609005,
+      "ngram_match_score": 0.008443254136434753,
+      "weighted_ngram_match_score": 0.020817264733639863,
+      "syntax_match_score": 0.2857142857142857,
+      "dataflow_match_score": 0.84,
+      "reference_length": 418,
+      "prediction_length": 1336
+    },
+    {
+      "filename": "Director.st",
+      "case_id": 1,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Builder_Application_RPI\\Director.st",
+      "codebleu": 0.32838005440809825,
+      "ngram_match_score": 0.06746791524722301,
+      "weighted_ngram_match_score": 0.1254989427013756,
+      "syntax_match_score": 0.34782608695652173,
+      "dataflow_match_score": 0.7727272727272727,
+      "reference_length": 370,
+      "prediction_length": 975
+    },
+    {
+      "filename": "Director_Construct.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Builder_Application_RPI\\Director_Construct.st",
+      "codebleu": 0.13118599270895814,
+      "ngram_match_score": 0.01948624265433148,
+      "weighted_ngram_match_score": 0.019395521889187257,
+      "syntax_match_score": 0.09876543209876543,
+      "dataflow_match_score": 0.3870967741935484,
+      "reference_length": 920,
+      "prediction_length": 769
+    },
+    {
+      "filename": "Product.st",
+      "case_id": 3,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Builder_Application_RPI\\Product.st",
+      "codebleu": 0.4526404043700949,
+      "ngram_match_score": 0.0024735945764034315,
+      "weighted_ngram_match_score": 0.14142135623730953,
+      "syntax_match_score": 0.6666666666666666,
+      "dataflow_match_score": 0,
+      "reference_length": 12,
+      "prediction_length": 573
+    },
+    {
+      "filename": "Product_toString.st",
+      "case_id": 4,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Builder_Application_RPI\\Product_toString.st",
+      "codebleu": 0.23906623525420262,
+      "ngram_match_score": 0.019796482562025236,
+      "weighted_ngram_match_score": 0.020180579666906485,
+      "syntax_match_score": 0.14545454545454545,
+      "dataflow_match_score": 0.7708333333333334,
+      "reference_length": 565,
+      "prediction_length": 572
+    }
+  ]
+}

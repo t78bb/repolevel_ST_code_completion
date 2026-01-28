@@ -1,0 +1,7 @@
+功能规划:
+1. 遍历 `TargetFloors` 数组，从最低楼层开始检查目标楼层请求状态。
+2. 如果目标楼层高于 `CurrentFloor` 且 `bDoorReady = TRUE`，设置 `bMovingUp = TRUE` 并停止遍历。
+3. 如果目标楼层低于 `CurrentFloor` 且 `bDoorReady = TRUE`，设置 `bMovingDown = TRUE` 并停止遍历。
+4. 检查当前楼层是否为目标楼层（`TargetFloors[CurrentFloor] = TRUE`）；如果是且 `bDoorReady = TRUE`，设置 `bArrivedAtTarget = TRUE` 并清除当前楼层的目标楼层请求。
+5. 如果电梯正向上或向下移动（`bMovingUp = TRUE` 或 `bMovingDown = TRUE`），当到达目标楼层时重置 `bMovingUp` 和 `bMovingDown` 为 `FALSE`，并设置 `bArrivedAtTarget = TRUE`。
+6. 保持变量 `bArrivedAtTarget` 和楼层目标数组的同步状态，确保电梯逻辑与请求一致。

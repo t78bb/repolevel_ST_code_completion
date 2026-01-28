@@ -1,0 +1,67 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a function block for managing a socket with an output indicating its active status.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 初始化并检查Socket的状态。
+2. 如果Socket成功初始化且连接正常，设置`bActive`为`TRUE`。
+3. 如果Socket未能成功初始化或连接断开，设置`bActive`为`FALSE`。
+4. 在每个周期重复检查Socket状态，以确保`bActive`反映当前连接状态变化。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_Socket.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_Socket
+# VAR_OUTPUT
+# 	bActive		: BOOL;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_Socket_On.st
+# --------------------------------------------------
+# METHOD PUBLIC On
+# VAR_OUTPUT
+# 	bActive		: BOOL;
+# END_VAR
+# 
+# bActive := true;
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_Socket_Off.st
+# --------------------------------------------------
+# METHOD PUBLIC Off
+# VAR_OUTPUT
+# 	bActive		: BOOL;
+# END_VAR
+# 
+# bActive := false;
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_Lamp.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_Lamp
+# VAR_OUTPUT
+# 	byLevel			: BYTE;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_SocketOnCommand.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_SocketOnCommand IMPLEMENTS I_Command
+# VAR
+# 	refSocket : REFERENCE TO FB_Socket;
+# END_VAR
+# 
+# --------------------------------------------------
+
+
+FUNCTION_BLOCK PUBLIC FB_Socket
+VAR_OUTPUT
+	bActive		: BOOL;
+END_VAR
+```

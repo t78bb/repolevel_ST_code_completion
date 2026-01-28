@@ -1,0 +1,1 @@
+It seems like you are sharing code fragments from a project related to an elevator control system. However, the last part of your input seems incomplete. Could you clarify what you need assistance with? Are you looking for help in understanding the code, debugging, or implementing additional functionality? Let me know so I can assist you effectively!

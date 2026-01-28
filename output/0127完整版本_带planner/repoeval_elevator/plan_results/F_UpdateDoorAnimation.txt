@@ -1,0 +1,6 @@
+功能规划:  
+1. 如果 `bOpenDoor` 为 `TRUE`，并且 `nCurrentAni` 小于 `nMaxAni`，则增加 `nCurrentAni` 的值，直到等于 `nMaxAni`。  
+2. 如果 `bCloseDoor` 为 `TRUE`，并且 `nCurrentAni` 大于 `0`，则减少 `nCurrentAni` 的值，直到等于 `0`。  
+3. 如果 `bCallFloor` 为 `TRUE`，且 `nCurrentAni` 不为 `nMaxAni`，增加 `nCurrentAni` 的值，直到等于 `nMaxAni`。  
+4. 如果 `bCallFloor` 为 `FALSE`，且 `bOpenDoor` 和 `bCloseDoor` 均为 `FALSE`，保持 `nCurrentAni` 不变。  
+5. 返回更新后的 `nCurrentAni` 值作为函数的输出结果。  

@@ -1,0 +1,11 @@
+VAR
+refSocket : REFERENCE TO FB_Socket;
+END_VAR
+
+METHOD Execute
+VAR
+END_VAR
+IF (__ISVALIDREF(refSocket)) THEN
+refSocket^.bActive := TRUE;
+END_IF
+END_FUNCTION_BLOCK

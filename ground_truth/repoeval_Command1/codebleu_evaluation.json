@@ -1,0 +1,226 @@
+{
+  "project_name": "repoeval_Command1",
+  "original_project_name": "Command1",
+  "total_files": 24,
+  "successful_evaluations": 12,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.33663719632184846,
+    "ngram_match_score": 0.002271839633785737,
+    "weighted_ngram_match_score": 0.16984630383166213,
+    "syntax_match_score": 0.17443064182194615,
+    "dataflow_match_score": 0.08333333333333333
+  },
+  "file_results": [
+    {
+      "filename": "FB_AirConComfortCommand.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_AirConComfortCommand.st",
+      "codebleu": 0.2857142857142857,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.14285714285714285,
+      "dataflow_match_score": 0,
+      "reference_length": 67,
+      "prediction_length": 2681
+    },
+    {
+      "filename": "FB_AirConComfortCommand_1.st",
+      "case_id": 1,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_AirConditioning.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_AirConditioning.st",
+      "codebleu": 0.25,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.0,
+      "dataflow_match_score": 0,
+      "reference_length": 0,
+      "prediction_length": 3180
+    },
+    {
+      "filename": "FB_AirConditioning_1.st",
+      "case_id": 3,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_AirConStandbyCommand.st",
+      "case_id": 4,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_AirConStandbyCommand.st",
+      "codebleu": 0.2857142857142857,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.14285714285714285,
+      "dataflow_match_score": 0,
+      "reference_length": 67,
+      "prediction_length": 3946
+    },
+    {
+      "filename": "FB_AirConStandbyCommand_1.st",
+      "case_id": 5,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_CDPlayer.st",
+      "case_id": 6,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_CDPlayer.st",
+      "codebleu": 0.25,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.0,
+      "dataflow_match_score": 0,
+      "reference_length": 0,
+      "prediction_length": 2425
+    },
+    {
+      "filename": "FB_CDPlayer_1.st",
+      "case_id": 7,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_Lamp.st",
+      "case_id": 8,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_Lamp.st",
+      "codebleu": 0.25,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.0,
+      "dataflow_match_score": 0,
+      "reference_length": 0,
+      "prediction_length": 4074
+    },
+    {
+      "filename": "FB_Lamp_1.st",
+      "case_id": 9,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_LampSetLevelCommand.st",
+      "case_id": 10,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_LampSetLevelCommand.st",
+      "codebleu": 0.3830491923348064,
+      "ngram_match_score": 0.0006369239480960746,
+      "weighted_ngram_match_score": 0.03155984539112946,
+      "syntax_match_score": 0.5,
+      "dataflow_match_score": 0,
+      "reference_length": 67,
+      "prediction_length": 2844
+    },
+    {
+      "filename": "FB_LampSetLevelCommand_1.st",
+      "case_id": 11,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_MusicPlayCommand.st",
+      "case_id": 12,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_MusicPlayCommand.st",
+      "codebleu": 0.2857142857142857,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.14285714285714285,
+      "dataflow_match_score": 0,
+      "reference_length": 53,
+      "prediction_length": 2201
+    },
+    {
+      "filename": "FB_MusicPlayCommand_1.st",
+      "case_id": 13,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_MusicStopCommand.st",
+      "case_id": 14,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_MusicStopCommand.st",
+      "codebleu": 0.2857142857142857,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.14285714285714285,
+      "dataflow_match_score": 0,
+      "reference_length": 53,
+      "prediction_length": 2508
+    },
+    {
+      "filename": "FB_MusicStopCommand_1.st",
+      "case_id": 15,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_Socket.st",
+      "case_id": 16,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_Socket.st",
+      "codebleu": 0.25,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.0,
+      "dataflow_match_score": 0,
+      "reference_length": 0,
+      "prediction_length": 2395
+    },
+    {
+      "filename": "FB_Socket_1.st",
+      "case_id": 17,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_SocketOffCommand.st",
+      "case_id": 18,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_SocketOffCommand.st",
+      "codebleu": 0.539993774815555,
+      "ngram_match_score": 0.017117956405076958,
+      "weighted_ngram_match_score": 1.0,
+      "syntax_match_score": 0.14285714285714285,
+      "dataflow_match_score": 0,
+      "reference_length": 49,
+      "prediction_length": 2305
+    },
+    {
+      "filename": "FB_SocketOffCommand_1.st",
+      "case_id": 19,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_SocketOnCommand.st",
+      "case_id": 20,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_SocketOnCommand.st",
+      "codebleu": 0.7165688241047875,
+      "ngram_match_score": 0.009132439276292995,
+      "weighted_ngram_match_score": 1.0,
+      "syntax_match_score": 0.8571428571428571,
+      "dataflow_match_score": 0,
+      "reference_length": 49,
+      "prediction_length": 4215
+    },
+    {
+      "filename": "FB_SocketOnCommand_1.st",
+      "case_id": 21,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_SwitchPanel.st",
+      "case_id": 22,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Command1\\FB_SwitchPanel.st",
+      "codebleu": 0.25717742174989044,
+      "ngram_match_score": 0.00037475597596281447,
+      "weighted_ngram_match_score": 0.0065958005888164355,
+      "syntax_match_score": 0.021739130434782608,
+      "dataflow_match_score": 1.0,
+      "reference_length": 296,
+      "prediction_length": 4113
+    },
+    {
+      "filename": "FB_SwitchPanel_1.st",
+      "case_id": 23,
+      "error": "未找到对应的参考文件"
+    }
+  ]
+}

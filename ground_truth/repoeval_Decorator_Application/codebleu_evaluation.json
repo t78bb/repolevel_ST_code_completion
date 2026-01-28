@@ -1,0 +1,158 @@
+{
+  "project_name": "repoeval_Decorator_Application",
+  "original_project_name": "Decorator_Application",
+  "total_files": 16,
+  "successful_evaluations": 8,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.42602348023581027,
+    "ngram_match_score": 0.011719396751737866,
+    "weighted_ngram_match_score": 0.2238355892938728,
+    "syntax_match_score": 0.4886778237865194,
+    "dataflow_match_score": 0.4798611111111111
+  },
+  "file_results": [
+    {
+      "filename": "ConcreteComponment.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Decorator_Application\\ConcreteComponment.st",
+      "codebleu": 0.3193171714674227,
+      "ngram_match_score": 0.003806364574999611,
+      "weighted_ngram_match_score": 0.05917660700897701,
+      "syntax_match_score": 0.21428571428571427,
+      "dataflow_match_score": 1.0,
+      "reference_length": 154,
+      "prediction_length": 3046
+    },
+    {
+      "filename": "ConcreteComponment_1.st",
+      "case_id": 1,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "ConcreteComponment_getDescription.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Decorator_Application\\ConcreteComponment_getDescription.st",
+      "codebleu": 0.3456788131881769,
+      "ngram_match_score": 0.009685638112309143,
+      "weighted_ngram_match_score": 0.17302961464039845,
+      "syntax_match_score": 0.2,
+      "dataflow_match_score": 1.0,
+      "reference_length": 236,
+      "prediction_length": 4534
+    },
+    {
+      "filename": "ConcreteComponment_getDescription_1.st",
+      "case_id": 3,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "ConcreteComponment_getValue.st",
+      "case_id": 4,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Decorator_Application\\ConcreteComponment_getValue.st",
+      "codebleu": 0.6336957401058728,
+      "ngram_match_score": 0.056849403129019496,
+      "weighted_ngram_match_score": 0.6479335572944718,
+      "syntax_match_score": 0.88,
+      "dataflow_match_score": 0.95,
+      "reference_length": 293,
+      "prediction_length": 3739
+    },
+    {
+      "filename": "ConcreteComponment_getValue_1.st",
+      "case_id": 5,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "ConcreteDecoratorA.st",
+      "case_id": 6,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Decorator_Application\\ConcreteDecoratorA.st",
+      "codebleu": 0.4521041636793245,
+      "ngram_match_score": 0.0003286318133218805,
+      "weighted_ngram_match_score": 0.14142135623730953,
+      "syntax_match_score": 0.6666666666666666,
+      "dataflow_match_score": 0,
+      "reference_length": 12,
+      "prediction_length": 4909
+    },
+    {
+      "filename": "ConcreteDecoratorA_1.st",
+      "case_id": 7,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "ConcreteDecoratorA_getDescription.st",
+      "case_id": 8,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Decorator_Application\\ConcreteDecoratorA_getDescription.st",
+      "codebleu": 0.45616329763464925,
+      "ngram_match_score": 0.01053072479326098,
+      "weighted_ngram_match_score": 0.1844928361157065,
+      "syntax_match_score": 0.6296296296296297,
+      "dataflow_match_score": 0.0,
+      "reference_length": 324,
+      "prediction_length": 4794
+    },
+    {
+      "filename": "ConcreteDecoratorA_getDescription_1.st",
+      "case_id": 9,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "ConcreteDecoratorA_getValue.st",
+      "case_id": 10,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Decorator_Application\\ConcreteDecoratorA_getValue.st",
+      "codebleu": 0.43610325091894964,
+      "ngram_match_score": 0.011627500863208847,
+      "weighted_ngram_match_score": 0.19172270088022253,
+      "syntax_match_score": 0.6521739130434783,
+      "dataflow_match_score": 0.8888888888888888,
+      "reference_length": 245,
+      "prediction_length": 3897
+    },
+    {
+      "filename": "ConcreteDecoratorA_getValue_1.st",
+      "case_id": 11,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "ConcreteDecoratorB.st",
+      "case_id": 12,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Decorator_Application\\ConcreteDecoratorB.st",
+      "codebleu": 0.4521062585500408,
+      "ngram_match_score": 0.00033701129618699893,
+      "weighted_ngram_match_score": 0.14142135623730953,
+      "syntax_match_score": 0.6666666666666666,
+      "dataflow_match_score": 0,
+      "reference_length": 12,
+      "prediction_length": 4841
+    },
+    {
+      "filename": "ConcreteDecoratorB_1.st",
+      "case_id": 13,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "ConcreteDecoratorC.st",
+      "case_id": 14,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Decorator_Application\\ConcreteDecoratorC.st",
+      "codebleu": 0.31301914634204575,
+      "ngram_match_score": 0.0005898994315959677,
+      "weighted_ngram_match_score": 0.25148668593658713,
+      "syntax_match_score": 0.0,
+      "dataflow_match_score": 0,
+      "reference_length": 12,
+      "prediction_length": 4905
+    },
+    {
+      "filename": "ConcreteDecoratorC_1.st",
+      "case_id": 15,
+      "error": "未找到对应的参考文件"
+    }
+  ]
+}

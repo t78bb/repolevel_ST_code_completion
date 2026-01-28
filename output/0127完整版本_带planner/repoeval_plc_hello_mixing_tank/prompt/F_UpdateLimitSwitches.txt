@@ -1,0 +1,95 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a function that updates the status of liquid level switches based on the current tank level and predefined full and empty thresholds.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 判断 `rTankLevel` 是否大于或等于 `rFullThreshold`，若满足条件，则将 `bLevelFull` 置为 TRUE，否则置为 FALSE。
+2. 判断 `rTankLevel` 是否小于或等于 `rEmptyThreshold`，若满足条件，则将 `bLevelEmpty` 置为 TRUE，否则置为 FALSE。
+3. 返回 TRUE，表示函数已成功执行完毕。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# plc_hello_mixing_tank-FUN\F_UpdateLimitSwitches.st
+# --------------------------------------------------
+# FUNCTION F_UpdateLimitSwitches : BOOL
+# VAR_INPUT
+# 	rTankLevel			:	REAL;			// 当前液位 (%)
+# 	rFullThreshold		:	REAL := 85.0;	// 满液位阈值 (%)
+# 	rEmptyThreshold		:	REAL := 5.0;	// 空液位阈值 (%)
+# END_VAR
+# VAR_OUTPUT
+# 	bLevelFull			:	BOOL;			// 液位满开关
+# 	bLevelEmpty			:	BOOL;			// 液位空开关
+# END_VAR
+# 
+# // 液位开关模拟
+# bLevelFull := rTankLevel >= rFullThreshold;		// 液位 >= 85% 时，满开关激活
+# bLevelEmpty := rTankLevel <= rEmptyThreshold;	// 液位 <= 5% 时，空开关激活
+# 
+# F_UpdateLimitSwitches := TRUE;
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# plc_hello_mixing_tank-FUN\FB_TankLevelSimulator.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_TankLevelSimulator
+# VAR_INPUT
+# 	bMedium1Opened		:	BOOL;			// 介质1阀门打开
+# 	bMedium2Opened		:	BOOL;			// 介质2阀门打开
+# 	bDrainOpened		:	BOOL;			// 排空阀门打开
+# 	bReset				:	BOOL;			// 复位到初始液位
+# 	
+# 	// 配置参数
+# 	rInitialLevel		:	REAL := 25.0;	// 初始液位 (%)
+# 	rFillRate1			:	REAL := 0.1;	// 介质1填充速率 (%/cycle)
+# 	rFillRate2			:	REAL := 0.1;	// 介质2填充速率 (%/cycle)
+# 	rDrainRate			:	REAL := 0.2;	// 排空速率 (%/cycle)
+# 	rMinLevel			:	REAL := 0.0;	// 最小液位 (%)
+# 	rMaxLevel			:	REAL := 100.0;	// 最大液位 (%)
+# END_VAR
+# VAR_OUTPUT
+# 	rCurrentLevel		:	REAL;			// 当前液位 (%)
+# END_VAR
+# 
+# // 复位逻辑
+# IF bReset THEN
+# 	rCurrentLevel := rInitialLevel;
+# END_IF
+# 
+# // 液位计算
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# plc_hello_mixing_tank-FUN\FB_TankLevelSimulator.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_TankLevelSimulator
+# VAR_INPUT
+# 	bMedium1Opened		:	BOOL;			// 介质1阀门打开
+# 	bMedium2Opened		:	BOOL;			// 介质2阀门打开
+# 	bDrainOpened		:	BOOL;			// 排空阀门打开
+# 	bReset				:	BOOL;			// 复位到初始液位
+# 	
+# 	// 配置参数
+# 	rInitialLevel		:	REAL := 25.0;	// 初始液位 (%)
+# 	rFillRate1			:	REAL := 0.1;	// 介质1填充速率 (%/cycle)
+# 	rFillRate2			:	REAL := 0.1;	// 介质2填充速率 (%/cycle)
+# 	rDrainRate			:	REAL := 0.2;	// 排空速率 (%/cycle)
+# 	rMinLevel			:	REAL := 0.0;	// 最小液位 (%)
+# 	rMaxLevel			:	REAL := 100.0;	// 最大液位 (%)
+# END_VAR
+# VAR
+
+FUNCTION F_UpdateLimitSwitches : BOOL
+VAR_INPUT
+	rTankLevel			:	REAL;			// 当前液位 (%)
+	rFullThreshold		:	REAL := 85.0;	// 满液位阈值 (%)
+	rEmptyThreshold		:	REAL := 5.0;	// 空液位阈值 (%)
+END_VAR
+VAR_OUTPUT
+	bLevelFull			:	BOOL;			// 液位满开关
+	bLevelEmpty			:	BOOL;			// 液位空开关
+END_VAR
+```

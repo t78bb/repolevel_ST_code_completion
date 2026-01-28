@@ -1,0 +1,73 @@
+{
+  "project_name": "repoeval_four-level_elevator_control",
+  "original_project_name": "four-level_elevator_control",
+  "total_files": 6,
+  "successful_evaluations": 3,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.35198987840581203,
+    "ngram_match_score": 0.04140033521999632,
+    "weighted_ngram_match_score": 0.2968843599426436,
+    "syntax_match_score": 0.48944567627494456,
+    "dataflow_match_score": 0.5802291421856639
+  },
+  "file_results": [
+    {
+      "filename": "F_CheckJobInDirection.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\four-level_elevator_control\\F_CheckJobInDirection.st",
+      "codebleu": 0.6338336842799668,
+      "ngram_match_score": 0.12159008798016395,
+      "weighted_ngram_match_score": 0.8631348930421423,
+      "syntax_match_score": 0.975609756097561,
+      "dataflow_match_score": 0.575,
+      "reference_length": 433,
+      "prediction_length": 2477
+    },
+    {
+      "filename": "F_CheckJobInDirection_1.st",
+      "case_id": 1,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "F_ClearFloorStop.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\four-level_elevator_control\\F_ClearFloorStop.st",
+      "codebleu": 0.18894068675298864,
+      "ngram_match_score": 0.0019048217660060358,
+      "weighted_ngram_match_score": 0.020344411732435036,
+      "syntax_match_score": 0.22,
+      "dataflow_match_score": 0.5135135135135135,
+      "reference_length": 409,
+      "prediction_length": 3493
+    },
+    {
+      "filename": "F_ClearFloorStop_1.st",
+      "case_id": 3,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "F_SetElevatorDirection.st",
+      "case_id": 4,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\four-level_elevator_control\\F_SetElevatorDirection.st",
+      "codebleu": 0.23319526418448086,
+      "ngram_match_score": 0.0007060959138189845,
+      "weighted_ngram_match_score": 0.007173775053353474,
+      "syntax_match_score": 0.2727272727272727,
+      "dataflow_match_score": 0.6521739130434783,
+      "reference_length": 289,
+      "prediction_length": 1964
+    },
+    {
+      "filename": "F_SetElevatorDirection_1.st",
+      "case_id": 5,
+      "error": "未找到对应的参考文件"
+    }
+  ]
+}

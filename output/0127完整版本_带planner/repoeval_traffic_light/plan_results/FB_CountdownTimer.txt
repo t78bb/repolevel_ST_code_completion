@@ -1,0 +1,5 @@
+功能规划:
+1. 检查输入变量 `tElapsedTime` 是否大于或等于 `tTotalTime`。
+2. 如果 `tElapsedTime` 大于或等于 `tTotalTime`，将输出变量 `nRemainingSeconds` 设置为 0。
+3. 如果 `tElapsedTime` 小于 `tTotalTime`，计算 `tTotalTime` 减去 `tElapsedTime` 的结果，转换为秒，并赋值给 `nRemainingSeconds`。
+4. 更新输出变量 `nRemainingSeconds` 的值，确保能够实时反映当前剩余秒数。

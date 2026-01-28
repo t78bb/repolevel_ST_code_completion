@@ -1,0 +1,144 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a fault reset mechanism for a motor system by detecting a reset signal and clearing the fault status.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:  
+1. 检查输入信号 `MotorI.ResetSignal` 是否被触发（例如值为 TRUE）。  
+2. 如果 `ResetSignal` 被触发，清除 `MotorO.FaultStatus` 标志，设置为 FALSE。  
+3. 如果 `ResetSignal` 被触发，将 `MotorO.OperationStatus` 更新为默认值（例如 READY 状态，具体取决于项目定义）。  
+4. 返回 `ResetFault` 为 TRUE 表示复位成功，否则为 FALSE 表示未执行复位操作。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# ProductionLine-FUN\Motor_ResetFault.st
+# --------------------------------------------------
+# METHOD ResetFault : BOOL
+# VAR_INPUT
+# 	MotorI:MotorI;
+# END_VAR
+# VAR_OUTPUT
+# 	MotorO:MotorO;
+# END_VAR
+# VAR
+# 	WaitTimer:TON;
+# 	InternalSequenceDelay:time;
+# 	ResetDetect:r_trig;
+# END_VAR
+# 
+# ResetDetect(CLK:=MotorI.FaultReset);
+# 
+# IF ResetDetect.Q THEN
+# 	MotorO.FaultStatus:=FALSE;
+# END_IF
+# --------------------------------------------------
+# the below code fragment can be found in:
+# ProductionLine-FUN\Motor_SetFault.st
+# --------------------------------------------------
+# METHOD SetFault : BOOL
+# VAR_INPUT
+# 	MotorI:MotorI;
+# END_VAR
+# VAR_OUTPUT
+# 	MotorO:MotorO;
+# END_VAR
+# VAR
+# 	WaitTimer:TON;
+# 	InternalSequenceDelay:time;
+# END_VAR
+# 
+# IF MotorI.Overload THEN
+# 	MotorO.FaultStatus:=TRUE;
+# 	TurnOff();
+# END_IF
+# --------------------------------------------------
+# the below code fragment can be found in:
+# ProductionLine-FUN\Motor.st
+# --------------------------------------------------
+# FUNCTION_BLOCK Motor
+# VAR_INPUT
+# 	MotorI:MotorI;
+# END_VAR
+# VAR_OUTPUT
+# 	MotorO:MotorO;
+# END_VAR
+# VAR
+# 	WaitTimer:TON;
+# 	InternalSequenceDelay:time;
+# END_VAR
+# 
+# 
+# SetFault();
+# ResetFault();
+# --------------------------------------------------
+# the below code fragment can be found in:
+# ProductionLine-FUN\Motor_TurnOff.st
+# --------------------------------------------------
+# METHOD TurnOff : BOOL
+# VAR_INPUT
+# 	MotorI:MotorI;
+# END_VAR
+# VAR_OUTPUT
+# 	MotorO:MotorO;
+# END_VAR
+# VAR
+# 	WaitTimer:TON;
+# 	InternalSequenceDelay:time;
+# END_VAR
+# 
+# MotorO.Coil:=false;
+# --------------------------------------------------
+# the below code fragment can be found in:
+# ProductionLine-PRG\PLC_PRG.st
+# --------------------------------------------------
+# PROGRAM PLC_PRG
+# VAR
+# 	Motor:Motor;
+# 	MotorInputs:MotorI;
+# 	MotorOutputs:MotorO;
+# 	liga: BOOL;
+# 	desliga: BOOL;
+# 	settime: BOOL;
+# 	setfault: BOOL;
+# 	reset: BOOL;
+# 	timetemp: TIME;
+# END_VAR
+# 
+# Motor(MotorI:=MotorInputs , MotorO=>MotorOutputs );
+# 
+# IF liga THEN
+# 	Motor.TurnOn();
+# 	liga:=FALSE;
+# END_IF
+# 
+# IF desliga THEN
+# 	Motor.TurnOff();
+# 	desliga:=FALSE;
+# END_IF
+# 
+# IF settime THEN
+# 	motor.SetWaitTime(SequenceDelay:=timetemp);
+# 	settime:=FALSE;
+# END_IF
+# 
+# IF setfault THEN
+# 	motor.SetFault();
+# 	setfault:=FALSE;
+# END_IF
+# 
+# IF reset THEN
+# 	motor.ResetFault();
+# 	reset:=FALSE;
+# END_IF
+# --------------------------------------------------
+
+
+METHOD ResetFault : BOOL
+VAR_INPUT
+	MotorI:MotorI;
+END_VAR
+VAR_OUTPUT
+	MotorO:MotorO;
+END_VAR
+```

@@ -1,0 +1,320 @@
+{
+  "timestamp": "2026-01-23T15:09:01.239075",
+  "language": "python",
+  "total_projects": 29,
+  "success_count": 24,
+  "failed_count": 5,
+  "overall_statistics": {
+    "total_files": 85,
+    "total_projects": 24,
+    "average_scores": {
+      "codebleu": 0.27431951135302346,
+      "ngram_match_score": 0.026247203724170273,
+      "weighted_ngram_match_score": 0.18796517851300235,
+      "syntax_match_score": 0.35636915619462806,
+      "dataflow_match_score": 0.526696506980293
+    }
+  },
+  "results": {
+    "success": [
+      "repoeval_assembly-station",
+      "repoeval_Builder_Application_RPI",
+      "repoeval_Command1",
+      "repoeval_counter",
+      "repoeval_Decorator_Application",
+      "repoeval_electronic_cam_motion",
+      "repoeval_electronic_gear_motion",
+      "repoeval_elevator",
+      "repoeval_four-level_elevator_control",
+      "repoeval_GreatExampleOfAdvantages",
+      "repoeval_Interation_HowTo",
+      "repoeval_isScaleOutput",
+      "repoeval_measurement_control",
+      "repoeval_open-type_dual-axis_winding_machine",
+      "repoeval_PID_controller",
+      "repoeval_plc_hello_mixing_tank",
+      "repoeval_ProductionLine",
+      "repoeval_Proxy_Application",
+      "repoeval_PT1Filter",
+      "repoeval_readwriteFile",
+      "repoeval_Robotics_DynamicModel",
+      "repoeval_three-axis_CNC_motion",
+      "repoeval_traffic_light",
+      "repoeval_Wrappers"
+    ],
+    "failed": [
+      "repoeval_can",
+      "repoeval_core",
+      "repoeval_FB50_虚轴控制",
+      "repoeval_healthydata",
+      "repoeval_modbus"
+    ],
+    "skipped": []
+  },
+  "project_statistics": {
+    "repoeval_assembly-station": {
+      "total_files": 2,
+      "successful_evaluations": 1,
+      "average_scores": {
+        "codebleu": 0.17029092218824077,
+        "ngram_match_score": 0.0004339726557101232,
+        "weighted_ngram_match_score": 0.0014487321805075515,
+        "syntax_match_score": 0.14285714285714285,
+        "dataflow_match_score": 0.5364238410596026
+      }
+    },
+    "repoeval_Builder_Application_RPI": {
+      "total_files": 10,
+      "successful_evaluations": 5,
+      "average_scores": {
+        "codebleu": 0.2500111348590489,
+        "ngram_match_score": 0.007640310168308097,
+        "weighted_ngram_match_score": 0.06663977569815119,
+        "syntax_match_score": 0.1922292629539006,
+        "dataflow_match_score": 0.5335351906158358
+      }
+    },
+    "repoeval_Command1": {
+      "total_files": 24,
+      "successful_evaluations": 12,
+      "average_scores": {
+        "codebleu": 0.33663719632184846,
+        "ngram_match_score": 0.002271839633785737,
+        "weighted_ngram_match_score": 0.16984630383166213,
+        "syntax_match_score": 0.17443064182194615,
+        "dataflow_match_score": 0.08333333333333333
+      }
+    },
+    "repoeval_counter": {
+      "total_files": 2,
+      "successful_evaluations": 1,
+      "average_scores": {
+        "codebleu": 0.2285714285714286,
+        "ngram_match_score": 0.0,
+        "weighted_ngram_match_score": 0.0,
+        "syntax_match_score": 0.2,
+        "dataflow_match_score": 0.7142857142857143
+      }
+    },
+    "repoeval_Decorator_Application": {
+      "total_files": 16,
+      "successful_evaluations": 8,
+      "average_scores": {
+        "codebleu": 0.42602348023581027,
+        "ngram_match_score": 0.011719396751737866,
+        "weighted_ngram_match_score": 0.2238355892938728,
+        "syntax_match_score": 0.4886778237865194,
+        "dataflow_match_score": 0.4798611111111111
+      }
+    },
+    "repoeval_electronic_cam_motion": {
+      "total_files": 8,
+      "successful_evaluations": 4,
+      "average_scores": {
+        "codebleu": 0.2989571000382121,
+        "ngram_match_score": 0.05020885393571231,
+        "weighted_ngram_match_score": 0.1850563884043379,
+        "syntax_match_score": 0.35476312963257733,
+        "dataflow_match_score": 0.6058000281802207
+      }
+    },
+    "repoeval_electronic_gear_motion": {
+      "total_files": 6,
+      "successful_evaluations": 3,
+      "average_scores": {
+        "codebleu": 0.32333536797435436,
+        "ngram_match_score": 0.04902683500752486,
+        "weighted_ngram_match_score": 0.2818198019710224,
+        "syntax_match_score": 0.3058082625995435,
+        "dataflow_match_score": 0.6566865723193267
+      }
+    },
+    "repoeval_elevator": {
+      "total_files": 10,
+      "successful_evaluations": 5,
+      "average_scores": {
+        "codebleu": 0.19469991313805063,
+        "ngram_match_score": 0.00033678211867581455,
+        "weighted_ngram_match_score": 0.0014194044464055657,
+        "syntax_match_score": 0.16971013265378784,
+        "dataflow_match_score": 0.6073333333333333
+      }
+    },
+    "repoeval_four-level_elevator_control": {
+      "total_files": 6,
+      "successful_evaluations": 3,
+      "average_scores": {
+        "codebleu": 0.35198987840581203,
+        "ngram_match_score": 0.04140033521999632,
+        "weighted_ngram_match_score": 0.2968843599426436,
+        "syntax_match_score": 0.48944567627494456,
+        "dataflow_match_score": 0.5802291421856639
+      }
+    },
+    "repoeval_GreatExampleOfAdvantages": {
+      "total_files": 4,
+      "successful_evaluations": 2,
+      "average_scores": {
+        "codebleu": 0.38874832034762385,
+        "ngram_match_score": 0.0012962637649059888,
+        "weighted_ngram_match_score": 0.05324356337112144,
+        "syntax_match_score": 0.5801635991820041,
+        "dataflow_match_score": 0.42028985507246375
+      }
+    },
+    "repoeval_Interation_HowTo": {
+      "total_files": 4,
+      "successful_evaluations": 2,
+      "average_scores": {
+        "codebleu": 0.4588535091968824,
+        "ngram_match_score": 0.023084101365686536,
+        "weighted_ngram_match_score": 0.34090136399327153,
+        "syntax_match_score": 0.5339285714285714,
+        "dataflow_match_score": 0.9375
+      }
+    },
+    "repoeval_isScaleOutput": {
+      "total_files": 2,
+      "successful_evaluations": 1,
+      "average_scores": {
+        "codebleu": 0.4574186095574513,
+        "ngram_match_score": 0.07375489194175885,
+        "weighted_ngram_match_score": 0.5712560095118334,
+        "syntax_match_score": 0.29577464788732394,
+        "dataflow_match_score": 0.8888888888888888
+      }
+    },
+    "repoeval_measurement_control": {
+      "total_files": 2,
+      "successful_evaluations": 1,
+      "average_scores": {
+        "codebleu": 0.18681482780323277,
+        "ngram_match_score": 0.00044851505243301434,
+        "weighted_ngram_match_score": 0.00395365330335517,
+        "syntax_match_score": 0.02857142857142857,
+        "dataflow_match_score": 0.7142857142857143
+      }
+    },
+    "repoeval_open-type_dual-axis_winding_machine": {
+      "total_files": 10,
+      "successful_evaluations": 5,
+      "average_scores": {
+        "codebleu": 0.2288550470478238,
+        "ngram_match_score": 0.0010096649411795715,
+        "weighted_ngram_match_score": 0.008628673326663875,
+        "syntax_match_score": 0.2365139927805945,
+        "dataflow_match_score": 0.6692678571428571
+      }
+    },
+    "repoeval_PID_controller": {
+      "total_files": 8,
+      "successful_evaluations": 4,
+      "average_scores": {
+        "codebleu": 0.3738167911749817,
+        "ngram_match_score": 0.030809494054157848,
+        "weighted_ngram_match_score": 0.26902481385870153,
+        "syntax_match_score": 0.38402792011113385,
+        "dataflow_match_score": 0.8114049366759336
+      }
+    },
+    "repoeval_plc_hello_mixing_tank": {
+      "total_files": 12,
+      "successful_evaluations": 6,
+      "average_scores": {
+        "codebleu": 0.3431591934086707,
+        "ngram_match_score": 0.019332110975741015,
+        "weighted_ngram_match_score": 0.18559620050423511,
+        "syntax_match_score": 0.38652237845786236,
+        "dataflow_match_score": 0.7811860836968441
+      }
+    },
+    "repoeval_ProductionLine": {
+      "total_files": 12,
+      "successful_evaluations": 6,
+      "average_scores": {
+        "codebleu": 0.333966637866492,
+        "ngram_match_score": 0.005833636901743243,
+        "weighted_ngram_match_score": 0.17224828089723798,
+        "syntax_match_score": 0.5251048951048951,
+        "dataflow_match_score": 0.29934640522875816
+      }
+    },
+    "repoeval_Proxy_Application": {
+      "total_files": 4,
+      "successful_evaluations": 2,
+      "average_scores": {
+        "codebleu": 0.4674961406287802,
+        "ngram_match_score": 0.031962749235724654,
+        "weighted_ngram_match_score": 0.4424908736308094,
+        "syntax_match_score": 0.5026737967914439,
+        "dataflow_match_score": 0.39285714285714285
+      }
+    },
+    "repoeval_PT1Filter": {
+      "total_files": 2,
+      "successful_evaluations": 1,
+      "average_scores": {
+        "codebleu": 0.37647861792949977,
+        "ngram_match_score": 0.018854086958611634,
+        "weighted_ngram_match_score": 0.20638241865769263,
+        "syntax_match_score": 0.4406779661016949,
+        "dataflow_match_score": 0.84
+      }
+    },
+    "repoeval_readwriteFile": {
+      "total_files": 4,
+      "successful_evaluations": 2,
+      "average_scores": {
+        "codebleu": 0.5594327563023839,
+        "ngram_match_score": 0.39661342564291485,
+        "weighted_ngram_match_score": 0.4252715785724994,
+        "syntax_match_score": 0.8415566153093665,
+        "dataflow_match_score": 0.5742894056847545
+      }
+    },
+    "repoeval_Robotics_DynamicModel": {
+      "total_files": 4,
+      "successful_evaluations": 2,
+      "average_scores": {
+        "codebleu": 0.3524230258662609,
+        "ngram_match_score": 0.08943954085892188,
+        "weighted_ngram_match_score": 0.28485271541001805,
+        "syntax_match_score": 0.5316218378162184,
+        "dataflow_match_score": 0.5037780093798854
+      }
+    },
+    "repoeval_three-axis_CNC_motion": {
+      "total_files": 10,
+      "successful_evaluations": 5,
+      "average_scores": {
+        "codebleu": 0.23258623439480658,
+        "ngram_match_score": 0.012352166081122213,
+        "weighted_ngram_match_score": 0.034250978193800706,
+        "syntax_match_score": 0.23690482751336955,
+        "dataflow_match_score": 0.6468369657909339
+      }
+    },
+    "repoeval_traffic_light": {
+      "total_files": 6,
+      "successful_evaluations": 3,
+      "average_scores": {
+        "codebleu": 0.5736549085037973,
+        "ngram_match_score": 0.026088090260978917,
+        "weighted_ngram_match_score": 0.6688239414150295,
+        "syntax_match_score": 0.7108187134502923,
+        "dataflow_match_score": 0.5555555555555555
+      }
+    },
+    "repoeval_Wrappers": {
+      "total_files": 2,
+      "successful_evaluations": 1,
+      "average_scores": {
+        "codebleu": 0.21428969217031998,
+        "ngram_match_score": 0.00040316135400500963,
+        "weighted_ngram_match_score": 0.010968643893252686,
+        "syntax_match_score": 0.08108108108108109,
+        "dataflow_match_score": 0.7647058823529411
+      }
+    }
+  }
+}

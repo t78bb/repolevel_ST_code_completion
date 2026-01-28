@@ -1,0 +1,5 @@
+功能规划:
+1. 校验 tElapsedTime 和 tTotalTime 是否为非负值。
+2. 判断 tElapsedTime 是否大于或等于 tTotalTime。
+3. 如果 tElapsedTime 大于或等于 tTotalTime，则将 nRemainingSeconds 设置为 0。
+4. 如果 tElapsedTime 小于 tTotalTime，则计算 tTotalTime 与 tElapsedTime 的差值，将该差值以秒为单位转换为 UINT 类型，并赋值给 nRemainingSeconds。

@@ -1,0 +1,5 @@
+功能规划:  
+1. 比较 `nTargetFloor` 和 `nCurrentFloor` 的数值大小，判断目标楼层与当前楼层的关系。  
+2. 如果 `nTargetFloor` 大于 `nCurrentFloor`，返回电梯运动方向为上（向上运行）。  
+3. 如果 `nTargetFloor` 小于 `nCurrentFloor`，返回电梯运动方向为下（向下运行）。  
+4. 如果 `nTargetFloor` 等于 `nCurrentFloor`，返回电梯运动方向为静止（保持当前楼层不动）。

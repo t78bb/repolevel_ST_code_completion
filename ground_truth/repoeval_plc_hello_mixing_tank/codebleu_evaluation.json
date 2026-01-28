@@ -1,0 +1,124 @@
+{
+  "project_name": "repoeval_plc_hello_mixing_tank",
+  "original_project_name": "plc_hello_mixing_tank",
+  "total_files": 12,
+  "successful_evaluations": 6,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.3431591934086707,
+    "ngram_match_score": 0.019332110975741015,
+    "weighted_ngram_match_score": 0.18559620050423511,
+    "syntax_match_score": 0.38652237845786236,
+    "dataflow_match_score": 0.7811860836968441
+  },
+  "file_results": [
+    {
+      "filename": "F_ResetDeviceCommands.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\plc_hello_mixing_tank\\F_ResetDeviceCommands.st",
+      "codebleu": 0.4362318860741997,
+      "ngram_match_score": 0.06331632122131028,
+      "weighted_ngram_match_score": 0.499265113900111,
+      "syntax_match_score": 0.5238095238095238,
+      "dataflow_match_score": 0.6585365853658537,
+      "reference_length": 585,
+      "prediction_length": 3998
+    },
+    {
+      "filename": "F_ResetDeviceCommands_1.st",
+      "case_id": 1,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "F_UpdateLimitSwitches.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\plc_hello_mixing_tank\\F_UpdateLimitSwitches.st",
+      "codebleu": 0.3118592800953601,
+      "ngram_match_score": 0.00033276881189512995,
+      "weighted_ngram_match_score": 0.009009113474307318,
+      "syntax_match_score": 0.23809523809523808,
+      "dataflow_match_score": 1.0,
+      "reference_length": 176,
+      "prediction_length": 4224
+    },
+    {
+      "filename": "F_UpdateLimitSwitches_1.st",
+      "case_id": 3,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_AutoSequence.st",
+      "case_id": 4,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\plc_hello_mixing_tank\\FB_AutoSequence.st",
+      "codebleu": 0.2154958939172902,
+      "ngram_match_score": 0.00046858685830091553,
+      "weighted_ngram_match_score": 0.0011975284933995465,
+      "syntax_match_score": 0.18253968253968253,
+      "dataflow_match_score": 0.6777777777777778,
+      "reference_length": 1469,
+      "prediction_length": 2553
+    },
+    {
+      "filename": "FB_AutoSequence_1.st",
+      "case_id": 5,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_ManualControl.st",
+      "case_id": 6,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\plc_hello_mixing_tank\\FB_ManualControl.st",
+      "codebleu": 0.3526530665625528,
+      "ngram_match_score": 0.0140436851990983,
+      "weighted_ngram_match_score": 0.14495567782530647,
+      "syntax_match_score": 0.45161290322580644,
+      "dataflow_match_score": 0.8,
+      "reference_length": 422,
+      "prediction_length": 3335
+    },
+    {
+      "filename": "FB_ManualControl_1.st",
+      "case_id": 7,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_ModeController.st",
+      "case_id": 8,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\plc_hello_mixing_tank\\FB_ModeController.st",
+      "codebleu": 0.23951048951048953,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.23076923076923078,
+      "dataflow_match_score": 0.7272727272727273,
+      "reference_length": 323,
+      "prediction_length": 3724
+    },
+    {
+      "filename": "FB_ModeController_1.st",
+      "case_id": 9,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_TankLevelSimulator.st",
+      "case_id": 10,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\plc_hello_mixing_tank\\FB_TankLevelSimulator.st",
+      "codebleu": 0.5032045442921316,
+      "ngram_match_score": 0.03783130376384148,
+      "weighted_ngram_match_score": 0.4591497693322865,
+      "syntax_match_score": 0.6923076923076923,
+      "dataflow_match_score": 0.8235294117647058,
+      "reference_length": 356,
+      "prediction_length": 3137
+    },
+    {
+      "filename": "FB_TankLevelSimulator_1.st",
+      "case_id": 11,
+      "error": "未找到对应的参考文件"
+    }
+  ]
+}

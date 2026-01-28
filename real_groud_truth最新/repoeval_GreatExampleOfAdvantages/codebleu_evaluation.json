@@ -1,0 +1,46 @@
+{
+  "project_name": "repoeval_GreatExampleOfAdvantages",
+  "original_project_name": "GreatExampleOfAdvantages",
+  "total_files": 2,
+  "successful_evaluations": 2,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.3546692389312942,
+    "ngram_match_score": 0.010456620533267907,
+    "weighted_ngram_match_score": 0.030644092638339133,
+    "syntax_match_score": 0.6384458077709612,
+    "dataflow_match_score": 0.2391304347826087
+  },
+  "file_results": [
+    {
+      "filename": "Home.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\GreatExampleOfAdvantages\\Home.st",
+      "codebleu": 0.5021160394069846,
+      "ngram_match_score": 0.017395797375642234,
+      "weighted_ngram_match_score": 0.05773502691896258,
+      "syntax_match_score": 0.9333333333333333,
+      "dataflow_match_score": 0,
+      "reference_length": 85,
+      "prediction_length": 152
+    },
+    {
+      "filename": "MQTT_STUFF.st",
+      "case_id": 1,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\GreatExampleOfAdvantages\\MQTT_STUFF.st",
+      "codebleu": 0.2072224384556039,
+      "ngram_match_score": 0.00351744369089358,
+      "weighted_ngram_match_score": 0.003553158357715685,
+      "syntax_match_score": 0.34355828220858897,
+      "dataflow_match_score": 0.4782608695652174,
+      "reference_length": 1398,
+      "prediction_length": 1012
+    }
+  ]
+}

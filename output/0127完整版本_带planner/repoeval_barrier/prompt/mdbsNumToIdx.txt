@@ -1,0 +1,124 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a mapping function that converts a device number (devNo) into corresponding level and index values based on predefined cases.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:  
+1. 判断输入变量 `devNo` 是否为有效范围值（根据默认逻辑可推定范围，以免映射错误）。  
+2. 根据 `devNo` 的取值，通过条件判断选择映射关系，将其按规则分配到对应的 `level` 和 `idx` 值。  
+3. 若 `devNo` 不符合任何预定义的映射规则，则设置 `level` 和 `idx` 为默认值（如非负或特定标识值）。  
+4. 将计算完成的 `level` 和 `idx` 作为输出提供给调用端。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# modbus-FUN\mdbsNumToIdx.st
+# --------------------------------------------------
+# FUNCTION_BLOCK mdbsNumToIdx
+# VAR_INPUT
+# 	devNo		:WORD;
+# END_VAR
+# VAR_OUTPUT
+# 	level		:INT;
+# 	idx			:INT;
+# END_VAR
+# VAR
+# 	
+# END_VAR
+# 
+# IF devNo > 40000 THEN
+# 	CASE devNo OF
+# 		//地轨
+# 		41010:	level := 1;	idx := 1;
+# 		41020:	level := 1;	idx := 3;
+# 		41030:	level := 1;	idx := 4;
+# 		41040:	level := 1;	idx := 5;
+# 		41050:	level := 1;	idx := 6;
+# 		41060:	level := 1;	idx := 8;
+# 		41070:	level := 1;	idx := 9;
+# 		41080:	level := 1;	idx := 10;
+# 		42010:	level := 1;	idx := 2;
+# 		42020:	level := 1;	idx := 7;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# modbus-FUN\mdbsNumToIdx.st
+# --------------------------------------------------
+# FUNCTION_BLOCK mdbsNumToIdx
+# VAR_INPUT
+# 	devNo		:WORD;
+# END_VAR
+# VAR_OUTPUT
+# 	level		:INT;
+# 	idx			:INT;
+# END_VAR
+# VAR
+# 	
+# END_VAR
+# 
+# IF devNo > 40000 THEN
+# 	CASE devNo OF
+# 		//地轨
+# 		41010:	level := 1;	idx := 1;
+# 		41020:	level := 1;	idx := 3;
+# 		41030:	level := 1;	idx := 4;
+# 		41040:	level := 1;	idx := 5;
+# 		41050:	level := 1;	idx := 6;
+# 		41060:	level := 1;	idx := 8;
+# 		41070:	level := 1;	idx := 9;
+# 		41080:	level := 1;	idx := 10;
+# 		42010:	level := 1;	idx := 2;
+# 		42020:	level := 1;	idx := 7;
+# 		
+# 		51010:	level := 2;	idx := 1;
+# 		51020:	level := 2;	idx := 3;
+# 		51030:	level := 2;	idx := 4;
+# 		51040:	level := 2;	idx := 5;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# modbus-FUN\mdbsNumToIdx.st
+# --------------------------------------------------
+# FUNCTION_BLOCK mdbsNumToIdx
+# VAR_INPUT
+# 	devNo		:WORD;
+# END_VAR
+# VAR_OUTPUT
+# 	level		:INT;
+# 	idx			:INT;
+# END_VAR
+# VAR
+# 	
+# END_VAR
+# 
+# IF devNo > 40000 THEN
+# 	CASE devNo OF
+# 		//地轨
+# 		41010:	level := 1;	idx := 1;
+# 		41020:	level := 1;	idx := 3;
+# 		41030:	level := 1;	idx := 4;
+# 		41040:	level := 1;	idx := 5;
+# 		41050:	level := 1;	idx := 6;
+# 		41060:	level := 1;	idx := 8;
+# 		41070:	level := 1;	idx := 9;
+# 		41080:	level := 1;	idx := 10;
+# 		42010:	level := 1;	idx := 2;
+# 		42020:	level := 1;	idx := 7;
+# 		
+# 		51010:	level := 2;	idx := 1;
+# 		51020:	level := 2;	idx := 3;
+# 		51030:	level := 2;	idx := 4;
+# 		51040:	level := 2;	idx := 5;
+# 		51050:	level := 2;	idx := 6;
+# 		51060:	level := 2;	idx := 8;
+# 		51070:	level := 2;	idx
+
+FUNCTION_BLOCK mdbsNumToIdx
+VAR_INPUT
+	devNo		:WORD;
+END_VAR
+VAR_OUTPUT
+	level		:INT;
+	idx			:INT;
+END_VAR
+```

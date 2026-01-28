@@ -1,0 +1,5 @@
+功能规划:  
+1. 检查输入参数 `SequenceDelay` 是否为有效时间值（非负时间）。  
+2. 使用 `SequenceDelay` 更新 `MotorI.WaitTime` 属性或相关字段。  
+3. 将更新后的 `MotorI` 值复制到 `MotorO`，确保输出包含变更后的状态。  
+4. 返回方法执行成功标志 `TRUE` 作为输出。

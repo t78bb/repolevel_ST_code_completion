@@ -1,0 +1,139 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a file-saving functionality that logs formatted data, including line count, time interval, position, speed, and state, into a file at specified intervals.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:  
+1. 检查 filePath 是否为有效路径，如果无效则退出函数块执行。  
+2. 根据 intervalt 设置定时器，检测当前时间是否达到预定的保存间隔。  
+3. 如果达到保存间隔，获取 positionInt、speedInt、stateInt 的当前值，并记录时间戳。  
+4. 格式化日志内容，将 line count、时间戳、positionInt、speedInt、stateInt 拼接为字符串。  
+5. 打开指定的文件路径 (filePath)，以追加模式写入格式化日志内容。  
+6. 关闭文件，重置定时器以等待下一个间隔。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# core-FUN\fileSave.st
+# --------------------------------------------------
+# FUNCTION_BLOCK fileSave
+# VAR_INPUT
+# 	filePath 	:STRING;
+# 	intervalt	:INT;
+# END_VAR
+# VAR
+# 	lineCount	: INT;
+# 	fileHandle  : DWORD;
+# 	fileName	: STRING;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# --------------------------------------------------
+# the below code fragment can be found in:
+# can-FUN\fileSave.st
+# --------------------------------------------------
+# FUNCTION_BLOCK fileSave
+# VAR_INPUT
+# 	filePath 	:STRING;
+# 	intervalt	:INT;
+# END_VAR
+# VAR
+# 	lineCount	: INT;
+# 	fileHandle  : DWORD;
+# 	fileName	: STRING;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# --------------------------------------------------
+# the below code fragment can be found in:
+# can-FUN\fileSave_write.st
+# --------------------------------------------------
+# FUNCTION_BLOCK fileSave
+# VAR_INPUT
+# 	filePath 	:STRING;
+# 	intervalt	:INT;
+# 	positionInt 	:INT;
+# 	speedInt 		:INT;
+# 	stateInt		:INT;
+# END_VAR
+# VAR
+# 	lineCount	: INT;
+# 	fileHandle  : DWORD;
+# 	fileName	: STRING;
+# 	data		: STRING;
+# 	F_err		: DWORD;
+# 	tempInt		: INT;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# 
+# IF fileHandle <> 0 THEN
+# 	lineCount := lineCount + 1;
+# 	tempInt	:= lineCount * intervalt;
+# 	data := INT_TO_STRING(lineCount);
+# 	data := concat(data,'$T$T');
+# 	data := concat(data, INT_TO_STRING(tempInt));
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# healthydata-FUN\fileSave.st
+# --------------------------------------------------
+# FUNCTION_BLOCK fileSave
+# VAR_INPUT
+# 	filePath 	:STRING;
+# 	intervalt	:INT;
+# END_VAR
+# VAR
+# 	lineCount	: INT;
+# 	fileHandle  : DWORD;
+# 	fileName	: STRING;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# --------------------------------------------------
+# the below code fragment can be found in:
+# can-FUN\fileSave_write.st
+# --------------------------------------------------
+# FUNCTION_BLOCK fileSave
+# VAR_INPUT
+# 	filePath 	:STRING;
+# 	intervalt	:INT;
+# 	positionInt 	:INT;
+# 	speedInt 		:INT;
+# 	stateInt		:INT;
+# END_VAR
+# VAR
+# 	lineCount	: INT;
+# 	fileHandle  : DWORD;
+# 	fileName	: STRING;
+# 	data		: STRING;
+# 	F_err		: DWORD;
+# 	tempInt		: INT;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# 
+# IF fileHandle <> 0 THEN
+# 	lineCount := lineCount + 1;
+# 	tempInt	:= lineCount * intervalt;
+# 	data := INT_TO_STRING(lineCount);
+# 	data := concat(data,'$T$T');
+# 	data := concat(data, INT_TO_STRING(tempInt));
+# 	IF tempInt < 1000 THEN
+# 		data := concat(data,'$T');
+# 	END_IF
+# 	data := concat(data,'$T$T');
+# 	data := concat(data,INT_TO_STRING(positionInt));
+# 
+# --------------------------------------------------
+
+
+FUNCTION_BLOCK fileSave
+VAR_INPUT
+	filePath 	:STRING;
+	intervalt	:INT;
+	positionInt 	:INT;
+	speedInt 		:INT;
+	stateInt		:INT;
+END_VAR
+```

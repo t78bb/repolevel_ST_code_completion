@@ -1,0 +1,8 @@
+功能规划:  
+1. 检查输入信号 `xNodeClick` 究竟是否为激活状态（TRUE）。  
+2. 如果单击时间间隔小于 `tDblClickTime`（检测是否为双击）：  
+    - 反转 `xNodeExpand` 的状态（切换节点展开/折叠）。  
+    - 将节点折叠/扩展状态写回输出 `xNodeExpand`。  
+3. 如果单击时间超过 `tDblClickTime` 或为第一次点击：  
+    - 设置 `xNodeSelected` 为 TRUE（表示节点被选中）。  
+4. 记录本次点击时间点，用于下一次输入判定双击间隔。

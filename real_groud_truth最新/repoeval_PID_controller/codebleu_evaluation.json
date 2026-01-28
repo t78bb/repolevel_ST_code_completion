@@ -1,0 +1,70 @@
+{
+  "project_name": "repoeval_PID_controller",
+  "original_project_name": "PID_controller",
+  "total_files": 4,
+  "successful_evaluations": 4,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.2784982715868315,
+    "ngram_match_score": 0.09814050634693089,
+    "weighted_ngram_match_score": 0.1302762168729204,
+    "syntax_match_score": 0.0922922502334267,
+    "dataflow_match_score": 0.793284112894048
+  },
+  "file_results": [
+    {
+      "filename": "HeatExchanger.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\PID_controller\\HeatExchanger.st",
+      "codebleu": 0.2029676714275446,
+      "ngram_match_score": 0.0013538933993963468,
+      "weighted_ngram_match_score": 0.0040800107015866475,
+      "syntax_match_score": 0.013333333333333334,
+      "dataflow_match_score": 0.7931034482758621,
+      "reference_length": 415,
+      "prediction_length": 1826
+    },
+    {
+      "filename": "HeatExchanger2.st",
+      "case_id": 1,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\PID_controller\\HeatExchanger2.st",
+      "codebleu": 0.20464972869147935,
+      "ngram_match_score": 0.004795910098865579,
+      "weighted_ngram_match_score": 0.013803004667051796,
+      "syntax_match_score": 0.0,
+      "dataflow_match_score": 0.8,
+      "reference_length": 721,
+      "prediction_length": 2319
+    },
+    {
+      "filename": "PID_controller.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\PID_controller\\PID_controller.st",
+      "codebleu": 0.3227433319910067,
+      "ngram_match_score": 0.17487231979910695,
+      "weighted_ngram_match_score": 0.17626408329596233,
+      "syntax_match_score": 0.27647058823529413,
+      "dataflow_match_score": 0.6633663366336634,
+      "reference_length": 1156,
+      "prediction_length": 1548
+    },
+    {
+      "filename": "Tank.st",
+      "case_id": 3,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\PID_controller\\Tank.st",
+      "codebleu": 0.38363235423729536,
+      "ngram_match_score": 0.21153990209035473,
+      "weighted_ngram_match_score": 0.3269577688270808,
+      "syntax_match_score": 0.07936507936507936,
+      "dataflow_match_score": 0.9166666666666666,
+      "reference_length": 425,
+      "prediction_length": 626
+    }
+  ]
+}

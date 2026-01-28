@@ -1,0 +1,18 @@
+IF (nFloor >= 1) AND (nFloor <= MaxNumFloor) THEN
+IF bClearUpStop AND (nFloor <= MaxNumFloor - 1) THEN
+ Tar_Dir.IsUpStop[nFloor] := FALSE; // Bounds check removed as UpperBound is invalid
+ QFloorUpLed[nFloor] := FALSE;
+END_IF;
+
+IF bClearDownStop AND (nFloor >= 2) THEN
+ Tar_Dir.IsDownStop[nFloor] := FALSE; // Bounds check removed as UpperBound is invalid
+ QFloorDownLed[nFloor] := FALSE;
+END_IF;
+
+IF bClearStopFloor THEN
+ Tar_Dir.IsStopFloor[nFloor] := FALSE; // Bounds check removed as UpperBound is invalid
+ QGoFloorLed[nFloor] := FALSE;
+END_IF;
+END_IF;
+RETURN;
+END_FUNCTION

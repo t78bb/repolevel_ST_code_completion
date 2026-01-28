@@ -1,0 +1,170 @@
+This is the known requirement information for the function to be completed:\nThis code is intended to implement a control mechanism for a tank system that adjusts its level and temperature within specified minimum and maximum thresholds.\nContinue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 测量控件-FUN\Tank.st
+# --------------------------------------------------
+# FUNCTION_BLOCK Tank
+# VAR_INPUT
+# 	stName: STRING;
+# 	nMaxLevel	: INT;
+# 	nMinLevel	: INT;
+# 	nMaxTemp	: INT;
+# 	nMinTemp	: INT;
+# 	nUnitLevel							:INT:=0;
+# 	nUnitTemp							:INT:=0;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	name								:STRING;
+# 	bLevel								:BOOL;
+# 	bTemp								:BOOL;
+# END_VAR
+# 
+# name := stName;
+# 
+# IF(nUnitLevel > nMaxLevel) THEN
+# 	bLevel := FALSE;
+# END_IF
+# IF(nUnitLevel < nMinLevel) THEN
+# 	bLevel := TRUE;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 测量控件-FUN\Tank.st
+# --------------------------------------------------
+# FUNCTION_BLOCK Tank
+# VAR_INPUT
+# 	stName: STRING;
+# 	nMaxLevel	: INT;
+# 	nMinLevel	: INT;
+# 	nMaxTemp	: INT;
+# 	nMinTemp	: INT;
+# 	nUnitLevel							:INT:=0;
+# 	nUnitTemp							:INT:=0;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	name								:STRING;
+# 	bLevel								:BOOL;
+# 	bTemp								:BOOL;
+# END_VAR
+# 
+# name := stName;
+# 
+# IF(nUnitLevel > nMaxLevel) THEN
+# 	bLevel := FALSE;
+# END_IF
+# IF(nUnitLevel < nMinLevel) THEN
+# 	bLevel := TRUE;
+# END_IF
+# 
+# IF(bLevel) THEN
+# 	nUnitLevel:=nUnitLevel+1;
+# ELSE
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 测量控件-FUN\Tank.st
+# --------------------------------------------------
+# FUNCTION_BLOCK Tank
+# VAR_INPUT
+# 	stName: STRING;
+# 	nMaxLevel	: INT;
+# 	nMinLevel	: INT;
+# 	nMaxTemp	: INT;
+# 	nMinTemp	: INT;
+# 	nUnitLevel							:INT:=0;
+# 	nUnitTemp							:INT:=0;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	name								:STRING;
+# 	bLevel								:BOOL;
+# 	bTemp								:BOOL;
+# END_VAR
+# 
+# name := stName;
+# 
+# IF(nUnitLevel > nMaxLevel) THEN
+# 	bLevel := FALSE;
+# END_IF
+# IF(nUnitLevel < nMinLevel) THEN
+# 	bLevel := TRUE;
+# END_IF
+# 
+# IF(bLevel) THEN
+# 	nUnitLevel:=nUnitLevel+1;
+# ELSE
+# 	nUnitLevel:=nUnitLevel-1;
+# END_IF
+# 
+# IF(nUnitTemp > nMaxTemp) THEN
+# 	bTemp := FALSE;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 测量控件-FUN\Tank.st
+# --------------------------------------------------
+# FUNCTION_BLOCK Tank
+# VAR_INPUT
+# 	stName: STRING;
+# 	nMaxLevel	: INT;
+# 	nMinLevel	: INT;
+# 	nMaxTemp	: INT;
+# 	nMinTemp	: INT;
+# 	nUnitLevel							:INT:=0;
+# 	nUnitTemp							:INT:=0;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	name								:STRING;
+# 	bLevel								:BOOL;
+# 	bTemp								:BOOL;
+# END_VAR
+# 
+# name := stName;
+# 
+# IF(nUnitLevel > nMaxLevel) THEN
+# 	bLevel := FALSE;
+# END_IF
+# IF(nUnitLevel < nMinLevel) THEN
+# 	bLevel := TRUE;
+# END_IF
+# 
+# IF(bLevel) THEN
+# 	nUnitLevel:=nUnitLevel+1;
+# ELSE
+# 	nUnitLevel:=nUnitLevel-1;
+# END_IF
+# 
+# IF(nUnitTemp > nMaxTemp) THEN
+# 	bTemp := FALSE;
+# END_IF
+# IF(nUnitTemp < nMinTemp) THEN
+# 	bTemp := TRUE;
+# END_IF
+# 
+# 
+# --------------------------------------------------
+# the
+
+FUNCTION_BLOCK Tank
+VAR_INPUT
+	stName: STRING;
+	nMaxLevel	: INT;
+	nMinLevel	: INT;
+	nMaxTemp	: INT;
+	nMinTemp	: INT;
+	nUnitLevel							:INT:=0;
+	nUnitTemp							:INT:=0;
+END_VAR
+VAR_OUTPUT
+END_VAR
+```

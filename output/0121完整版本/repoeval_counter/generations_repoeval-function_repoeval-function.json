@@ -1,0 +1,1 @@
+[["```\nVAR\n    nPrevValue: INT;   (* Previous value for internal tracking *)\nEND_VAR\n\nIF bReset THEN\n    nValue := 0;       (* Reset the counter *)\nELSIF bUp THEN\n    nValue := nValue + 1; (* Increment the counter *)\nELSIF bDown THEN\n    nValue := nValue - 1; (* Decrement the counter *)\nEND_IF\n```"]]

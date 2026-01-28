@@ -1,0 +1,7 @@
+功能规划:
+1. 检查输入信号 `bExecute` 是否为 TRUE，若为 FALSE，直接跳过停止逻辑，保持输出 `bDone` 为 FALSE，`bBusy` 为 FALSE。
+2. 初始化所有输出变量，包括 `bDone` 为 FALSE，`bBusy` 为 TRUE，`bError` 为 FALSE，`sErrorString` 设置为空字符串。
+3. 按照目标减速度 `rDeceleration` 分别向 `AxisX`, `AxisY`, `AxisZ` 发送减速停止指令，并监控每个轴的停止过程。
+4. 若任意轴停止过程中发生错误，设置 `bError` 为 TRUE，并记录对应错误信息到 `sErrorString`，终止停止逻辑。
+5. 监控三个轴是否均完成停止动作，若全部完成，设置输出 `bDone` 为 TRUE，`bBusy` 为 FALSE。
+6. 在停止完成或发生错误时，退出功能块执行，确保资源释放和状态重置。

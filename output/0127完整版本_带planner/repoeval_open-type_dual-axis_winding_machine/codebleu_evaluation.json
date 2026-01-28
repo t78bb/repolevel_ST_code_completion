@@ -1,0 +1,82 @@
+{
+  "project_name": "repoeval_open-type_dual-axis_winding_machine",
+  "original_project_name": "open-type_dual-axis_winding_machine",
+  "total_files": 5,
+  "successful_evaluations": 5,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.353477302415643,
+    "ngram_match_score": 0.08105589490828131,
+    "weighted_ngram_match_score": 0.12663148194857046,
+    "syntax_match_score": 0.6147301661390536,
+    "dataflow_match_score": 0.5914916666666666
+  },
+  "file_results": [
+    {
+      "filename": "CheckF.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\open-type_dual-axis_winding_machine\\CheckF.st",
+      "codebleu": 0.5412813659855071,
+      "ngram_match_score": 0.042084990495118005,
+      "weighted_ngram_match_score": 0.17567205239427922,
+      "syntax_match_score": 0.9473684210526315,
+      "dataflow_match_score": 1.0,
+      "reference_length": 67,
+      "prediction_length": 121
+    },
+    {
+      "filename": "F_CalculateRadius.st",
+      "case_id": 1,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\open-type_dual-axis_winding_machine\\F_CalculateRadius.st",
+      "codebleu": 0.09906108881078812,
+      "ngram_match_score": 0.0066072160695314205,
+      "weighted_ngram_match_score": 0.027318298593910915,
+      "syntax_match_score": 0.1956521739130435,
+      "dataflow_match_score": 0.16666666666666666,
+      "reference_length": 197,
+      "prediction_length": 623
+    },
+    {
+      "filename": "F_CompensateVelocity.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\open-type_dual-axis_winding_machine\\F_CompensateVelocity.st",
+      "codebleu": 0.19695020249368822,
+      "ngram_match_score": 0.02188282589947841,
+      "weighted_ngram_match_score": 0.03101332305832536,
+      "syntax_match_score": 0.4067796610169492,
+      "dataflow_match_score": 0.328125,
+      "reference_length": 534,
+      "prediction_length": 859
+    },
+    {
+      "filename": "SeekHome.st",
+      "case_id": 3,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\open-type_dual-axis_winding_machine\\SeekHome.st",
+      "codebleu": 0.427661658422699,
+      "ngram_match_score": 0.3127095919261916,
+      "weighted_ngram_match_score": 0.31141980038529415,
+      "syntax_match_score": 0.5905172413793104,
+      "dataflow_match_score": 0.496,
+      "reference_length": 2176,
+      "prediction_length": 1973
+    },
+    {
+      "filename": "StaDisplay.st",
+      "case_id": 4,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\open-type_dual-axis_winding_machine\\StaDisplay.st",
+      "codebleu": 0.5024321963655325,
+      "ngram_match_score": 0.02199485015108713,
+      "weighted_ngram_match_score": 0.08773393531104272,
+      "syntax_match_score": 0.9333333333333333,
+      "dataflow_match_score": 0.9666666666666667,
+      "reference_length": 471,
+      "prediction_length": 1118
+    }
+  ]
+}

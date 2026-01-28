@@ -1,0 +1,116 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement elevator movement control logic based on current floor, door readiness, and target floor requests.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 遍历 `TargetFloors` 数组，从最低楼层开始检查目标楼层请求状态。
+2. 如果目标楼层高于 `CurrentFloor` 且 `bDoorReady = TRUE`，设置 `bMovingUp = TRUE` 并停止遍历。
+3. 如果目标楼层低于 `CurrentFloor` 且 `bDoorReady = TRUE`，设置 `bMovingDown = TRUE` 并停止遍历。
+4. 检查当前楼层是否为目标楼层（`TargetFloors[CurrentFloor] = TRUE`）；如果是且 `bDoorReady = TRUE`，设置 `bArrivedAtTarget = TRUE` 并清除当前楼层的目标楼层请求。
+5. 如果电梯正向上或向下移动（`bMovingUp = TRUE` 或 `bMovingDown = TRUE`），当到达目标楼层时重置 `bMovingUp` 和 `bMovingDown` 为 `FALSE`，并设置 `bArrivedAtTarget = TRUE`。
+6. 保持变量 `bArrivedAtTarget` 和楼层目标数组的同步状态，确保电梯逻辑与请求一致。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# elevator-FUN\FB_ElevatorMovement.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_ElevatorMovement
+# VAR_INPUT
+# 	CurrentFloor		:	INT;				// 当前楼层
+# 	bDoorReady			:	BOOL;				// 门准备好
+# END_VAR
+# VAR_IN_OUT
+# 	TargetFloors		:	ARRAY[0..3] OF BOOL;	// 目标楼层数组
+# END_VAR
+# VAR_OUTPUT
+# 	bMovingUp			:	BOOL;				// 向上移动
+# 	bMovingDown			:	BOOL;				// 向下移动
+# 	bArrivedAtTarget	:	BOOL;				// 到达目标楼层
+# END_VAR
+# VAR
+# 	fbMoveDelayTimer	:	TON;				// 移动延时定时器
+# 	i					:	INT;				// 循环变量
+# 	bHasUpperRequest	:	BOOL;				// 有更高楼层请求
+# 	bHasLowerRequest	:	BOOL;				// 有更低楼层请求
+# END_VAR
+# 
+# // 检查是否到达目标楼层
+# IF TargetFloors[CurrentFloor] THEN
+# 	bArrivedAtTarget := TRUE;
+# 	TargetFloors[CurrentFloor] := FALSE; // 清除请求
+# 	bMovingUp := FALSE;
+# 	bMovingDown := FALSE;
+# 	RETURN;
+# ELSE
+# 	bArrivedAtTarget := FALSE;
+# END_IF
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# elevator-FUN\FB_ElevatorMovement.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_ElevatorMovement
+# VAR_INPUT
+# 	CurrentFloor		:	INT;				// 当前楼层
+# 	bDoorReady			:	BOOL;				// 门准备好
+# END_VAR
+# VAR_IN_OUT
+# 	TargetFloors		:	ARRAY[0..3] OF BOOL;	// 目标楼层数组
+# END_VAR
+# VAR_OUTPUT
+# 	bMovingUp			:	BOOL;				// 向上移动
+# 	bMovingDown			:	BOOL;				// 向下移动
+# 	bArrivedAtTarget	:	BOOL;				// 到达目标楼层
+# END_VAR
+# VAR
+# 	fbMoveDelayTimer	:	TON;				// 移动延时定时器
+# 	i					:	INT;				// 循环变量
+# 	bHasUpperRequest	:	BOOL;				// 有更高楼层请求
+# 	bHasLowerRequest	:	BOOL;				// 有更低楼层请求
+# END_VAR
+# 
+# // 检查是否到达目标楼层
+# IF TargetFloors[CurrentFloor] THEN
+# 	bArrivedAtTarget := TRUE;
+# 	TargetFloors[CurrentFloor] := FALSE; // 清除请求
+# 	bMovingUp := FALSE;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# elevator-FUN\FB_ElevatorMovement.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_ElevatorMovement
+# VAR_INPUT
+# 	CurrentFloor		:	INT;				// 当前楼层
+# 	bDoorReady			:	BOOL;				// 门准备好
+# END_VAR
+# VAR_IN_OUT
+# 	TargetFloors		:	ARRAY[0..3] OF BOOL;	// 目标楼层数组
+# END_VAR
+# VAR_OUTPUT
+# 	bMovingUp			:	BOOL;				// 向上移动
+# 	bMovingDown			:	BOOL;				// 向下移动
+# 	bArrivedAtTarget	:	BOOL;				// 到达目标楼层
+# END_VAR
+# VAR
+# 	fbMoveDelayTimer	:	TON;				// 移动延时定时器
+# 	i					:	INT;				// 循环变量
+# 	bHasUpperRequest	:	BOOL;				// 有更高楼层请求
+# 	bHasLowerRequest	
+
+FUNCTION_BLOCK FB_ElevatorMovement
+VAR_INPUT
+	CurrentFloor		:	INT;				// 当前楼层
+	bDoorReady			:	BOOL;				// 门准备好
+END_VAR
+VAR_IN_OUT
+	TargetFloors		:	ARRAY[0..3] OF BOOL;	// 目标楼层数组
+END_VAR
+VAR_OUTPUT
+	bMovingUp			:	BOOL;				// 向上移动
+	bMovingDown			:	BOOL;				// 向下移动
+	bArrivedAtTarget	:	BOOL;				// 到达目标楼层
+END_VAR
+```

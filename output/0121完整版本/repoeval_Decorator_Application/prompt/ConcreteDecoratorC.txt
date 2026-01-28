@@ -1,0 +1,104 @@
+This is the known requirement information for the function to be completed:\nThis code is intended to implement a decorating class that extends functionality and responsibilities of a component in a dynamic creation environment.\nContinue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Decorator_Application-FUN\ConcreteDecoratorA.st
+# --------------------------------------------------
+#  {attribute 'enable_dynamic_creation'}
+# //This class acts as a decorating class. It adds responsibilities and functionality to the component
+# FUNCTION_BLOCK ConcreteDecoratorA EXTENDS Decorator
+# VAR_INPUT
+# 	//Reference to store the component to be decorated
+# 	tempInputComponent : Component_Interface;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Decorator_Application-FUN\ConcreteDecoratorC.st
+# --------------------------------------------------
+# {attribute 'enable_dynamic_creation'}
+# //This class acts as a decorating class. It adds responsibilities and functionality to the component
+# FUNCTION_BLOCK ConcreteDecoratorC EXTENDS Decorator
+# VAR_INPUT
+# 	//Reference to store the component to be decorated
+# 	tempInputComponent : Component_Interface;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Decorator_Application-FUN\ConcreteDecoratorB.st
+# --------------------------------------------------
+# {attribute 'enable_dynamic_creation'}
+# //This class acts as a decorating class. It adds responsibilities and functionality to the component
+# FUNCTION_BLOCK ConcreteDecoratorB EXTENDS Decorator
+# VAR_INPUT
+# 	//Reference to store the component to be decorated
+# 	tempInputComponent : Component_Interface;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Decorator_Application-FUN\Decorator.st
+# --------------------------------------------------
+# {attribute 'enable_dynamic_creation'}
+# //This class mainteins the reference to a ConcreteComponent object and works as an interface 
+# // for its subclasses to decorate the ConcreteComponent 
+# FUNCTION_BLOCK Decorator IMPLEMENTS Component_Interface
+# VAR_INPUT
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	//Variable to save the state of the concrete component to be decorated
+# 	tempComponent : Component_Interface;
+# 	//String variable to save the Description of the component
+# 	sDescription : STRING;
+# 	//Real variable to save the Value of the component
+# 	rValue : REAL;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Decorator_Application-FUN\ConcreteComponment.st
+# --------------------------------------------------
+# {attribute 'enable_dynamic_creation'}
+# //This class creates the most basic object well called. This object is to be decorated
+# FUNCTION_BLOCK ConcreteComponent IMPLEMENTS Component_Interface
+# VAR_INPUT
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	//String field to store the description of the object
+# 	sDescription : STRING;
+# 	//Real field to store the value of the object
+# 	rValue : REAL;
+# END_VAR
+# 
+# --------------------------------------------------
+
+
+{attribute 'enable_dynamic_creation'}
+//This class acts as a decorating class. It adds responsibilities and functionality to the component
+FUNCTION_BLOCK ConcreteDecoratorC EXTENDS Decorator
+VAR_INPUT
+	//Reference to store the component to be decorated
+	tempInputComponent : Component_Interface;
+END_VAR
+VAR_OUTPUT
+END_VAR
+```

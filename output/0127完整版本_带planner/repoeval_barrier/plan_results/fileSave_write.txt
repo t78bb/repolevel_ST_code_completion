@@ -1,0 +1,7 @@
+功能规划:  
+1. 检查 filePath 是否为有效路径，如果无效则退出函数块执行。  
+2. 根据 intervalt 设置定时器，检测当前时间是否达到预定的保存间隔。  
+3. 如果达到保存间隔，获取 positionInt、speedInt、stateInt 的当前值，并记录时间戳。  
+4. 格式化日志内容，将 line count、时间戳、positionInt、speedInt、stateInt 拼接为字符串。  
+5. 打开指定的文件路径 (filePath)，以追加模式写入格式化日志内容。  
+6. 关闭文件，重置定时器以等待下一个间隔。

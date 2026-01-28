@@ -1,0 +1,5 @@
+功能规划:
+1. 计算时间步长，根据当前扫描周期或系统时间计算deltaTime。
+2. 将时间常数tT转换为实际滤波系数alpha，结合增益rK进行计算以调整滤波特性。
+3. 根据公式 `rOutput := rOutput + alpha * (rInput - rOutput)` 更新滤波结果。
+4. 存储过滤后的结果至变量rOutput，供调用方后续使用。

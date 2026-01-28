@@ -1,0 +1,90 @@
+{
+  "project_name": "repoeval_electronic_cam_motion",
+  "original_project_name": "electronic_cam_motion",
+  "total_files": 8,
+  "successful_evaluations": 4,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.2989571000382121,
+    "ngram_match_score": 0.05020885393571231,
+    "weighted_ngram_match_score": 0.1850563884043379,
+    "syntax_match_score": 0.35476312963257733,
+    "dataflow_match_score": 0.6058000281802207
+  },
+  "file_results": [
+    {
+      "filename": "F_AxisStatusToString.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\electronic_cam_motion\\F_AxisStatusToString.st",
+      "codebleu": 0.5822729643477722,
+      "ngram_match_score": 0.20083541574284924,
+      "weighted_ngram_match_score": 0.7402255536173517,
+      "syntax_match_score": 0.9594594594594594,
+      "dataflow_match_score": 0.42857142857142855,
+      "reference_length": 801,
+      "prediction_length": 2172
+    },
+    {
+      "filename": "F_AxisStatusToString_1.st",
+      "case_id": 1,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_DualAxisPower.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\electronic_cam_motion\\FB_DualAxisPower.st",
+      "codebleu": 0.2564186965108624,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.12244897959183673,
+      "dataflow_match_score": 0.9032258064516129,
+      "reference_length": 473,
+      "prediction_length": 2000
+    },
+    {
+      "filename": "FB_DualAxisPower_1.st",
+      "case_id": 3,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_DualAxisReset.st",
+      "case_id": 4,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\electronic_cam_motion\\FB_DualAxisReset.st",
+      "codebleu": 0.15907481268870916,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.13989637305699482,
+      "dataflow_match_score": 0.49640287769784175,
+      "reference_length": 1712,
+      "prediction_length": 2974
+    },
+    {
+      "filename": "FB_DualAxisReset_1.st",
+      "case_id": 5,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "ResetAxis.st",
+      "case_id": 6,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\electronic_cam_motion\\ResetAxis.st",
+      "codebleu": 0.1980619266055046,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.19724770642201836,
+      "dataflow_match_score": 0.595,
+      "reference_length": 2318,
+      "prediction_length": 2834
+    },
+    {
+      "filename": "ResetAxis_1.st",
+      "case_id": 7,
+      "error": "未找到对应的参考文件"
+    }
+  ]
+}

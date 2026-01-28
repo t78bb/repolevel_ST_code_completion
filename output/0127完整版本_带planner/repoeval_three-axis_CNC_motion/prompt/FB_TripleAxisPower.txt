@@ -1,0 +1,104 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a control mechanism for enabling and monitoring the power status of three servo motor axes (X, Y, Z) with error handling functionality.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 检查输入信号 `bServoEnable` 是否为 TRUE，如果为 FALSE，则设置 `bReady`、`bAxisXReady`、`bAxisYReady`、`bAxisZReady` 为 FALSE，并退出功能块执行。
+2. 对 `AxisX` 调用轴使能函数，判断使能结果，如果成功则设置 `bAxisXReady` 为 TRUE，否则设置 `bError` 为 TRUE，并将具体错误信息写入 `sErrorString`。
+3. 对 `AxisY` 调用轴使能函数，判断使能结果，如果成功则设置 `bAxisYReady` 为 TRUE，否则设置 `bError` 为 TRUE，并将具体错误信息写入 `sErrorString`。
+4. 对 `AxisZ` 调用轴使能函数，判断使能结果，如果成功则设置 `bAxisZReady` 为 TRUE，否则设置 `bError` 为 TRUE，并将具体错误信息写入 `sErrorString`。
+5. 如果三个轴 `bAxisXReady`、`bAxisYReady` 和 `bAxisZReady` 均为 TRUE，则设置 `bReady` 为 TRUE；否则保持 `bReady` 为 FALSE。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 三轴CNC运动实训-FUN\FB_TripleAxisPower.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_TripleAxisPower
+# VAR_INPUT
+# 	AxisX			:	SM3_Basic.AXIS_REF_SM3			//X轴引用
+# 	AxisY			:	SM3_Basic.AXIS_REF_SM3			//Y轴引用
+# 	AxisZ			:	SM3_Basic.AXIS_REF_SM3			//Z轴引用
+# 	bServoEnable	:	BOOL;				//伺服使能信号
+# END_VAR
+# VAR_OUTPUT
+# 	bReady			:	BOOL;				//三轴都准备就绪
+# 	bAxisXReady		:	BOOL;				//X轴准备就绪
+# 	bAxisYReady		:	BOOL;				//Y轴准备就绪
+# 	bAxisZReady		:	BOOL;				//Z轴准备就绪
+# 	bError			:	BOOL;				//错误标志
+# 	sErrorString	:	STRING;				//错误信息字符串
+# END_VAR
+# VAR
+# 	fbPowerX		:	MC_POWER;			//X轴电源控制
+# 	fbPowerY		:	MC_POWER;			//Y轴电源控制
+# 	fbPowerZ		:	MC_POWER;			//Z轴电源控制
+# END_VAR
+# 
+# // X轴电源控制
+# fbPowerX(
+# 	Enable := bServoEnable,
+# 	bRegulatorOn := bServoEnable,
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 三轴CNC运动实训-FUN\FB_TripleAxisPower.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_TripleAxisPower
+# VAR_INPUT
+# 	AxisX			:	SM3_Basic.AXIS_REF_SM3			//X轴引用
+# 	AxisY			:	SM3_Basic.AXIS_REF_SM3			//Y轴引用
+# 	AxisZ			:	SM3_Basic.AXIS_REF_SM3			//Z轴引用
+# 	bServoEnable	:	BOOL;				//伺服使能信号
+# END_VAR
+# VAR_OUTPUT
+# 	bReady			:	BOOL;				//三轴都准备就绪
+# 	bAxisXReady		:	BOOL;				//X轴准备就绪
+# 	bAxisYReady		:	BOOL;				//Y轴准备就绪
+# 	bAxisZReady		:	BOOL;				//Z轴准备就绪
+# 	bError			:	BOOL;				//错误标志
+# 	sErrorString	:	STRING;				//错误信息字符串
+# END_VAR
+# VAR
+# 	fbPowerX		:	MC_POWER;			//X轴电源控制
+# 	fbPowerY		:	MC_POWER;			//Y轴电源控制
+# 	fbPowerZ		:	MC_POWER;			//Z轴电源控制
+# END_VAR
+# 
+# // X轴电源控制
+# fbPowerX(
+# 	Enable := bServoEnable,
+# 	bRegulatorOn := bServoEnable,
+# 	bDriveStart := bServoEnable,
+# 	Axis := AxisX
+# );
+# 
+# // Y轴电源控制
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 三轴CNC运动实训-FUN\FB_TripleAxisPower.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_TripleAxisPower
+# VAR_INPUT
+# 	AxisX			:	SM3_Basic.AXIS_REF_SM3			//X轴引用
+# 	AxisY			:	SM3_Basic.AXIS_REF_SM3			//Y轴引用
+# 	AxisZ			:	SM3_Basic.AXIS_REF_SM3			
+
+FUNCTION_BLOCK FB_TripleAxisPower
+VAR_INPUT
+	AxisX			:	SM3_Basic.AXIS_REF_SM3			//X轴引用
+	AxisY			:	SM3_Basic.AXIS_REF_SM3			//Y轴引用
+	AxisZ			:	SM3_Basic.AXIS_REF_SM3			//Z轴引用
+	bServoEnable	:	BOOL;				//伺服使能信号
+END_VAR
+VAR_OUTPUT
+	bReady			:	BOOL;				//三轴都准备就绪
+	bAxisXReady		:	BOOL;				//X轴准备就绪
+	bAxisYReady		:	BOOL;				//Y轴准备就绪
+	bAxisZReady		:	BOOL;				//Z轴准备就绪
+	bError			:	BOOL;				//错误标志
+	sErrorString	:	STRING;				//错误信息字符串
+END_VAR
+```

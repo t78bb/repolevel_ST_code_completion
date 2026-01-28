@@ -1,0 +1,5 @@
+功能规划:  
+1. 检查 `inputConcreteBuilder` 是否已初始化，并确保其有效性。  
+2. 调用 `inputConcreteBuilder` 的建造方法以创建产品对象。  
+3. 检索由 `inputConcreteBuilder` 创建的产品对象。  
+4. 返回或保存生成的产品对象供后续使用。

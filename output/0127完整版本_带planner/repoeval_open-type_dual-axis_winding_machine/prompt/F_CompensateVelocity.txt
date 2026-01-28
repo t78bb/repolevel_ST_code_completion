@@ -1,0 +1,97 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement velocity compensation based on positional changes, material thickness, and radius adjustments during unwinding or rewinding operations.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 计算位置变化量，公式为 lDeltaPos = lNewPos - lOldPos。
+2. 根据位置变化量和材料厚度 lTk，判断当前运动方向是否正常，并校正 lDeltaPos 的符号或赋默认值。
+3. 计算半径变化量，公式为 lDeltaRadius = lDeltaPos × lTk。
+4. 根据 bUnwinding 逻辑调整 lRadius，大于零则减小半径值（放卷），否则增加半径值（收卷）。
+5. 根据调整后的 lRadius，计算速度补偿系数为 lCompFactor = 原始半径 / 调整后半径。
+6. 使用 lCompFactor 对输入速度 lCurrentVel 进行补偿，返回补偿后的速度值。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 开放式双轴卷绕机编程开发实训-FUN\F_CompensateVelocity.st
+# --------------------------------------------------
+# FUNCTION F_CompensateVelocity : LREAL
+# VAR_INPUT
+# 	lCurrentVel		:	LREAL;		//当前速度
+# 	lOldPos			:	LREAL;		//上一次位置
+# 	lNewPos			:	LREAL;		//当前位置
+# 	lRadius			:	LREAL;		//当前半径
+# 	lTk				:	LREAL;		//材料厚度
+# 	bUnwinding		:	BOOL;		//TRUE=放卷（半径减小），FALSE=收卷（半径增加）
+# END_VAR
+# 
+# // 检查轴是否在运动（位置是否变化）
+# IF lOldPos > lNewPos THEN
+# 	IF bUnwinding THEN
+# 		// 放卷：半径减小，速度需要增加
+# 		// 公式：V_new = V_old + V_old * Tk / (R - Tk)
+# 		IF (lRadius - lTk) > 0.01 THEN  // 避免除零
+# 			F_CompensateVelocity := lCurrentVel + lCurrentVel * lTk / (lRadius - lTk);
+# 		ELSE
+# 			F_CompensateVelocity := lCurrentVel;
+# 		END_IF
+# 	ELSE
+# 		// 收卷：半径增加，速度需要降低
+# 		// 公式：V_new = V_old - V_old * Tk / (R + Tk)
+# 		F_CompensateVelocity := lCurrentVel - lCurrentVel * lTk / (lRadius + lTk);
+# 	END_IF
+# ELSE
+# 	// 位置未变化，保持当前速度
+# 	F_CompensateVelocity := lCurrentVel;
+# END_IF
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 开放式双轴卷绕机编程开发实训-FUN\F_CompensateVelocity.st
+# --------------------------------------------------
+# FUNCTION F_CompensateVelocity : LREAL
+# VAR_INPUT
+# 	lCurrentVel		:	LREAL;		//当前速度
+# 	lOldPos			:	LREAL;		//上一次位置
+# 	lNewPos			:	LREAL;		//当前位置
+# 	lRadius			:	LREAL;		//当前半径
+# 	lTk				:	LREAL;		//材料厚度
+# 	bUnwinding		:	BOOL;		//TRUE=放卷（半径减小），FALSE=收卷（半径增加）
+# END_VAR
+# 
+# // 检查轴是否在运动（位置是否变化）
+# IF lOldPos > lNewPos THEN
+# 	IF bUnwinding THEN
+# 		// 放卷：半径减小，速度需要增加
+# 		// 公式：V_new = V_old + V_old * Tk / (R - Tk)
+# 		IF (lRadius - lTk) > 0.01 THEN  // 避免除零
+# 			F_CompensateVelocity := lCurrentVel + lCurrentVel * lTk / (lRadius - lTk);
+# 		ELSE
+# 			F_CompensateVelocity := lCurrentVel;
+# 		END_IF
+# 	ELSE
+# 		// 收卷：半径增加，速度需要降低
+# 		// 公式：V_new = V_old - V_old * Tk / (R + Tk)
+# 		F_CompensateVelocity := lCurrentVel - lCurrentVel * lTk / (lRadius + lTk);
+# 	END_IF
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 开放式双轴卷绕机编程开发实训-FUN\F_CalculateRadius.st
+# --------------------------------------------------
+# FUNCTION F_CalculateRadius : LREAL
+# VAR_INPUT
+# 	lD				:	LREAL;		
+
+FUNCTION F_CompensateVelocity : LREAL
+VAR_INPUT
+	lCurrentVel		:	LREAL;		//当前速度
+	lOldPos			:	LREAL;		//上一次位置
+	lNewPos			:	LREAL;		//当前位置
+	lRadius			:	LREAL;		//当前半径
+	lTk				:	LREAL;		//材料厚度
+	bUnwinding		:	BOOL;		//TRUE=放卷（半径减小），FALSE=收卷（半径增加）
+END_VAR
+```

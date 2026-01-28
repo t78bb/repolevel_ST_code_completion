@@ -1,0 +1,5 @@
+功能规划:
+1. 检查输入变量 `bSetToAuto` 和 `bSetToManual`，确定是否有新的切换请求。
+2. 如果 `bSetToAuto` 为 TRUE 且当前模式不是自动模式，则将 `eCurrentMode` 设置为自动模式，并将 `bModeChanged` 标志置为 TRUE。
+3. 如果 `bSetToManual` 为 TRUE 且当前模式不是手动模式，则将 `eCurrentMode` 设置为手动模式，并将 `bModeChanged` 标志置为 TRUE。
+4. 如果没有有效的切换请求或当前模式已经与请求模式相同，则保持 `eCurrentMode` 不变，并将 `bModeChanged` 标志置为 FALSE。

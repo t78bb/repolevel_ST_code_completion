@@ -176,6 +176,25 @@ def main(args=None):
 
     logging.info("Loading SentenceBERT model...")
     logging.info(f"Model: {args.model}, Batch size: {args.batch_size}")
+    # 配置 HuggingFace 下载（支持镜像站和离线模式）
+    # 1. 如果没有设置镜像，使用默认镜像站（国内用户友好）
+    if not os.getenv('HF_ENDPOINT'):
+        os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
+    
+    # 2. 检查是否应该使用离线模式
+    # 如果设置了 OFFLINE_MODE=1 或模型已缓存，使用离线模式
+    cache_dir = os.path.expanduser('~/.cache/huggingface/hub')
+    model_cache_name = args.model.replace('/', '--')
+    model_cache_path = os.path.join(cache_dir, f'models--{model_cache_name}')
+    
+    if os.getenv('OFFLINE_MODE') == '1' or os.path.exists(model_cache_path):
+        # 模型已缓存，使用离线模式
+        os.environ['TRANSFORMERS_OFFLINE'] = '1'
+        os.environ['HF_HUB_OFFLINE'] = '1'
+        logging.info(f"使用离线模式加载模型: {args.model}")
+    else:
+        logging.info(f"从 {os.getenv('HF_ENDPOINT', 'huggingface.co')} 下载模型: {args.model}")
+    
     model = DRES(
         models.SentenceBERT(args.model),
         batch_size=args.batch_size,

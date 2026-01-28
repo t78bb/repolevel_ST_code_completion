@@ -1,0 +1,7 @@
+功能规划:
+1. 检查输入信号 `bExecute` 是否为 TRUE，如果为 FALSE，则直接退出，`bBusy` 设为 FALSE，并复位所有输出标志位。
+2. 设置 `bBusy` 为 TRUE，标志复位过程开始。
+3. 依次对三轴 `AxisX`、`AxisY`、`AxisZ` 执行复位操作，监控每个轴的复位状态：
+   - 如果某个轴复位失败，则设置 `bError` 为 TRUE，并生成对应的 `sErrorString` 错误信息。
+4. 如果所有轴成功复位，则设置 `bDone` 为 TRUE，并将 `bError` 和 `sErrorString` 清零。
+5. 在复位完成或出错时，将 `bBusy` 设为 FALSE，结束复位过程。

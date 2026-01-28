@@ -1,0 +1,7 @@
+功能规划:
+1. 计算位置变化量，公式为 lDeltaPos = lNewPos - lOldPos。
+2. 根据位置变化量和材料厚度 lTk，判断当前运动方向是否正常，并校正 lDeltaPos 的符号或赋默认值。
+3. 计算半径变化量，公式为 lDeltaRadius = lDeltaPos × lTk。
+4. 根据 bUnwinding 逻辑调整 lRadius，大于零则减小半径值（放卷），否则增加半径值（收卷）。
+5. 根据调整后的 lRadius，计算速度补偿系数为 lCompFactor = 原始半径 / 调整后半径。
+6. 使用 lCompFactor 对输入速度 lCurrentVel 进行补偿，返回补偿后的速度值。

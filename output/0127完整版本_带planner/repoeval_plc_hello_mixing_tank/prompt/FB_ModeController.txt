@@ -1,0 +1,133 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a mode controller that switches between automatic and manual modes based on input commands and indicates when the mode has changed.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 检查输入变量 `bSetToAuto` 和 `bSetToManual`，确定是否有新的切换请求。
+2. 如果 `bSetToAuto` 为 TRUE 且当前模式不是自动模式，则将 `eCurrentMode` 设置为自动模式，并将 `bModeChanged` 标志置为 TRUE。
+3. 如果 `bSetToManual` 为 TRUE 且当前模式不是手动模式，则将 `eCurrentMode` 设置为手动模式，并将 `bModeChanged` 标志置为 TRUE。
+4. 如果没有有效的切换请求或当前模式已经与请求模式相同，则保持 `eCurrentMode` 不变，并将 `bModeChanged` 标志置为 FALSE。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# plc_hello_mixing_tank-FUN\FB_ModeController.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_ModeController
+# VAR_INPUT
+# 	bSetToAuto		:	BOOL;	// 切换到自动模式命令
+# 	bSetToManual	:	BOOL;	// 切换到手动模式命令
+# END_VAR
+# VAR_OUTPUT
+# 	eCurrentMode	:	MODES;	// 当前模式
+# 	bModeChanged	:	BOOL;	// 模式改变标志
+# END_VAR
+# VAR
+# 	eLastMode		:	MODES;	// 上次模式
+# END_VAR
+# 
+# // 模式切换逻辑
+# CASE eCurrentMode OF
+# 	MODES.AUTO:
+# 		IF bSetToManual THEN
+# 			eCurrentMode := MODES.MANUAL;
+# 		END_IF
+# 		
+# 	MODES.MANUAL:
+# 		IF bSetToAuto THEN
+# 			eCurrentMode := MODES.AUTO;
+# 		END_IF
+# END_CASE
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# plc_hello_mixing_tank-FUN\FB_ModeController.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_ModeController
+# VAR_INPUT
+# 	bSetToAuto		:	BOOL;	// 切换到自动模式命令
+# 	bSetToManual	:	BOOL;	// 切换到手动模式命令
+# END_VAR
+# VAR_OUTPUT
+# 	eCurrentMode	:	MODES;	// 当前模式
+# 	bModeChanged	:	BOOL;	// 模式改变标志
+# END_VAR
+# VAR
+# 	eLastMode		:	MODES;	// 上次模式
+# END_VAR
+# 
+# // 模式切换逻辑
+# CASE eCurrentMode OF
+# 	MODES.AUTO:
+# 		IF bSetToManual THEN
+# 			eCurrentMode := MODES.MANUAL;
+# 		END_IF
+# 		
+# 	MODES.MANUAL:
+# 		IF bSetToAuto THEN
+# 			eCurrentMode := MODES.AUTO;
+# 		END_IF
+# END_CASE
+# 
+# // 检测模式变化
+# bModeChanged := (eCurrentMode <> eLastMode);
+# eLastMode := eCurrentMode;
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# plc_hello_mixing_tank-FUN\FB_ManualControl.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_ManualControl
+# VAR_INPUT
+# 	// HMI命令输入
+# 	bMixerRunCmd		:	BOOL;
+# 	bMixerStopCmd		:	BOOL;
+# 	bMedium1OpenCmd		:	BOOL;
+# 	bMedium1CloseCmd	:	BOOL;
+# 	bMedium2OpenCmd		:	BOOL;
+# 	bMedium2CloseCmd	:	BOOL;
+# 	bDrainOpenCmd		:	BOOL;
+# 	bDrainCloseCmd		:	BOOL;
+# 	
+# 	// 设备反馈输入
+# 	bMixerRunning		:	BOOL;
+# 	bMedium1Opened		:	BOOL;
+# 	bMedium2Opened		:	BOOL;
+# 	bDrainOpened		:	BOOL;
+# END_VAR
+# VAR_OUTPUT
+# 	// 设备控制输出
+# 	bMixerRunCmdOut		:	BOOL;
+# 	bMedium1OpenCmdOut	:	BOOL;
+# 	bMedium2OpenCmdOut	:	BOOL;
+# 	bDrainOpenCmdOut	:	BOOL;
+# END_VAR
+# 
+# // 手动模式：HMI命令通过锁存器控制设备
+# // 锁存逻辑：按下启动OR已启动反馈 AND NOT 按下停止
+# 
+# // 混合电机控制
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# plc_hello_mixing_tank-FUN\FB_ManualControl.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_ManualControl
+# VAR_INPUT
+# 	// HMI命令输入
+# 	bMixerRunCmd		:	BOOL;
+# 	bMixerStopCmd		:	BOOL;
+# 	bMedium1OpenCmd		:	BOOL
+
+FUNCTION_BLOCK FB_ModeController
+VAR_INPUT
+	bSetToAuto		:	BOOL;	// 切换到自动模式命令
+	bSetToManual	:	BOOL;	// 切换到手动模式命令
+END_VAR
+VAR_OUTPUT
+	eCurrentMode	:	MODES;	// 当前模式
+	bModeChanged	:	BOOL;	// 模式改变标志
+END_VAR
+```

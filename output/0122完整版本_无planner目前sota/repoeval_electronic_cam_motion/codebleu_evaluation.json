@@ -1,0 +1,70 @@
+{
+  "project_name": "repoeval_electronic_cam_motion",
+  "original_project_name": "electronic_cam_motion",
+  "total_files": 4,
+  "successful_evaluations": 4,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.6059774644392301,
+    "ngram_match_score": 0.45641923834390025,
+    "weighted_ngram_match_score": 0.5193317180450517,
+    "syntax_match_score": 0.8234460258487653,
+    "dataflow_match_score": 0.6247128755192028
+  },
+  "file_results": [
+    {
+      "filename": "F_AxisStatusToString.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\electronic_cam_motion\\F_AxisStatusToString.st",
+      "codebleu": 0.8141142541199159,
+      "ngram_match_score": 0.7084173532219608,
+      "weighted_ngram_match_score": 0.717648047151801,
+      "syntax_match_score": 0.9324324324324325,
+      "dataflow_match_score": 0.8979591836734694,
+      "reference_length": 801,
+      "prediction_length": 682
+    },
+    {
+      "filename": "FB_DualAxisPower.st",
+      "case_id": 1,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\electronic_cam_motion\\FB_DualAxisPower.st",
+      "codebleu": 0.6443799137652142,
+      "ngram_match_score": 0.48420718024966997,
+      "weighted_ngram_match_score": 0.6166831133891983,
+      "syntax_match_score": 0.7346938775510204,
+      "dataflow_match_score": 0.7419354838709677,
+      "reference_length": 473,
+      "prediction_length": 638
+    },
+    {
+      "filename": "FB_DualAxisReset.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\electronic_cam_motion\\FB_DualAxisReset.st",
+      "codebleu": 0.6113539821216833,
+      "ngram_match_score": 0.43823340866444294,
+      "weighted_ngram_match_score": 0.4687697267406938,
+      "syntax_match_score": 0.9844559585492227,
+      "dataflow_match_score": 0.5539568345323741,
+      "reference_length": 1712,
+      "prediction_length": 1166
+    },
+    {
+      "filename": "ResetAxis.st",
+      "case_id": 3,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\electronic_cam_motion\\ResetAxis.st",
+      "codebleu": 0.3540617077501066,
+      "ngram_match_score": 0.19481901123952713,
+      "weighted_ngram_match_score": 0.27422598489851396,
+      "syntax_match_score": 0.6422018348623854,
+      "dataflow_match_score": 0.305,
+      "reference_length": 2318,
+      "prediction_length": 1032
+    }
+  ]
+}

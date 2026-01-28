@@ -1,0 +1,139 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a function that reverses the direction of a given input command between "extend" and "retract".
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 检查输入参数 `input` 是否为有效的 `TargetDirect` 类型值（例如：`extend` 或 `retract`）。
+2. 判断 `input` 的当前值是否为 `extend`。
+3. 如果 `input` 的值为 `extend`，则返回 `retract`。
+4. 如果 `input` 的值为 `retract`，则返回 `extend`。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# modbus-FUN\DataReverse_cmdReverse.st
+# --------------------------------------------------
+# FUNCTION cmdReverse : TargetDirect
+# VAR_INPUT
+# 	input		:TargetDirect;
+# END_VAR
+# 
+# IF input = TargetDirect.extend THEN
+# 	cmdReverse := TargetDirect.retract;
+# END_IF
+# IF input = TargetDirect.retract THEN
+# 	cmdReverse := TargetDirect.extend;
+# END_IF
+# --------------------------------------------------
+# the below code fragment can be found in:
+# modbus-FUN\DataReverse.st
+# --------------------------------------------------
+# FUNCTION_BLOCK DataReverse
+# VAR_INPUT
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# core-PRG\Barrier_manualExecute_method.st
+# --------------------------------------------------
+# METHOD manualExecute
+# VAR_INPUT
+# END_VAR
+# VAR
+# 	//targetDirect		:TargetDirect;
+# END_VAR
+# 
+# FOR gi := 1 TO 10 DO
+# 	IF gUI.grd[gi].pwrEnable THEN
+# 		cmdExecutor0(level := 1, idx := gi, 
+# 					direct := gDev.grd[gi].vector, 
+# 					percent := gUI.grd[gi].pwrPercent);
+# 	ELSE
+# 		cmdExecutor0(level := 1, idx := gi, direct := 3, percent := 0);		
+# 	END_IF
+# END_FOR
+# 
+# FOR si := 0 TO 10 DO
+# 	IF gUI.sky[si].pwrEnable THEN
+# 		cmdExecutor0(level := 2, idx := si, 
+# 					direct := gDev.sky[si].vector, 
+# 					percent := gUI.sky[si].pwrPercent);	
+# 	ELSE
+# 		cmdExecutor0(level := 2, idx := si, direct := 3, percent := 0);		
+# 	END_IF
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# core-PRG\Barrier_manualExecute_method.st
+# --------------------------------------------------
+# METHOD manualExecute
+# VAR_INPUT
+# END_VAR
+# VAR
+# 	//targetDirect		:TargetDirect;
+# END_VAR
+# 
+# FOR gi := 1 TO 10 DO
+# 	IF gUI.grd[gi].pwrEnable THEN
+# 		cmdExecutor0(level := 1, idx := gi, 
+# 					direct := gDev.grd[gi].vector, 
+# 					percent := gUI.grd[gi].pwrPercent);
+# 	ELSE
+# 		cmdExecutor0(level := 1, idx := gi, direct := 3, percent := 0);		
+# 	END_IF
+# END_FOR
+# 
+# FOR si := 0 TO 10 DO
+# 	IF gUI.sky[si].pwrEnable THEN
+# 		cmdExecutor0(level := 2, idx := si, 
+# 					direct := gDev.sky[si].vector, 
+# 					percent := gUI.sky[si].pwrPercent);	
+# 	ELSE
+# 		cmdExecutor0(level := 2, idx := si, direct := 3, percent := 0);		
+# 	END_IF
+# END_FOR
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# core-PRG\Barrier_pidExecute_method.st
+# --------------------------------------------------
+# METHOD pidExecute
+# VAR_INPUT
+# END_VAR
+# VAR
+# 	vector 		:TargetDirect;
+# END_VAR
+# 
+# FOR gi := 1 TO 10 DO
+# 	IF gDev.grd[gi].ctrl.isError THEN
+# 		CONTINUE;
+# 	END_IF
+# 	cmdExecutor(level := 1, idx := gi, percent := grdPid[gi].res);
+# END_FOR
+# 
+# 
+# FOR si := 1 TO 10 DO
+# 	IF gDev.sky[si].ctrl.isError THEN
+# 		CONTINUE;
+# 	END_IF
+# 	cmdExecutor(level := 2, idx := si, percent := skyPid[si].res);
+# END_FOR
+# 
+# //起竖挡板执行开关量
+# IF NOT gDev.sky[0].ctrl.isError THEN
+# 	IF gDev.sky[0].vector = TargetDirect.extend THEN
+# 
+# --------------------------------------------------
+
+
+FUNCTION cmdReverse : TargetDirect
+VAR_INPUT
+	input		:TargetDirect;
+END_VAR
+```

@@ -1,0 +1,6 @@
+功能规划:
+1. 初始化 `rCurrentLevel` 为 `rInitialLevel`，若输入 `bReset` 为真，则强制将 `rCurrentLevel` 重置为 `rInitialLevel`。
+2. 检查输入 `bMedium1Opened` 和 `bMedium2Opened` 的状态，根据其布尔值分别计算对应的填充量 `rFillRate1` 和 `rFillRate2` 的总和，并将结果累加到 `rCurrentLevel`。
+3. 检查输入 `bDrainOpened` 的状态，根据其布尔值从 `rCurrentLevel` 中扣减排空量 `rDrainRate`。
+4. 执行边界检查，将计算后的 `rCurrentLevel` 限定在 `rMinLevel` 和 `rMaxLevel` 范围内。
+5. 输出更新后的 `rCurrentLevel` 以反映当前液位状态。

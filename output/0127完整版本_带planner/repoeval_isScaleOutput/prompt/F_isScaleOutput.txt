@@ -1,0 +1,121 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a scaling function that converts a physical output value within a specified range to a corresponding terminal-specific integer output value based on predefined terminal types and ranges.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:  
+1. 检查输入值 `rOutput` 是否在范围 `[rPhyMin, rPhyMax]` 之内，如果不在范围内，则将其限制为范围边界值 (`rPhyMin` 或 `rPhyMax`)。  
+2. 根据输入 `eTerminal` 判断目标终端类型，并提取对应的目标输出整数范围 `[iTermMin, iTermMax]`。  
+3. 根据输入的范围 `[rPhyMin, rPhyMax]` 和目标终端范围 `[iTermMin, iTermMax]`，计算对应的缩放比例因子。  
+4. 使用比例因子将物理输出值 `rOutput` 映射到目标终端输出范围，进行线性缩放计算。  
+5. 将计算结果四舍五入为整数，并输出最终缩放值作为函数返回值。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# isScaleOutput-F_isScaleOutput.st
+# --------------------------------------------------
+# FUNCTION F_iScaleOutput : INT
+# VAR_INPUT
+# 	rOutput: REAL; (* [] Physical output *)
+# 	rPhyMin: REAL; (* [] Physical minimum *)
+# 	rPhyMax: REAL; (* [] Physical maximum *)
+# 	eTerminal: E_Ctrl_TerminalType; (* [] Terminal type. *)
+# END_VAR
+# VAR
+# 	rTerMin: REAL;
+# 	rTerMax: REAL;
+# 	rPhyRange: REAL;
+# 	rTerRange: REAL;
+# 	rTerOutput: REAL;
+# END_VAR
+# 
+# rTerMax:= 32768.0;
+# CASE eTerminal OF
+# 	eTerminal_0mA_20mA: rTerMin:= 0.0;
+# 	eTerminal_4mA_20mA: rTerMin:= 0.0;
+# 	eTerminal_0V_10V: rTerMin:= 0.0;
+# 	eTerminal_m10V_10V: rTerMin:= -32768.0;
+# ELSE
+# 	rTerMin:= -32768.0;
+# END_CASE
+# rPhyRange:= rPhyMax - rPhyMin;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# isScaleOutput-F_isScaleOutput.st
+# --------------------------------------------------
+# FUNCTION F_iScaleOutput : INT
+# VAR_INPUT
+# 	rOutput: REAL; (* [] Physical output *)
+# 	rPhyMin: REAL; (* [] Physical minimum *)
+# 	rPhyMax: REAL; (* [] Physical maximum *)
+# 	eTerminal: E_Ctrl_TerminalType; (* [] Terminal type. *)
+# END_VAR
+# VAR
+# 	rTerMin: REAL;
+# 	rTerMax: REAL;
+# 	rPhyRange: REAL;
+# 	rTerRange: REAL;
+# 	rTerOutput: REAL;
+# END_VAR
+# 
+# rTerMax:= 32768.0;
+# CASE eTerminal OF
+# 	eTerminal_0mA_20mA: rTerMin:= 0.0;
+# 	eTerminal_4mA_20mA: rTerMin:= 0.0;
+# 	eTerminal_0V_10V: rTerMin:= 0.0;
+# 	eTerminal_m10V_10V: rTerMin:= -32768.0;
+# ELSE
+# 	rTerMin:= -32768.0;
+# END_CASE
+# rPhyRange:= rPhyMax - rPhyMin;
+# rTerRange:= rTerMax - rTerMin;
+# IF rPhyRange > 0.0 AND rTerRange > 0.0 THEN
+# 	rTerOutput:= rTerMin + (rTerRange * (rOutput - rPhyMin) / rPhyRange);
+# ELSE
+# 	rTerOutput:= 0.0;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# isScaleOutput-F_isScaleOutput.st
+# --------------------------------------------------
+# FUNCTION F_iScaleOutput : INT
+# VAR_INPUT
+# 	rOutput: REAL; (* [] Physical output *)
+# 	rPhyMin: REAL; (* [] Physical minimum *)
+# 	rPhyMax: REAL; (* [] Physical maximum *)
+# 	eTerminal: E_Ctrl_TerminalType; (* [] Terminal type. *)
+# END_VAR
+# VAR
+# 	rTerMin: REAL;
+# 	rTerMax: REAL;
+# 	rPhyRange: REAL;
+# 	rTerRange: REAL;
+# 	rTerOutput: REAL;
+# END_VAR
+# 
+# rTerMax:= 32768.0;
+# CASE eTerminal OF
+# 	eTerminal_0mA_20mA: rTerMin:= 0.0;
+# 	eTerminal_4mA_20mA: rTerMin:= 0.0;
+# 	eTerminal_0V_10V: rTerMin:= 0.0;
+# 	eTerminal_m10V_10V: rTerMin:= -32768.0;
+# ELSE
+# 	rTerMin:= -32768.0;
+# END_CASE
+# rPhyRange:= rPhyMax - rPhyMin;
+# rTerRange:= rTerMax - rTerMin;
+# IF rPhyRange > 0.0 AND rTerRange > 0.0 THEN
+# 	rTerOutput:= rTerMin + (rTerRange * (rOutput - rPhyMin) / rPhyRange);
+# ELSE
+# 
+
+FUNCTION F_iScaleOutput : INT
+VAR_INPUT
+	rOutput: REAL; (* [] Physical output *)
+	rPhyMin: REAL; (* [] Physical minimum *)
+	rPhyMax: REAL; (* [] Physical maximum *)
+	eTerminal: E_Ctrl_TerminalType; (* [] Terminal type. *)
+END_VAR
+```

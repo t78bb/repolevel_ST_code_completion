@@ -1,0 +1,125 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement the control of UI button states for ground and sky tracks based on input parameters for level, index, and direction.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 根据输入参数 `level` 判断操作目标是地轨 (`level = 1`) 还是天轨 (`level = 2`)。
+2. 通过输入参数 `idx` 锁定具体的按钮索引编号，找到对应的 `gUI.grd[idx]` 或 `gUI.sky[idx]`。
+3. 根据输入参数 `direct` 设置对应的按钮状态，例如 `btnExtend`、`btnRetract` 或 `btnStop`，与 `direct` 的值 (`extend`, `retract`, `stop`) 匹配。
+4. 更新目标按钮的最后操作方向字段 (`btnLast`) 为当前输入的 `direct`。
+5. 返回函数执行结果，通过布尔值 `TRUE` 表示成功更新状态。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# core-FUN\setButtonByDirect.st
+# --------------------------------------------------
+# FUNCTION setButtonByDirect : BOOL
+# VAR_INPUT
+# 	level		:INT;	//1->地轨	2->天轨
+# 	idx			:INT;	//挡板索引编号
+# 	direct		:TargetDirect;
+# END_VAR
+# VAR
+# END_VAR
+# //	本函数用于根据输入参数 操作UI界面的按钮变量
+# CASE level OF
+# 	1:
+# 		IF idx = 0 OR idx > 10 THEN		//参数校验
+# 			RETURN;
+# 		END_IF
+# 		CASE direct OF
+# 			TargetDirect.extend:
+# 				gUI.grd[idx].btnStop := FALSE;
+# 				gUI.grd[idx].btnExtend := TRUE;
+# 				gUI.grd[idx].btnRetract := FALSE;
+# 			TargetDirect.retract:
+# 				gUI.grd[idx].btnStop := FALSE;
+# 				gUI.grd[idx].btnExtend := FALSE;
+# 				gUI.grd[idx].btnRetract := TRUE;
+# 			TargetDirect.stop:
+# 				gUI.grd[idx].btnStop := FALSE;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# core-FUN\setButtonByDirect.st
+# --------------------------------------------------
+# FUNCTION setButtonByDirect : BOOL
+# VAR_INPUT
+# 	level		:INT;	//1->地轨	2->天轨
+# 	idx			:INT;	//挡板索引编号
+# 	direct		:TargetDirect;
+# END_VAR
+# VAR
+# END_VAR
+# //	本函数用于根据输入参数 操作UI界面的按钮变量
+# CASE level OF
+# 	1:
+# 		IF idx = 0 OR idx > 10 THEN		//参数校验
+# 			RETURN;
+# 		END_IF
+# 		CASE direct OF
+# 			TargetDirect.extend:
+# 				gUI.grd[idx].btnStop := FALSE;
+# 				gUI.grd[idx].btnExtend := TRUE;
+# 				gUI.grd[idx].btnRetract := FALSE;
+# 			TargetDirect.retract:
+# 				gUI.grd[idx].btnStop := FALSE;
+# 				gUI.grd[idx].btnExtend := FALSE;
+# 				gUI.grd[idx].btnRetract := TRUE;
+# 			TargetDirect.stop:
+# 				gUI.grd[idx].btnStop := FALSE;
+# 				gUI.grd[idx].btnExtend := FALSE;
+# 				gUI.grd[idx].btnRetract := FALSE;
+# 		END_CASE
+# 	2:
+# 		IF idx > 10 THEN		//参数校验
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# core-FUN\setButtonByDirect.st
+# --------------------------------------------------
+# FUNCTION setButtonByDirect : BOOL
+# VAR_INPUT
+# 	level		:INT;	//1->地轨	2->天轨
+# 	idx			:INT;	//挡板索引编号
+# 	direct		:TargetDirect;
+# END_VAR
+# VAR
+# END_VAR
+# //	本函数用于根据输入参数 操作UI界面的按钮变量
+# CASE level OF
+# 	1:
+# 		IF idx = 0 OR idx > 10 THEN		//参数校验
+# 			RETURN;
+# 		END_IF
+# 		CASE direct OF
+# 			TargetDirect.extend:
+# 				gUI.grd[idx].btnStop := FALSE;
+# 				gUI.grd[idx].btnExtend := TRUE;
+# 				gUI.grd[idx].btnRetract := FALSE;
+# 			TargetDirect.retract:
+# 				gUI.grd[idx].btnStop := FALSE;
+# 				gUI.grd[idx].btnExtend := FALSE;
+# 				gUI.grd[idx].btnRetract := TRUE;
+# 			TargetDirect.stop:
+# 				gUI.grd[idx].btnStop := FALSE;
+# 				gUI.grd[idx].btnExtend := FALSE;
+# 				gUI.grd[idx].btnRetract := FALSE;
+# 		END_CASE
+# 	2:
+# 		IF idx > 10 THEN		//参数校验
+# 			RETURN;
+# 		END_IF
+# 		CASE direct OF
+# 			TargetDirect.extend:
+# 				gUI
+
+FUNCTION setButtonByDirect : BOOL
+VAR_INPUT
+	level		:INT;	//1->地轨	2->天轨
+	idx			:INT;	//挡板索引编号
+	direct		:TargetDirect;
+END_VAR
+```

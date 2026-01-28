@@ -1,0 +1,114 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a check to determine whether there are any elevator stop requests between a specified start floor and end floor in a given direction.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:  
+1. 判断 `bIncreasing` 的值以决定检查方向：如果为 TRUE，则需要在 `nStartFloor` 到 `nEndFloor` 范围之间向上检查；如果为 FALSE，则需要在 `nStartFloor` 到 `nEndFloor` 范围之间向下检查。  
+2. 初始化循环变量，将其设置为 `nStartFloor`，并根据 `bIncreasing` 控制循环增减。  
+3. 在循环中，根据方向检查每个楼层是否存在请求：  
+   - 如果 `bIncreasing` 为 TRUE，则检查每个楼层的 `Tar_Dir.IsUpStop`。  
+   - 如果 `bIncreasing` 为 FALSE，则检查每个楼层的 `Tar_Dir.IsDownStop`。  
+4. 在检测到任意楼层存在请求时，返回 TRUE 并退出函数。  
+5. 如果循环结束未找到任何请求，返回 FALSE。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 四层电梯控制实训-FUN\F_CheckJobInDirection.st
+# --------------------------------------------------
+# FUNCTION F_CheckJobInDirection : BOOL
+# VAR_INPUT
+# 	nStartFloor		:	USINT;		//起始楼层
+# 	nEndFloor		:	USINT;		//结束楼层
+# 	bIncreasing		:	BOOL;		//TRUE=向上检查（递增），FALSE=向下检查（递减）
+# END_VAR
+# VAR
+# 	i	:	USINT;
+# END_VAR
+# 
+# // 检查从起始楼层到结束楼层之间是否有电梯需要停靠的楼层
+# F_CheckJobInDirection := FALSE;
+# 
+# IF bIncreasing THEN
+# 	// 向上检查（从低楼层到高楼层）
+# 	FOR i := nStartFloor TO nEndFloor DO
+# 		IF Tar_Dir.IsStopFloor[i] THEN
+# 			F_CheckJobInDirection := TRUE;
+# 			RETURN;
+# 		END_IF
+# 	END_FOR
+# ELSE
+# 	// 向下检查（从高楼层到低楼层）
+# 	FOR i := nEndFloor TO nStartFloor BY -1 DO
+# 		IF Tar_Dir.IsStopFloor[i] THEN
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 四层电梯控制实训-FUN\F_CheckJobInDirection.st
+# --------------------------------------------------
+# FUNCTION F_CheckJobInDirection : BOOL
+# VAR_INPUT
+# 	nStartFloor		:	USINT;		//起始楼层
+# 	nEndFloor		:	USINT;		//结束楼层
+# 	bIncreasing		:	BOOL;		//TRUE=向上检查（递增），FALSE=向下检查（递减）
+# END_VAR
+# VAR
+# 	i	:	USINT;
+# END_VAR
+# 
+# // 检查从起始楼层到结束楼层之间是否有电梯需要停靠的楼层
+# F_CheckJobInDirection := FALSE;
+# 
+# IF bIncreasing THEN
+# 	// 向上检查（从低楼层到高楼层）
+# 	FOR i := nStartFloor TO nEndFloor DO
+# 		IF Tar_Dir.IsStopFloor[i] THEN
+# 			F_CheckJobInDirection := TRUE;
+# 			RETURN;
+# 		END_IF
+# 	END_FOR
+# ELSE
+# 	// 向下检查（从高楼层到低楼层）
+# 	FOR i := nEndFloor TO nStartFloor BY -1 DO
+# 		IF Tar_Dir.IsStopFloor[i] THEN
+# 			F_CheckJobInDirection := TRUE;
+# 			RETURN;
+# 		END_IF
+# 	END_FOR
+# END_IF
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 四层电梯控制实训-FUN\F_CheckJobInDirection.st
+# --------------------------------------------------
+# FUNCTION F_CheckJobInDirection : BOOL
+# VAR_INPUT
+# 	nStartFloor		:	USINT;		//起始楼层
+# 	nEndFloor		:	USINT;		//结束楼层
+# 	bIncreasing		:	BOOL;		//TRUE=向上检查（递增），FALSE=向下检查（递减）
+# END_VAR
+# VAR
+# 	i	:	USINT;
+# END_VAR
+# 
+# // 检查从起始楼层到结束楼层之间是否有电梯需要停靠的楼层
+# F_CheckJobInDirection := FALSE;
+# 
+# IF bIncreasing THEN
+# 	// 向上检查（从低楼层到高楼层）
+# 	FOR i := nStartFloor TO nEndFloor DO
+# 		IF Tar_Dir.IsStopFloor[i] THEN
+# 			F_CheckJobInDirection := TRUE;
+# 			RETURN;
+# 		END_IF
+# 	END_FOR
+
+
+FUNCTION F_CheckJobInDirection : BOOL
+VAR_INPUT
+	nStartFloor		:	USINT;		//起始楼层
+	nEndFloor		:	USINT;		//结束楼层
+	bIncreasing		:	BOOL;		//TRUE=向上检查（递增），FALSE=向下检查（递减）
+END_VAR
+```

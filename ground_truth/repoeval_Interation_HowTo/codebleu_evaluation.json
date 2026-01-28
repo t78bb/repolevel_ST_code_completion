@@ -1,0 +1,56 @@
+{
+  "project_name": "repoeval_Interation_HowTo",
+  "original_project_name": "Interation_HowTo",
+  "total_files": 4,
+  "successful_evaluations": 2,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.4588535091968824,
+    "ngram_match_score": 0.023084101365686536,
+    "weighted_ngram_match_score": 0.34090136399327153,
+    "syntax_match_score": 0.5339285714285714,
+    "dataflow_match_score": 0.9375
+  },
+  "file_results": [
+    {
+      "filename": "FirstPublish.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Interation_HowTo\\FirstPublish.st",
+      "codebleu": 0.6305470330649566,
+      "ngram_match_score": 0.045860274983737154,
+      "weighted_ngram_match_score": 0.6763278572760895,
+      "syntax_match_score": 0.8,
+      "dataflow_match_score": 1.0,
+      "reference_length": 390,
+      "prediction_length": 3506
+    },
+    {
+      "filename": "FirstPublish_1.st",
+      "case_id": 1,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FirstSubscription.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Interation_HowTo\\FirstSubscription.st",
+      "codebleu": 0.2871599853288081,
+      "ngram_match_score": 0.00030792774763591725,
+      "weighted_ngram_match_score": 0.005474870710453651,
+      "syntax_match_score": 0.26785714285714285,
+      "dataflow_match_score": 0.875,
+      "reference_length": 491,
+      "prediction_length": 4331
+    },
+    {
+      "filename": "FirstSubscription_1.st",
+      "case_id": 3,
+      "error": "未找到对应的参考文件"
+    }
+  ]
+}

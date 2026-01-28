@@ -1,0 +1,90 @@
+{
+  "project_name": "repoeval_readwriteFile",
+  "history_dir": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\output\\20260122_180243\\repoeval_readwriteFile\\readful_result_history",
+  "total_files": 5,
+  "files_by_function": {
+    "ReadFile.st": {
+      "versions": [
+        {
+          "filename": "ReadFile_0.st",
+          "version": 0,
+          "codebleu": 0.8454721813293711,
+          "ngram_match_score": 0.405698249127008,
+          "weighted_ngram_match_score": 1.0,
+          "syntax_match_score": 0.9761904761904762,
+          "dataflow_match_score": 1.0,
+          "success": true
+        },
+        {
+          "filename": "ReadFile_1.st",
+          "version": 1,
+          "codebleu": 0.8241268390502751,
+          "ngram_match_score": 0.344126403820148,
+          "weighted_ngram_match_score": 1.0,
+          "syntax_match_score": 0.9523809523809523,
+          "dataflow_match_score": 1.0,
+          "success": true
+        },
+        {
+          "filename": "ReadFile_2.st",
+          "version": 2,
+          "codebleu": 0.8153350135369115,
+          "ngram_match_score": 0.30895910176669344,
+          "weighted_ngram_match_score": 1.0,
+          "syntax_match_score": 0.9523809523809523,
+          "dataflow_match_score": 1.0,
+          "success": true
+        }
+      ],
+      "total_versions": 3,
+      "first_version_score": 0.8454721813293711,
+      "last_version_score": 0.8153350135369115,
+      "improvement": -0.030137167792459563,
+      "improvement_percent": -3.5645368893242164
+    },
+    "WriteFile.st": {
+      "versions": [
+        {
+          "filename": "WriteFile_0.st",
+          "version": 0,
+          "codebleu": 0.5652701503094714,
+          "ngram_match_score": 0.42872002978374874,
+          "weighted_ngram_match_score": 0.43112600355290215,
+          "syntax_match_score": 0.8333333333333334,
+          "dataflow_match_score": 0.5679012345679012,
+          "success": true
+        },
+        {
+          "filename": "WriteFile_1.st",
+          "version": 1,
+          "codebleu": 0.5379781270051502,
+          "ngram_match_score": 0.37726233457554786,
+          "weighted_ngram_match_score": 0.42428831733607053,
+          "syntax_match_score": 0.7701149425287356,
+          "dataflow_match_score": 0.5802469135802469,
+          "success": true
+        }
+      ],
+      "total_versions": 2,
+      "first_version_score": 0.5652701503094714,
+      "last_version_score": 0.5379781270051502,
+      "improvement": -0.027292023304321122,
+      "improvement_percent": -4.828138066264319
+    }
+  },
+  "summary": {
+    "total_evaluated": 5,
+    "total_failed": 0,
+    "success_rate": 1.0
+  },
+  "metadata": {
+    "timestamp": "2026-01-22T21:22:21.912992",
+    "args": {
+      "timestamp": "20260122_180243",
+      "project": "repoeval_readwriteFile",
+      "lang": "python",
+      "use_project_code_gt": false,
+      "output": null
+    }
+  }
+}

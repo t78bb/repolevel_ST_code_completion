@@ -1,0 +1,119 @@
+This is the known requirement information for the function to be completed:\nThis code is intended to implement an MQTT client functionality that connects to a broker, subscribes to a topic, and publishes a birth message upon successful connection.\nContinue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# GreatExampleOfAdvantages-FUN\MQTT_STUFF.st
+# --------------------------------------------------
+# FUNCTION_BLOCK MQTT_STUFF
+# VAR_INPUT
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	//Client:SD_MQTT.HANDLE_MQTT;
+# 	
+# 	Subscriber:MQTT.MQTTSubscribe;
+# 	init: BOOL;
+# 	InstanceName:CommonTypesAndFunctions.GetInstanceName;
+# 	SubscribeTopic:STRING(255);
+# 	birthTopic:STRING(255);
+# 	found:DINT;
+# 	pt:POINTER TO STRING;
+# 	birthMessage:MQTT.MQTTPublish;
+# 	connectRising:R_TRIG;
+# 	xxx:POINTER TO STRING;
+# END_VAR
+# 
+# IF NOT init THEN
+# 	init := TRUE;
+# 	Subscriber.SetMqttInOut(MQTT_IN_OUT:= GVL_MQTT.MQTT_IN_OUT);
+# 	SubscribeTopic := InstanceName.GetInstanceTopic();
+# 	birthTopic := SubscribeTopic;
+# 	found := CommonTypesAndFunctions.find(str1:= ADR(SubscribeTopic), str2:= ADR('/'));
+# 	found := found + 1 + CommonTypesAndFunctions.find(str1:= ADR(SubscribeTopic[found + 1]), str2:= ADR('/'));
+# 	pt := ADR(SubscribeTopic[found  + 1]);
+# 	pt^ := 'Receive/#'; 
+# 	GVL_MQTT.MQTT_IN_OUT.ClientID := CONCAT('CodesysMqtt',TO_STRING(TICKS.GetTick(xDummy:= TRUE)));
+# END_IF
+# 
+# 
+# GVL_MQTT.MQTT_IN_OUT.clientFB( 
+# 	MQTT_IN_OUT:= GVL_MQTT.MQTT_IN_OUT, 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# GreatExampleOfAdvantages-FUN\MQTT_STUFF.st
+# --------------------------------------------------
+# FUNCTION_BLOCK MQTT_STUFF
+# VAR_INPUT
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	//Client:SD_MQTT.HANDLE_MQTT;
+# 	
+# 	Subscriber:MQTT.MQTTSubscribe;
+# 	init: BOOL;
+# 	InstanceName:CommonTypesAndFunctions.GetInstanceName;
+# 	SubscribeTopic:STRING(255);
+# 	birthTopic:STRING(255);
+# 	found:DINT;
+# 	pt:POINTER TO STRING;
+# 	birthMessage:MQTT.MQTTPublish;
+# 	connectRising:R_TRIG;
+# 	xxx:POINTER TO STRING;
+# END_VAR
+# 
+# IF NOT init THEN
+# 	init := TRUE;
+# 	Subscriber.SetMqttInOut(MQTT_IN_OUT:= GVL_MQTT.MQTT_IN_OUT);
+# 	SubscribeTopic := InstanceName.GetInstanceTopic();
+# 	birthTopic := SubscribeTopic;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# GreatExampleOfAdvantages-FUN\MQTT_STUFF.st
+# --------------------------------------------------
+# FUNCTION_BLOCK MQTT_STUFF
+# VAR_INPUT
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	//Client:SD_MQTT.HANDLE_MQTT;
+# 	
+# 	Subscriber:MQTT.MQTTSubscribe;
+# 	init: BOOL;
+# 	InstanceName:CommonTypesAndFunctions.GetInstanceName;
+# 	SubscribeTopic:STRING(255);
+# 	birthTopic:STRING(255);
+# 	found:DINT;
+# 	pt:POINTER TO STRING;
+# 	birthMessage:MQTT.MQTTPublish;
+# 	connectRising:R_TRIG;
+# 	xxx:POINTER TO STRING;
+# END_VAR
+# 
+# IF NOT init THEN
+# 	init := TRUE;
+# 	Subscriber.SetMqttInOut(MQTT_IN_OUT:= GVL_MQTT.MQTT_IN_OUT);
+# 	SubscribeTopic := InstanceName.GetInstanceTopic();
+# 	birthTopic := SubscribeTopic;
+# 	found := CommonTypesAndFunctions.find(str1:= ADR(SubscribeTopic), str2:= ADR('/'));
+# 	found := found + 1 + CommonTypesAndFunctions.find(str1:= ADR(SubscribeTopic[found + 1]), str2:= ADR('/'));
+# 	pt := ADR(SubscribeTopic[found  + 1]);
+# 	pt^ := 'Receive/#'; 
+# 	GVL_MQTT.MQTT_IN_OUT.ClientID := CONCAT('CodesysMqtt',TO_STRING(TICKS.GetTick(xDummy:= TRUE)));
+# END_IF
+# 
+# 
+# G
+
+FUNCTION_BLOCK MQTT_STUFF
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+```

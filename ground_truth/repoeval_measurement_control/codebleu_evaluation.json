@@ -1,0 +1,39 @@
+{
+  "project_name": "repoeval_measurement_control",
+  "original_project_name": "measurement_control",
+  "total_files": 2,
+  "successful_evaluations": 1,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.18681482780323277,
+    "ngram_match_score": 0.00044851505243301434,
+    "weighted_ngram_match_score": 0.00395365330335517,
+    "syntax_match_score": 0.02857142857142857,
+    "dataflow_match_score": 0.7142857142857143
+  },
+  "file_results": [
+    {
+      "filename": "Tank.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\measurement_control\\Tank.st",
+      "codebleu": 0.18681482780323277,
+      "ngram_match_score": 0.00044851505243301434,
+      "weighted_ngram_match_score": 0.00395365330335517,
+      "syntax_match_score": 0.02857142857142857,
+      "dataflow_match_score": 0.7142857142857143,
+      "reference_length": 476,
+      "prediction_length": 3133
+    },
+    {
+      "filename": "Tank_1.st",
+      "case_id": 1,
+      "error": "未找到对应的参考文件"
+    }
+  ]
+}

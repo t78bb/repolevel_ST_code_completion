@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-01-21T04:06:48.403953",
+  "language": "python",
+  "total_projects": 1,
+  "success_count": 1,
+  "failed_count": 0,
+  "results": {
+    "success": [
+      "repoeval_readwriteFile"
+    ],
+    "failed": [],
+    "skipped": []
+  },
+  "statistics": {
+    "repoeval_readwriteFile": {
+      "total_files": 2,
+      "successful_evaluations": 2,
+      "average_codebleu": 0.3091251451978987
+    }
+  }
+}

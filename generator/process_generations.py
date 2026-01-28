@@ -275,7 +275,15 @@ def _resolve_function_name(result: dict, idx: int) -> str:
     return f"result_{idx}"
 
 
-def process_project(project_dir: Path, args: argparse.Namespace) -> None:
+def process_project(project_dir: Path, args: argparse.Namespace, add_head: bool = True) -> None:
+    """
+    处理项目，生成 readful_result 目录
+    
+    参数:
+        project_dir: 项目目录
+        args: 命令行参数
+        add_head: 是否添加 provide_code（定义部分）
+    """
     results_path = project_dir / "results.jsonl"
     gens_path = project_dir / "generations_repoeval-function_repoeval-function.json"
     if not results_path.exists() or not gens_path.exists():
@@ -292,6 +300,7 @@ def process_project(project_dir: Path, args: argparse.Namespace) -> None:
 
     output_dir = project_dir / "readful_result"
     dataset_name = project_dir.name  # 对应 dataset/query/{dataset_name} 或旧的 retrieval/my_datasets/{dataset_name}
+    
     for idx, result in enumerate(results):
         function_name = _resolve_function_name(result, idx)
         ext = extract_extension(result)
@@ -311,15 +320,28 @@ def process_project(project_dir: Path, args: argparse.Namespace) -> None:
             if args.verbose:
                 print(f"没有生成结果: {project_dir.name} -> {function_name}")
             continue
-        write_candidates(
-            candidate_group,
-            output_dir,
-            base_name=function_name,
-            ext=ext,
-            verbose=args.verbose,
-            dry_run=args.dry_run,
-            prefix_text=prefix_text,
-        )
+        
+        # 生成带 provide_code 的版本（readful_result）
+        if add_head == True:
+            write_candidates(
+                candidate_group,
+                output_dir,
+                base_name=function_name,
+                ext=ext,
+                verbose=args.verbose,
+                dry_run=args.dry_run,
+                prefix_text=prefix_text,
+            )
+        else:
+            write_candidates(
+                candidate_group,
+                output_dir,
+                base_name=function_name,
+                ext=ext,
+                verbose=args.verbose,
+                dry_run=args.dry_run,
+                prefix_text="",
+            )
 
 
 def filter_projects(root: Path, patterns: Optional[List[str]]) -> Iterable[Path]:

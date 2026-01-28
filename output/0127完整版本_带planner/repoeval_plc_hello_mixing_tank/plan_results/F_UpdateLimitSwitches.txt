@@ -1,0 +1,4 @@
+功能规划:
+1. 判断 `rTankLevel` 是否大于或等于 `rFullThreshold`，若满足条件，则将 `bLevelFull` 置为 TRUE，否则置为 FALSE。
+2. 判断 `rTankLevel` 是否小于或等于 `rEmptyThreshold`，若满足条件，则将 `bLevelEmpty` 置为 TRUE，否则置为 FALSE。
+3. 返回 TRUE，表示函数已成功执行完毕。

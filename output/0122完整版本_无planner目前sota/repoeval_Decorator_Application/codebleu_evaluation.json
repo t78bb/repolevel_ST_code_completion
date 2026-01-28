@@ -1,0 +1,118 @@
+{
+  "project_name": "repoeval_Decorator_Application",
+  "original_project_name": "Decorator_Application",
+  "total_files": 8,
+  "successful_evaluations": 8,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.3330944601601714,
+    "ngram_match_score": 0.0675054666437368,
+    "weighted_ngram_match_score": 0.11119629957531643,
+    "syntax_match_score": 0.3884302392454566,
+    "dataflow_match_score": 0.3902458351761758
+  },
+  "file_results": [
+    {
+      "filename": "ConcreteComponment.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Decorator_Application\\ConcreteComponment.st",
+      "codebleu": 0.43452368735104263,
+      "ngram_match_score": 0.02331677506463489,
+      "weighted_ngram_match_score": 0.0719208314823926,
+      "syntax_match_score": 0.7142857142857143,
+      "dataflow_match_score": 0.9285714285714286,
+      "reference_length": 154,
+      "prediction_length": 610
+    },
+    {
+      "filename": "ConcreteComponment_getDescription.st",
+      "case_id": 1,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Decorator_Application\\ConcreteComponment_getDescription.st",
+      "codebleu": 0.40550172365662385,
+      "ngram_match_score": 0.2963354179062001,
+      "weighted_ngram_match_score": 0.3050832414261777,
+      "syntax_match_score": 0.55,
+      "dataflow_match_score": 0.47058823529411764,
+      "reference_length": 236,
+      "prediction_length": 179
+    },
+    {
+      "filename": "ConcreteComponment_getValue.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Decorator_Application\\ConcreteComponment_getValue.st",
+      "codebleu": 0.18336106221744605,
+      "ngram_match_score": 0.006168817923546331,
+      "weighted_ngram_match_score": 0.027275430946237918,
+      "syntax_match_score": 0.6,
+      "dataflow_match_score": 0.1,
+      "reference_length": 293,
+      "prediction_length": 101
+    },
+    {
+      "filename": "ConcreteDecoratorA.st",
+      "case_id": 3,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Decorator_Application\\ConcreteDecoratorA.st",
+      "codebleu": 0.25,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.0,
+      "dataflow_match_score": 0,
+      "reference_length": 12,
+      "prediction_length": 11
+    },
+    {
+      "filename": "ConcreteDecoratorA_getDescription.st",
+      "case_id": 4,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Decorator_Application\\ConcreteDecoratorA_getDescription.st",
+      "codebleu": 0.29308428277395726,
+      "ngram_match_score": 0.0787456551547854,
+      "weighted_ngram_match_score": 0.11893260654533215,
+      "syntax_match_score": 0.18518518518518517,
+      "dataflow_match_score": 0.7894736842105263,
+      "reference_length": 324,
+      "prediction_length": 498
+    },
+    {
+      "filename": "ConcreteDecoratorA_getValue.st",
+      "case_id": 5,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Decorator_Application\\ConcreteDecoratorA_getValue.st",
+      "codebleu": 0.39550212234935755,
+      "ngram_match_score": 0.1324338782729285,
+      "weighted_ngram_match_score": 0.22493692996508152,
+      "syntax_match_score": 0.391304347826087,
+      "dataflow_match_score": 0.8333333333333334,
+      "reference_length": 245,
+      "prediction_length": 412
+    },
+    {
+      "filename": "ConcreteDecoratorB.st",
+      "case_id": 6,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Decorator_Application\\ConcreteDecoratorB.st",
+      "codebleu": 0.4527828029329438,
+      "ngram_match_score": 0.003043188827799241,
+      "weighted_ngram_match_score": 0.14142135623730953,
+      "syntax_match_score": 0.6666666666666666,
+      "dataflow_match_score": 0,
+      "reference_length": 12,
+      "prediction_length": 592
+    },
+    {
+      "filename": "ConcreteDecoratorC.st",
+      "case_id": 7,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Decorator_Application\\ConcreteDecoratorC.st",
+      "codebleu": 0.25,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.0,
+      "dataflow_match_score": 0,
+      "reference_length": 12,
+      "prediction_length": 11
+    }
+  ]
+}

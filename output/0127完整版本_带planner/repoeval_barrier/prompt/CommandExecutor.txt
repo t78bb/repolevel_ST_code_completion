@@ -1,0 +1,137 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a control mechanism for setting the extension and retraction percentages of proportional valves for ground or overhead tracks based on input level, index, and percentage values.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 确定 `level` 值，根据轨道类型（1->地轨，2->天轨）选择对应的控制逻辑路径。
+2. 根据输入的 `idx` 值，定位对应挡板索引编号，确保对正确的挡板进行操作。
+3. 根据输入的 `percent` 值，将范围在 -100 到 +100 的百分比值转换为比例阀实际指令值。
+4. 对转换后的指令值进行验证，确保值在比例阀允许范围内。
+5. 将经过验证的指令值发送至目标当轨或天轨的比例阀控制接口。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# core-FUN\CommandExecutor.st
+# --------------------------------------------------
+# 
+# FUNCTION_BLOCK CommandExecutor
+# VAR_INPUT
+# 	level		:INT;			//1->地轨	2->天轨
+# 	idx			:INT;			//挡板索引编号
+# 	percent		:REAL;			//比例阀百分比 传入-100~+100
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# END_VAR
+# 
+# IF percent > 0 THEN
+# 	CASE level OF
+# 		1:
+# 			gController.grd[idx].extendPercent := REAL_TO_WORD(percent * 65535 / 100);
+# 			gController.grd[idx].retractPercent := 0;
+# 		2:
+# 			gController.sky[idx].extendPercent := REAL_TO_WORD(percent * 65535 / 100);
+# 			gController.sky[idx].retractPercent := 0;
+# 	END_CASE
+# ELSE
+# 	CASE level OF
+# 		1:
+# 			gController.grd[idx].extendPercent := 0;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# can-FUN\CommandExecutor.st
+# --------------------------------------------------
+# 
+# FUNCTION_BLOCK CommandExecutor
+# VAR_INPUT
+# 	level		:INT;			//1->地轨	2->天轨
+# 	idx			:INT;			//挡板索引编号
+# 	percent		:REAL;			//比例阀百分比 传入-100~+100
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# END_VAR
+# 
+# IF percent > 0 THEN
+# 	CASE level OF
+# 		1:
+# 			gController.grd[idx].extendPercent := REAL_TO_WORD(percent * 65535 / 100);
+# 			gController.grd[idx].retractPercent := 0;
+# 		2:
+# 			gController.sky[idx].extendPercent := REAL_TO_WORD(percent * 65535 / 100);
+# 			gController.sky[idx].retractPercent := 0;
+# 	END_CASE
+# ELSE
+# 	CASE level OF
+# 		1:
+# 			gController.grd[idx].extendPercent := 0;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# can-FUN\CommandExecutor.st
+# --------------------------------------------------
+# 
+# FUNCTION_BLOCK CommandExecutor
+# VAR_INPUT
+# 	level		:INT;			//1->地轨	2->天轨
+# 	idx			:INT;			//挡板索引编号
+# 	percent		:REAL;			//比例阀百分比 传入-100~+100
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# END_VAR
+# 
+# IF percent > 0 THEN
+# 	CASE level OF
+# 		1:
+# 			gController.grd[idx].extendPercent := REAL_TO_WORD(percent * 65535 / 100);
+# 			gController.grd[idx].retractPercent := 0;
+# 		2:
+# 			gController.sky[idx].extendPercent := REAL_TO_WORD(percent * 65535 / 100);
+# 			gController.sky[idx].retractPercent := 0;
+# 	END_CASE
+# ELSE
+# 	CASE level OF
+# 		1:
+# 			gController.grd[idx].extendPercent := 0;
+# 			gController.grd[idx].retractPercent := REAL_TO_WORD(ABS(percent) * 65535 / 100);
+# 		2:
+# 			gController.sky[idx].extendPercent := 0;
+# 			gController.sky[idx].retractPercent := REAL_TO_WORD(ABS(percent) * 65535 / 100);
+# 	END_CASE
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# can-FUN\CommandExecutor.st
+# --------------------------------------------------
+# 
+# FUNCTION_BLOCK CommandExecutor
+# VAR_INPUT
+# 	level		:INT;			//1->地轨	2->天轨
+# 	idx			:INT;			//挡板索引编号
+# 	percent		:REAL;			//比例阀百分比 传入-100~+100
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# END_VAR
+# 
+# IF percent > 0 THEN
+# 	CASE level OF
+
+
+FUNCTION_BLOCK CommandExecutor
+VAR_INPUT
+	level		:INT;			//1->地轨	2->天轨
+	idx			:INT;			//挡板索引编号
+	percent		:REAL;			//比例阀百分比 传入-100~+100
+END_VAR
+VAR_OUTPUT
+END_VAR
+```

@@ -1,0 +1,82 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a functional block for air conditioning control with outputs for activation status and temperature.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:  
+1. 根据外部条件或输入决定空调是否处于激活状态，并更新 `bActive`。  
+2. 如果 `bActive` 为 TRUE，则根据所需的控制逻辑计算当前环境温度值，更新 `lrTemperature`。  
+3. 如果 `bActive` 为 FALSE，将 `lrTemperature` 设为默认值（如 0.0 或其他适当值）。  
+4. 确保输出值在函数块生命周期中持续更新，并跟踪状态变化。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_AirConditioning.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_AirConditioning
+# VAR_OUTPUT
+# 	bActive			: BOOL;
+# 	lrTemperature	: LREAL;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_AirConditioning_Activate.st
+# --------------------------------------------------
+# METHOD PUBLIC Activate
+# VAR_OUTPUT
+# 	bActive			: BOOL;
+# 	lrTemperature	: LREAL;
+# END_VAR
+# 
+# bActive := TRUE;
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_AirConditioning_Deactivate.st
+# --------------------------------------------------
+# METHOD PUBLIC Deactivate
+# VAR_OUTPUT
+# 	bActive			: BOOL;
+# 	lrTemperature	: LREAL;
+# END_VAR
+# 
+# bActive := false;
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_AirConditioning_SetTemperature.st
+# --------------------------------------------------
+# METHOD PUBLIC SetTemperature : BOOL
+# VAR_INPUT
+# 	lrNewTemperature	: LREAL;
+# END_VAR
+# VAR_OUTPUT
+# 	bActive			: BOOL;
+# 	lrTemperature	: LREAL;
+# END_VAR
+# 
+# 
+# lrTemperature := lrNewTemperature;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_AirConStandbyCommand.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_AirConStandbyCommand IMPLEMENTS I_Command
+# VAR
+# 	refAirConditioning : REFERENCE TO FB_AirConditioning;
+# END_VAR
+# 
+# --------------------------------------------------
+
+
+FUNCTION_BLOCK PUBLIC FB_AirConditioning
+VAR_OUTPUT
+	bActive			: BOOL;
+	lrTemperature	: LREAL;
+END_VAR
+```

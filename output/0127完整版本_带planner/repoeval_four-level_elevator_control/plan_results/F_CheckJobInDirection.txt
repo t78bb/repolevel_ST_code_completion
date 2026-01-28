@@ -1,0 +1,8 @@
+功能规划:  
+1. 判断 `bIncreasing` 的值以决定检查方向：如果为 TRUE，则需要在 `nStartFloor` 到 `nEndFloor` 范围之间向上检查；如果为 FALSE，则需要在 `nStartFloor` 到 `nEndFloor` 范围之间向下检查。  
+2. 初始化循环变量，将其设置为 `nStartFloor`，并根据 `bIncreasing` 控制循环增减。  
+3. 在循环中，根据方向检查每个楼层是否存在请求：  
+   - 如果 `bIncreasing` 为 TRUE，则检查每个楼层的 `Tar_Dir.IsUpStop`。  
+   - 如果 `bIncreasing` 为 FALSE，则检查每个楼层的 `Tar_Dir.IsDownStop`。  
+4. 在检测到任意楼层存在请求时，返回 TRUE 并退出函数。  
+5. 如果循环结束未找到任何请求，返回 FALSE。  

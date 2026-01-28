@@ -1,0 +1,107 @@
+{
+  "project_name": "repoeval_elevator",
+  "original_project_name": "elevator",
+  "total_files": 10,
+  "successful_evaluations": 5,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.19469991313805063,
+    "ngram_match_score": 0.00033678211867581455,
+    "weighted_ngram_match_score": 0.0014194044464055657,
+    "syntax_match_score": 0.16971013265378784,
+    "dataflow_match_score": 0.6073333333333333
+  },
+  "file_results": [
+    {
+      "filename": "F_DetectCurrentFloor.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\elevator\\F_DetectCurrentFloor.st",
+      "codebleu": 0.2275,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.16,
+      "dataflow_match_score": 0.75,
+      "reference_length": 299,
+      "prediction_length": 352
+    },
+    {
+      "filename": "F_DetectCurrentFloor_1.st",
+      "case_id": 1,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "F_RegisterCalls.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\elevator\\F_RegisterCalls.st",
+      "codebleu": 0.176747311827957,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.2903225806451613,
+      "dataflow_match_score": 0.4166666666666667,
+      "reference_length": 235,
+      "prediction_length": 2476
+    },
+    {
+      "filename": "F_RegisterCalls_1.st",
+      "case_id": 3,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "F_UpdateDoorAnimation.st",
+      "case_id": 4,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\elevator\\F_UpdateDoorAnimation.st",
+      "codebleu": 0.15590790620107656,
+      "ngram_match_score": 0.0004946559137153465,
+      "weighted_ngram_match_score": 0.004089349842971759,
+      "syntax_match_score": 0.03571428571428571,
+      "dataflow_match_score": 0.5833333333333334,
+      "reference_length": 288,
+      "prediction_length": 2509
+    },
+    {
+      "filename": "F_UpdateDoorAnimation_1.st",
+      "case_id": 5,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_ElevatorDoorController.st",
+      "case_id": 6,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\elevator\\FB_ElevatorDoorController.st",
+      "codebleu": 0.21166159469422263,
+      "ngram_match_score": 0.0007255553401317345,
+      "weighted_ngram_match_score": 0.0021708234367587642,
+      "syntax_match_score": 0.17708333333333334,
+      "dataflow_match_score": 0.6666666666666666,
+      "reference_length": 851,
+      "prediction_length": 2448
+    },
+    {
+      "filename": "FB_ElevatorDoorController_1.st",
+      "case_id": 7,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_ElevatorMovement.st",
+      "case_id": 8,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\elevator\\FB_ElevatorMovement.st",
+      "codebleu": 0.20168275296699706,
+      "ngram_match_score": 0.0004636993395319916,
+      "weighted_ngram_match_score": 0.0008368489522973057,
+      "syntax_match_score": 0.18543046357615894,
+      "dataflow_match_score": 0.62,
+      "reference_length": 1636,
+      "prediction_length": 2599
+    },
+    {
+      "filename": "FB_ElevatorMovement_1.st",
+      "case_id": 9,
+      "error": "未找到对应的参考文件"
+    }
+  ]
+}

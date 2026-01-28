@@ -1,0 +1,7 @@
+功能规划:
+1. 检测 `xLeftClick` 是否为 TRUE，并记录当前时间戳。如果是第二次点击且时间间隔小于 `tDblClickTime`，将事件类型 `eMouseEvent` 设置为 2（DoubleClick），同时记录 `rEventX` 和 `rEventY` 为 `rMouseX` 和 `rMouseY`，并激活 `xEventActive`。否则，标记为第一次点击等待后续双击判断。
+2. 检测 `xRightClick` 是否为 TRUE。若为 TRUE，将事件类型 `eMouseEvent` 设置为 3（RightClick），记录 `rEventX` 和 `rEventY`，并激活 `xEventActive`。
+3. 检测 `xMiddleClick` 是否为 TRUE。若为 TRUE，将事件类型 `eMouseEvent` 设置为 4（MiddleClick），记录 `rEventX` 和 `rEventY`，并激活 `xEventActive`。
+4. 检测 `xLeftClick` 为 TRUE 且不符合双击时间间隔时，将事件类型 `eMouseEvent` 设置为 1（SingleClick），记录 `rEventX` 和 `rEventY`，并激活 `xEventActive`。
+5. 如果 `xMouseMove` 为 TRUE，且鼠标位置 `rMouseX` 和 `rMouseY` 与上次记录位置不同，更新 `rEventX` 和 `rEventY`，将事件类型 `eMouseEvent` 设置为 0，并激活 `xEventActive`。
+6. 如果没有任何输入事件或无效触发，清除 `eMouseEvent`，并设置 `xEventActive` 为 FALSE。

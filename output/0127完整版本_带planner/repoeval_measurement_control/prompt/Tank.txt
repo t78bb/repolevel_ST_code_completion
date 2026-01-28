@@ -1,0 +1,179 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a control mechanism for a tank system that adjusts its level and temperature within specified minimum and maximum thresholds.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 初始化本地变量，根据输入参数设置初始状态，例如 `stName` 用于标识具体的 Tank 实例。
+2. 判断当前液位 `nUnitLevel` 是否超出范围（小于 `nMinLevel` 或大于 `nMaxLevel`），若超出，则调整到最接近的阈值。
+3. 判断当前温度 `nUnitTemp` 是否超出范围（小于 `nMinTemp` 或大于 `nMaxTemp`），若超出，则调整到最接近的阈值。
+4. 在液位与温度调整逻辑完成后，更新当前液位 (`nUnitLevel`) 和温度 (`nUnitTemp`) 的状态，用于后续控制逻辑。
+5. 为外部调用提供接口，确保实例化的 Tank（例如 `Tank01`）能够根据自身需求接受输入变化并实时调整。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 测量控件-FUN\Tank.st
+# --------------------------------------------------
+# FUNCTION_BLOCK Tank
+# VAR_INPUT
+# 	stName: STRING;
+# 	nMaxLevel	: INT;
+# 	nMinLevel	: INT;
+# 	nMaxTemp	: INT;
+# 	nMinTemp	: INT;
+# 	nUnitLevel							:INT:=0;
+# 	nUnitTemp							:INT:=0;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	name								:STRING;
+# 	bLevel								:BOOL;
+# 	bTemp								:BOOL;
+# END_VAR
+# 
+# name := stName;
+# 
+# IF(nUnitLevel > nMaxLevel) THEN
+# 	bLevel := FALSE;
+# END_IF
+# IF(nUnitLevel < nMinLevel) THEN
+# 	bLevel := TRUE;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 测量控件-FUN\Tank.st
+# --------------------------------------------------
+# FUNCTION_BLOCK Tank
+# VAR_INPUT
+# 	stName: STRING;
+# 	nMaxLevel	: INT;
+# 	nMinLevel	: INT;
+# 	nMaxTemp	: INT;
+# 	nMinTemp	: INT;
+# 	nUnitLevel							:INT:=0;
+# 	nUnitTemp							:INT:=0;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	name								:STRING;
+# 	bLevel								:BOOL;
+# 	bTemp								:BOOL;
+# END_VAR
+# 
+# name := stName;
+# 
+# IF(nUnitLevel > nMaxLevel) THEN
+# 	bLevel := FALSE;
+# END_IF
+# IF(nUnitLevel < nMinLevel) THEN
+# 	bLevel := TRUE;
+# END_IF
+# 
+# IF(bLevel) THEN
+# 	nUnitLevel:=nUnitLevel+1;
+# ELSE
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 测量控件-FUN\Tank.st
+# --------------------------------------------------
+# FUNCTION_BLOCK Tank
+# VAR_INPUT
+# 	stName: STRING;
+# 	nMaxLevel	: INT;
+# 	nMinLevel	: INT;
+# 	nMaxTemp	: INT;
+# 	nMinTemp	: INT;
+# 	nUnitLevel							:INT:=0;
+# 	nUnitTemp							:INT:=0;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	name								:STRING;
+# 	bLevel								:BOOL;
+# 	bTemp								:BOOL;
+# END_VAR
+# 
+# name := stName;
+# 
+# IF(nUnitLevel > nMaxLevel) THEN
+# 	bLevel := FALSE;
+# END_IF
+# IF(nUnitLevel < nMinLevel) THEN
+# 	bLevel := TRUE;
+# END_IF
+# 
+# IF(bLevel) THEN
+# 	nUnitLevel:=nUnitLevel+1;
+# ELSE
+# 	nUnitLevel:=nUnitLevel-1;
+# END_IF
+# 
+# IF(nUnitTemp > nMaxTemp) THEN
+# 	bTemp := FALSE;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# 测量控件-FUN\Tank.st
+# --------------------------------------------------
+# FUNCTION_BLOCK Tank
+# VAR_INPUT
+# 	stName: STRING;
+# 	nMaxLevel	: INT;
+# 	nMinLevel	: INT;
+# 	nMaxTemp	: INT;
+# 	nMinTemp	: INT;
+# 	nUnitLevel							:INT:=0;
+# 	nUnitTemp							:INT:=0;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	name								:STRING;
+# 	bLevel								:BOOL;
+# 	bTemp								:BOOL;
+# END_VAR
+# 
+# name := stName;
+# 
+# IF(nUnitLevel > nMaxLevel) THEN
+# 	bLevel := FALSE;
+# END_IF
+# IF(nUnitLevel < nMinLevel) THEN
+# 	bLevel := TRUE;
+# END_IF
+# 
+# IF(bLevel) THEN
+# 	nUnitLevel:=nUnitLevel+1;
+# ELSE
+# 	nUnitLevel:=nUnitLevel-1;
+# END_IF
+# 
+# IF(nUnitTemp > nMaxTemp) THEN
+# 	bTemp := FALSE;
+# END_IF
+# IF(nUnitTemp < nMinTemp) THEN
+# 	bTemp := TRUE;
+# END_IF
+# 
+# 
+# --------------------------------------------------
+# the
+
+FUNCTION_BLOCK Tank
+VAR_INPUT
+	stName: STRING;
+	nMaxLevel	: INT;
+	nMinLevel	: INT;
+	nMaxTemp	: INT;
+	nMinTemp	: INT;
+	nUnitLevel							:INT:=0;
+	nUnitTemp							:INT:=0;
+END_VAR
+VAR_OUTPUT
+END_VAR
+```

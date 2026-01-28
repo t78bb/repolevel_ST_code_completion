@@ -1,0 +1,165 @@
+{
+  "timestamp": "2026-01-21T13:46:15.898259",
+  "language": "python",
+  "total_projects": 29,
+  "success_count": 24,
+  "failed_count": 5,
+  "results": {
+    "success": [
+      "repoeval_assembly-station",
+      "repoeval_Builder_Application_RPI",
+      "repoeval_Command1",
+      "repoeval_counter",
+      "repoeval_Decorator_Application",
+      "repoeval_electronic_cam_motion",
+      "repoeval_electronic_gear_motion",
+      "repoeval_elevator",
+      "repoeval_four-level_elevator_control",
+      "repoeval_GreatExampleOfAdvantages",
+      "repoeval_Interation_HowTo",
+      "repoeval_isScaleOutput",
+      "repoeval_measurement_control",
+      "repoeval_open-type_dual-axis_winding_machine",
+      "repoeval_PID_controller",
+      "repoeval_plc_hello_mixing_tank",
+      "repoeval_ProductionLine",
+      "repoeval_Proxy_Application",
+      "repoeval_PT1Filter",
+      "repoeval_readwriteFile",
+      "repoeval_Robotics_DynamicModel",
+      "repoeval_three-axis_CNC_motion",
+      "repoeval_traffic_light",
+      "repoeval_Wrappers"
+    ],
+    "failed": [
+      "repoeval_can",
+      "repoeval_core",
+      "repoeval_FB50_虚轴控制",
+      "repoeval_healthydata",
+      "repoeval_modbus"
+    ],
+    "skipped": []
+  },
+  "statistics": {
+    "repoeval_assembly-station": {
+      "total_files": 1,
+      "successful_evaluations": 1,
+      "average_codebleu": 0.17029092218824077
+    },
+    "repoeval_Builder_Application_RPI": {
+      "total_files": 5,
+      "successful_evaluations": 5,
+      "average_codebleu": 0.2500111348590489
+    },
+    "repoeval_Command1": {
+      "total_files": 12,
+      "successful_evaluations": 12,
+      "average_codebleu": 0.33663719632184846
+    },
+    "repoeval_counter": {
+      "total_files": 1,
+      "successful_evaluations": 1,
+      "average_codebleu": 0.2285714285714286
+    },
+    "repoeval_Decorator_Application": {
+      "total_files": 8,
+      "successful_evaluations": 8,
+      "average_codebleu": 0.42602348023581027
+    },
+    "repoeval_electronic_cam_motion": {
+      "total_files": 4,
+      "successful_evaluations": 4,
+      "average_codebleu": 0.2989571000382121
+    },
+    "repoeval_electronic_gear_motion": {
+      "total_files": 3,
+      "successful_evaluations": 3,
+      "average_codebleu": 0.32333536797435436
+    },
+    "repoeval_elevator": {
+      "total_files": 5,
+      "successful_evaluations": 5,
+      "average_codebleu": 0.19469991313805063
+    },
+    "repoeval_four-level_elevator_control": {
+      "total_files": 3,
+      "successful_evaluations": 3,
+      "average_codebleu": 0.34990654507247876
+    },
+    "repoeval_GreatExampleOfAdvantages": {
+      "total_files": 2,
+      "successful_evaluations": 2,
+      "average_codebleu": 0.38874832034762385
+    },
+    "repoeval_Interation_HowTo": {
+      "total_files": 2,
+      "successful_evaluations": 2,
+      "average_codebleu": 0.4588535091968824
+    },
+    "repoeval_isScaleOutput": {
+      "total_files": 1,
+      "successful_evaluations": 1,
+      "average_codebleu": 0.4574186095574513
+    },
+    "repoeval_measurement_control": {
+      "total_files": 1,
+      "successful_evaluations": 1,
+      "average_codebleu": 0.18681482780323277
+    },
+    "repoeval_open-type_dual-axis_winding_machine": {
+      "total_files": 5,
+      "successful_evaluations": 5,
+      "average_codebleu": 0.2288550470478238
+    },
+    "repoeval_PID_controller": {
+      "total_files": 4,
+      "successful_evaluations": 4,
+      "average_codebleu": 0.3759719635887748
+    },
+    "repoeval_plc_hello_mixing_tank": {
+      "total_files": 6,
+      "successful_evaluations": 6,
+      "average_codebleu": 0.3431591934086707
+    },
+    "repoeval_ProductionLine": {
+      "total_files": 6,
+      "successful_evaluations": 6,
+      "average_codebleu": 0.333966637866492
+    },
+    "repoeval_Proxy_Application": {
+      "total_files": 2,
+      "successful_evaluations": 2,
+      "average_codebleu": 0.4674961406287802
+    },
+    "repoeval_PT1Filter": {
+      "total_files": 1,
+      "successful_evaluations": 1,
+      "average_codebleu": 0.37647861792949977
+    },
+    "repoeval_readwriteFile": {
+      "total_files": 2,
+      "successful_evaluations": 2,
+      "average_codebleu": 0.23752606998116246
+    },
+    "repoeval_Robotics_DynamicModel": {
+      "total_files": 2,
+      "successful_evaluations": 2,
+      "average_codebleu": 0.35118540210388466
+    },
+    "repoeval_three-axis_CNC_motion": {
+      "total_files": 5,
+      "successful_evaluations": 5,
+      "average_codebleu": 0.23258623439480658
+    },
+    "repoeval_traffic_light": {
+      "total_files": 3,
+      "successful_evaluations": 3,
+      "average_codebleu": 0.5736549085037973
+    },
+    "repoeval_Wrappers": {
+      "total_files": 1,
+      "successful_evaluations": 1,
+      "average_codebleu": 0.21428969217031998
+    }
+  }
+}

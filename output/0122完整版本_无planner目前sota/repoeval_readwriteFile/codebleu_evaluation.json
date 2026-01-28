@@ -1,0 +1,46 @@
+{
+  "project_name": "repoeval_readwriteFile",
+  "original_project_name": "readwriteFile",
+  "total_files": 2,
+  "successful_evaluations": 2,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.6217385731656502,
+    "ngram_match_score": 0.45736644284047095,
+    "weighted_ngram_match_score": 0.47827986695429003,
+    "syntax_match_score": 0.8451638542430913,
+    "dataflow_match_score": 0.7061441286247487
+  },
+  "file_results": [
+    {
+      "filename": "ReadFile.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\readwriteFile\\ReadFile.st",
+      "codebleu": 0.6825185226779799,
+      "ngram_match_score": 0.5343288608087334,
+      "weighted_ngram_match_score": 0.5546022313875999,
+      "syntax_match_score": 0.9202127659574468,
+      "dataflow_match_score": 0.7209302325581395,
+      "reference_length": 1277,
+      "prediction_length": 1342
+    },
+    {
+      "filename": "WriteFile.st",
+      "case_id": 1,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\readwriteFile\\WriteFile.st",
+      "codebleu": 0.5609586236533206,
+      "ngram_match_score": 0.3804040248722085,
+      "weighted_ngram_match_score": 0.40195750252098017,
+      "syntax_match_score": 0.7701149425287356,
+      "dataflow_match_score": 0.691358024691358,
+      "reference_length": 1209,
+      "prediction_length": 1217
+    }
+  ]
+}

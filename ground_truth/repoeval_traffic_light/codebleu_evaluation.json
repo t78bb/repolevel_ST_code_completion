@@ -1,0 +1,73 @@
+{
+  "project_name": "repoeval_traffic_light",
+  "original_project_name": "traffic_light",
+  "total_files": 6,
+  "successful_evaluations": 3,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.5736549085037973,
+    "ngram_match_score": 0.026088090260978917,
+    "weighted_ngram_match_score": 0.6688239414150295,
+    "syntax_match_score": 0.7108187134502923,
+    "dataflow_match_score": 0.5555555555555555
+  },
+  "file_results": [
+    {
+      "filename": "F_SecondsToTime.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\traffic_light\\F_SecondsToTime.st",
+      "codebleu": 0.7367710672219657,
+      "ngram_match_score": 0.04708426888786301,
+      "weighted_ngram_match_score": 1.0,
+      "syntax_match_score": 0.9,
+      "dataflow_match_score": 0,
+      "reference_length": 93,
+      "prediction_length": 1066
+    },
+    {
+      "filename": "F_SecondsToTime_1.st",
+      "case_id": 1,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "F_TimeToSeconds.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\traffic_light\\F_TimeToSeconds.st",
+      "codebleu": 0.6535419254684862,
+      "ngram_match_score": 0.03083436854061191,
+      "weighted_ngram_match_score": 1.0,
+      "syntax_match_score": 0.9166666666666666,
+      "dataflow_match_score": 0.6666666666666666,
+      "reference_length": 121,
+      "prediction_length": 1742
+    },
+    {
+      "filename": "F_TimeToSeconds_1.st",
+      "case_id": 3,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_CountdownTimer.st",
+      "case_id": 4,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\traffic_light\\FB_CountdownTimer.st",
+      "codebleu": 0.3306517328209402,
+      "ngram_match_score": 0.00034563335446183356,
+      "weighted_ngram_match_score": 0.006471824245088331,
+      "syntax_match_score": 0.3157894736842105,
+      "dataflow_match_score": 1.0,
+      "reference_length": 314,
+      "prediction_length": 3511
+    },
+    {
+      "filename": "FB_CountdownTimer_1.st",
+      "case_id": 5,
+      "error": "未找到对应的参考文件"
+    }
+  ]
+}

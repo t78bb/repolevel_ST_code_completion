@@ -1,0 +1,145 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a mouse event handler that detects and processes single clicks, double clicks, right clicks, middle clicks, and mouse movement events, providing the event type and position.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 检测 `xLeftClick` 是否为 TRUE，并记录当前时间戳。如果是第二次点击且时间间隔小于 `tDblClickTime`，将事件类型 `eMouseEvent` 设置为 2（DoubleClick），同时记录 `rEventX` 和 `rEventY` 为 `rMouseX` 和 `rMouseY`，并激活 `xEventActive`。否则，标记为第一次点击等待后续双击判断。
+2. 检测 `xRightClick` 是否为 TRUE。若为 TRUE，将事件类型 `eMouseEvent` 设置为 3（RightClick），记录 `rEventX` 和 `rEventY`，并激活 `xEventActive`。
+3. 检测 `xMiddleClick` 是否为 TRUE。若为 TRUE，将事件类型 `eMouseEvent` 设置为 4（MiddleClick），记录 `rEventX` 和 `rEventY`，并激活 `xEventActive`。
+4. 检测 `xLeftClick` 为 TRUE 且不符合双击时间间隔时，将事件类型 `eMouseEvent` 设置为 1（SingleClick），记录 `rEventX` 和 `rEventY`，并激活 `xEventActive`。
+5. 如果 `xMouseMove` 为 TRUE，且鼠标位置 `rMouseX` 和 `rMouseY` 与上次记录位置不同，更新 `rEventX` 和 `rEventY`，将事件类型 `eMouseEvent` 设置为 0，并激活 `xEventActive`。
+6. 如果没有任何输入事件或无效触发，清除 `eMouseEvent`，并设置 `xEventActive` 为 FALSE。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# VisuElements-FUN\MouseEventHandler.st
+# --------------------------------------------------
+# FUNCTION_BLOCK MouseEventHandler
+# VAR_INPUT
+#     xLeftClick : BOOL;      (* Left mouse button click *)
+#     xRightClick : BOOL;     (* Right mouse button click *)
+#     xMiddleClick : BOOL;    (* Middle mouse button click *)
+#     xMouseMove : BOOL;      (* Mouse movement detected *)
+#     rMouseX : REAL;         (* Current mouse X position *)
+#     rMouseY : REAL;         (* Current mouse Y position *)
+#     tDblClickTime : TIME := T#300MS;  (* Double click timeout *)
+# END_VAR
+# 
+# VAR_OUTPUT
+#     eMouseEvent : INT;      (* Event type: 0=None, 1=SingleClick, 2=DoubleClick, 3=RightClick, 4=MiddleClick *)
+#     rEventX : REAL;         (* X position where event occurred *)
+#     rEventY : REAL;         (* Y position where event occurred *)
+#     xEventActive : BOOL;    (* TRUE when an event is active *)
+# END_VAR
+# 
+# VAR
+#     LeftClickTimer : TON;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# VisuElements-FUN\MouseEventHandler.st
+# --------------------------------------------------
+# FUNCTION_BLOCK MouseEventHandler
+# VAR_INPUT
+#     xLeftClick : BOOL;      (* Left mouse button click *)
+#     xRightClick : BOOL;     (* Right mouse button click *)
+#     xMiddleClick : BOOL;    (* Middle mouse button click *)
+#     xMouseMove : BOOL;      (* Mouse movement detected *)
+#     rMouseX : REAL;         (* Current mouse X position *)
+#     rMouseY : REAL;         (* Current mouse Y position *)
+#     tDblClickTime : TIME := T#300MS;  (* Double click timeout *)
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# VisuElements-FUN\MouseEventHandler.st
+# --------------------------------------------------
+# 
+# VAR_OUTPUT
+#     eMouseEvent : INT;      (* Event type: 0=None, 1=SingleClick, 2=DoubleClick, 3=RightClick, 4=MiddleClick *)
+#     rEventX : REAL;         (* X position where event occurred *)
+#     rEventY : REAL;         (* Y position where event occurred *)
+#     xEventActive : BOOL;    (* TRUE when an event is active *)
+# END_VAR
+# 
+# VAR
+#     LeftClickTimer : TON;
+#     xLeftClickOld : BOOL;
+#     iClickCount : INT := 0;
+#     xEventProcessed : BOOL := FALSE;
+# END_VAR
+# 
+# (* Reset event state *)
+# eMouseEvent := 0;
+# xEventActive := FALSE;
+# 
+# (* Handle left click events (single/double click) *)
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# VisuElements-FUN\MouseEventHandler.st
+# --------------------------------------------------
+#     xLeftClickOld : BOOL;
+#     iClickCount : INT := 0;
+#     xEventProcessed : BOOL := FALSE;
+# END_VAR
+# 
+# (* Reset event state *)
+# eMouseEvent := 0;
+# xEventActive := FALSE;
+# 
+# (* Handle left click events (single/double click) *)
+# IF xLeftClick AND NOT xLeftClickOld THEN
+#     (* First click detected *)
+#     IF iClickCount = 0 THEN
+#         LeftClickTimer(IN:=TRUE, PT:=tDblClickTime);
+#         iClickCount := 1;
+#     ELSE
+#         (* Second click within time window *)
+#         LeftClickTimer(IN:=FALSE);
+#         eMouseEvent := 2; (* Double click *)
+#         rEventX := rMouseX;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# VisuElements-FUN\MouseEventHandler.st
+# --------------------------------------------------
+#         rEventY := rMouseY;
+#         xEventActive := TRUE;
+#         iClickCount := 0;
+#         xEventProcessed := TRUE;
+#     END_IF
+# ELSIF NOT xLeftClick AND xLeftClickOld THEN
+#     (* Left button released *)
+#     IF iClickCount = 1 AND NOT xEventProcessed THEN
+#         LeftClickTimer();
+#         IF NOT LeftClickTimer.Q THEN
+#             (* Still waiting for potential double click *)
+#             (* Will be handled by timer logic below *)
+#         END_IF
+#     END_IF
+# END_IF
+# 
+# (* Check for double click timeout *)
+# IF LeftClickTimer.Q AND iClickCount = 1
+
+FUNCTION_BLOCK MouseEventHandler
+VAR_INPUT
+    xLeftClick : BOOL;      (* Left mouse button click *)
+    xRightClick : BOOL;     (* Right mouse button click *)
+    xMiddleClick : BOOL;    (* Middle mouse button click *)
+    xMouseMove : BOOL;      (* Mouse movement detected *)
+    rMouseX : REAL;         (* Current mouse X position *)
+    rMouseY : REAL;         (* Current mouse Y position *)
+    tDblClickTime : TIME := T#300MS;  (* Double click timeout *)
+END_VAR
+
+VAR_OUTPUT
+    eMouseEvent : INT;      (* Event type: 0=None, 1=SingleClick, 2=DoubleClick, 3=RightClick, 4=MiddleClick *)
+    rEventX : REAL;         (* X position where event occurred *)
+    rEventY : REAL;         (* Y position where event occurred *)
+    xEventActive : BOOL;    (* TRUE when an event is active *)
+END_VAR
+```

@@ -1,0 +1,39 @@
+{
+  "project_name": "repoeval_Wrappers",
+  "original_project_name": "Wrappers",
+  "total_files": 2,
+  "successful_evaluations": 1,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.21428969217031998,
+    "ngram_match_score": 0.00040316135400500963,
+    "weighted_ngram_match_score": 0.010968643893252686,
+    "syntax_match_score": 0.08108108108108109,
+    "dataflow_match_score": 0.7647058823529411
+  },
+  "file_results": [
+    {
+      "filename": "FB_Wrapper.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Wrappers\\FB_Wrapper.st",
+      "codebleu": 0.21428969217031998,
+      "ngram_match_score": 0.00040316135400500963,
+      "weighted_ngram_match_score": 0.010968643893252686,
+      "syntax_match_score": 0.08108108108108109,
+      "dataflow_match_score": 0.7647058823529411,
+      "reference_length": 286,
+      "prediction_length": 3972
+    },
+    {
+      "filename": "FB_Wrapper_1.st",
+      "case_id": 1,
+      "error": "未找到对应的参考文件"
+    }
+  ]
+}

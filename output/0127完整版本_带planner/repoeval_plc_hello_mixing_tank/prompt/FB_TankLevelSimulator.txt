@@ -1,0 +1,107 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a tank level simulation that calculates and updates the liquid level based on valve states, fill and drain rates, and ensures the level remains within specified bounds.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 初始化 `rCurrentLevel` 为 `rInitialLevel`，若输入 `bReset` 为真，则强制将 `rCurrentLevel` 重置为 `rInitialLevel`。
+2. 检查输入 `bMedium1Opened` 和 `bMedium2Opened` 的状态，根据其布尔值分别计算对应的填充量 `rFillRate1` 和 `rFillRate2` 的总和，并将结果累加到 `rCurrentLevel`。
+3. 检查输入 `bDrainOpened` 的状态，根据其布尔值从 `rCurrentLevel` 中扣减排空量 `rDrainRate`。
+4. 执行边界检查，将计算后的 `rCurrentLevel` 限定在 `rMinLevel` 和 `rMaxLevel` 范围内。
+5. 输出更新后的 `rCurrentLevel` 以反映当前液位状态。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# plc_hello_mixing_tank-FUN\FB_TankLevelSimulator.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_TankLevelSimulator
+# VAR_INPUT
+# 	bMedium1Opened		:	BOOL;			// 介质1阀门打开
+# 	bMedium2Opened		:	BOOL;			// 介质2阀门打开
+# 	bDrainOpened		:	BOOL;			// 排空阀门打开
+# 	bReset				:	BOOL;			// 复位到初始液位
+# 	
+# 	// 配置参数
+# 	rInitialLevel		:	REAL := 25.0;	// 初始液位 (%)
+# 	rFillRate1			:	REAL := 0.1;	// 介质1填充速率 (%/cycle)
+# 	rFillRate2			:	REAL := 0.1;	// 介质2填充速率 (%/cycle)
+# 	rDrainRate			:	REAL := 0.2;	// 排空速率 (%/cycle)
+# 	rMinLevel			:	REAL := 0.0;	// 最小液位 (%)
+# 	rMaxLevel			:	REAL := 100.0;	// 最大液位 (%)
+# END_VAR
+# VAR_OUTPUT
+# 	rCurrentLevel		:	REAL;			// 当前液位 (%)
+# END_VAR
+# 
+# // 复位逻辑
+# IF bReset THEN
+# 	rCurrentLevel := rInitialLevel;
+# END_IF
+# 
+# // 液位计算
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# plc_hello_mixing_tank-FUN\FB_TankLevelSimulator.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_TankLevelSimulator
+# VAR_INPUT
+# 	bMedium1Opened		:	BOOL;			// 介质1阀门打开
+# 	bMedium2Opened		:	BOOL;			// 介质2阀门打开
+# 	bDrainOpened		:	BOOL;			// 排空阀门打开
+# 	bReset				:	BOOL;			// 复位到初始液位
+# 	
+# 	// 配置参数
+# 	rInitialLevel		:	REAL := 25.0;	// 初始液位 (%)
+# 	rFillRate1			:	REAL := 0.1;	// 介质1填充速率 (%/cycle)
+# 	rFillRate2			:	REAL := 0.1;	// 介质2填充速率 (%/cycle)
+# 	rDrainRate			:	REAL := 0.2;	// 排空速率 (%/cycle)
+# 	rMinLevel			:	REAL := 0.0;	// 最小液位 (%)
+# 	rMaxLevel			:	REAL := 100.0;	// 最大液位 (%)
+# END_VAR
+# VAR_OUTPUT
+# 	rCurrentLevel		:	REAL;			// 当前液位 (%)
+# END_VAR
+# 
+# // 复位逻辑
+# IF bReset THEN
+# 	rCurrentLevel := rInitialLevel;
+# END_IF
+# 
+# // 液位计算
+# // 如果任一填充阀打开则填充，如果排空阀打开则排空
+# rCurrentLevel := rCurrentLevel
+# 				+ rFillRate1 * BOOL_TO_REAL(bMedium1Opened)
+# 				+ rFillRate2 * BOOL_TO_REAL(bMedium2Opened)
+# 				- rDrainRate * BOOL_TO_REAL(bDrainOpened);
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# plc_hello_mixing_tank-FUN\FB_TankLevelSimulator.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_TankLevelSimulator
+# VAR_INPUT
+# 	bMedium1Opened		:	BOOL;			// 介质1阀门打开
+# 	bMedium2Opened		:	BOOL;			// 介质2阀门打开
+# 	bDrainOpened		:	BOOL;			// 排空阀门打开
+
+FUNCTION_BLOCK FB_TankLevelSimulator
+VAR_INPUT
+	bMedium1Opened		:	BOOL;			// 介质1阀门打开
+	bMedium2Opened		:	BOOL;			// 介质2阀门打开
+	bDrainOpened		:	BOOL;			// 排空阀门打开
+	bReset				:	BOOL;			// 复位到初始液位
+	
+	// 配置参数
+	rInitialLevel		:	REAL := 25.0;	// 初始液位 (%)
+	rFillRate1			:	REAL := 0.1;	// 介质1填充速率 (%/cycle)
+	rFillRate2			:	REAL := 0.1;	// 介质2填充速率 (%/cycle)
+	rDrainRate			:	REAL := 0.2;	// 排空速率 (%/cycle)
+	rMinLevel			:	REAL := 0.0;	// 最小液位 (%)
+	rMaxLevel			:	REAL := 100.0;	// 最大液位 (%)
+END_VAR
+VAR_OUTPUT
+	rCurrentLevel		:	REAL;			// 当前液位 (%)
+END_VAR
+```

@@ -1,0 +1,124 @@
+This is the known requirement information for the function to be completed:\nThis code is intended to implement the registration of elevator call requests for four floors by updating a target floor array based on input call signals.\nContinue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# elevator-FUN\F_RegisterCalls.st
+# --------------------------------------------------
+# FUNCTION F_RegisterCalls
+# VAR_INPUT
+# 	CallGround		:	BOOL;		// 0楼呼叫
+# 	CallFloor1		:	BOOL;		// 1楼呼叫
+# 	CallFloor2		:	BOOL;		// 2楼呼叫
+# 	CallFloor3		:	BOOL;		// 3楼呼叫
+# END_VAR
+# VAR_IN_OUT
+# 	TargetFloors	:	ARRAY[0..3] OF BOOL;	// 目标楼层数组
+# END_VAR
+# 
+# // 注册各楼层的呼叫请求
+# IF CallGround THEN 
+# 	TargetFloors[0] := TRUE; 
+# END_IF
+# 
+# IF CallFloor1 THEN 
+# 	TargetFloors[1] := TRUE; 
+# END_IF
+# 
+# IF CallFloor2 THEN 
+# 	TargetFloors[2] := TRUE; 
+# END_IF
+# 
+# IF CallFloor3 THEN 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# elevator-FUN\F_RegisterCalls.st
+# --------------------------------------------------
+# FUNCTION F_RegisterCalls
+# VAR_INPUT
+# 	CallGround		:	BOOL;		// 0楼呼叫
+# 	CallFloor1		:	BOOL;		// 1楼呼叫
+# 	CallFloor2		:	BOOL;		// 2楼呼叫
+# 	CallFloor3		:	BOOL;		// 3楼呼叫
+# END_VAR
+# VAR_IN_OUT
+# 	TargetFloors	:	ARRAY[0..3] OF BOOL;	// 目标楼层数组
+# END_VAR
+# 
+# // 注册各楼层的呼叫请求
+# IF CallGround THEN 
+# 	TargetFloors[0] := TRUE; 
+# END_IF
+# 
+# IF CallFloor1 THEN 
+# 	TargetFloors[1] := TRUE; 
+# END_IF
+# 
+# IF CallFloor2 THEN 
+# 	TargetFloors[2] := TRUE; 
+# END_IF
+# 
+# IF CallFloor3 THEN 
+# 	TargetFloors[3] := TRUE; 
+# END_IF
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# elevator-FUN\FB_ElevatorMovement.st
+# --------------------------------------------------
+# VAR_IN_OUT
+# 	TargetFloors		:	ARRAY[0..3] OF BOOL;	// 目标楼层数组
+# END_VAR
+# VAR_OUTPUT
+# 	bMovingUp			:	BOOL;				// 向上移动
+# 	bMovingDown			:	BOOL;				// 向下移动
+# 	bArrivedAtTarget	:	BOOL;				// 到达目标楼层
+# END_VAR
+# VAR
+# 	fbMoveDelayTimer	:	TON;				// 移动延时定时器
+# 	i					:	INT;				// 循环变量
+# 	bHasUpperRequest	:	BOOL;				// 有更高楼层请求
+# 	bHasLowerRequest	:	BOOL;				// 有更低楼层请求
+# END_VAR
+# 
+# // 检查是否到达目标楼层
+# IF TargetFloors[CurrentFloor] THEN
+# 	bArrivedAtTarget := TRUE;
+# 	TargetFloors[CurrentFloor] := FALSE; // 清除请求
+# 	bMovingUp := FALSE;
+# 	bMovingDown := FALSE;
+# 	RETURN;
+# ELSE
+# 	bArrivedAtTarget := FALSE;
+# END_IF
+# 
+# // 只有门准备好才能移动
+# IF NOT bDoorReady THEN
+# 	RETURN;
+# END_IF
+# 
+# // 检查是否有更高楼层的请求
+# bHasUpperRequest := FALSE;
+# FOR i := CurrentFloor + 1 TO 3 DO
+# 	IF TargetFloors[i] THEN
+# 		bHasUpperRequest := TRUE;
+# 		EXIT;
+# 	END_IF
+# END_FOR
+# 
+# // �
+
+FUNCTION F_RegisterCalls
+VAR_INPUT
+	CallGround		:	BOOL;		// 0楼呼叫
+	CallFloor1		:	BOOL;		// 1楼呼叫
+	CallFloor2		:	BOOL;		// 2楼呼叫
+	CallFloor3		:	BOOL;		// 3楼呼叫
+END_VAR
+VAR_IN_OUT
+	TargetFloors	:	ARRAY[0..3] OF BOOL;	// 目标楼层数组
+END_VAR
+```

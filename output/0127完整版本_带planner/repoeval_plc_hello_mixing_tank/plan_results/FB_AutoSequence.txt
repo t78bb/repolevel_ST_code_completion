@@ -1,0 +1,7 @@
+功能规划:
+1. 检查 `bEnable` 的值，只有当其为 `TRUE` 时才进入自动序列逻辑，否则停用所有设备并保持状态为初始。
+2. 如果 `bReset` 为 `TRUE`，强制切换到排空状态，并关闭所有设备控制输出。
+3. 在排空状态中，维持 `bDrainOpenCmd` 为 `TRUE`，监控 `bTankLevelEmpty`，当其出现为 `TRUE` 时，切换到填充状态。
+4. 在填充状态中，保持 `bMedium1OpenCmd` 和 `bMedium2OpenCmd` 为 `TRUE` 开启填充，同时监控 `bTankLevelFull`，当其出现为 `TRUE` 时，切换到混合状态。
+5. 在混合状态中，启动混合电机，将 `bMixerRunCmd` 设为 `TRUE`，同时使用定时器进行计算，当时间达到 `tMixingDuration` 时，切换到排空状态。
+6. 每完成一次完整的状态循环（排空 -> 填充 -> 混合 -> 排空），递增 `nCyclesCompleted` 的计数值，以反映工作进度。

@@ -1,0 +1,74 @@
+This is the known requirement information for the function to be completed:\nThis code is intended to implement a functional block for air conditioning control with outputs for activation status and temperature.\nContinue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_AirConditioning.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_AirConditioning
+# VAR_OUTPUT
+# 	bActive			: BOOL;
+# 	lrTemperature	: LREAL;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_AirConditioning_Activate.st
+# --------------------------------------------------
+# METHOD PUBLIC Activate
+# VAR_OUTPUT
+# 	bActive			: BOOL;
+# 	lrTemperature	: LREAL;
+# END_VAR
+# 
+# bActive := TRUE;
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_AirConditioning_Deactivate.st
+# --------------------------------------------------
+# METHOD PUBLIC Deactivate
+# VAR_OUTPUT
+# 	bActive			: BOOL;
+# 	lrTemperature	: LREAL;
+# END_VAR
+# 
+# bActive := false;
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_AirConditioning_SetTemperature.st
+# --------------------------------------------------
+# METHOD PUBLIC SetTemperature : BOOL
+# VAR_INPUT
+# 	lrNewTemperature	: LREAL;
+# END_VAR
+# VAR_OUTPUT
+# 	bActive			: BOOL;
+# 	lrTemperature	: LREAL;
+# END_VAR
+# 
+# 
+# lrTemperature := lrNewTemperature;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_AirConStandbyCommand.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_AirConStandbyCommand IMPLEMENTS I_Command
+# VAR
+# 	refAirConditioning : REFERENCE TO FB_AirConditioning;
+# END_VAR
+# 
+# --------------------------------------------------
+
+
+FUNCTION_BLOCK PUBLIC FB_AirConditioning
+VAR_OUTPUT
+	bActive			: BOOL;
+	lrTemperature	: LREAL;
+END_VAR
+```

@@ -1,0 +1,7 @@
+功能规划:
+1. 初始化状态变量，根据输入 `_xHome` 和 `_xAbort` 设置开始标志或终止标志。
+2. 根据 `_nHomeMode` 和 `_nDirection` 确定回零操作的运动模式和方向。
+3. 设置运动参数，如 `_fFastHomeVel`、`_fSlowHomeVel`、`_fHomeAcc`、`_fHomeDec`。
+4. 执行运动轴的回零操作，同时监控 `_xReferenceSwitch` 和 `_xIndexPulse` 的状态。
+5. 判断回零结果：若操作完成，设置 `_xDone` 为 TRUE；若发生错误，记录错误代码 `_iErrId` 并设置 `_xErr` 为 TRUE。
+6. 在回零完成或错误的情况下，释放轴并停止所有相关动作。

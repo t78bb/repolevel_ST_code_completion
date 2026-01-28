@@ -1,0 +1,153 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a PID (Proportional-Integral-Derivative) controller for process control with configurable parameters, output limits, and anti-windup mechanisms.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 计算误差值 `e`，公式为 `e = SP - PV`，用于指示设定值和过程反馈之间的偏差。  
+2. 计算比例项 `CO_P`，公式为 `CO_P = Kc * e`，根据比例增益和误差调整输出。  
+3. 更新并累积积分项，公式为 `CO_I = CO_I + Kc * e * (SampleTime / Ti)`，并对 `CO_I` 进行下限 `LowerLimit` 和上限 `UpperLimit` 的限制以避免积分饱和（抗积分饱和机制）。  
+4. 计算微分项 `CO_D`，公式为 `CO_D = -Kc * Td * (ΔPV / SampleTime)`，使用过程变量（PV）的一阶导数而非误差的一阶导数（微分测量法）。  
+5. 计算总控制输出 `CO`，公式为 `CO = CO_P + CO_I + CO_D`，并限制其在输出范围 `LowerLimit` 和 `UpperLimit` 之间。  
+6. 在周期调用中保存当前 `PV` 值以用作下次微分项计算的历史值（上一周期过程变量值）。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# PID_controller-PID\PID_controller.st
+# --------------------------------------------------
+# //***************************************************************
+# //* A simple PID controller for Codesys.
+# //* by Alexander Jaworowski
+# //* Inspiration from https://github.com/br3ttb/Arduino-PID-Library
+# //* https://github.com/alexjaw/PID_controller
+# //* This Library is licensed under a MIT License
+# //
+# // 2015-02-22	Bug fix in the calculation of CO_I.
+# //				Added derivative term (d(err)/dt = -d(PV)/dt, i.e.
+# //				derivative on measurements
+# //***************************************************************
+# FUNCTION_BLOCK PID_controller
+# VAR_INPUT
+# 	SP : REAL;
+# 	PV : REAL;
+# 	Kc : REAL;
+# 	Ti : REAL;
+# 	Td : REAL;
+# 	SampleTime: TIME; //Should be ~0.1 * Tp, Tp : the process time [http://www.controlguru.com/2007/012807.html]
+# 	LowerLimit: REAL;
+# 	UpperLimit: REAL;
+# END_VAR
+# VAR_OUTPUT
+# 	CO: REAL; //Controller Output
+# 	CO_P: REAL; //Prportional term
+# 	CO_I: REAL; //Integral term
+# 	CO_D: REAL; //Derivative term
+# END_VAR
+# VAR CONSTANT
+# 	millis: UINT := 1000;
+# END_VAR
+# VAR
+# 	now: TIME := T#0S;
+# 	lastTime: TIME := T#0S;
+# 	err: REAL := 0; //Process error
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# PID_controller-PID\PID_controller.st
+# --------------------------------------------------
+# //***************************************************************
+# //* A simple PID controller for Codesys.
+# //* by Alexander Jaworowski
+# //* Inspiration from https://github.com/br3ttb/Arduino-PID-Library
+# //* https://github.com/alexjaw/PID_controller
+# //* This Library is licensed under a MIT License
+# //
+# // 2015-02-22	Bug fix in the calculation of CO_I.
+# //				Added derivative term (d(err)/dt = -d(PV)/dt, i.e.
+# //				derivative on measurements
+# //***************************************************************
+# FUNCTION_BLOCK PID_controller
+# VAR_INPUT
+# 	SP : REAL;
+# 	PV : REAL;
+# 	Kc : REAL;
+# 	Ti : REAL;
+# 	Td : REAL;
+# 	SampleTime: TIME; //Should be ~0.1 * Tp, Tp : the process time [http://www.controlguru.com/2007/012807.html]
+# 	LowerLimit: REAL;
+# 	UpperLimit: REAL;
+# END_VAR
+# VAR_OUTPUT
+# 	CO: REAL; //Controller Output
+# 	CO_P: REAL; //Prportional term
+# 	CO_I: REAL; //Integral term
+# 	CO_D: REAL; //Derivative term
+# END_VAR
+# VAR CONSTANT
+# 	millis: UINT := 1000;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# PID_controller-PID\PID_controller.st
+# --------------------------------------------------
+# //***************************************************************
+# //* A simple PID controller for Codesys.
+# //* by Alexander Jaworowski
+# //* Inspiration from https://github.com/br3ttb/Arduino-PID-Library
+# //* https://github.com/alexjaw/PID_controller
+# //* This Library is licensed under a MIT License
+# //
+# // 2015-02-22	Bug fix in the calculation of CO_I.
+# //				Added derivative term (d(err)/dt = -d(PV)/dt, i.e.
+# //				derivative on measurements
+# //***************************************************************
+# FUNCTION_BLOCK PID_controller
+# VAR_INPUT
+# 	SP : REAL;
+# 	PV : REAL;
+# 	Kc : REAL;
+# 	Ti : REAL;
+# 	Td : REAL;
+# 	SampleTime: TIME; //Should be ~0.1 * Tp, Tp : the process time [http://www.controlguru.com/2007/012807.html]
+# 	LowerLimit: REAL;
+# 	UpperLimit: REAL;
+# END_VAR
+# VAR_OUTPUT
+# 	CO: REAL; //Controller Output
+# 	CO_P: REAL; //Prportional term
+# 	CO_I: REAL; //Integral term
+# 	CO_D: REAL; //Derivative term
+
+//***************************************************************
+//* A simple PID controller for Codesys.
+//* by Alexander Jaworowski
+//* Inspiration from https://github.com/br3ttb/Arduino-PID-Library
+//* https://github.com/alexjaw/PID_controller
+//* This Library is licensed under a MIT License
+//
+// 2015-02-22	Bug fix in the calculation of CO_I.
+//				Added derivative term (d(err)/dt = -d(PV)/dt, i.e.
+//				derivative on measurements
+//***************************************************************
+FUNCTION_BLOCK PID_controller
+VAR_INPUT
+	SP : REAL;
+	PV : REAL;
+	Kc : REAL;
+	Ti : REAL;
+	Td : REAL;
+	SampleTime: TIME; //Should be ~0.1 * Tp, Tp : the process time [http://www.controlguru.com/2007/012807.html]
+	LowerLimit: REAL;
+	UpperLimit: REAL;
+END_VAR
+VAR_OUTPUT
+	CO: REAL; //Controller Output
+	CO_P: REAL; //Prportional term
+	CO_I: REAL; //Integral term
+	CO_D: REAL; //Derivative term
+END_VAR
+VAR CONSTANT
+	millis: UINT := 1000;
+END_VAR
+```

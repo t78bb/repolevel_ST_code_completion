@@ -1,0 +1,64 @@
+This is the known requirement information for the function to be completed:\nThis code is intended to implement a function block for controlling or representing the level of a lamp using a BYTE output variable.\nContinue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_Lamp.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_Lamp
+# VAR_OUTPUT
+# 	byLevel			: BYTE;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_Lamp_SetLevel.st
+# --------------------------------------------------
+# METHOD PUBLIC SetLevel : BOOL
+# VAR_OUTPUT
+# 	byLevel			: BYTE;
+# END_VAR
+# VAR_INPUT
+# 	byNewLevel			: BYTE;
+# END_VAR
+# byLevel := byNewLevel;
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_Socket.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_Socket
+# VAR_OUTPUT
+# 	bActive		: BOOL;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_LampSetLevelCommand.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_LampSetLevelCommand IMPLEMENTS I_Command
+# VAR
+# 	refLamp		: REFERENCE TO FB_Lamp;
+# 	byNewLevel	: BYTE;
+# END_VAR
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Command1-FUN\FB_CDPlayer.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC FB_CDPlayer
+# VAR_OUTPUT
+# 	bPlayerActive		: BOOL;
+# 	byVolume			: BYTE;
+# 	byTrack				: UINT;
+# END_VAR
+# 
+# --------------------------------------------------
+
+
+FUNCTION_BLOCK PUBLIC FB_Lamp
+VAR_OUTPUT
+	byLevel			: BYTE;
+END_VAR
+```

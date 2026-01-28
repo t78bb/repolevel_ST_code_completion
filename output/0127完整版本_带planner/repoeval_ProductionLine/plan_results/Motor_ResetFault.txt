@@ -1,0 +1,5 @@
+功能规划:  
+1. 检查输入信号 `MotorI.ResetSignal` 是否被触发（例如值为 TRUE）。  
+2. 如果 `ResetSignal` 被触发，清除 `MotorO.FaultStatus` 标志，设置为 FALSE。  
+3. 如果 `ResetSignal` 被触发，将 `MotorO.OperationStatus` 更新为默认值（例如 READY 状态，具体取决于项目定义）。  
+4. 返回 `ResetFault` 为 TRUE 表示复位成功，否则为 FALSE 表示未执行复位操作。  

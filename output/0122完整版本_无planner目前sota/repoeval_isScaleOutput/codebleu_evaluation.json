@@ -1,0 +1,34 @@
+{
+  "project_name": "repoeval_isScaleOutput",
+  "original_project_name": "isScaleOutput",
+  "total_files": 1,
+  "successful_evaluations": 1,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.6182455406380818,
+    "ngram_match_score": 0.23450101020367534,
+    "weighted_ngram_match_score": 0.5326908550090589,
+    "syntax_match_score": 0.8169014084507042,
+    "dataflow_match_score": 0.8888888888888888
+  },
+  "file_results": [
+    {
+      "filename": "F_isScaleOutput.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\isScaleOutput\\F_isScaleOutput.st",
+      "codebleu": 0.6182455406380818,
+      "ngram_match_score": 0.23450101020367534,
+      "weighted_ngram_match_score": 0.5326908550090589,
+      "syntax_match_score": 0.8169014084507042,
+      "dataflow_match_score": 0.8888888888888888,
+      "reference_length": 568,
+      "prediction_length": 1025
+    }
+  ]
+}

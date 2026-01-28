@@ -1,0 +1,56 @@
+{
+  "project_name": "repoeval_Robotics_DynamicModel",
+  "original_project_name": "Robotics_DynamicModel",
+  "total_files": 4,
+  "successful_evaluations": 2,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.3524230258662609,
+    "ngram_match_score": 0.08943954085892188,
+    "weighted_ngram_match_score": 0.28485271541001805,
+    "syntax_match_score": 0.5316218378162184,
+    "dataflow_match_score": 0.5037780093798854
+  },
+  "file_results": [
+    {
+      "filename": "Test_DynModel_Scara2_Z_CheckScrewAxis.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Robotics_DynamicModel\\Test_DynModel_Scara2_Z_CheckScrewAxis.st",
+      "codebleu": 0.2403398576206168,
+      "ngram_match_score": 0.0006509566482428542,
+      "weighted_ngram_match_score": 0.002006975562998819,
+      "syntax_match_score": 0.24817518248175183,
+      "dataflow_match_score": 0.7105263157894737,
+      "reference_length": 928,
+      "prediction_length": 2724
+    },
+    {
+      "filename": "Test_DynModel_Scara2_Z_CheckScrewAxis_1.st",
+      "case_id": 1,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "Test_DynModel_Scara2_Z_CheckStandstillTorque.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Robotics_DynamicModel\\Test_DynModel_Scara2_Z_CheckStandstillTorque.st",
+      "codebleu": 0.464506194111905,
+      "ngram_match_score": 0.1782281250696009,
+      "weighted_ngram_match_score": 0.5676984552570373,
+      "syntax_match_score": 0.815068493150685,
+      "dataflow_match_score": 0.297029702970297,
+      "reference_length": 1095,
+      "prediction_length": 3190
+    },
+    {
+      "filename": "Test_DynModel_Scara2_Z_CheckStandstillTorque_1.st",
+      "case_id": 3,
+      "error": "未找到对应的参考文件"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "project_name": "repoeval_electronic_gear_motion",
+  "original_project_name": "electronic_gear_motion",
+  "total_files": 3,
+  "successful_evaluations": 3,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.4330478235337283,
+    "ngram_match_score": 0.15950023447207443,
+    "weighted_ngram_match_score": 0.3005652809599671,
+    "syntax_match_score": 0.47865374205465616,
+    "dataflow_match_score": 0.460138703314882
+  },
+  "file_results": [
+    {
+      "filename": "FB_DualAxisPower.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\electronic_gear_motion\\FB_DualAxisPower.st",
+      "codebleu": 0.5761179605890856,
+      "ngram_match_score": 0.1951722309172962,
+      "weighted_ngram_match_score": 0.608970447515412,
+      "syntax_match_score": 0.6938775510204082,
+      "dataflow_match_score": 0.8064516129032258,
+      "reference_length": 461,
+      "prediction_length": 1372
+    },
+    {
+      "filename": "FB_GearCoupling.st",
+      "case_id": 1,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\electronic_gear_motion\\FB_GearCoupling.st",
+      "codebleu": 0.25943396226415094,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.03773584905660377,
+      "dataflow_match_score": 0.0,
+      "reference_length": 1096,
+      "prediction_length": 11
+    },
+    {
+      "filename": "FB_GearMotionControl.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\electronic_gear_motion\\FB_GearMotionControl.st",
+      "codebleu": 0.4635915477479483,
+      "ngram_match_score": 0.28332847249892706,
+      "weighted_ngram_match_score": 0.29272539536448927,
+      "syntax_match_score": 0.7043478260869566,
+      "dataflow_match_score": 0.5739644970414202,
+      "reference_length": 2388,
+      "prediction_length": 1822
+    }
+  ]
+}

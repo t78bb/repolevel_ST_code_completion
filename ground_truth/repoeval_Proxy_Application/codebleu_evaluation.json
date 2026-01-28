@@ -1,0 +1,56 @@
+{
+  "project_name": "repoeval_Proxy_Application",
+  "original_project_name": "Proxy_Application",
+  "total_files": 4,
+  "successful_evaluations": 2,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.4674961406287802,
+    "ngram_match_score": 0.031962749235724654,
+    "weighted_ngram_match_score": 0.4424908736308094,
+    "syntax_match_score": 0.5026737967914439,
+    "dataflow_match_score": 0.39285714285714285
+  },
+  "file_results": [
+    {
+      "filename": "Proxy.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Proxy_Application\\Proxy.st",
+      "codebleu": 0.6315360097629349,
+      "ngram_match_score": 0.06347843970225878,
+      "weighted_ngram_match_score": 0.8534219018704894,
+      "syntax_match_score": 0.8235294117647058,
+      "dataflow_match_score": 0.7857142857142857,
+      "reference_length": 323,
+      "prediction_length": 4307
+    },
+    {
+      "filename": "Proxy_1.st",
+      "case_id": 1,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "Realsubject.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Proxy_Application\\Realsubject.st",
+      "codebleu": 0.30345627149462545,
+      "ngram_match_score": 0.00044705876919053463,
+      "weighted_ngram_match_score": 0.03155984539112946,
+      "syntax_match_score": 0.18181818181818182,
+      "dataflow_match_score": 0,
+      "reference_length": 59,
+      "prediction_length": 3822
+    },
+    {
+      "filename": "Realsubject_1.st",
+      "case_id": 3,
+      "error": "未找到对应的参考文件"
+    }
+  ]
+}

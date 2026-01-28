@@ -1,0 +1,73 @@
+{
+  "project_name": "repoeval_electronic_gear_motion",
+  "original_project_name": "electronic_gear_motion",
+  "total_files": 6,
+  "successful_evaluations": 3,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.32333536797435436,
+    "ngram_match_score": 0.04902683500752486,
+    "weighted_ngram_match_score": 0.2818198019710224,
+    "syntax_match_score": 0.3058082625995435,
+    "dataflow_match_score": 0.6566865723193267
+  },
+  "file_results": [
+    {
+      "filename": "FB_DualAxisPower.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\electronic_gear_motion\\FB_DualAxisPower.st",
+      "codebleu": 0.4123083317750653,
+      "ngram_match_score": 0.10102178903027803,
+      "weighted_ngram_match_score": 0.7055518935670207,
+      "syntax_match_score": 0.32653061224489793,
+      "dataflow_match_score": 0.5161290322580645,
+      "reference_length": 461,
+      "prediction_length": 2681
+    },
+    {
+      "filename": "FB_DualAxisPower_1.st",
+      "case_id": 1,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_GearCoupling.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\electronic_gear_motion\\FB_GearCoupling.st",
+      "codebleu": 0.2666472485747393,
+      "ngram_match_score": 0.02894929273743892,
+      "weighted_ngram_match_score": 0.1063728552003323,
+      "syntax_match_score": 0.2169811320754717,
+      "dataflow_match_score": 0.7142857142857143,
+      "reference_length": 1096,
+      "prediction_length": 3377
+    },
+    {
+      "filename": "FB_GearCoupling_1.st",
+      "case_id": 3,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_GearMotionControl.st",
+      "case_id": 4,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\electronic_gear_motion\\FB_GearMotionControl.st",
+      "codebleu": 0.29105052357325845,
+      "ngram_match_score": 0.017109423254857623,
+      "weighted_ngram_match_score": 0.033534657145714145,
+      "syntax_match_score": 0.3739130434782609,
+      "dataflow_match_score": 0.7396449704142012,
+      "reference_length": 2388,
+      "prediction_length": 4207
+    },
+    {
+      "filename": "FB_GearMotionControl_1.st",
+      "case_id": 5,
+      "error": "未找到对应的参考文件"
+    }
+  ]
+}

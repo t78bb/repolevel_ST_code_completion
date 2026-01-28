@@ -1,0 +1,101 @@
+This is the known requirement information for the function to be completed:\nThis code is intended to implement the creation of a directory path by concatenating a file path and device name, and then creating the directory if it does not already exist.\nContinue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# core-FUN\fileSave.st
+# --------------------------------------------------
+# FUNCTION_BLOCK fileSave
+# VAR_INPUT
+# 	filePath 	:STRING;
+# 	intervalt	:INT;
+# END_VAR
+# VAR
+# 	lineCount	: INT;
+# 	fileHandle  : DWORD;
+# 	fileName	: STRING;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# --------------------------------------------------
+# the below code fragment can be found in:
+# can-FUN\fileSave.st
+# --------------------------------------------------
+# FUNCTION_BLOCK fileSave
+# VAR_INPUT
+# 	filePath 	:STRING;
+# 	intervalt	:INT;
+# END_VAR
+# VAR
+# 	lineCount	: INT;
+# 	fileHandle  : DWORD;
+# 	fileName	: STRING;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# --------------------------------------------------
+# the below code fragment can be found in:
+# modbus-FUN\fileSave.st
+# --------------------------------------------------
+# FUNCTION_BLOCK fileSave
+# VAR_INPUT
+# 	filePath 	:STRING;
+# 	intervalt	:INT;
+# END_VAR
+# VAR
+# 	lineCount	: INT;
+# 	fileHandle  : DWORD;
+# 	fileName	: STRING;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# --------------------------------------------------
+# the below code fragment can be found in:
+# healthydata-FUN\fileSave.st
+# --------------------------------------------------
+# FUNCTION_BLOCK fileSave
+# VAR_INPUT
+# 	filePath 	:STRING;
+# 	intervalt	:INT;
+# END_VAR
+# VAR
+# 	lineCount	: INT;
+# 	fileHandle  : DWORD;
+# 	fileName	: STRING;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# --------------------------------------------------
+# the below code fragment can be found in:
+# can-FUN\fileSave_createDir.st
+# --------------------------------------------------
+# FUNCTION_BLOCK fileSave
+# VAR_INPUT
+# 	filePath 	:STRING;
+# 	devName		: STRING ;
+# 	intervalt	:INT;
+# END_VAR
+# VAR
+# 	lineCount	: INT;
+# 	fileHandle  : DWORD;
+# 	fileName	: STRING;
+# 	filePath1	:STRING;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# 
+# filePath1 := FilePath;
+# filePath1 := concat(filePath1,'/');
+# filePath1 := concat(filePath1,devName);
+# SysDirCreate2(filePath1, TRUE);
+# --------------------------------------------------
+
+
+FUNCTION_BLOCK fileSave
+VAR_INPUT
+	filePath 	:STRING;
+	devName		: STRING ;
+	intervalt	:INT;
+END_VAR
+```

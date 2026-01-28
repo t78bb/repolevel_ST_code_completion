@@ -1,0 +1,118 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement the update logic for door animation values based on open, close, and floor call commands within specified constraints.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:  
+1. 如果 `bOpenDoor` 为 `TRUE`，并且 `nCurrentAni` 小于 `nMaxAni`，则增加 `nCurrentAni` 的值，直到等于 `nMaxAni`。  
+2. 如果 `bCloseDoor` 为 `TRUE`，并且 `nCurrentAni` 大于 `0`，则减少 `nCurrentAni` 的值，直到等于 `0`。  
+3. 如果 `bCallFloor` 为 `TRUE`，且 `nCurrentAni` 不为 `nMaxAni`，增加 `nCurrentAni` 的值，直到等于 `nMaxAni`。  
+4. 如果 `bCallFloor` 为 `FALSE`，且 `bOpenDoor` 和 `bCloseDoor` 均为 `FALSE`，保持 `nCurrentAni` 不变。  
+5. 返回更新后的 `nCurrentAni` 值作为函数的输出结果。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# elevator-FUN\F_UpdateDoorAnimation.st
+# --------------------------------------------------
+# FUNCTION F_UpdateDoorAnimation : DINT
+# VAR_INPUT
+# 	bOpenDoor		:	BOOL;		// 开门命令
+# 	bCloseDoor		:	BOOL;		// 关门命令
+# 	bCallFloor		:	BOOL;		// 该楼层有呼叫
+# 	nCurrentAni		:	DINT;		// 当前动画值
+# 	nMaxAni			:	DINT := 70;	// 最大动画值
+# END_VAR
+# VAR
+# 	nNewAni			:	DINT;		// 新的动画值
+# END_VAR
+# 
+# nNewAni := nCurrentAni;
+# 
+# // 开门动画（增加动画值）
+# IF bOpenDoor AND nNewAni < nMaxAni AND bCallFloor THEN
+# 	nNewAni := nNewAni + 1;
+# END_IF
+# 
+# // 关门动画（减少动画值）
+# IF bCloseDoor AND nNewAni > 0 THEN
+# 	nNewAni := nNewAni - 1;
+# END_IF
+# 
+# F_UpdateDoorAnimation := nNewAni;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# elevator-FUN\F_UpdateDoorAnimation.st
+# --------------------------------------------------
+# FUNCTION F_UpdateDoorAnimation : DINT
+# VAR_INPUT
+# 	bOpenDoor		:	BOOL;		// 开门命令
+# 	bCloseDoor		:	BOOL;		// 关门命令
+# 	bCallFloor		:	BOOL;		// 该楼层有呼叫
+# 	nCurrentAni		:	DINT;		// 当前动画值
+# 	nMaxAni			:	DINT := 70;	// 最大动画值
+# END_VAR
+# VAR
+# 	nNewAni			:	DINT;		// 新的动画值
+# END_VAR
+# 
+# nNewAni := nCurrentAni;
+# 
+# // 开门动画（增加动画值）
+# IF bOpenDoor AND nNewAni < nMaxAni AND bCallFloor THEN
+# 	nNewAni := nNewAni + 1;
+# END_IF
+# 
+# // 关门动画（减少动画值）
+# IF bCloseDoor AND nNewAni > 0 THEN
+# 	nNewAni := nNewAni - 1;
+# END_IF
+# 
+# F_UpdateDoorAnimation := nNewAni;
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# elevator-FUN\FB_ElevatorMovement.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_ElevatorMovement
+# VAR_INPUT
+# 	CurrentFloor		:	INT;				// 当前楼层
+# 	bDoorReady			:	BOOL;				// 门准备好
+# END_VAR
+# VAR_IN_OUT
+# 	TargetFloors		:	ARRAY[0..3] OF BOOL;	// 目标楼层数组
+# END_VAR
+# VAR_OUTPUT
+# 	bMovingUp			:	BOOL;				// 向上移动
+# 	bMovingDown			:	BOOL;				// 向下移动
+# 	bArrivedAtTarget	:	BOOL;				// 到达目标楼层
+# END_VAR
+# VAR
+# 	fbMoveDelayTimer	:	TON;				// 移动延时定时器
+# 	i					:	INT;				// 循环变量
+# 	bHasUpperRequest	:	BOOL;				// 有更高楼层请求
+# 	bHasLowerRequest	:	BOOL;				// 有更低楼层请求
+# END_VAR
+# 
+# // 检查是否到达目标楼层
+# IF TargetFloors[CurrentFloor] THEN
+# 	bArrivedAtTarget := TRUE;
+# 	TargetFloors[CurrentFloor] := FALSE; // 清除请求
+# 	bMovingUp := FALSE;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# elevator-FUN\FB_ElevatorMovement.st
+# ------------------------------------------------
+
+FUNCTION F_UpdateDoorAnimation : DINT
+VAR_INPUT
+	bOpenDoor		:	BOOL;		// 开门命令
+	bCloseDoor		:	BOOL;		// 关门命令
+	bCallFloor		:	BOOL;		// 该楼层有呼叫
+	nCurrentAni		:	DINT;		// 当前动画值
+	nMaxAni			:	DINT := 70;	// 最大动画值
+END_VAR
+```

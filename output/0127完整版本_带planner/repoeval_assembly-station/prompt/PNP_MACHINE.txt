@@ -1,0 +1,150 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement the control logic for a pick-and-place machine that moves a lid from a clamped position to a base using a picker and arm mechanism, with state management for movement, item detection, and gripper actions.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 检查输入变量 `Reset` 的状态，若为 TRUE，重置所有输出变量 (`LidPicked`, `LidPlaced`) 并停止执行后续逻辑。
+2. 检查输入变量 `BaseClamped` 和 `LidClamped` 的状态，确认设备准备状态是否满足操作条件。
+3. 如果 `LidClamped` 为 TRUE，则执行拾取操作，设置输出变量 `LidPicked` 为 TRUE。
+4. 在 `LidPicked` 为 TRUE 且进入适当位置时，执行放置操作，设置输出变量 `LidPlaced` 为 TRUE。
+5. 在放置完成后，复位状态，将 `LidPicked` 和 `LidPlaced` 的状态更新为 FALSE，准备下一循环。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# assembly-station-FUN\PNP_MACHINE.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC PNP_MACHINE
+# VAR_INPUT
+# 	BaseClamped: BOOL;
+# 	LidClamped: BOOL;
+# 	Reset: BOOL := FALSE;
+# END_VAR
+# 
+# VAR_OUTPUT
+# 	LidPicked: BOOL := FALSE;
+# 	LidPlaced: BOOL := FALSE;
+# END_VAR
+# 
+# VAR
+# 	FB_ItemDetect : R_TRIG;
+# 	FB_MovingZ: F_TRIG;
+# 	FB_MovingX : F_TRIG;
+# 	
+# 	_pickerMoved: BOOL := FALSE;
+# 	_movePicker: BOOL := FALSE;
+# 	_moveArm: BOOL := FALSE;
+# 	_armMoved : BOOL := FALSE;
+# 	_grabItem: BOOL := FALSE;
+# 	_itemDetected: BOOL := FALSE;
+# 	_gripperAtLid: BOOL := FALSE;
+# 	_gripperAtBase: BOOL := FALSE;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# assembly-station-FUN\PNP_MACHINE.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC PNP_MACHINE
+# VAR_INPUT
+# 	BaseClamped: BOOL;
+# 	LidClamped: BOOL;
+# 	Reset: BOOL := FALSE;
+# END_VAR
+# 
+# VAR_OUTPUT
+# 	LidPicked: BOOL := FALSE;
+# 	LidPlaced: BOOL := FALSE;
+# END_VAR
+# 
+# VAR
+# 	FB_ItemDetect : R_TRIG;
+# 	FB_MovingZ: F_TRIG;
+# 	FB_MovingX : F_TRIG;
+# 	
+# 	_pickerMoved: BOOL := FALSE;
+# 	_movePicker: BOOL := FALSE;
+# 	_moveArm: BOOL := FALSE;
+# 	_armMoved : BOOL := FALSE;
+# 	_grabItem: BOOL := FALSE;
+# 	_itemDetected: BOOL := FALSE;
+# 	_gripperAtLid: BOOL := FALSE;
+# 	_gripperAtBase: BOOL := FALSE;
+# END_VAR
+# 
+# FB_MovingZ(CLK := FIO.FIO_iMovingZ);
+# FB_MovingX(CLK:= FIO.FIO_iMovingX);
+# FB_ItemDetect(CLK := FIO.FIO_iItemDetected);
+# 
+# FIO.FIO_oMoveZ := _movePicker;
+# FIO.FIO_oGrab := _grabItem;
+# FIO.FIO_oMoveX := _moveArm;
+# 
+# IF Reset THEN
+# 	_pickerMoved := FALSE;
+# 	_movePicker := FALSE;
+# 	_grabItem := FALSE;
+# 	_moveArm := FALSE;
+# 	_armMoved := FALSE;
+# 	LidPicked := FALSE;
+# 	LidPlaced := FALSE;
+# 	_itemDetected := FALSE;
+# 	_gripperAtLid := FALSE;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# assembly-station-FUN\PNP_MACHINE.st
+# --------------------------------------------------
+# FUNCTION_BLOCK PUBLIC PNP_MACHINE
+# VAR_INPUT
+# 	BaseClamped: BOOL;
+# 	LidClamped: BOOL;
+# 	Reset: BOOL := FALSE;
+# END_VAR
+# 
+# VAR_OUTPUT
+# 	LidPicked: BOOL := FALSE;
+# 	LidPlaced: BOOL := FALSE;
+# END_VAR
+# 
+# VAR
+# 	FB_ItemDetect : R_TRIG;
+# 	FB_MovingZ: F_TRIG;
+# 	FB_MovingX : F_TRIG;
+# 	
+# 	_pickerMoved: BOOL := FALSE;
+# 	_movePicker: BOOL := FALSE;
+# 	_moveArm: BOOL := FALSE;
+# 	_armMoved : BOOL := FALSE;
+# 	_grabItem: BOOL := FALSE;
+# 	_itemDetected: BOOL := FALSE;
+# 	_gripperAtLid: BOOL := FALSE;
+# 	_gripperAtBase: BOOL := FALSE;
+# END_VAR
+# 
+# FB_MovingZ(CLK := FIO.FIO_iMovingZ);
+# FB_MovingX(CLK:= FIO.FIO_iMovingX);
+# FB_ItemDetect(CLK := FIO.FIO_iItemDetected);
+# 
+# FIO.FIO_oMoveZ := _movePicker;
+# FIO.FIO_oGrab := _grabItem;
+# FIO.FIO_oMoveX := _moveArm;
+# 
+# IF Reset THEN
+# 	_pickerMoved := FALSE;
+# 	_movePicker := FALSE;
+# 	_grabItem := FALSE;
+# 	_moveArm
+
+FUNCTION_BLOCK PUBLIC PNP_MACHINE
+VAR_INPUT
+	BaseClamped: BOOL;
+	LidClamped: BOOL;
+	Reset: BOOL := FALSE;
+END_VAR
+
+VAR_OUTPUT
+	LidPicked: BOOL := FALSE;
+	LidPlaced: BOOL := FALSE;
+END_VAR
+```

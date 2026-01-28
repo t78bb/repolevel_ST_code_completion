@@ -1,0 +1,88 @@
+This is the known requirement information for the function to be completed:\nThis code is intended to implement a mapping logic that translates modbus logical addresses into local physical indices, specifying the level (sky or ground), direction (extend or retract), and corresponding physical index for different sections and logical indices.\nContinue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# modbus-FUN\mdbsLogicToPhy.st
+# --------------------------------------------------
+# FUNCTION_BLOCK mdbsLogicToPhy	//modbus华中挡板地址编号对应本地索引编号
+# VAR_INPUT
+# 	section		:INT;	//区域限定 1:skyExt, 2:skyRet, 3:grdExt, 4:grdRet)
+# 	lgcIdx		:INT;	//华中对应的地址	10,14{1..10}  17,20{1..11}
+# END_VAR
+# VAR_OUTPUT
+# 	level		:INT;	//1->地轨	2->天轨
+# 	phyIdx		:INT;	//内存物理地址对应数组索引
+# 	direct		:TargetDirect;
+# END_VAR
+# VAR
+# END_VAR
+# 
+# (**
+#  * 将华中指令解析为要动作挡板的标号
+#  * (level:1->地轨	2->天轨)(phyIdx:内存物理地址对应数组索引)
+#  *)
+# CASE section OF
+# 	1://区域限定1:skyExtend)
+# 		level := 2;
+# 		direct := TargetDirect.extend;
+# 		CASE lgcIdx OF
+# 			1:	phyIdx := 1;		//横1	->	sky1
+# 			2:	phyIdx := 3;		//横2	->	sky3
+# 			3:	phyIdx := 4;		//横3	->	sky4
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# modbus-FUN\mdbsLogicToPhy.st
+# --------------------------------------------------
+# FUNCTION_BLOCK mdbsLogicToPhy	//modbus华中挡板地址编号对应本地索引编号
+# VAR_INPUT
+# 	section		:INT;	//区域限定 1:skyExt, 2:skyRet, 3:grdExt, 4:grdRet)
+# 	lgcIdx		:INT;	//华中对应的地址	10,14{1..10}  17,20{1..11}
+# END_VAR
+# VAR_OUTPUT
+# 	level		:INT;	//1->地轨	2->天轨
+# 	phyIdx		:INT;	//内存物理地址对应数组索引
+# 	direct		:TargetDirect;
+# END_VAR
+# VAR
+# END_VAR
+# 
+# (**
+#  * 将华中指令解析为要动作挡板的标号
+#  * (level:1->地轨	2->天轨)(phyIdx:内存物理地址对应数组索引)
+#  *)
+# CASE section OF
+# 	1://区域限定1:skyExtend)
+# 		level := 2;
+# 		direct := TargetDirect.extend;
+# 		CASE lgcIdx OF
+# 			1:	phyIdx := 1;		//横1	->	sky1
+# 			2:	phyIdx := 3;		//横2	->	sky3
+# 			3:	phyIdx := 4;		//横3	->	sky4
+# 			4:	phyIdx := 5;		//横4	->	sky5
+# 			5:	phyIdx := 6;		//横5	->	sky6
+# 			6:	phyIdx := 8;		//横6	->	sky8
+# 			7:	phyIdx := 9;		//横7	->	sky9
+# 			8:	phyIdx := 10;		//横8	->	sky10
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# modbus-FUN\mdbsLogicToPhy.st
+# --------------------------------------------------
+# FUNCTION_BLOCK mdbsLogicToPhy	//modbus华中挡板地址编号对应本地索引编号
+# VAR_INPUT
+# 	section		:INT;	//区域限定 1:skyExt
+
+FUNCTION_BLOCK mdbsLogicToPhy	//modbus华中挡板地址编号对应本地索引编号
+VAR_INPUT
+	section		:INT;	//区域限定 1:skyExt, 2:skyRet, 3:grdExt, 4:grdRet)
+	lgcIdx		:INT;	//华中对应的地址	10,14{1..10}  17,20{1..11}
+END_VAR
+VAR_OUTPUT
+	level		:INT;	//1->地轨	2->天轨
+	phyIdx		:INT;	//内存物理地址对应数组索引
+	direct		:TargetDirect;
+END_VAR
+```

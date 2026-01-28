@@ -1,0 +1,5 @@
+功能规划:  
+1. 初始化变量 `nValue`，确保为有效的数值。  
+2. 检查输入信号 `bReset` 的状态，如果为 TRUE，则将 `nValue` 设置为 0。  
+3. 如果 `bReset` 为 FALSE，检查 `bUp` 的状态，如果为 TRUE，则递增 `nValue` 的值。  
+4. 如果 `bReset` 为 FALSE，检查 `bDown` 的状态，如果为 TRUE，则递减 `nValue` 的值。

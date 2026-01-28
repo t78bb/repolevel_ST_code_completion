@@ -1,0 +1,10 @@
+功能规划:
+1. 检查输入信号 `bExecute` 是否为 TRUE，若为 FALSE，清除所有回零状态标志及错误标志，设置 `bBusy` 为 FALSE，退出流程。
+2. 设置 `bBusy` 为 TRUE，开始回零流程，并初始化回零状态标志 `bAxisXHomeOK`、`bAxisYHomeOK`、`bAxisZHomeOK` 为 FALSE。
+3. 对三轴依次进行回零操作：
+   - 对于 `AxisX`，检查 `bAxisXRefSwitch` 状态：
+     - 若未触发零点开关，执行快速运动 (`fVelocityFast`)，直到触发零点开关。
+     - 零点开关触发后，切换为慢速运动 (`fVelocitySlow`)，精确停到零点并设置 `bAxisXHomeOK` 为 TRUE。
+   - 对于 `AxisY` 和 `AxisZ`，分别重复相同逻辑，依次检查 `bAxisYRefSwitch` 和 `bAxisZRefSwitch` 状态，并完成相应回零。
+4. 当 `bAxisXHomeOK`、`bAxisYHomeOK` 和 `bAxisZHomeOK` 全部为 TRUE 时，设置 `bHomeOK` 为 TRUE，清除 `bBusy` 标志。
+5. 在任意阶段若发生错误（如运动超时或硬件故障），设置 `bError` 为 TRUE，更新错误信息到 `sErrorString`，强制停止所有轴的运动，并清除 `bBusy` 标志。

@@ -1,0 +1,5 @@
+功能规划:
+1. 计算轴位置变化量，公式为 lDeltaH := ABS(lHnew - lHold)。
+2. 计算总的有效高度，公式为 lEffectiveHeight := lDeltaH + lTk + lOffset。
+3. 根据两轴中心距离 lD 和有效高度 lEffectiveHeight，计算半径，公式为 lRadius := SQRT((lD / 2)^2 + lEffectiveHeight^2)。
+4. 返回计算得到的半径值 lRadius。

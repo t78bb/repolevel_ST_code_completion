@@ -1,0 +1,143 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement manual control logic for operating a mixer, medium valves, and a drain valve based on HMI commands and feedback signals using latch logic.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 当接收到 `bMixerRunCmd` 时，设置 `bMixerRunCmdOut` 为 TRUE；当接收到 `bMixerStopCmd` 时，设置 `bMixerRunCmdOut` 为 FALSE。
+2. 当接收到 `bMedium1OpenCmd` 时，设置 `bMedium1OpenCmdOut` 为 TRUE；当接收到 `bMedium1CloseCmd` 时，设置 `bMedium1OpenCmdOut` 为 FALSE。
+3. 当接收到 `bMedium2OpenCmd` 时，设置 `bMedium2OpenCmdOut` 为 TRUE；当接收到 `bMedium2CloseCmd` 时，设置 `bMedium2OpenCmdOut` 为 FALSE。
+4. 当接收到 `bDrainOpenCmd` 时，设置 `bDrainOpenCmdOut` 为 TRUE；当接收到 `bDrainCloseCmd` 时，设置 `bDrainOpenCmdOut` 为 FALSE。
+5. 在更新输出命令变量时，验证设备状态反馈信号（如 `bMixerRunning`、`bMedium1Opened`、`bMedium2Opened`、`bDrainOpened`），确保命令生效时符合当前设备的运行状态或逻辑需求。
+6. 确保所有命令输出变量符合锁存逻辑（Latch），直到接收到明确的停止或关闭命令后才复原。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# plc_hello_mixing_tank-FUN\FB_ManualControl.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_ManualControl
+# VAR_INPUT
+# 	// HMI命令输入
+# 	bMixerRunCmd		:	BOOL;
+# 	bMixerStopCmd		:	BOOL;
+# 	bMedium1OpenCmd		:	BOOL;
+# 	bMedium1CloseCmd	:	BOOL;
+# 	bMedium2OpenCmd		:	BOOL;
+# 	bMedium2CloseCmd	:	BOOL;
+# 	bDrainOpenCmd		:	BOOL;
+# 	bDrainCloseCmd		:	BOOL;
+# 	
+# 	// 设备反馈输入
+# 	bMixerRunning		:	BOOL;
+# 	bMedium1Opened		:	BOOL;
+# 	bMedium2Opened		:	BOOL;
+# 	bDrainOpened		:	BOOL;
+# END_VAR
+# VAR_OUTPUT
+# 	// 设备控制输出
+# 	bMixerRunCmdOut		:	BOOL;
+# 	bMedium1OpenCmdOut	:	BOOL;
+# 	bMedium2OpenCmdOut	:	BOOL;
+# 	bDrainOpenCmdOut	:	BOOL;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# plc_hello_mixing_tank-FUN\FB_ManualControl.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_ManualControl
+# VAR_INPUT
+# 	// HMI命令输入
+# 	bMixerRunCmd		:	BOOL;
+# 	bMixerStopCmd		:	BOOL;
+# 	bMedium1OpenCmd		:	BOOL;
+# 	bMedium1CloseCmd	:	BOOL;
+# 	bMedium2OpenCmd		:	BOOL;
+# 	bMedium2CloseCmd	:	BOOL;
+# 	bDrainOpenCmd		:	BOOL;
+# 	bDrainCloseCmd		:	BOOL;
+# 	
+# 	// 设备反馈输入
+# 	bMixerRunning		:	BOOL;
+# 	bMedium1Opened		:	BOOL;
+# 	bMedium2Opened		:	BOOL;
+# 	bDrainOpened		:	BOOL;
+# END_VAR
+# VAR_OUTPUT
+# 	// 设备控制输出
+# 	bMixerRunCmdOut		:	BOOL;
+# 	bMedium1OpenCmdOut	:	BOOL;
+# 	bMedium2OpenCmdOut	:	BOOL;
+# 	bDrainOpenCmdOut	:	BOOL;
+# END_VAR
+# 
+# // 手动模式：HMI命令通过锁存器控制设备
+# // 锁存逻辑：按下启动OR已启动反馈 AND NOT 按下停止
+# 
+# // 混合电机控制
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# plc_hello_mixing_tank-FUN\FB_ManualControl.st
+# --------------------------------------------------
+# FUNCTION_BLOCK FB_ManualControl
+# VAR_INPUT
+# 	// HMI命令输入
+# 	bMixerRunCmd		:	BOOL;
+# 	bMixerStopCmd		:	BOOL;
+# 	bMedium1OpenCmd		:	BOOL;
+# 	bMedium1CloseCmd	:	BOOL;
+# 	bMedium2OpenCmd		:	BOOL;
+# 	bMedium2CloseCmd	:	BOOL;
+# 	bDrainOpenCmd		:	BOOL;
+# 	bDrainCloseCmd		:	BOOL;
+# 	
+# 	// 设备反馈输入
+# 	bMixerRunning		:	BOOL;
+# 	bMedium1Opened		:	BOOL;
+# 	bMedium2Opened		:	BOOL;
+# 	bDrainOpened		:	BOOL;
+# END_VAR
+# VAR_OUTPUT
+# 	// 设备控制输出
+# 	bMixerRunCmdOut		:	BOOL;
+# 	bMedium1OpenCmdOut	:	BOOL;
+# 	bMedium2OpenCmdOut	:	BOOL;
+# 	bDrainOpenCmdOut	:	BOOL;
+# END_VAR
+# 
+# // 手动模式：HMI命令通过锁存器控制设备
+# // 锁存逻辑：按下启动OR已启动反馈 AND NOT 按下停止
+# 
+# // 混合电机控制
+# bMixerRunCmdOut := (bMixerRunCmd OR bMixerRunning) AND NOT bMixerStopCmd;
+# 
+# //
+
+FUNCTION_BLOCK FB_ManualControl
+VAR_INPUT
+	// HMI命令输入
+	bMixerRunCmd		:	BOOL;
+	bMixerStopCmd		:	BOOL;
+	bMedium1OpenCmd		:	BOOL;
+	bMedium1CloseCmd	:	BOOL;
+	bMedium2OpenCmd		:	BOOL;
+	bMedium2CloseCmd	:	BOOL;
+	bDrainOpenCmd		:	BOOL;
+	bDrainCloseCmd		:	BOOL;
+	
+	// 设备反馈输入
+	bMixerRunning		:	BOOL;
+	bMedium1Opened		:	BOOL;
+	bMedium2Opened		:	BOOL;
+	bDrainOpened		:	BOOL;
+END_VAR
+VAR_OUTPUT
+	// 设备控制输出
+	bMixerRunCmdOut		:	BOOL;
+	bMedium1OpenCmdOut	:	BOOL;
+	bMedium2OpenCmdOut	:	BOOL;
+	bDrainOpenCmdOut	:	BOOL;
+END_VAR
+```

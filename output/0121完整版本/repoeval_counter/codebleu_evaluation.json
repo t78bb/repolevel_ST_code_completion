@@ -1,0 +1,34 @@
+{
+  "project_name": "repoeval_counter",
+  "original_project_name": "counter",
+  "total_files": 1,
+  "successful_evaluations": 1,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.4331600531564567,
+    "ngram_match_score": 0.027584251233818895,
+    "weighted_ngram_match_score": 0.08124643758248418,
+    "syntax_match_score": 0.7666666666666667,
+    "dataflow_match_score": 0.8571428571428571
+  },
+  "file_results": [
+    {
+      "filename": "FB_counter.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\counter\\FB_counter.st",
+      "codebleu": 0.4331600531564567,
+      "ngram_match_score": 0.027584251233818895,
+      "weighted_ngram_match_score": 0.08124643758248418,
+      "syntax_match_score": 0.7666666666666667,
+      "dataflow_match_score": 0.8571428571428571,
+      "reference_length": 148,
+      "prediction_length": 307
+    }
+  ]
+}

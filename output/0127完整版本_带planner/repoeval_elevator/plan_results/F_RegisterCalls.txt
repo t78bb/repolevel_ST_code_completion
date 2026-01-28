@@ -1,0 +1,5 @@
+功能规划:
+1. 检查输入信号 `CallGround` 是否为真，如果为真，则将 `TargetFloors[0]` 设为真。
+2. 检查输入信号 `CallFloor1` 是否为真，如果为真，则将 `TargetFloors[1]` 设为真。
+3. 检查输入信号 `CallFloor2` 是否为真，如果为真，则将 `TargetFloors[2]` 设为真。
+4. 检查输入信号 `CallFloor3` 是否为真，如果为真，则将 `TargetFloors[3]` 设为真。

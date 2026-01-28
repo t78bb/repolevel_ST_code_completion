@@ -1,0 +1,131 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement the detection of the current floor based on sensor inputs, with the ability to retain the previous floor state when no sensor signal is active.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 检查 FloorSensor0、FloorSensor1、FloorSensor2 和 FloorSensor3 的状态，确认是否有传感器信号为 TRUE。
+2. 如果某个传感器信号为 TRUE，根据对应的楼层传感器（0、1、2、3）设置 CurrentFloor 为该楼层编号。
+3. 如果所有传感器信号均为 FALSE，则保持输入的 CurrentFloor 值不变。
+4. 返回最终的 CurrentFloor 值作为函数输出。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# elevator-FUN\F_DetectCurrentFloor.st
+# --------------------------------------------------
+# FUNCTION F_DetectCurrentFloor : INT
+# VAR_INPUT
+# 	FloorSensor0	:	BOOL;		// 0楼传感器
+# 	FloorSensor1	:	BOOL;		// 1楼传感器
+# 	FloorSensor2	:	BOOL;		// 2楼传感器
+# 	FloorSensor3	:	BOOL;		// 3楼传感器
+# 	CurrentFloor	:	INT;		// 当前楼层（用于保持状态）
+# END_VAR
+# 
+# // 根据传感器输入确定当前楼层
+# IF FloorSensor0 THEN 
+# 	F_DetectCurrentFloor := 0;
+# ELSIF FloorSensor1 THEN 
+# 	F_DetectCurrentFloor := 1;
+# ELSIF FloorSensor2 THEN 
+# 	F_DetectCurrentFloor := 2;
+# ELSIF FloorSensor3 THEN 
+# 	F_DetectCurrentFloor := 3;
+# ELSE
+# 	// 没有传感器信号时，保持当前楼层
+# 	F_DetectCurrentFloor := CurrentFloor;
+# END_IF
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# elevator-FUN\F_RegisterCalls.st
+# --------------------------------------------------
+# FUNCTION F_RegisterCalls
+# VAR_INPUT
+# 	CallGround		:	BOOL;		// 0楼呼叫
+# 	CallFloor1		:	BOOL;		// 1楼呼叫
+# 	CallFloor2		:	BOOL;		// 2楼呼叫
+# 	CallFloor3		:	BOOL;		// 3楼呼叫
+# END_VAR
+# VAR_IN_OUT
+# 	TargetFloors	:	ARRAY[0..3] OF BOOL;	// 目标楼层数组
+# END_VAR
+# 
+# // 注册各楼层的呼叫请求
+# IF CallGround THEN 
+# 	TargetFloors[0] := TRUE; 
+# END_IF
+# 
+# IF CallFloor1 THEN 
+# 	TargetFloors[1] := TRUE; 
+# END_IF
+# 
+# IF CallFloor2 THEN 
+# 	TargetFloors[2] := TRUE; 
+# END_IF
+# 
+# IF CallFloor3 THEN 
+# 	TargetFloors[3] := TRUE; 
+# END_IF
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# elevator-FUN\F_RegisterCalls.st
+# --------------------------------------------------
+# FUNCTION F_RegisterCalls
+# VAR_INPUT
+# 	CallGround		:	BOOL;		// 0楼呼叫
+# 	CallFloor1		:	BOOL;		// 1楼呼叫
+# 	CallFloor2		:	BOOL;		// 2楼呼叫
+# 	CallFloor3		:	BOOL;		// 3楼呼叫
+# END_VAR
+# VAR_IN_OUT
+# 	TargetFloors	:	ARRAY[0..3] OF BOOL;	// 目标楼层数组
+# END_VAR
+# 
+# // 注册各楼层的呼叫请求
+# IF CallGround THEN 
+# 	TargetFloors[0] := TRUE; 
+# END_IF
+# 
+# IF CallFloor1 THEN 
+# 	TargetFloors[1] := TRUE; 
+# END_IF
+# 
+# IF CallFloor2 THEN 
+# 	TargetFloors[2] := TRUE; 
+# END_IF
+# 
+# IF CallFloor3 THEN 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# elevator-PRG\PLC_PRG.st
+# --------------------------------------------------
+# PROGRAM PLC_PRG
+# VAR
+# 	// 输入信号
+# 	CallGround, CallFloor1, CallFloor2, CallFloor3: BOOL;
+# 	FloorSensor0, FloorSensor1, FloorSensor2, FloorSensor3: BOOL;
+# 	DoorClosed: BOOL;
+# 	EmergencyStop: BOOL;
+# 
+# 	// 输出信号
+# 	OpenDoor: BOOL := FALSE;
+# 	CloseDoor: BOOL := FALSE;
+# 
+# 	// 内部变量
+# 	Target
+
+FUNCTION F_DetectCurrentFloor : INT
+VAR_INPUT
+	FloorSensor0	:	BOOL;		// 0楼传感器
+	FloorSensor1	:	BOOL;		// 1楼传感器
+	FloorSensor2	:	BOOL;		// 2楼传感器
+	FloorSensor3	:	BOOL;		// 3楼传感器
+	CurrentFloor	:	INT;		// 当前楼层（用于保持状态）
+END_VAR
+```

@@ -2,5 +2,6 @@ set ZHIZENGZENG_API_KEY=sk-zk24e98452f64e4b84e7eec2348aba232e067dfafce61520
 set BASE_URL=https://api.zhizengzeng.com/v1
 set OPENAI_API_KEY=sk-zk24e98452f64e4b84e7eec2348aba232e067dfafce61520
 set API_KEY=sk-zk24e98452f64e4b84e7eec2348aba232e067dfafce61520
+setx HF_ENDPOINT "https://hf-mirror.com"
 export ZHIZENGZENG_API_KEY=sk-zk24e98452f64e4b84e7eec2348aba232e067dfafce61520
 export BASE_URL=https://api.zhizengzeng.com/v1

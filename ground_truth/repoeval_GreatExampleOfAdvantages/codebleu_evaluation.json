@@ -1,0 +1,56 @@
+{
+  "project_name": "repoeval_GreatExampleOfAdvantages",
+  "original_project_name": "GreatExampleOfAdvantages",
+  "total_files": 4,
+  "successful_evaluations": 2,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.38874832034762385,
+    "ngram_match_score": 0.0012962637649059888,
+    "weighted_ngram_match_score": 0.05324356337112144,
+    "syntax_match_score": 0.5801635991820041,
+    "dataflow_match_score": 0.42028985507246375
+  },
+  "file_results": [
+    {
+      "filename": "Home.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\GreatExampleOfAdvantages\\Home.st",
+      "codebleu": 0.5094597421107914,
+      "ngram_match_score": 0.0018366255017978343,
+      "weighted_ngram_match_score": 0.10266900960803409,
+      "syntax_match_score": 0.9333333333333333,
+      "dataflow_match_score": 0,
+      "reference_length": 85,
+      "prediction_length": 1726
+    },
+    {
+      "filename": "Home_1.st",
+      "case_id": 1,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "MQTT_STUFF.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\GreatExampleOfAdvantages\\MQTT_STUFF.st",
+      "codebleu": 0.26803689858445634,
+      "ngram_match_score": 0.0007559020280141432,
+      "weighted_ngram_match_score": 0.003818117134208791,
+      "syntax_match_score": 0.22699386503067484,
+      "dataflow_match_score": 0.8405797101449275,
+      "reference_length": 1398,
+      "prediction_length": 3512
+    },
+    {
+      "filename": "MQTT_STUFF_1.st",
+      "case_id": 3,
+      "error": "未找到对应的参考文件"
+    }
+  ]
+}

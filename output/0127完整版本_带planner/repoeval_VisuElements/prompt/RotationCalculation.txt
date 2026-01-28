@@ -1,0 +1,128 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement the calculation of the new coordinates of a point after rotating it around a specified center by a given angle.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 将输入角度 `rAngle` 从度数转换为弧度，以便后续三角函数计算。
+2. 计算点与旋转中心的相对坐标：`rPointX` 减去 `rCenterX`，`rPointY` 减去 `rCenterY`。
+3. 根据旋转角度的弧度值，利用旋转矩阵公式计算旋转后的相对坐标：
+   - 计算新 X 坐标（相对值）为 `(相对X * cos(rAngleRad)) - (相对Y * sin(rAngleRad))`。
+   - 计算新 Y 坐标（相对值）为 `(相对X * sin(rAngleRad)) + (相对Y * cos(rAngleRad))`。
+4. 将旋转后的相对坐标加上旋转中心的坐标，得到最终的全局坐标 `rRotatedX` 和 `rRotatedY`。
+5. 返回函数执行成功状态 `TRUE`。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# VisuElements-FUN\RotationCalculation.st
+# --------------------------------------------------
+# FUNCTION RotationCalculation : BOOL
+# VAR_INPUT
+#     rCenterX : REAL;    (* X coordinate of rotation center *)
+#     rCenterY : REAL;    (* Y coordinate of rotation center *)
+#     rAngle : REAL;      (* Rotation angle in degrees *)
+#     rPointX : REAL;     (* X coordinate of point to rotate *)
+#     rPointY : REAL;     (* Y coordinate of point to rotate *)
+# END_VAR
+# 
+# VAR_OUTPUT
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# VisuElements-FUN\RotationCalculation.st
+# --------------------------------------------------
+# FUNCTION RotationCalculation : BOOL
+# VAR_INPUT
+#     rCenterX : REAL;    (* X coordinate of rotation center *)
+#     rCenterY : REAL;    (* Y coordinate of rotation center *)
+#     rAngle : REAL;      (* Rotation angle in degrees *)
+#     rPointX : REAL;     (* X coordinate of point to rotate *)
+#     rPointY : REAL;     (* Y coordinate of point to rotate *)
+# END_VAR
+# 
+# VAR_OUTPUT
+#     rRotatedX : REAL;   (* X coordinate after rotation *)
+#     rRotatedY : REAL;   (* Y coordinate after rotation *)
+# END_VAR
+# 
+# VAR
+#     rRadians : REAL;
+#     rCos : REAL;
+#     rSin : REAL;
+#     rTranslatedX : REAL;
+#     rTranslatedY : REAL;
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# VisuElements-PRG\Rotation.st
+# --------------------------------------------------
+# PROGRAM Rotation
+# VAR
+#     rCenterX : REAL := 100.0;    (* Center X coordinate *)
+#     rCenterY : REAL := 100.0;    (* Center Y coordinate *)
+#     rAngle : REAL := 45.0;       (* Rotation angle in degrees *)
+#     rPointX : REAL := 150.0;     (* Point X coordinate *)
+#     rPointY : REAL := 100.0;     (* Point Y coordinate *)
+#     rRotatedX : REAL;            (* Result X after rotation *)
+#     rRotatedY : REAL;            (* Result Y after rotation *)
+#     xSuccess : BOOL;             (* Success flag *)
+# END_VAR
+# 
+# (* Calculate rotation points for an object *)
+# xSuccess := RotationCalculation(
+#     rCenterX := rCenterX,
+#     rCenterY := rCenterY,
+#     rAngle := rAngle,
+#     rPointX := rPointX,
+#     rPointY := rPointY,
+#     rRotatedX => rRotatedX,
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# VisuElements-PRG\Rotation.st
+# --------------------------------------------------
+# PROGRAM Rotation
+# VAR
+#     rCenterX : REAL := 100.0;    (* Center X coordinate *)
+#     rCenterY : REAL := 100.0;    (* Center Y coordinate *)
+#     rAngle : REAL := 45.0;       (* Rotation angle in degrees *)
+#     rPointX : REAL := 150.0;     (* Point X coordinate *)
+#     rPointY : REAL := 100.0;     (* Point Y coordinate *)
+#     rRotatedX : REAL;            (* Result X after rotation *)
+#     rRotatedY : REAL;            (* Result Y after rotation *)
+#     xSuccess : BOOL;             (* Success flag *)
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# VisuElements-PRG\Rotation.st
+# --------------------------------------------------
+# END_VAR
+# 
+# (* Calculate rotation points for an object *)
+# xSuccess := RotationCalculation(
+#     rCenterX := rCenterX,
+#     rCenterY := rCenterY,
+#     rAngle := rAngle,
+#     rPointX := rPointX,
+#     rPointY := rPointY,
+#     rRotatedX => rRotatedX,
+#     rRotatedY => rRotatedY
+# );
+# --------------------------------------------------
+
+
+FUNCTION RotationCalculation : BOOL
+VAR_INPUT
+    rCenterX : REAL;    (* X coordinate of rotation center *)
+    rCenterY : REAL;    (* Y coordinate of rotation center *)
+    rAngle : REAL;      (* Rotation angle in degrees *)
+    rPointX : REAL;     (* X coordinate of point to rotate *)
+    rPointY : REAL;     (* Y coordinate of point to rotate *)
+END_VAR
+
+VAR_OUTPUT
+    rRotatedX : REAL;   (* X coordinate after rotation *)
+    rRotatedY : REAL;   (* Y coordinate after rotation *)
+END_VAR
+```

@@ -1,0 +1,6 @@
+功能规划:
+1. 计算 `tTotalTime` 的秒数值（以 TIME_TO_UINT(TIME) 的形式，将 TIME 转换为秒）。
+2. 计算 `tElapsedTime` 的秒数值（以 TIME_TO_UINT(TIME) 的形式，将 TIME 转换为秒）。
+3. 判断 `tElapsedTime` 秒数值是否大于等于 `tTotalTime` 秒数值:
+   - 如果是，则将 `nRemainingSeconds` 置为 0。
+   - 如果不是，则计算剩余秒数 (`tTotalTime` 秒数值减去 `tElapsedTime` 秒数值)，并赋值给 `nRemainingSeconds`。

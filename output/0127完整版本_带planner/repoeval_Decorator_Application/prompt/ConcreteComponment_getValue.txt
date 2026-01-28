@@ -1,0 +1,93 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a method for retrieving the plain real value of an object, representing its cost without additional modifications or decorations.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:
+1. 定义一个本地变量用于存储并返回对象的基本数值（如 REAL 类型的 value）。  
+2. 提取对象内部存储的核心数值属性，用于表示对象的原始成本。  
+3. 将提取到的核心数值赋值给方法返回值 `getValue`。  
+4. 返回结果值给调用方。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Decorator_Application-FUN\Componment_Interface_getValue.st
+# --------------------------------------------------
+# //Ilustrative method of the pattern
+# METHOD getValue : REAL
+# VAR_INPUT
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Decorator_Application-FUN\ConcreteComponment_getValue.st
+# --------------------------------------------------
+# //Illustrative method of the pattern
+# METHOD getValue : REAL
+# VAR_INPUT
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	//String field to store the description of the object
+# 	sDescription : STRING;
+# 	//Real field to store the value of the object
+# 	rValue : REAL;
+# END_VAR
+# 
+# //Assume we are going to calculate the cost os the object.
+# //The plain value (without extra decoration) is given
+# getValue := THIS^.rValue;
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Decorator_Application-FUN\Componment_Interface_getDescription.st
+# --------------------------------------------------
+# //Illustrative method of the pattern
+# METHOD getDescription : String
+# VAR_INPUT
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Decorator_Application-FUN\ConcreteDecoratorB_getValue.st
+# --------------------------------------------------
+# //Illustrative method of the pattern
+# METHOD getValue : REAL
+# VAR_INPUT
+# 	//Reference to store the component to be decorated
+# 	tempInputComponent : Component_Interface;
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# END_VAR
+# 
+# 
+# //Outputs the decorated cost of the component by obtaining the cost of the component to be decorated 
+# // stored in tempComponent.getValue() and then adds the decoration value (0.35 as example)
+# getValue := tempComponent.getValue() + THIS^.rValue;
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Decorator_Application-FUN\ConcreteDecoratorA_getValue.st
+# --------------------------------------------------
+# //Illustrative method of the pattern
+# METHOD getValue : REAL
+# VAR_INPUT
+# 	//Reference to store the component to be decorated
+# 	tempInputComponent : Component_Interface;
+# END_VAR
+# 
+# //Outputs the decorated cost of the component by obtaining the cost of the component to be decorated 
+# // stored in tempComponent.getValue() and then adds the decoration value (0.5 as example)
+# getValue := tempComponent.getValue() + THIS^.rValue;
+# --------------------------------------------------
+
+
+//Illustrative method of the pattern
+METHOD getValue : REAL
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+```

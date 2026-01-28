@@ -1,0 +1,11 @@
+功能规划:
+1. 检查输入变量 `bCouple` 的状态，如果为 TRUE，则执行耦合逻辑；如果为 FALSE，则执行解耦逻辑。
+2. 在耦合逻辑中：
+   - 按照 `nRatioNumerator` 和 `nRatioDenominator` 设置从轴与主轴的齿轮传动比。
+   - 使用设定的 `rAcceleration` 和 `rDeceleration` 参数配置加速与减速过程。
+   - 检查从轴与主轴是否已成功耦合，设置输出变量 `bInGear` 和 `bCouplingDone`。
+3. 在解耦逻辑中：
+   - 解除从轴与主轴的同步关系。
+   - 设置相关输出变量 `bDecouplingDone` 为 TRUE，并清除同步状态 `bInGear`。
+4. 监控耦合或解耦过程中的错误，通过输出变量 `bError` 和 `nErrorID` 标识错误状态及其具体原因。
+5. 确保所有步骤均以主轴和从轴引用（输入变量 `Master` 和 `Slave`）为关键操作对象，动态处理响应状态。

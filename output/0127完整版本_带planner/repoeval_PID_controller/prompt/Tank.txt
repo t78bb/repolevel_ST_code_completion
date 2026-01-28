@@ -1,0 +1,121 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a simulation of a tank system that calculates and updates the fluid level based on input and output flow rates, with constraints on minimum and maximum levels and periodic updates.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:  
+1. 根据 `SampleTime` 计算当前周期的时间增量（以秒为单位）。  
+2. 根据周期时间增量和输入流量 `Process_In` 计算进入储罐的液体体积变化量。  
+3. 根据周期时间增量和输出流量 `Process_Out` 计算流出储罐的液体体积变化量。  
+4. 根据当前储罐液位 `Level`、流入变化量和流出变化量更新储罐液位值。  
+5. 限制储罐液位值 `Level` 在 `[Lower_limit, Upper_limit]` 范围内，如果超出范围则设置为相应边界值。  
+6. 将最终的储罐液位值输出至 `Level`。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# PID_controller-Models\Tank.st
+# --------------------------------------------------
+# //A.J. Jaworowski 2015-02-20
+# //Simulering av en tank med RedBull
+# FUNCTION_BLOCK Tank
+# VAR_INPUT
+# 	Process_In: REAL;  //Flöde in per sekund, testa vad som händer on du matar in 100
+# 					   //Därefter ska regulatorns OUT in i denna ingång.
+# 	Process_Out: REAL; //Flöde ut per sekund, typ 90
+# 					   //Effekten blir att tanken fylls med 10 per sekund
+# 					   //Full efter ca 1 minut - testa
+# 	SampleTime: TIME;  //Uppdateringstid, typ 100ms
+# 	Lower_limit: REAL; //Tankens lägsta nivå, typ 0
+# 	Upper_limit: REAL; //Tankens max nivå, kanske 500
+# END_VAR
+# VAR_OUTPUT
+# 	Level: REAL; //Nivån i tanken
+# END_VAR
+# VAR
+# 	now: TIME;
+# 	lastTime: TIME;
+# 	proc_sum_in: REAL := 0;
+# 	proc_sum_out: REAL := 0;
+# 	temp: REAL;
+# 	millis: UINT := 1000;
+# 	proc_out: REAL;
+# END_VAR
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# PID_controller-Models\Tank.st
+# --------------------------------------------------
+# //A.J. Jaworowski 2015-02-20
+# //Simulering av en tank med RedBull
+# FUNCTION_BLOCK Tank
+# VAR_INPUT
+# 	Process_In: REAL;  //Flöde in per sekund, testa vad som händer on du matar in 100
+# 					   //Därefter ska regulatorns OUT in i denna ingång.
+# 	Process_Out: REAL; //Flöde ut per sekund, typ 90
+# 					   //Effekten blir att tanken fylls med 10 per sekund
+# 					   //Full efter ca 1 minut - testa
+# 	SampleTime: TIME;  //Uppdateringstid, typ 100ms
+# 	Lower_limit: REAL; //Tankens lägsta nivå, typ 0
+# 	Upper_limit: REAL; //Tankens max nivå, kanske 500
+# END_VAR
+# VAR_OUTPUT
+# 	Level: REAL; //Nivån i tanken
+# END_VAR
+# VAR
+# 	now: TIME;
+# 	lastTime: TIME;
+# 	proc_sum_in: REAL := 0;
+# 	proc_sum_out: REAL := 0;
+# 	temp: REAL;
+# 	millis: UINT := 1000;
+# 	proc_out: REAL;
+# END_VAR
+# 
+# now := TIME();
+# IF ((now - lastTime) > SampleTime) THEN
+# 	Level := Level +  TIME_TO_REAL(SampleTime)/millis * (Process_In - Process_Out);
+# 	IF Level < Lower_limit THEN
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# PID_controller-Models\Tank.st
+# --------------------------------------------------
+# //A.J. Jaworowski 2015-02-20
+# //Simulering av en tank med RedBull
+# FUNCTION_BLOCK Tank
+# VAR_INPUT
+# 	Process_In: REAL;  //Flöde in per sekund, testa vad som händer on du matar in 100
+# 					   //Därefter ska regulatorns OUT in i denna ingång.
+# 	Process_Out: REAL; //Flöde ut per sekund, typ 90
+# 					   //Effekten blir att tanken fylls med 10 per sekund
+# 					   //Full efter ca 1 minut - testa
+# 	SampleTime: TIME;  //Uppdateringstid, typ 100ms
+# 	Lower_limit: REAL; //Tankens lägsta nivå, typ 0
+# 	Upper_limit: REAL; //Tankens max nivå, kanske 500
+# END_VAR
+# VAR_OUTPUT
+# 	Level: REAL; //Nivån i tanken
+# END_VAR
+# VAR
+# 	now: TIME;
+# 	lastTime: TIME;
+# 	proc_sum_in: REAL
+
+//A.J. Jaworowski 2015-02-20
+//Simulering av en tank med RedBull
+FUNCTION_BLOCK Tank
+VAR_INPUT
+	Process_In: REAL;  //Flöde in per sekund, testa vad som händer on du matar in 100
+					   //Därefter ska regulatorns OUT in i denna ingång.
+	Process_Out: REAL; //Flöde ut per sekund, typ 90
+					   //Effekten blir att tanken fylls med 10 per sekund
+					   //Full efter ca 1 minut - testa
+	SampleTime: TIME;  //Uppdateringstid, typ 100ms
+	Lower_limit: REAL; //Tankens lägsta nivå, typ 0
+	Upper_limit: REAL; //Tankens max nivå, kanske 500
+END_VAR
+VAR_OUTPUT
+	Level: REAL; //Nivån i tanken
+END_VAR
+```

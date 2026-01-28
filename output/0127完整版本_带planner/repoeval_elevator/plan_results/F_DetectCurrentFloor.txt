@@ -1,0 +1,5 @@
+功能规划:
+1. 检查 FloorSensor0、FloorSensor1、FloorSensor2 和 FloorSensor3 的状态，确认是否有传感器信号为 TRUE。
+2. 如果某个传感器信号为 TRUE，根据对应的楼层传感器（0、1、2、3）设置 CurrentFloor 为该楼层编号。
+3. 如果所有传感器信号均为 FALSE，则保持输入的 CurrentFloor 值不变。
+4. 返回最终的 CurrentFloor 值作为函数输出。

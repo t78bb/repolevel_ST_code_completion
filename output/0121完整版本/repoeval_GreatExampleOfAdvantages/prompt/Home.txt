@@ -1,0 +1,126 @@
+This is the known requirement information for the function to be completed:\nThis code is intended to implement a functional block for managing operations related to a ground floor and a top floor.\nContinue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# GreatExampleOfAdvantages-FUN\Home.st
+# --------------------------------------------------
+# FUNCTION_BLOCK Home
+# VAR_INPUT
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	GroundFloor:GroundFloor;
+# 	TopFloor:TopFloor;
+# END_VAR
+# 
+# GroundFloor();
+# TopFloor();
+# --------------------------------------------------
+# the below code fragment can be found in:
+# GreatExampleOfAdvantages-FUN\TopFloor.st
+# --------------------------------------------------
+# FUNCTION_BLOCK TopFloor
+# VAR_INPUT
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	MainBath:MainBath;
+# 	SleepingRoom:SleepingRoom;
+# END_VAR
+# 
+# MainBath();
+# SleepingRoom();
+# --------------------------------------------------
+# the below code fragment can be found in:
+# GreatExampleOfAdvantages-FUN\GroundFloor.st
+# --------------------------------------------------
+# FUNCTION_BLOCK GroundFloor
+# VAR_INPUT
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	LivingRoom:LivingRoom;
+# 	GuestBath:GuestBathGroundFloor;
+# END_VAR
+# 
+# LivingRoom();
+# GuestBath();
+# --------------------------------------------------
+# the below code fragment can be found in:
+# GreatExampleOfAdvantages-FUN\LivingRoom.st
+# --------------------------------------------------
+# FUNCTION_BLOCK LivingRoom
+# VAR_INPUT
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	Lamp1:LampBase;
+# 	Lamp2:LampBase;
+# 	Lamp3:LampBase;
+# 	
+# 	Temperature:TemperatureBase;
+# 	
+# 	
+# 	ligthButton1: BOOL;
+# 	ligthButton2: BOOL;
+# 	ligthButton3: BOOL;
+# 	
+# 	Lamp1Out: BOOL;
+# 	Lamp2Out: BOOL;
+# 	Lamp3Out: BOOL;
+# 	//some changing temp...
+# 	Temp:OSCAT_BASIC.GEN_SIN;
+# 	
+# END_VAR
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# GreatExampleOfAdvantages-FUN\LivingRoom.st
+# --------------------------------------------------
+# FUNCTION_BLOCK LivingRoom
+# VAR_INPUT
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	Lamp1:LampBase;
+# 	Lamp2:LampBase;
+# 	Lamp3:LampBase;
+# 	
+# 	Temperature:TemperatureBase;
+# 	
+# 	
+# 	ligthButton1: BOOL;
+# 	ligthButton2: BOOL;
+# 	ligthButton3: BOOL;
+# 	
+# 	Lamp1Out: BOOL;
+# 	Lamp2Out: BOOL;
+# 	Lamp3Out: BOOL;
+# 	//some changing temp...
+# 	Temp:OSCAT_BASIC.GEN_SIN;
+# 	
+# END_VAR
+# 
+# Lamp1(SwitchIn:= ligthButton1, LampOut=> Lamp1Out);
+# Lamp2(SwitchIn:= ligthButton2, LampOut=> Lamp2Out);
+# Lamp3(SwitchIn:= ligthButton3, LampOut=> Lamp3Out);
+# 
+# Temp(
+# 
+# --------------------------------------------------
+
+
+FUNCTION_BLOCK Home
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+```

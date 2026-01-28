@@ -1,0 +1,82 @@
+{
+  "project_name": "repoeval_three-axis_CNC_motion",
+  "original_project_name": "three-axis_CNC_motion",
+  "total_files": 5,
+  "successful_evaluations": 5,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.4352972558487521,
+    "ngram_match_score": 0.2451759974632454,
+    "weighted_ngram_match_score": 0.2794394283149501,
+    "syntax_match_score": 0.5478279828145883,
+    "dataflow_match_score": 0.4687456148022247
+  },
+  "file_results": [
+    {
+      "filename": "FB_TripleAxisHoming.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\three-axis_CNC_motion\\FB_TripleAxisHoming.st",
+      "codebleu": 0.40034595856682587,
+      "ngram_match_score": 0.18035323907871983,
+      "weighted_ngram_match_score": 0.18349672461815045,
+      "syntax_match_score": 0.6961325966850829,
+      "dataflow_match_score": 0.5414012738853503,
+      "reference_length": 2027,
+      "prediction_length": 2259
+    },
+    {
+      "filename": "FB_TripleAxisPower.st",
+      "case_id": 1,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\three-axis_CNC_motion\\FB_TripleAxisPower.st",
+      "codebleu": 0.5419051167022693,
+      "ngram_match_score": 0.3372917616785568,
+      "weighted_ngram_match_score": 0.41334028814210294,
+      "syntax_match_score": 0.7027027027027027,
+      "dataflow_match_score": 0.7142857142857143,
+      "reference_length": 1180,
+      "prediction_length": 1367
+    },
+    {
+      "filename": "FB_TripleAxisReset.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\three-axis_CNC_motion\\FB_TripleAxisReset.st",
+      "codebleu": 0.25,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.0,
+      "dataflow_match_score": 0.0,
+      "reference_length": 931,
+      "prediction_length": 11
+    },
+    {
+      "filename": "FB_TripleAxisStop.st",
+      "case_id": 3,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\three-axis_CNC_motion\\FB_TripleAxisStop.st",
+      "codebleu": 0.5025007607619228,
+      "ngram_match_score": 0.31255679204616715,
+      "weighted_ngram_match_score": 0.36444745533713246,
+      "syntax_match_score": 0.6415094339622641,
+      "dataflow_match_score": 0.6914893617021277,
+      "reference_length": 1009,
+      "prediction_length": 1313
+    },
+    {
+      "filename": "INIT_CNC_System.st",
+      "case_id": 4,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\three-axis_CNC_motion\\INIT_CNC_System.st",
+      "codebleu": 0.48173444321274267,
+      "ngram_match_score": 0.39567819451278324,
+      "weighted_ngram_match_score": 0.4359126734773648,
+      "syntax_match_score": 0.6987951807228916,
+      "dataflow_match_score": 0.39655172413793105,
+      "reference_length": 882,
+      "prediction_length": 601
+    }
+  ]
+}

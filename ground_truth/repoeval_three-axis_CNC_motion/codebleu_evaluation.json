@@ -1,0 +1,107 @@
+{
+  "project_name": "repoeval_three-axis_CNC_motion",
+  "original_project_name": "three-axis_CNC_motion",
+  "total_files": 10,
+  "successful_evaluations": 5,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.23258623439480658,
+    "ngram_match_score": 0.012352166081122213,
+    "weighted_ngram_match_score": 0.034250978193800706,
+    "syntax_match_score": 0.23690482751336955,
+    "dataflow_match_score": 0.6468369657909339
+  },
+  "file_results": [
+    {
+      "filename": "FB_TripleAxisHoming.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\three-axis_CNC_motion\\FB_TripleAxisHoming.st",
+      "codebleu": 0.23279462881685853,
+      "ngram_match_score": 0.0003265901118065362,
+      "weighted_ngram_match_score": 0.0007748586109535557,
+      "syntax_match_score": 0.16574585635359115,
+      "dataflow_match_score": 0.7643312101910829,
+      "reference_length": 2027,
+      "prediction_length": 3826
+    },
+    {
+      "filename": "FB_TripleAxisHoming_1.st",
+      "case_id": 1,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_TripleAxisPower.st",
+      "case_id": 2,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\three-axis_CNC_motion\\FB_TripleAxisPower.st",
+      "codebleu": 0.3199671070802288,
+      "ngram_match_score": 0.02962903464609588,
+      "weighted_ngram_match_score": 0.09212209270037529,
+      "syntax_match_score": 0.42342342342342343,
+      "dataflow_match_score": 0.7346938775510204,
+      "reference_length": 1180,
+      "prediction_length": 2889
+    },
+    {
+      "filename": "FB_TripleAxisPower_1.st",
+      "case_id": 3,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_TripleAxisReset.st",
+      "case_id": 4,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\three-axis_CNC_motion\\FB_TripleAxisReset.st",
+      "codebleu": 0.16610812088167443,
+      "ngram_match_score": 0.0005533277158215864,
+      "weighted_ngram_match_score": 0.0021404091206731497,
+      "syntax_match_score": 0.18446601941747573,
+      "dataflow_match_score": 0.4772727272727273,
+      "reference_length": 931,
+      "prediction_length": 3037
+    },
+    {
+      "filename": "FB_TripleAxisReset_1.st",
+      "case_id": 5,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "FB_TripleAxisStop.st",
+      "case_id": 6,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\three-axis_CNC_motion\\FB_TripleAxisStop.st",
+      "codebleu": 0.3044165291545566,
+      "ngram_match_score": 0.03125187793188706,
+      "weighted_ngram_match_score": 0.07621753053700155,
+      "syntax_match_score": 0.3867924528301887,
+      "dataflow_match_score": 0.723404255319149,
+      "reference_length": 1009,
+      "prediction_length": 2124
+    },
+    {
+      "filename": "FB_TripleAxisStop_1.st",
+      "case_id": 7,
+      "error": "未找到对应的参考文件"
+    },
+    {
+      "filename": "INIT_CNC_System.st",
+      "case_id": 8,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\three-axis_CNC_motion\\INIT_CNC_System.st",
+      "codebleu": 0.13964478604071456,
+      "ngram_match_score": 0,
+      "weighted_ngram_match_score": 0,
+      "syntax_match_score": 0.024096385542168676,
+      "dataflow_match_score": 0.5344827586206896,
+      "reference_length": 882,
+      "prediction_length": 2059
+    },
+    {
+      "filename": "INIT_CNC_System_1.st",
+      "case_id": 9,
+      "error": "未找到对应的参考文件"
+    }
+  ]
+}

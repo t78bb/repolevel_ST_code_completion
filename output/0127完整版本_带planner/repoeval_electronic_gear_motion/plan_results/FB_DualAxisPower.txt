@@ -1,0 +1,6 @@
+功能规划:
+1. 检查 `bEnable` 输入状态，如果为 `FALSE`，直接重置所有输出为未就绪状态（`bAxis1Ready := FALSE; bAxis2Ready := FALSE; bBothReady := FALSE; bError := FALSE`），然后退出功能块执行。
+2. 检查 `Axis1` 和 `Axis2` 的状态（如是否已初始化、是否出现错误），如果任一轴状态不正常，设置 `bError := TRUE` 且将对应的轴就绪标志(`bAxis1Ready` 或 `bAxis2Ready`)置为 `FALSE`，并退出功能块执行。
+3. 如果 `Axis1` 正常，使 `bAxis1Ready := TRUE`；如果 `Axis2` 正常，使 `bAxis2Ready := TRUE`。分别更新对应的轴的准备状态。
+4. 根据 `bAxis1Ready` 和 `bAxis2Ready` 的状态，设置 `bBothReady := bAxis1Ready AND bAxis2Ready`。
+5. 如果两轴均准备就绪 (`bBothReady = TRUE`) 且无错误 (`bError = FALSE`)，功能块正常结束，维持当前输出状态。

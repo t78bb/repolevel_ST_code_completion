@@ -1,0 +1,46 @@
+{
+  "project_name": "repoeval_Interation_HowTo",
+  "original_project_name": "Interation_HowTo",
+  "total_files": 2,
+  "successful_evaluations": 2,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.6244772136486479,
+    "ngram_match_score": 0.22665544128063067,
+    "weighted_ngram_match_score": 0.31807881013935785,
+    "syntax_match_score": 0.9531746031746031,
+    "dataflow_match_score": 1.0
+  },
+  "file_results": [
+    {
+      "filename": "FirstPublish.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Interation_HowTo\\FirstPublish.st",
+      "codebleu": 0.6499189435812399,
+      "ngram_match_score": 0.2633959076918272,
+      "weighted_ngram_match_score": 0.3585020888553547,
+      "syntax_match_score": 0.9777777777777777,
+      "dataflow_match_score": 1.0,
+      "reference_length": 390,
+      "prediction_length": 457
+    },
+    {
+      "filename": "FirstSubscription.st",
+      "case_id": 1,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Interation_HowTo\\FirstSubscription.st",
+      "codebleu": 0.599035483716056,
+      "ngram_match_score": 0.18991497486943415,
+      "weighted_ngram_match_score": 0.277655531423361,
+      "syntax_match_score": 0.9285714285714286,
+      "dataflow_match_score": 1.0,
+      "reference_length": 491,
+      "prediction_length": 569
+    }
+  ]
+}

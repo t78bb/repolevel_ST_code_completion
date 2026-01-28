@@ -1,0 +1,7 @@
+功能规划:
+1. 当接收到 `bMixerRunCmd` 时，设置 `bMixerRunCmdOut` 为 TRUE；当接收到 `bMixerStopCmd` 时，设置 `bMixerRunCmdOut` 为 FALSE。
+2. 当接收到 `bMedium1OpenCmd` 时，设置 `bMedium1OpenCmdOut` 为 TRUE；当接收到 `bMedium1CloseCmd` 时，设置 `bMedium1OpenCmdOut` 为 FALSE。
+3. 当接收到 `bMedium2OpenCmd` 时，设置 `bMedium2OpenCmdOut` 为 TRUE；当接收到 `bMedium2CloseCmd` 时，设置 `bMedium2OpenCmdOut` 为 FALSE。
+4. 当接收到 `bDrainOpenCmd` 时，设置 `bDrainOpenCmdOut` 为 TRUE；当接收到 `bDrainCloseCmd` 时，设置 `bDrainOpenCmdOut` 为 FALSE。
+5. 在更新输出命令变量时，验证设备状态反馈信号（如 `bMixerRunning`、`bMedium1Opened`、`bMedium2Opened`、`bDrainOpened`），确保命令生效时符合当前设备的运行状态或逻辑需求。
+6. 确保所有命令输出变量符合锁存逻辑（Latch），直到接收到明确的停止或关闭命令后才复原。

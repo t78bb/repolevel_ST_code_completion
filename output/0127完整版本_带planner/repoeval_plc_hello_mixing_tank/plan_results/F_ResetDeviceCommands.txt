@@ -1,0 +1,6 @@
+功能规划:  
+1. 如果 `bMixerRunning` 为 TRUE，则将 `bMixerRunCmd` 和 `bMixerStopCmd` 置为 FALSE。  
+2. 如果 `bMedium1Opened` 为 TRUE，则将 `bMedium1OpenCmd` 和 `bMedium1CloseCmd` 置为 FALSE。  
+3. 如果 `bMedium2Opened` 为 TRUE，则将 `bMedium2OpenCmd` 和 `bMedium2CloseCmd` 置为 FALSE。  
+4. 如果 `bDrainOpened` 为 TRUE，则将 `bDrainOpenCmd` 和 `bDrainCloseCmd` 置为 FALSE。  
+5. 如果所有命令标志均已按上述逻辑复位，返回 TRUE；否则返回 FALSE。  

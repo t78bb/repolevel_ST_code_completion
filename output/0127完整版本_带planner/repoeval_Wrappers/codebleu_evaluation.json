@@ -1,0 +1,34 @@
+{
+  "project_name": "repoeval_Wrappers",
+  "original_project_name": "Wrappers",
+  "total_files": 1,
+  "successful_evaluations": 1,
+  "language": "python",
+  "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "average_scores": {
+    "codebleu": 0.3649517033912858,
+    "ngram_match_score": 0.07380898563016816,
+    "weighted_ngram_match_score": 0.24768304256136622,
+    "syntax_match_score": 0.43243243243243246,
+    "dataflow_match_score": 0.7058823529411765
+  },
+  "file_results": [
+    {
+      "filename": "FB_Wrapper.st",
+      "case_id": 0,
+      "ground_truth_path": "D:\\graduate_project\\项目级st补全\\repo_gen_project\\dataset\\generation_context_ground_truth\\Wrappers\\FB_Wrapper.st",
+      "codebleu": 0.3649517033912858,
+      "ngram_match_score": 0.07380898563016816,
+      "weighted_ngram_match_score": 0.24768304256136622,
+      "syntax_match_score": 0.43243243243243246,
+      "dataflow_match_score": 0.7058823529411765,
+      "reference_length": 286,
+      "prediction_length": 635
+    }
+  ]
+}

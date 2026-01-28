@@ -1,0 +1,123 @@
+This is the known requirement information for the function to be completed:\nThis code is intended to implement a heat exchanger model that calculates room temperature over time based on input parameters such as heat source, thermal conductance, thermal capacity, and temperature differences.\nContinue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# PID_controller-Models\HeatExchanger2.st
+# --------------------------------------------------
+# // AJ Jaworowski 2015-02-23
+# // Following the presentation on
+# // http://openenergymonitor.org/emon/node/2999
+# FUNCTION_BLOCK HeatExchanger2
+# VAR_INPUT
+# 	Heat_In:		REAL;		//In principle a radiator in the room [W]
+# 	U:				REAL;		//Thermal conductance [W/K]
+# 	TC:				REAL;		//Thermal capacity [J/K], commonly cv, specific heat capacity [J/kgK]
+# 								//we use a smaller value than in reality, so that we can see changes
+# 								//during a life-time...
+# 	Temp_In:		REAL;		//Start temperature in the room [K]
+# 	Temp_Out:		REAL;		//Outside temperature [K] 
+# 	Sample_time:	TIME;
+# END_VAR
+# VAR_OUTPUT
+# 	Temp:			REAL;		//The resulting room temperature
+# END_VAR
+# VAR
+# 	now: TIME;
+# 	lastTime: TIME := T#0s;
+# 	delta_t: REAL;
+# 	heat_flow: REAL;
+# 	lastTemp: REAL;
+# END_VAR
+# VAR CONSTANT
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# PID_controller-Models\HeatExchanger2.st
+# --------------------------------------------------
+# // AJ Jaworowski 2015-02-23
+# // Following the presentation on
+# // http://openenergymonitor.org/emon/node/2999
+# FUNCTION_BLOCK HeatExchanger2
+# VAR_INPUT
+# 	Heat_In:		REAL;		//In principle a radiator in the room [W]
+# 	U:				REAL;		//Thermal conductance [W/K]
+# 	TC:				REAL;		//Thermal capacity [J/K], commonly cv, specific heat capacity [J/kgK]
+# 								//we use a smaller value than in reality, so that we can see changes
+# 								//during a life-time...
+# 	Temp_In:		REAL;		//Start temperature in the room [K]
+# 	Temp_Out:		REAL;		//Outside temperature [K] 
+# 	Sample_time:	TIME;
+# END_VAR
+# VAR_OUTPUT
+# 	Temp:			REAL;		//The resulting room temperature
+# END_VAR
+# VAR
+# 	now: TIME;
+# 	lastTime: TIME := T#0s;
+# 	delta_t: REAL;
+# 	heat_flow: REAL;
+# 	lastTemp: REAL;
+# END_VAR
+# VAR CONSTANT
+# 	millis: REAL := 1000;
+# END_VAR
+# 
+# now := TIME();
+# IF ((now - lastTime) > Sample_time) THEN
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# PID_controller-Models\HeatExchanger2.st
+# --------------------------------------------------
+# // AJ Jaworowski 2015-02-23
+# // Following the presentation on
+# // http://openenergymonitor.org/emon/node/2999
+# FUNCTION_BLOCK HeatExchanger2
+# VAR_INPUT
+# 	Heat_In:		REAL;		//In principle a radiator in the room [W]
+# 	U:				REAL;		//Thermal conductance [W/K]
+# 	TC:				REAL;		//Thermal capacity [J/K], commonly cv, specific heat capacity [J/kgK]
+# 								//we use a smaller value than in reality, so that we can see changes
+# 								//during a life-time...
+# 	Temp_In:		REAL;		//Start temperature in the room [K]
+# 	Temp_Out:		REAL;		//Outside temperature [K] 
+# 	Sample_time:	TIME;
+# END_VAR
+# VAR_OUTPUT
+# 	Temp:			REAL;		//The resulting room temperature
+# END_VAR
+# VAR
+# 	now: TIME;
+# 	lastTime: TIME := T#0s;
+# 	delta_t: REAL;
+# 	heat_flow: REAL;
+# 	lastTemp: REAL;
+# END_VAR
+# VAR CONSTANT
+# 	millis: REAL := 1000;
+# END_VAR
+# 
+# now := TIME();
+# IF ((now - lastTime) > Sample_time) THEN
+# 
+
+// AJ Jaworowski 2015-02-23
+// Following the presentation on
+// http://openenergymonitor.org/emon/node/2999
+FUNCTION_BLOCK HeatExchanger2
+VAR_INPUT
+	Heat_In:		REAL;		//In principle a radiator in the room [W]
+	U:				REAL;		//Thermal conductance [W/K]
+	TC:				REAL;		//Thermal capacity [J/K], commonly cv, specific heat capacity [J/kgK]
+								//we use a smaller value than in reality, so that we can see changes
+								//during a life-time...
+	Temp_In:		REAL;		//Start temperature in the room [K]
+	Temp_Out:		REAL;		//Outside temperature [K] 
+	Sample_time:	TIME;
+END_VAR
+VAR_OUTPUT
+	Temp:			REAL;		//The resulting room temperature
+END_VAR
+```

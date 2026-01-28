@@ -1,0 +1,118 @@
+This is the known requirement information for the function to be completed:
+This code is intended to implement a Director class that delegates the construction of a final product object to a specified ConcreteBuilder.
+This provides you with a plan of implementation steps for the function to be completed. Subsequent ST code must strictly follow this plan and must not deviate from the core logic. The following is the plan of implementation steps:
+功能规划:  
+1. 检查 `inputConcreteBuilder` 是否已初始化，并确保其有效性。  
+2. 调用 `inputConcreteBuilder` 的建造方法以创建产品对象。  
+3. 检索由 `inputConcreteBuilder` 创建的产品对象。  
+4. 返回或保存生成的产品对象供后续使用。
+Continue writing the following code:
+
+```
+# Here are some relevant code fragments from other files of the repo:
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Builder_Application_RPI-FUN\Director.st
+# --------------------------------------------------
+# {attribute 'enable_dynamic_creation'}
+# //The director class is responsible to delegate the construction of the final product object 
+# // to a concrete builder object.
+# FUNCTION_BLOCK Director
+# VAR_INPUT
+# 	//Reference to the builder that is going to be building the final product object.
+# 	inputConcreteBuilder : ConcreteBuilder(specs := inputConcreteBuilder.specifications);
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	//Holds a reference to the concrete builder object to send the specifications of the final product to it.
+# 	concreteBuilder : ConcreteBuilder(specs := THIS^.concreteBuilder.specifications);
+# END_VAR
+# 
+# //Stores the reference to which builder will be building the final product object in its own field THIS^.concreteBuilder
+# THIS^.concreteBuilder := inputConcreteBuilder;
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Builder_Application_RPI-FUN\Director_Construct.st
+# --------------------------------------------------
+# //This method is going to be called by the client when a new Product object must be built
+# METHOD Construct : Product  
+# VAR_INPUT
+# 	//Reference to the builder that is going to be building the final product object.
+# 	inputConcreteBuilder : ConcreteBuilder(specs := inputConcreteBuilder.specifications);
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	//Holds a reference to the concrete builder object to send the specifications of the final product to it.
+# 	concreteBuilder : ConcreteBuilder(specs := THIS^.concreteBuilder.specifications);
+# END_VAR
+# 
+# //The Director tells its concreteBuilder instance to build the final product step by step passing the specifications stored in the 
+# // concreteBuilder array THIS^.specifications[1..4]
+# 
+# //Step 1 "Main Part"
+# THIS^.concreteBuilder.Set_Main_Part(THIS^.concreteBuilder.specifications[1]);
+# //Step 2 "Part 1"
+# THIS^.concreteBuilder.Set_Part1(THIS^.concreteBuilder.specifications[2]);
+# //Step 3 "Part 2"
+# THIS^.concreteBuilder.Set_Part2(THIS^.concreteBuilder.specifications[3]);
+# //Step 4 "Part 3"
+# THIS^.concreteBuilder.Set_Part3(THIS^.concreteBuilder.specifications[4]);
+# 
+# //Finally the concreteBuilder instance in the Director object delivers the final result as a Product object
+# Construct := THIS^.concreteBuilder.Get_Result();
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Builder_Application_RPI-FUN\Director_Construct.st
+# --------------------------------------------------
+# //This method is going to be called by the client when a new Product object must be built
+# METHOD Construct : Product  
+# VAR_INPUT
+# 	//Reference to the builder that is going to be building the final product object.
+# 	inputConcreteBuilder : ConcreteBuilder(specs := inputConcreteBuilder.specifications);
+# END_VAR
+# VAR_OUTPUT
+# END_VAR
+# VAR
+# 	//Holds a reference to the concrete builder object to send the specifications of the final product to it.
+# 	concreteBuilder : ConcreteBuilder(specs := THIS^.concreteBuilder.specifications);
+# END_VAR
+# 
+# //The Director tells its concreteBuilder instance to build the final product step by step passing the specifications stored in the 
+# // concreteBuilder array THIS^.specifications[1..4]
+# 
+# //Step 1 "Main Part"
+# THIS^.concreteBuilder.Set_Main_Part(THIS^.concreteBuilder.specifications[1]);
+# //Step 2 "Part 1"
+# THIS^.concreteBuilder.Set_Part1(THIS^.concreteBuilder.specifications[2]);
+# //Step 3 "Part 2"
+# THIS^.concreteBuilder.Set_Part2(THIS^.concreteBuilder.specifications[3]);
+# //Step 4 "Part 3"
+# THIS^.concreteBuilder.Set_Part3(THIS^.concreteBuilder.specifications[4]);
+# 
+# 
+# --------------------------------------------------
+# the below code fragment can be found in:
+# Builder_Application_RPI-FUN\Director_fb_init.st
+# --------------------------------------------------
+# //This constructor is called at instanciation it is necessary to instanciate the Director instance.
+# //The specifications of the concreteBuilder instance stored in the Director instance should be set first by the client
+# // otherwise a Data Recursion error is caused
+# METHOD fb_init
+# VAR_INPUT
+# 	//Reference to the builder that is going to be building the final product object.
+# 	inputConcreteBuilder : ConcreteBuilder(specs := inputConcreteBuilder.specifications);
+# 
+
+{attribute 'enable_dynamic_creation'}
+//The director class is responsible to delegate the construction of the final product object 
+// to a concrete builder object.
+FUNCTION_BLOCK Director
+VAR_INPUT
+	//Reference to the builder that is going to be building the final product object.
+	inputConcreteBuilder : ConcreteBuilder(specs := inputConcreteBuilder.specifications);
+END_VAR
+VAR_OUTPUT
+END_VAR
+```

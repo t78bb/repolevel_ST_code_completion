@@ -1,0 +1,6 @@
+功能规划:
+1. 检查输入变量 `Reset` 的状态，若为 TRUE，重置所有输出变量 (`LidPicked`, `LidPlaced`) 并停止执行后续逻辑。
+2. 检查输入变量 `BaseClamped` 和 `LidClamped` 的状态，确认设备准备状态是否满足操作条件。
+3. 如果 `LidClamped` 为 TRUE，则执行拾取操作，设置输出变量 `LidPicked` 为 TRUE。
+4. 在 `LidPicked` 为 TRUE 且进入适当位置时，执行放置操作，设置输出变量 `LidPlaced` 为 TRUE。
+5. 在放置完成后，复位状态，将 `LidPicked` 和 `LidPlaced` 的状态更新为 FALSE，准备下一循环。

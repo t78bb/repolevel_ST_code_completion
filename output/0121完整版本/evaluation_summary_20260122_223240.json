@@ -1,0 +1,236 @@
+{
+  "evaluation_time": "20260122_223240",
+  "output_directory": "output\\0121完整版本",
+  "evaluation_mode": "实现逻辑评估",
+  "reference_source": "dataset/generation_context_ground_truth/[项目名]/",
+  "evaluated_code_source": "readful_result_no_provide/",
+  "total_projects": 25,
+  "successful_projects_count": 17,
+  "failed_projects_count": 8,
+  "total_files_evaluated": 80,
+  "overall_average_scores": {
+    "codebleu": 0.5804680682779026,
+    "ngram_match_score": 0.0,
+    "weighted_ngram_match_score": 0.0,
+    "syntax_match_score": 0.0,
+    "dataflow_match_score": 0.0
+  },
+  "successful_projects": [
+    "repoeval_barrier",
+    "repoeval_Builder_Application_RPI",
+    "repoeval_Command1",
+    "repoeval_counter",
+    "repoeval_Decorator_Application",
+    "repoeval_electronic_gear_motion",
+    "repoeval_elevator",
+    "repoeval_four-level_elevator_control",
+    "repoeval_measurement_control",
+    "repoeval_open-type_dual-axis_winding_machine",
+    "repoeval_PID_controller",
+    "repoeval_plc_hello_mixing_tank",
+    "repoeval_ProductionLine",
+    "repoeval_PT1Filter",
+    "repoeval_traffic_light",
+    "repoeval_VisuElements",
+    "repoeval_Wrappers"
+  ],
+  "failed_projects": [
+    "repoeval_assembly-station",
+    "repoeval_electronic_cam_motion",
+    "repoeval_GreatExampleOfAdvantages",
+    "repoeval_Interation_HowTo",
+    "repoeval_isScaleOutput",
+    "repoeval_Proxy_Application",
+    "repoeval_readwriteFile",
+    "repoeval_three-axis_CNC_motion"
+  ],
+  "project_details": {
+    "repoeval_barrier": {
+      "total_files": 13,
+      "successful_evaluations": 13,
+      "average_scores": {
+        "codebleu": 0.6491151275411011,
+        "ngram_match_score": 0.0,
+        "weighted_ngram_match_score": 0.0,
+        "syntax_match_score": 0.0,
+        "dataflow_match_score": 0.0
+      }
+    },
+    "repoeval_Builder_Application_RPI": {
+      "total_files": 5,
+      "successful_evaluations": 5,
+      "average_scores": {
+        "codebleu": 0.4192991208090727,
+        "ngram_match_score": 0.0,
+        "weighted_ngram_match_score": 0.0,
+        "syntax_match_score": 0.0,
+        "dataflow_match_score": 0.0
+      }
+    },
+    "repoeval_Command1": {
+      "total_files": 12,
+      "successful_evaluations": 12,
+      "average_scores": {
+        "codebleu": 0.6041686360541728,
+        "ngram_match_score": 0.0,
+        "weighted_ngram_match_score": 0.0,
+        "syntax_match_score": 0.0,
+        "dataflow_match_score": 0.0
+      }
+    },
+    "repoeval_counter": {
+      "total_files": 1,
+      "successful_evaluations": 1,
+      "average_scores": {
+        "codebleu": 0.4331600531564567,
+        "ngram_match_score": 0.0,
+        "weighted_ngram_match_score": 0.0,
+        "syntax_match_score": 0.0,
+        "dataflow_match_score": 0.0
+      }
+    },
+    "repoeval_Decorator_Application": {
+      "total_files": 8,
+      "successful_evaluations": 8,
+      "average_scores": {
+        "codebleu": 0.4123530052344653,
+        "ngram_match_score": 0.0,
+        "weighted_ngram_match_score": 0.0,
+        "syntax_match_score": 0.0,
+        "dataflow_match_score": 0.0
+      }
+    },
+    "repoeval_electronic_gear_motion": {
+      "total_files": 3,
+      "successful_evaluations": 3,
+      "average_scores": {
+        "codebleu": 0.455319516170694,
+        "ngram_match_score": 0.0,
+        "weighted_ngram_match_score": 0.0,
+        "syntax_match_score": 0.0,
+        "dataflow_match_score": 0.0
+      }
+    },
+    "repoeval_elevator": {
+      "total_files": 5,
+      "successful_evaluations": 5,
+      "average_scores": {
+        "codebleu": 0.7628005559026511,
+        "ngram_match_score": 0.0,
+        "weighted_ngram_match_score": 0.0,
+        "syntax_match_score": 0.0,
+        "dataflow_match_score": 0.0
+      }
+    },
+    "repoeval_four-level_elevator_control": {
+      "total_files": 3,
+      "successful_evaluations": 3,
+      "average_scores": {
+        "codebleu": 0.5333527734488822,
+        "ngram_match_score": 0.0,
+        "weighted_ngram_match_score": 0.0,
+        "syntax_match_score": 0.0,
+        "dataflow_match_score": 0.0
+      }
+    },
+    "repoeval_measurement_control": {
+      "total_files": 1,
+      "successful_evaluations": 1,
+      "average_scores": {
+        "codebleu": 0.7562325453771374,
+        "ngram_match_score": 0.0,
+        "weighted_ngram_match_score": 0.0,
+        "syntax_match_score": 0.0,
+        "dataflow_match_score": 0.0
+      }
+    },
+    "repoeval_open-type_dual-axis_winding_machine": {
+      "total_files": 5,
+      "successful_evaluations": 5,
+      "average_scores": {
+        "codebleu": 0.4483471668969197,
+        "ngram_match_score": 0.0,
+        "weighted_ngram_match_score": 0.0,
+        "syntax_match_score": 0.0,
+        "dataflow_match_score": 0.0
+      }
+    },
+    "repoeval_PID_controller": {
+      "total_files": 4,
+      "successful_evaluations": 4,
+      "average_scores": {
+        "codebleu": 0.6511027921274908,
+        "ngram_match_score": 0.0,
+        "weighted_ngram_match_score": 0.0,
+        "syntax_match_score": 0.0,
+        "dataflow_match_score": 0.0
+      }
+    },
+    "repoeval_plc_hello_mixing_tank": {
+      "total_files": 6,
+      "successful_evaluations": 6,
+      "average_scores": {
+        "codebleu": 0.7060331656804001,
+        "ngram_match_score": 0.0,
+        "weighted_ngram_match_score": 0.0,
+        "syntax_match_score": 0.0,
+        "dataflow_match_score": 0.0
+      }
+    },
+    "repoeval_ProductionLine": {
+      "total_files": 6,
+      "successful_evaluations": 6,
+      "average_scores": {
+        "codebleu": 0.5361919648866692,
+        "ngram_match_score": 0.0,
+        "weighted_ngram_match_score": 0.0,
+        "syntax_match_score": 0.0,
+        "dataflow_match_score": 0.0
+      }
+    },
+    "repoeval_PT1Filter": {
+      "total_files": 1,
+      "successful_evaluations": 1,
+      "average_scores": {
+        "codebleu": 0.552731924954764,
+        "ngram_match_score": 0.0,
+        "weighted_ngram_match_score": 0.0,
+        "syntax_match_score": 0.0,
+        "dataflow_match_score": 0.0
+      }
+    },
+    "repoeval_traffic_light": {
+      "total_files": 3,
+      "successful_evaluations": 3,
+      "average_scores": {
+        "codebleu": 0.6845367441722603,
+        "ngram_match_score": 0.0,
+        "weighted_ngram_match_score": 0.0,
+        "syntax_match_score": 0.0,
+        "dataflow_match_score": 0.0
+      }
+    },
+    "repoeval_VisuElements": {
+      "total_files": 3,
+      "successful_evaluations": 3,
+      "average_scores": {
+        "codebleu": 0.7382799404463755,
+        "ngram_match_score": 0.0,
+        "weighted_ngram_match_score": 0.0,
+        "syntax_match_score": 0.0,
+        "dataflow_match_score": 0.0
+      }
+    },
+    "repoeval_Wrappers": {
+      "total_files": 1,
+      "successful_evaluations": 1,
+      "average_scores": {
+        "codebleu": 0.2635135135135135,
+        "ngram_match_score": 0.0,
+        "weighted_ngram_match_score": 0.0,
+        "syntax_match_score": 0.0,
+        "dataflow_match_score": 0.0
+      }
+    }
+  }
+}
